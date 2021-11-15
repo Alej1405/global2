@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+  margin:0;
+  padding: 0;
+  font-family: Obvia, Soult wood;
+  font-family: sans-serif;
+  font-size: 1em;
+}
+body{
+  background-color: rgba(32, 40, 80, 1);
+}
+a{
+  text-decoration: none;
+  color: rgba(0, 0, 0, 1);
+}
+/*----------estilos de menú----------*/
+.barra1 {
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: space-around;
+  height: 20%;
+}
+.imagen{
+  margin-top: 20px;
+}
+img{
+  width: 75px;
+}
+
+/* ESTILOS DEL CUERPO */
+
+.presen{
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+}
+.baner{
+  background-color: rgba(255, 255, 255, 1);
+  width: 500px;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 10%;
+}
+.encab{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5%;
+  align-content: center;
+}
+.tgc{
+  border-bottom: solid rgba(112, 112, 112, 1);
+  border-width: thin;
+  font-size: 1.5em;
+}
+.ico2{
+  width: 40px;
+  height: 35px;
+}
+.desc{
+  font-style: normal;
+  text-align: center;
+  color: rgba(112, 112, 112, 1);
+  font-size: 0.9em;
+  margin: 61px;
+  height: 90px;
+}
+.botgc{
+  font-size: 0.8em;
+  font-weight: bold;
+  border-style: none;
+  background-color: rgba(112, 112, 112, 0.5);
+  border-radius: 50px;
+  padding: 15px;
+  margin-left: 40%;
+  margin-bottom: 5%;
+}
+.botgc:hover{
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(112, 112, 112, 1);
+  transition-duration: 0.5s;
+  cursor: pointer;
+}
+/* -----------media queris--------- */
+@media screen and (max-width:450px){
+  .barra1{
+    width: 100vw;
+    height: 11%;
+    position: fixed;
+    bottom: 0;
+  }
+  .presen{
+    display: grid;
+    margin-bottom: 100px;
+  }
+  .baner{
+    width: 80vw;
+  }
+  .trabajando{
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    margin-bottom: 10%
+  }
+  .imgtra{
+    width: 90%;
+  }
+}

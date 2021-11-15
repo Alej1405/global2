@@ -1,0 +1,443 @@
+* {
+  box-sizing: border-box;
+  margin:0;
+  padding: 0;
+  font-family: bilo,sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 1em;
+}
+html{
+  scroll-behavior: smooth;
+}
+a{
+  text-decoration: none;
+  color: rgba(0, 0, 0, 1);
+  font-family: sans-serif;
+  font-weight: 300;
+}
+li{
+  text-decoration: none;
+  list-style: none;
+}
+/* estilos menu principal */
+.menu1{
+  display: flex;
+  background-color: rgba(207, 207, 206, 1);
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  position: sticky;
+  top: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.imglogo{
+  cursor: pointer;
+}
+.ham{
+  cursor: pointer;
+}
+.icoh{
+  width: 30px;
+}
+.ham:hover .menuprincipal{
+  display: block;
+  background-color: red;
+  position: absolute;
+  margin: 15px;
+  background-color: rgba(207, 207, 206, 1);
+  right: 0;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.menuprincipal{
+  display: none;
+  transition: .5s;
+}
+.ham{
+  padding: 5px;
+  padding-left: 120px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+.subtiem{
+  margin: 20px;
+  font-size: .8em;
+}
+.sub{
+  transition: .5s;
+}
+.sub:hover {
+  color: rgba(112, 112, 112, 1);
+  border-bottom: solid rgba(112, 112, 112, .5);
+  border-width: thin;
+}
+.eslogan{
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px;
+}
+.eslog{
+ border-bottom: solid rgba(112, 112, 112, 0.5);
+ border-width: thin;
+ margin-bottom: 10px;
+}
+/* presentación de la empresa */
+.pres1{
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-between;
+  align-items: center;
+}
+.paisaje{
+  width: 674px;
+  height: auto;
+  margin-left: 15%;
+}
+.mis{
+  text-align: justify;
+  font-weight: 420;
+  width: 600px;
+  height:auto;
+  font-size: 28px;
+  margin-right: 40px;
+}
+/* estilos de servicios principales */
+.ser1{
+  background-color: rgba(115, 117, 128, 1);
+  width: 95%;
+  height: auto;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.servicios{
+  color: white;
+  text-align: center;
+  padding: 26px;
+  letter-spacing: 10.98px;
+}
+.serbot{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+  margin-bottom: 61px;
+}
+.botser{
+  background-color: rgba(32, 40, 80, 1);
+  color:rgba(207, 207, 206, 1);
+  padding: 22px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: .5s
+}
+.botser:hover {
+  background-color: rgba(32, 40, 80, 0.3);
+}
+.tiem{
+  color: rgba(207, 207, 206, 1);
+  padding-bottom: 1px;
+}
+.tiempo{
+  font-weight: 400;
+  margin-bottom: 5px;
+  margin-left: 15px;
+  letter-spacing: 1.7px;
+}
+/* fin del header */
+/* --------estilos de servicios--------- */
+.imporex{
+  display:flex;
+  justify-content: center;
+  margin: 20px;
+}
+.impexp{
+  background-color: rgba(207, 207, 206, 1);
+  margin: 20px;
+  width: 538px;
+  height: auto;
+  padding: 40px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.flecha{
+  display: flex;
+  align-items: center;
+  margin: 20px;
+  margin-left: 10px;
+}
+.flecha1{
+  width: 40px;
+  height: auto;
+}
+.titulo{
+  font-size: 28px;
+  margin-left: 20px;
+  border-bottom: solid rgba(112, 112, 112, 0.5);
+  border-width: thin;
+  letter-spacing: 7.1px;
+}
+.dest{
+  color: rgba(112, 112, 112, 1);
+  font-size: 17px;
+  text-align: left;
+  font-weight: 400;
+  margin-bottom: 80px;
+  margin-top: 40px;
+  width: 462px;
+  height: auto;
+}
+.deser1{
+  margin:25px;
+  color: rgba(0, 0, 0, 1);
+  font-size: 20px;
+  font-weight: lighter;
+  cursor: pointer;
+  transition: .5s
+}
+.deser1:hover {
+  color: rgba(112, 112, 112, 1);
+}
+.masinfo{
+  display: flex;
+  justify-content: center;
+  background-color: rgba(32, 40, 80, 1);
+  color: rgba(207, 207, 206, 1);
+  padding: 14px;
+  width: 200px;
+  margin: 20px;
+  margin-top: 100px;
+  border-radius: 25px;
+  transition: .5s;
+}
+.botones{
+  display: flex;
+  justify-content: center;
+}
+.masinfo:hover{
+  background-color: rgba(32, 40, 80, .5);
+  color: white;
+}
+/* estilos de botones para cotizaciones */
+.opciones{
+  display: flex;
+  /* width: 100vh; */
+  justify-content: center;
+  margin: 25px;
+}
+.botones2{
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(32, 40, 80, 1);
+}
+.opc{
+  font-size: 22px;
+  width: 356px;
+  margin: 10px;
+  padding: 14px;
+  background-color: rgba(207, 207, 206, 1);
+  border-radius: 25px;
+  text-align: center;
+  font-weight: bolder;
+  transition: .5s;
+}
+.opc:hover{
+  background-color: rgba(32, 40, 80, .5);
+  color: white;
+}
+.imgopc{
+  height: 238px;
+}
+/* estilos de menu de contacto */
+.cont{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 50px;
+}
+.ubicacion{
+  width: 50%;
+  margin-right: 25px;
+}
+.mapa{
+  width: 600px;
+  height: 450px;
+}
+.contacto{
+  width: 50%;
+  margin-left: 25px;
+}
+/* estilos del fotter */
+.pie{
+  display: flex;
+  justify-content: center;
+  background-color: rgba(207, 207, 206, 1);
+  height: 50px;
+}
+.logop{
+  width: 56px;
+  margin: 10px;
+}
+.drechosp{
+  width: 400px;
+  font-size: 14px;
+  color: rgba(112, 112, 112, .5);
+  font-weight: lighter;
+  margin: 10px;
+}
+/* estilos boton de wat */
+.logowp{
+  /* position: sticky; */
+  bottom: 0;
+  width: 50px;
+
+}
+.wats{
+  position: absolute;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 10px;
+}
+/* diseño responsivede pagina */
+@media screen and (max-width:450px) {
+  body{
+    background-color: rgba(32, 40, 80, 1);
+  }
+  .menu1{
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    z-index: 100;
+  }
+  .logo{
+    width: 60%;
+  }
+  .eslogan{
+    display: none;
+  }
+  .pres1{
+    display: block;
+  }
+  .imagen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .paisaje{
+    width: 90%;
+    margin: 0;
+  }
+  .mision{
+    display: flex;
+    justify-content: center;
+    margin-top: 7%;
+  }
+  .mis{
+    color: white;
+    font-size: 15px;
+    width: 90%;
+    margin: 0;
+    padding: 0;
+  }
+  .ser1{
+    width: 90%;
+    padding-bottom: 1px;
+  }
+  .servi{
+    font-size: 16px;
+  }
+  .botser{
+    text-align: center;
+    width: 35%;
+    font-size: 12px;
+    padding: 10px;
+  }
+  .tiem{
+    display: none;
+  }
+  .imporex{
+    display: grid;
+  }
+  .impexp{
+    width: 80vw;
+  }
+  .flecha1{
+    width: 10%;
+  }
+  .titulo{
+    font-size: 90%;
+    color: black;
+  }
+  .dest{
+    width: 95%;
+    font-size: 90%;
+    margin-bottom: 1px;
+  }
+  .deser{
+    /* font-size: 20%; */
+    margin-bottom: 10%;
+  }
+  .deser1{
+    font-size: 100%;
+    margin: 10px;
+    padding: 0;
+  }
+  .botones2{
+    display: flex;
+    background: rgba(207, 207, 206, .3);
+    width: 100%;
+    align-items: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .masinfo{
+    /* padding: 20%; */
+    margin: 15px;
+    font-size: 90%
+  }
+  .imgopc{
+    display: none;
+  }
+  .opc{
+    font-size: 60%;
+    width: 80%;
+  }
+  .cont{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-content: center;
+  }
+  .ubicacion{
+    width: 100%;
+    height: 90%;
+    margin: 0;
+    margin-top: 20px;
+  }
+  .contacto{
+    width: 100%;
+    margin: 0;
+  }
+  .mapa{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .pie{
+    display: none;
+  }
+  .wats{
+    /* width: 50%; */
+    margin-bottom: 15%;
+    left: 0;
+  }
+}

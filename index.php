@@ -1,8 +1,4 @@
-<?php 
-    require 'includes/funciones.php';
-    incluirTemplate('header');
 
-?>
 <body>
     <nav class="barra1">
       <div class="imagen">

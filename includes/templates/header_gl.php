@@ -6,7 +6,7 @@
             <link rel="icon" href="../IMG/favico.png">
             <link rel="stylesheet" href="../CSS/normalize.css">
             <link rel="stylesheet" href="../CSS/macro.css">
-            <link rel="stylesheet" href="../CSS/estilosglobal.css">
+            <!-- <link rel="stylesheet" href="../CSS/estilosglobal.css"> -->
             <link rel="stylesheet" href="https://use.typekit.net/mtz3oki.css">
             <title>GLOBAL CARGO EC</title>
             <meta name="description:" content="Soluciones integrales en importación y exportación. Compras desde Estados unidos">
@@ -27,7 +27,7 @@
                         <img src="../IMG\logo_global.png" alt="Logo Global Cargo" class="logo">
                     </a>
                     <ul class="">
-                        <li class="subtiem"><a href="https://noti-cargoec.blogspot.com/" class="sub">NOSOTROS</a></li>
+                        <li class=" "><a href="https://noti-cargoec.blogspot.com/" class="">NOSOTROS</a></li>
                         <li class="subtiem"><a href="#ser" class="sub">BODEGA</a></li>
                         <li class="subtiem"><a href="#ser" class="sub">COTIZAR </br>SERVICIOS</a></li>
                         <li class="subtiem"><a href="mas.html" class="sub">ASESORÍAS</a></li>

@@ -1,0 +1,26 @@
+/**   ESTILOS GLOBALES  **/
+:root{
+    --fondoPrincipal: #232121;
+    --grisBordes: #707070;
+    --blanco: #ffffff;
+    --negro: #000000;
+    --azulEmpresarial: #202850;
+    --celesteEmpresarial: #00b8e3;
+    --grisTitulos: #91918f;
+    --grisParrafos: #cfcfce;
+    --fuenteParrafos: Open Sans;
+    --fuenteTitulos: Roboto;
+    --sizeTitulos: 101rem;
+}
+
+body{
+    background: #0E1123;
+    font-size: 62%;
+}
+h1 {
+    font-size: var(--sizeTitulos);
+    font-family: var(--fuenteTitulos);
+    font-weight: bold;
+    color: var(--grisTitulos);
+    
+}

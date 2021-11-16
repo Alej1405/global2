@@ -1,36 +1,7 @@
 <?php 
     require '../includes/funciones.php';
     incluirTemplate('header_gl');
-
 ?>
-      <div class="eslogan">
-        <h2 class="eslo">El mundo del comercio en tus manos </h2>
-      </div>
-      <div class="pres1">
-        <div class="imagen">
-          <img src="../IMG/paisaje3.png" alt="Paisaje de importaciones" class="paisaje">
-        </div>
-        <div class="mision">
-            <p class="mis" id="nos">
-              Somos una empresa dedicada a brindar servicios de Comercio Exterior
-              y Logística internacional, enfocados siempre en la agilidad
-              y calidad en cada uno de nuestros procesos.
-            </p>
-        </div>
-      </div>
-      <div class="ser1">
-          <div class="servicios">
-            <h1 class="servi">SERVICIOS PRINCIPALES</h1>
-          </div>
-          <div class="serbot">
-            <a href="imporacion.php" class="botser">IMPORTACIÓN</a>
-            <a href="imporacion.php" class="botser">EXPORTACIÓN</a>
-          </div>
-          <div class="tiem">
-            <h3 class="tiempo">MÁS DE 10 AÑOS DE EXPERIENCIA</h3>
-          </div>
-      </div>
-    </header>
     <main class="captura">
       <div class="imporex" id="ser">
           <div class="impexp">

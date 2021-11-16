@@ -5,6 +5,7 @@
             <meta charset="utf-8">
             <link rel="icon" href="../IMG/favico.png">
             <link rel="stylesheet" href="../CSS/normalize.css">
+            <link rel="stylesheet" href="../CSS/macro.css">
             <link rel="stylesheet" href="../CSS/estilosglobal.css">
             <link rel="stylesheet" href="https://use.typekit.net/mtz3oki.css">
             <title>GLOBAL CARGO EC</title>
@@ -21,20 +22,23 @@
         </head>
         <body>
             <header class="cuerpo">
-                <nav class="menu1">
-                    <div class="imglogo">
+                <nav class=" ">
                     <a href="../index.php">
                         <img src="../IMG\logo_global.png" alt="Logo Global Cargo" class="logo">
                     </a>
-                    </div>
-                    <div class="ham">
-                    <img src="../IMG\navigation-menu.svg" class="icoh">
-                    <ul class="menuprincipal">
-                        <li class="subtiem"><a href="https://noti-cargoec.blogspot.com/" class="sub">NOTICIAS</a></li>
-                        <li class="subtiem"><a href="#ser" class="sub">IMPORTACIÓN</a></li>
-                        <li class="subtiem"><a href="#ser" class="sub">EXPORTACIÓN</a></li>
-                        <li class="subtiem"><a href="mas.html" class="sub">ASESORÍA</a></li>
-                        <li class="subtiem"><a href="https://www.aduana.gob.ec/" class="sub" target="_blank">ADUANA</a></li>
+                    <ul class="">
+                        <li class="subtiem"><a href="https://noti-cargoec.blogspot.com/" class="sub">NOSOTROS</a></li>
+                        <li class="subtiem"><a href="#ser" class="sub">BODEGA</a></li>
+                        <li class="subtiem"><a href="#ser" class="sub">COTIZAR </br>SERVICIOS</a></li>
+                        <li class="subtiem"><a href="mas.html" class="sub">ASESORÍAS</a></li>
                     </ul>
-                    </div>
                 </nav>
+                <div class="eslogan">
+                    <h2 class="eslo">El mundo del comercio en tus manos </h2>
+                </div>
+                <div class="pres1">
+                    <div class="imagen">
+                    <img src="../IMG/paisaje3.png" alt="Paisaje de importaciones" class="paisaje">
+                    </div>
+                </div>
+            </header>

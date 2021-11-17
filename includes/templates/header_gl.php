@@ -5,9 +5,14 @@
             <meta charset="utf-8">
             <link rel="icon" href="../IMG/favico.png">
             <link rel="stylesheet" href="../CSS/normalize.css">
-            <link rel="stylesheet" href="../CSS/macro.css">
-            <!-- <link rel="stylesheet" href="../CSS/estilosglobal.css"> -->
-            <link rel="stylesheet" href="https://use.typekit.net/mtz3oki.css">
+            <link rel="stylesheet" href="../CSS/globales.css">
+            <link rel="stylesheet" href="../CSS/estilosglobal.css">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
             <title>GLOBAL CARGO EC</title>
             <meta name="description:" content="Soluciones integrales en importación y exportación. Compras desde Estados unidos">
             <meta name="author" content="mashacorp-2021">
@@ -21,24 +26,29 @@
             <meta property="og:site_name" content="Global Cargo Ecuador">
         </head>
         <body>
-            <header class="cuerpo">
-                <nav class=" ">
-                    <a href="../index.php">
-                        <img src="../IMG\logo_global.png" alt="Logo Global Cargo" class="logo">
+            <header class="header">
+                <nav class="header__menu">
+                    <a href="../index.php" class="menu__logo">
+                        <img src="../IMG\logo_global.png" alt="Logo Global Cargo" class="logo--img">
                     </a>
-                    <ul class="">
-                        <li class=" "><a href="https://noti-cargoec.blogspot.com/" class="">NOSOTROS</a></li>
-                        <li class="subtiem"><a href="#ser" class="sub">BODEGA</a></li>
-                        <li class="subtiem"><a href="#ser" class="sub">COTIZAR </br>SERVICIOS</a></li>
-                        <li class="subtiem"><a href="mas.html" class="sub">ASESORÍAS</a></li>
+                    <ul class="menu__lista">
+                        <li class="menu__li"><a href="https://noti-cargoec.blogspot.com/" class="menu__a">NOSOTROS</a></li>
+                        <li class="menu__li"><a href="#ser" class="menu__a">BODEGA</a></li>
+                        <li class="menu__li"><a href="#ser" class="menu__a">COTIZAR </br>SERVICIOS</a></li>
+                        <li class="menu__li"><a href="mas.html" class="menu__a">ASESORÍAS</a></li>
                     </ul>
                 </nav>
-                <div class="eslogan">
-                    <h2 class="eslo">El mundo del comercio en tus manos </h2>
+                <div class="header__img">
+                    <div class="img__cont">
+                        <img src="../IMG/header_barco.png" alt="Paisaje de importaciones" class="img__cont--1">
+                    </div>
                 </div>
-                <div class="pres1">
-                    <div class="imagen">
-                    <img src="../IMG/paisaje3.png" alt="Paisaje de importaciones" class="paisaje">
+                <div class="header__titulo">
+                    <div class="titulo__1">
+                        <h1 class="titulo__1--prin">COMERCIO EXTERIOR</h1>
+                    </div>
+                    <div class="titulo__2">
+                        <h2 class="titulo__2--sec">LOGISTICA INTEGRAL</h2>
                     </div>
                 </div>
             </header>

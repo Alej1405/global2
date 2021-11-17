@@ -1,0 +1,118 @@
+/**   variables generales  **/
+:root{
+    /**paleta de colores**/
+    --blanco: #ffffff;
+    --negro: #000000;
+    --azulEmpresarial: #202850;
+    --celesteEmpresarial: #00b8e3;
+    --grisBordes: #707070;
+    --grisTitulos: #91918f;
+    --grisParrafos: #cfcfce;
+    --fondoPrincipal: #0E1123;
+    /** fuentes **/
+    --fuentePrincipal: 'Open Sans', sans-serif;
+    --fuenteSecundaria: 'Roboto', sans-serif;
+    /** tamaños y formato **/
+    --sizeTitulos: 7.9rem;
+    --sizeSubtitulos: 32rem;
+    --sizeMenu: 2rem;
+    --kernigTitulos: .9rem;
+}
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; 
+}
+
+/* *, *:before, *:after {
+    box-sizing: inherit;
+} */
+
+body{
+    background: var(--fondoPrincipal);
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--fuentePrincipal);
+    color: var(--grisTitulos);
+    text-align: center;
+}
+
+li, a{
+    font-family: var(--fuentePrincipal);
+    text-decoration: none;
+    list-style: none;
+    color: var(--grisParrafos);
+    letter-spacing: .8rem;
+}
+
+/*------ESTILOS DEL HEADER------*/
+
+header{
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.header__menu{
+    margin-right: 4rem;
+}
+
+.menu__logo, .logo--img{
+    margin-top: 3rem;
+    margin-left: 4rem;
+}
+
+.menu__lista{
+    margin-top: 7rem;
+    text-align: right;
+}
+
+.menu__li{
+    margin-top: 4.3rem;
+    transition: .6s ease-in-out;
+}
+
+.menu__a{
+    font-size: 1.2rem;
+}
+
+.header__img,
+.img__cont,
+.img__cont--1{
+    width: 100%;
+}
+
+.img__cont--1{
+    max-height: 65rem;
+    align-items: flex-end;
+}
+
+.header__titulo{
+    position: absolute;
+    bottom: 15px;
+}
+
+.titulo__1--prin, .titulo__2--sec{
+    text-align: right;
+    font-family: var(--fuenteSecundaria);
+    letter-spacing: var(--kernigTitulos);
+    color: var(--grisTitulos);
+}
+
+.titulo__1--prin{
+    font-size: var(--sizeTitulos);
+    margin: 0;
+}
+
+/*------animación de menu------*/
+
+.menu__li:hover{
+    background: var(--grisBordes);
+    text-align: left;
+}
+
+.menu__9:hover{
+    font-size: ;
+}

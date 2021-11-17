@@ -112,3 +112,59 @@ header{
     background: var(--grisBordes);
     text-align: left;
 }
+
+.imporex{
+    display:flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.impexp{
+    background-color: rgba(207, 207, 206, 1);
+    margin: 20px;
+    width: 538px;
+    height: auto;
+    padding: 40px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.flecha{
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    margin-left: 10px;
+}
+
+.flecha1{
+    width: 40px;
+    height: auto;
+}
+
+.titulo{
+    font-size: 28px;
+    margin-left: 20px;
+    border-bottom: solid rgba(112, 112, 112, 0.5);
+    border-width: thin;
+    letter-spacing: 7.1px;
+}
+
+.dest{
+    color: rgba(112, 112, 112, 1);
+    font-size: 17px;
+    text-align: left;
+    font-weight: 400;
+    margin-bottom: 80px;
+    margin-top: 40px;
+    width: 462px;
+    height: auto; 
+}
+
+.deser1{
+    margin:25px;
+    color: rgba(0, 0, 0, 1);
+    font-size: 20px;
+    font-weight: lighter;
+    cursor: pointer;
+    transition: .5s
+}

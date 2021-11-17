@@ -17,6 +17,7 @@
     --sizeSubtitulos: 32rem;
     --sizeMenu: 2rem;
     --kernigTitulos: .9rem;
+    --kernigParrafos: .8rem;
 }
 html {
     box-sizing: border-box;
@@ -91,7 +92,7 @@ header{
 
 .header__titulo{
     position: absolute;
-    bottom: 15px;
+    bottom: 30%;
 }
 
 .titulo__1--prin, .titulo__2--sec{
@@ -113,35 +114,38 @@ header{
     text-align: left;
 }
 
-.imporex{
+/*------main global cargo------*/
+
+.main__servicios{
     display:flex;
+    flex-direction: column;
     justify-content: center;
-    margin: 20px;
+    margin: auto;
 }
 
-.impexp{
+.servicios__impexp{
     background-color: rgba(207, 207, 206, 1);
     margin: 20px;
-    width: 538px;
-    height: auto;
+    width: 336px;
+    height: 459px;
     padding: 40px;
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
 
-.flecha{
+.impexp--flecha{
     display: flex;
     align-items: center;
     margin: 20px;
     margin-left: 10px;
 }
 
-.flecha1{
+.impexp__img1{
     width: 40px;
     height: auto;
 }
 
-.titulo{
+.impexp__titulo{
     font-size: 28px;
     margin-left: 20px;
     border-bottom: solid rgba(112, 112, 112, 0.5);
@@ -149,7 +153,7 @@ header{
     letter-spacing: 7.1px;
 }
 
-.dest{
+.impexp__dest{
     color: rgba(112, 112, 112, 1);
     font-size: 17px;
     text-align: left;
@@ -160,11 +164,34 @@ header{
     height: auto; 
 }
 
-.deser1{
+.li__esp1{
     margin:25px;
     color: rgba(0, 0, 0, 1);
     font-size: 20px;
     font-weight: lighter;
     cursor: pointer;
     transition: .5s
+}
+
+.main{
+    display: flex;
+    width: 75%;
+    margin: auto;
+}
+
+.main__contactos{
+    display: block;
+}
+
+.mision--parrafo,
+.contacto__form{
+    margin: 150px;
+}
+
+.mision--parrafo{
+    font-size: 2.5rem;
+    font-style: normal;
+    color: var(--grisParrafos);
+    font-kerning: var(--kernigParrafos);
+    font-family: var(--fuentePrincipal);
 }

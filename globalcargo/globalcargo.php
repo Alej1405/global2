@@ -2,63 +2,69 @@
     require '../includes/funciones.php';
     incluirTemplate('header_gl');
 ?>
-    <main class="captura">
-      <div class="imporex" id="ser">
-          <div class="impexp">
-              <div class="flecha">
-                <img src="../IMG/flecha.png" alt="Flecha del logo" class="flecha1">
-                <h3 class="titulo">IMPORTACIÓN</h3>
+    <main class="main">
+      <!-- modal de servicios -->
+        <div class="main__servicios" id="ser">
+              <div class="servicios__impexp">
+                  <div class="impexp--flecha">
+                    <img src="../IMG/flecha.png" alt="Flecha del logo" class="impexp__img1">
+                    <h3 class="impexp__titulo">IMPORTACIÓN</h3>
+                  </div>
+                  <p class="impexp__dest">
+                    Acompañamiento integral
+                    desde la búsqueda del
+                    proveedor hasta la entrega 
+                    de la carga en el país
+                  </p>
+                  <ul class="impexp__li">
+                    <li class="li__esp">CARGA SUELTA</li>
+                    <li class="li__esp">FULL CONTENEDOR</li>
+                    <li class="li__esp">CONSOLIDACIÓN</li>
+                    <li class="li__esp">COURIER</li>
+                  </ul>
+                  <div class="botones">
+                      <a href="mas.php" class="masinfo">MÁS INFO...</a>
+                  </div>
               </div>
-              <p class="dest">
-                ACOMPAÑAMIENTO INTEGRAL DESDE LA
-                BÚSQUEDA DEL PROVEEDOR HASTA LA
-                ENTREGA DE LA CARGA EN EL PAÍS
-              </p>
-              <ul class="deser">
-                <li class="deser1">CARGA SUELTA</li>
-                <li class="deser1">FULL CONTENEDOR</li>
-                <li class="deser1">CONSOLIDACIÓN</li>
-                <li class="deser1">COURIER</li>
-              </ul>
-              <div class="botones">
-                  <a href="mas.php" class="masinfo">MÁS INFO...</a>
+              <div class="servicios__impexp">
+                  <div class="impexp--flecha">
+                    <img src="../IMG/flecha.png" alt="Flecha del logo" class="impexp__img1">
+                    <h3 class="impexp__titulo">EXPORTACIÓN</h3>
+                  </div>
+                  <p class="impexp__dest">
+                    Asesoría, capacitación 
+                    y búsqueda de posibles 
+                    clientes y primer contacto 
+                    internacional            
+                    </p>
+                  <ul class="impexp__li">
+                    <li class="li__esp">PRODUCTOS AGRICOLAS</li>
+                    <li class="li__esp">ARTESANÍAS</li>
+                    <li class="li__esp">TEXTILES</li>
+                    <li class="li__esp">OTROS PRODUCTOS</li>
+                  </ul>
+                  <div class="botones">
+                      <a href="mas.php" class="masinfo">MÁS INFO...</a>
+                  </div>
               </div>
-          </div>
-          <div class="impexp">
-              <div class="flecha">
-                <img src="../IMG\flecha.png" alt="Flecha del logo" class="flecha1">
-                <h3 class="titulo">EXPORTACIÓN</h3>
-              </div>
-              <p class="dest">
-                ASESORÍA, CAPACITACIÓN Y BUSQUEDA
-                DE POSIBLES CLIENTES Y PRIMER
-                CONTACTO INTERNACIONAL
-              </p>
-              <ul class="deser">
-                <li class="deser1">PRODUCTOS AGRÍCOLAS</li>
-                <li class="deser1">ARTESANÍAS</li>
-                <li class="deser1">TEXTILES</li>
-                <li class="deser1">OTROS PRODUCTOS</li>
-              </ul>
-              <div class="botones">
-                <a href="mas.php" class="masinfo">MÁS INFO...</a>
-              </div>
-          </div>
-      </div>
-      <div>
-        <div class="contacto">
-          <p> 
-            Somos una empresa dedicada a brindar
-            servicios de Comercio Exterior 
-            y Logística internacional,
-            enfocados siempre en la Agilidad y calidad 
-            en cada uno de nuestros procesos.
-          </p>
         </div>
-        <div class="contacto">
-            <?php incluirTemplate('form') ?>
+          <!-- fin de modal de servicios    -->
+          <!-- inicio del contenedor de mision y contacto -->
+        <div class="main__contactos">
+          <div class="contacto__misión">
+            <p class="mision--parrafo"> 
+                Somos una empresa dedicada a brindar
+                servicios de Comercio Exterior 
+                y Logística internacional,
+                enfocados siempre en la Agilidad y calidad 
+                en cada uno de nuestros procesos.
+            </p>
+          </div>
+          <div class="contacto__form">
+              <?php incluirTemplate('form') ?>
+          </div>
         </div>
-      </div>
+      <!-- fin del contenedor de contacto y misión  -->
     </main>
     <footer class="final">
       <div class="pie">

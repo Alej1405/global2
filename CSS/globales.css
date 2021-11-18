@@ -9,13 +9,15 @@
     --grisTitulos: #91918f;
     --grisParrafos: #cfcfce;
     --fondoPrincipal: #0E1123;
+    --colorDescripcion: #232121;
     /** fuentes **/
     --fuentePrincipal: 'Open Sans', sans-serif;
     --fuenteSecundaria: 'Roboto', sans-serif;
     /** tamaños y formato **/
     --sizeTitulos: 7.9rem;
-    --sizeSubtitulos: 32rem;
+    --sizeSubtitulos: 2.2rem;
     --sizeMenu: 2rem;
+    --sizeDescrip: 1.5rem;
     --kernigTitulos: .9rem;
     --kernigParrafos: .8rem;
 }
@@ -91,8 +93,8 @@ header{
 }
 
 .header__titulo{
-    position: absolute;
     bottom: 30%;
+    position: absolute;
 }
 
 .titulo__1--prin, .titulo__2--sec{
@@ -125,7 +127,7 @@ header{
 
 .servicios__impexp{
     background-color: rgba(207, 207, 206, 1);
-    margin: 20px;
+    margin: 101px;
     width: 336px;
     height: 459px;
     padding: 40px;
@@ -133,44 +135,54 @@ header{
     border-bottom-right-radius: 20px;
 }
 
-.impexp--flecha{
+.impexp--encabezado{
     display: flex;
     align-items: center;
-    margin: 20px;
-    margin-left: 10px;
-}
-
-.impexp__img1{
-    width: 40px;
-    height: auto;
+    margin:0;
 }
 
 .impexp__titulo{
-    font-size: 28px;
-    margin-left: 20px;
-    border-bottom: solid rgba(112, 112, 112, 0.5);
-    border-width: thin;
-    letter-spacing: 7.1px;
+    font-size: var(--sizeSubtitulos);
+    font-weight: bold;
+    font-family: var(--fuentePrincipal);
+    letter-spacing: 0.22em;
+    line-height: 57px;
+    text-align: left;
+    color:var(--negro);
+    margin:0;
+}
+
+.titulo--icon{
+    fill: rgba(0,184,227,1);
+    overflow: visible;
+	width: 39.577px;
+	height: 34.272px;
+	left: 363.746px;
+	top: 36.728px;
+	transform: matrix(1,0,0,1,0,0);
 }
 
 .impexp__dest{
-    color: rgba(112, 112, 112, 1);
-    font-size: 17px;
-    text-align: left;
-    font-weight: 400;
-    margin-bottom: 80px;
-    margin-top: 40px;
-    width: 462px;
-    height: auto; 
+    font-family: var(--fuentePrincipal);
+    font-weight: normal;
+    font-size: var(--sizeDescrip);
+    letter-spacing: 0.17em;
+    color: var(--colorDescripcion);  
 }
 
-.li__esp1{
-    margin:25px;
-    color: rgba(0, 0, 0, 1);
-    font-size: 20px;
-    font-weight: lighter;
+.impexp__li{
+    margin-top: 5.8rem;
+}
+
+.li__esp{
+    font-family: var(--fuentePrincipal);
+    font-weight: bold;
+    font-size: var(--sizeMenu);
+    letter-spacing: 0.06em;
+    text-align: left;
+    color: var(--azulEmpresarial);
     cursor: pointer;
-    transition: .5s
+    padding: 900px;
 }
 
 .main{

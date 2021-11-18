@@ -6,10 +6,13 @@
       <!-- modal de servicios -->
         <div class="main__servicios" id="ser">
               <div class="servicios__impexp">
-                  <div class="impexp--flecha">
-                    <img src="../IMG/flecha.png" alt="Flecha del logo" class="impexp__img1">
-                    <h3 class="impexp__titulo">IMPORTACIÓN</h3>
-                  </div>
+                    <div class="impexp--encabezado">  
+                      <h3 class="impexp__titulo">EXPORTACIÓN</h3>
+                      <svg class="titulo--icon" viewBox="439.45 179.44 39.577 34.273">
+                        <path  d="M 458.9805908203125 191.3681640625 L 439.4500122070312 179.4400024414062 L 459.2385559082031 179.4400024414062 L 479.027099609375 179.4400024414062 L 469.1337890625 196.5765686035156 L 459.2385559082031 213.713134765625 L 458.9805908203125 191.3681640625 Z">
+                        </path>
+                      </svg>
+                    </div>
                   <p class="impexp__dest">
                     Acompañamiento integral
                     desde la búsqueda del
@@ -27,10 +30,13 @@
                   </div>
               </div>
               <div class="servicios__impexp">
-                  <div class="impexp--flecha">
-                    <img src="../IMG/flecha.png" alt="Flecha del logo" class="impexp__img1">
-                    <h3 class="impexp__titulo">EXPORTACIÓN</h3>
-                  </div>
+                    <div class="impexp--encabezado">  
+                      <h3 class="impexp__titulo">EXPORTACIÓN</h3>
+                      <svg class="titulo--icon" viewBox="439.45 179.44 39.577 34.273">
+                        <path  d="M 458.9805908203125 191.3681640625 L 439.4500122070312 179.4400024414062 L 459.2385559082031 179.4400024414062 L 479.027099609375 179.4400024414062 L 469.1337890625 196.5765686035156 L 459.2385559082031 213.713134765625 L 458.9805908203125 191.3681640625 Z">
+                        </path>
+                      </svg>
+                    </div>
                   <p class="impexp__dest">
                     Asesoría, capacitación 
                     y búsqueda de posibles 

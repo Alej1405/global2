@@ -20,10 +20,10 @@
                     de la carga en el país
                   </p>
                   <ul class="impexp__li">
-                    <li class="li__esp">CARGA SUELTA</li>
-                    <li class="li__esp">FULL CONTENEDOR</li>
-                    <li class="li__esp">CONSOLIDACIÓN</li>
-                    <li class="li__esp">COURIER</li>
+                    <li class="li__esp"><a class="esp--link">CARGA SUELTA</a></li>
+                    <li class="li__esp"><a class="esp--link">FULL CONTENEDOR</a></li>
+                    <li class="li__esp"><a class="esp--link">CONSOLIDACIÓN</a></li>
+                    <li class="li__esp"><a class="esp--link">COURIER</a></li>
                   </ul>
                   <div class="botones">
                       <a href="mas.php" class="masinfo">MÁS INFO...</a>
@@ -44,10 +44,10 @@
                     internacional            
                     </p>
                   <ul class="impexp__li">
-                    <li class="li__esp">PRODUCTOS AGRICOLAS</li>
-                    <li class="li__esp">ARTESANÍAS</li>
-                    <li class="li__esp">TEXTILES</li>
-                    <li class="li__esp">OTROS PRODUCTOS</li>
+                    <li class="li__esp"><a class="esp--link">PRODUCTOS AGRICOLAS</a></li>
+                    <li class="li__esp"><a class="esp--link">ARTESANÍAS</a></li>
+                    <li class="li__esp"><a class="esp--link">TEXTILES</a></li>
+                    <li class="li__esp"><a class="esp--link">OTROS PRODUCTOS</a></li>
                   </ul>
                   <div class="botones">
                       <a href="mas.php" class="masinfo">MÁS INFO...</a>
@@ -72,23 +72,6 @@
         </div>
       <!-- fin del contenedor de contacto y misión  -->
     </main>
-    <footer class="final">
-      <div class="pie">
-        <div class="logopie">
-          <a href="index.php"><img src="../IMG\global.png" alt="logo global cargo" class="logop"></a>
-        </div>
-          <div class="derechospie">
-            <p class="drechosp">
-                GLOBAL CARGO ECUADOR 2021-2022 TODOS LOS DERECHOS RESERVADOS THEME GLOBAL BY MAHSA CORP SEO.
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <div class="wats">
-      <a href="https://wa.me/message/2FIFVJQAVMN7F1" target="_blank">
-        <img src="IMG\whatsapp.png" alt="" class="logowp">
-      </a>
-    </div>
-  </body>
-</html>
+<?php 
+    incluirTemplate('footer');
+?>

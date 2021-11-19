@@ -1,0 +1,99 @@
+/*------main global cargo------*/
+
+.main{
+    display: flex;
+    width: 75%;
+    margin: auto;
+}
+
+.main__servicios{
+    place-items: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    padding-top: 300px;
+}
+
+.servicios__impexp{
+    background-color: rgba(207, 207, 206, 1);
+    margin: 3.2rem;
+    width: 336px;
+    height: 459px;
+    padding: 40px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.impexp--encabezado{
+    display: flex;
+    align-items: center;
+    margin:0;
+}
+
+.impexp__titulo{
+    font-size: var(--sizeSubtitulos);
+    font-weight: bold;
+    font-family: var(--fuentePrincipal);
+    letter-spacing: 0.22em;
+    line-height: 57px;
+    text-align: left;
+    color:var(--negro);
+    margin:0;
+}
+
+.titulo--icon{
+    fill: rgba(0,184,227,1);
+    overflow: visible;
+	width: 39.577px;
+	height: 34.272px;
+	left: 363.746px;
+	top: 36.728px;
+	transform: matrix(1,0,0,1,0,0);
+}
+
+.impexp__dest{
+    font-family: var(--fuentePrincipal);
+    font-weight: normal;
+    font-size: var(--sizeDescrip);
+    letter-spacing: 0.17em;
+    color: var(--colorDescripcion);
+    user-select: none;
+}
+
+.impexp__li{
+    margin-top: 5.8rem;
+}
+
+.li__esp{
+    font-family: var(--fuentePrincipal);
+    font-weight: bold;
+    font-size: var(--sizeMenu);
+    text-align: left;
+    cursor: pointer;
+}
+
+.esp--link{
+    color: var(--azulEmpresarial);
+    margin: 9px;
+    letter-spacing: 0.06em;
+}
+
+.main__contactos{
+    display: block;
+    margin-top: 350px;
+}
+
+.mision--parrafo,
+.contacto__form{
+    margin: 150px;
+}
+
+.mision--parrafo{
+    font-size: 2.5rem;
+    font-style: normal;
+    color: var(--grisParrafos);
+    font-kerning: var(--kernigParrafos);
+    font-family: var(--fuentePrincipal);
+    user-select: none;
+}

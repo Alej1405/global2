@@ -1,0 +1,76 @@
+/*------ESTILOS DEL HEADER------*/
+
+header{
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.header__menu{
+    margin-right: 4rem;
+}
+
+.menu__logo, .logo--img{
+    margin-top: 3rem;
+    margin-left: 4rem;
+}
+
+.logo--img{
+    image-rendering: crisp-edges;
+}
+
+.menu__lista{
+    margin-top: 7rem;
+    text-align: right;
+}
+
+.menu__li{
+    margin-top: 4.3rem;
+    transition: .6s ease-in-out;
+}
+
+.menu__a{
+    font-size: 1.2rem;
+}
+
+.header__img,
+.img__cont,
+.img__cont--1{
+    width: 100%;
+}
+
+.img__cont--1{
+    max-height: 65rem;
+    align-items: flex-end;
+    position: absolute;
+	width: 75%;
+	height: 100%;
+	right: 0;
+	top: 0px;
+	overflow: visible;
+    image-rendering: crisp-edges;
+}
+
+.header__titulo{
+    bottom: 30%;
+    position: absolute;
+}
+
+.titulo__1--prin, .titulo__2--sec{
+    text-align: right;
+    font-family: var(--fuenteSecundaria);
+    letter-spacing: var(--kernigTitulos);
+    color: var(--grisTitulos);
+}
+
+.titulo__1--prin{
+    font-size: var(--sizeTitulos);
+    margin: 0;
+}
+
+/*------animación de menu------*/
+
+.menu__li:hover{
+    background: var(--grisBordes);
+    text-align: left;
+}

@@ -100,30 +100,34 @@
     user-select: none;
     width: 100%;
 }
+/*=========================<>=========================
+    ----------ESTILOS PÁGINA PREGUNTAS FRECUENTES-------
+                PREGUTNAS FRECUENTES**/
+                
+h2.titulo--FAQ,.headerFAQ__titulo{
+    font-size: var(--sizeTitulos);
+}
 
-/** PREGUTNAS FRECUENTES**/
+.titulo--FAQ{
+    margin-left: 15%;
+    padding: 0%;
+    text-align: left;
+}                
 .master{
     display: flex;
     justify-content: space-between;
 }
 
-/* .headerFAQ{
-    justify-content: space-around;
-} */
-
-h2.titulo--FAQ,.headerFAQ__titulo{
-    font-size: var(--sizeTitulos);
-    margin-left: 85px;
-}
-
 /** header**/
 
 .FAQ__preguntas{
-    margin-top: 13%;
+    /* margin-top: 13%; */
+    margin-right: 5%;
     width: 50%;
     border-radius: 0px 0px 0px 33px;
     background: var(--blanco);
     border: 1px solid var(--grisBordes);
+
 }
 
 .preguntas__subtitulo{
@@ -146,4 +150,70 @@ h2.titulo--FAQ,.headerFAQ__titulo{
     text-align: left;
     color: #232121;
     margin: 0 0 10px 30px;
+}
+
+/* estilos de descripción */
+
+.hedaerFAQ__des{
+    width: 50%;
+    margin: 200px ;
+}
+
+.des--FAQ{
+    font-family: var(--fuentePrincipal);
+    font-weight: bold;
+    font-size: var(--sizeParrafos);
+    letter-spacing: 0.39em;
+    line-height: 51px;
+    text-align: left;
+    color: var(--grisParrafos);
+
+}
+
+/* estilos direcciones de paises */
+
+.headerDIR{
+    margin: 80px;
+    padding: 0%;
+    text-align: center;
+
+}
+
+
+.headerDIR__paises{
+    margin: auto;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border
+}
+
+
+.paises--layout{
+    display: flex;
+    justify-content: space-around;
+}
+
+.paises{
+    width: 381px;
+    margin: 50px;
+}
+
+.paises2{
+    place-content: center;
+    width: 912px;
+    margin: 5px 0 0 50px;
+
+}
+
+.paises--dir{
+    font-family: var(--fuentePrincipal);
+    font-weight: bold;
+    font-size: var(--fuenteParrafos);
+    letter-spacing: 0.39em;
+    line-height: 51px;
+    text-align: left;
+    color: var(--grisParrafos);
+
 }

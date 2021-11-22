@@ -8,7 +8,7 @@
                         <img src="../IMG\logo_global.png" alt="Logo Global Cargo" class="logo--img">
                     </a>
                     <ul class="menu__lista">
-                        <li class="menu__li"><a href="../globalcargo/importacion.php" class="menu__a">NOSOTROS</a></li>
+                        <li class="menu__li"><a href="../globalcargo/faq.php" class="menu__a">NOSOTROS</a></li>
                         <li class="menu__li"><a href="#ser" class="menu__a">BODEGA</a></li>
                         <li class="menu__li"><a href="#ser" class="menu__a">COTIZAR </br>SERVICIOS</a></li>
                         <li class="menu__li"><a href="mas.html" class="menu__a">ASESORÍAS</a></li>

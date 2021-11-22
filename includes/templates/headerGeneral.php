@@ -3,11 +3,9 @@
 <head>
   <meta charset="utf-8">
   <link rel="icon" href="../IMG/favico.png">
-  <link rel="stylesheet" href="../CSS/estilos.css">
   <link rel="stylesheet" href="../CSS/globales.css">
   <link rel="stylesheet" href="../CSS/footer.css">
   <link rel="stylesheet" href="../CSS/headerGeneral.css">
-  <link rel="stylesheet" href="../CSS/globalcargo.css">
   <link rel="stylesheet" href="../CSS/normalize.css">
   <link rel="stylesheet" href="../CSS/paginas.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">

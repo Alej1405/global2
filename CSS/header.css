@@ -62,7 +62,7 @@ header{
 }
 
 .header__titulo{
-    bottom: 0;
+    bottom: 20%;
     position: absolute;
 }
 

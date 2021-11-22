@@ -56,13 +56,14 @@
     font-family: var(--fuentePrincipal);
     font-weight: normal;
     font-size: var(--sizeDescrip);
+    text-align: justify;
     letter-spacing: 0.17em;
     color: var(--colorDescripcion);
     user-select: none;
 }
 
 .impexp__li{
-    margin-top: 5.8rem;
+    margin-top: var(--marginLi);
 }
 
 .li__esp{
@@ -71,6 +72,7 @@
     font-size: var(--sizeMenu);
     text-align: left;
     cursor: pointer;
+    margin-top: var(--marginTop);
 }
 
 .esp--link{
@@ -90,10 +92,58 @@
 }
 
 .mision--parrafo{
-    font-size: 2.5rem;
+    font-size: var(--sizeParrafos);
     font-style: normal;
     color: var(--grisParrafos);
     font-kerning: var(--kernigParrafos);
     font-family: var(--fuentePrincipal);
     user-select: none;
+    width: 100%;
+}
+
+/** PREGUTNAS FRECUENTES**/
+.master{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .headerFAQ{
+    justify-content: space-around;
+} */
+
+h2.titulo--FAQ,.headerFAQ__titulo{
+    font-size: var(--sizeTitulos);
+    margin-left: 85px;
+}
+
+/** header**/
+
+.FAQ__preguntas{
+    margin-top: 13%;
+    width: 50%;
+    border-radius: 0px 0px 0px 33px;
+    background: var(--blanco);
+    border: 1px solid var(--grisBordes);
+}
+
+.preguntas__subtitulo{
+    font-family: var(--fuenteSecundaria);
+    font-weight: 900;
+    font-size: var(--sizeMenu);
+    letter-spacing: 0.3em;
+    line-height: 34px;
+    text-align: left;
+    color: var(--negro);
+    margin: 25px 0 0 20px;
+
+}
+
+.respuesta{
+    font-family: var(--fuentePrincipal);
+    font-weight: normal;
+    font-size: var(--sizeParrafos2);
+    letter-spacing: 0.17em;
+    text-align: left;
+    color: #232121;
+    margin: 0 0 10px 30px;
 }

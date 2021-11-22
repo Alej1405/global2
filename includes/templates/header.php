@@ -4,7 +4,9 @@
   <meta charset="utf-8">
   <link rel="icon" href="IMG/favico.png">
   <link rel="stylesheet" href="CSS/normalize.css">
-  <link rel="stylesheet" href="CSS/estilos1.css">
+  <link rel="stylesheet" href="CSS/responsive.css">
+  <link rel="stylesheet" href="CSS/globales.css">
+  <link rel="stylesheet" href="CSS/header.css">
   <title>GLOBAL CARGO EC</title>
   <meta name="description:" content="Soluciones integrales en importación y exportación. Compras desde Estados unidos">
   <meta name="author" content="mashacorp-2021">

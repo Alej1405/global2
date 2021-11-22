@@ -2,6 +2,32 @@
     require '../includes/funciones.php';
     incluirTemplate('header_gl');
 ?>
+    <header class="header">
+                <nav class="header__menu">
+                    <a href="../index.php" class="menu__logo">
+                        <img src="../IMG\logo_global.png" alt="Logo Global Cargo" class="logo--img">
+                    </a>
+                    <ul class="menu__lista">
+                        <li class="menu__li"><a href="../globalcargo/importacion.php" class="menu__a">NOSOTROS</a></li>
+                        <li class="menu__li"><a href="#ser" class="menu__a">BODEGA</a></li>
+                        <li class="menu__li"><a href="#ser" class="menu__a">COTIZAR </br>SERVICIOS</a></li>
+                        <li class="menu__li"><a href="mas.html" class="menu__a">ASESORÍAS</a></li>
+                    </ul>
+                </nav>
+                <div class="header__img">
+                    <div class="img__cont">
+                        <img src="../IMG/header_barco.png" alt="Paisaje de importaciones" class="img__cont--1">
+                    </div>
+                </div>
+                <div class="header__titulo">
+                    <div class="titulo__1">
+                        <h1 class="titulo__1--prin">COMERCIO EXTERIOR</h1>
+                    </div>
+                    <div class="titulo__2">
+                        <h2 class="titulo__2--sec">LOGISTICA INTEGRAL</h2>
+                    </div>
+                </div>
+    </header>
     <main class="main">
       <!-- modal de servicios -->
         <div class="main__servicios" id="ser">

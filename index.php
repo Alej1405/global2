@@ -19,7 +19,9 @@
           </div>
           <p class="desc">
             Herramientas integrales de comercio
-            exterior para la importación y exportación
+            exterior, para la importación y exportación. 
+            Logista nacional, contamos con alianzas estratégicas
+            que garantizan la entrega a tiempo y con rapidéz.
           </p>
           <button type="button" name="ingresar" class="botgc" >
             <a class="boton" href="globalcargo/globalcargo.php">INGRESAR</a>
@@ -34,6 +36,8 @@
             Paquetería rápida, ágil y confiable.
             Compras asistidas desde las principales tiendas del mundo
             AMAZON, EBAY, TARGET.
+            No solo compras para uso personal sino, también
+            aquellos detalles que marcan la diferencia en el emprendimiento.
           </p>
           <button type="button" name="ingresar" class="botgc">
             <a class="boton" href="gcbox.php">INGRESAR</a>

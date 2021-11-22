@@ -16,12 +16,17 @@
     /** tamaños y formato **/
     --sizeTitulos: 7.9rem;
     --sizeSubtitulos: 2.2rem;
-    --sizeMenu: 2rem;
+    --sizeMenu: 90%;
+    --sizeParrafos: calc(100% + 5px);
+    --sizeParrafos2: 95%;
     --sizeDescrip: 1.5rem;
-    --sizeCopy:1.2rem;
-    --sizeFooter: 1.8re;
+    --sizeCopy:70%;
+    --sizeFooter: 80%;
     --kernigTitulos: .9rem;
     --kernigParrafos: .8rem;
+    /** margenes en procentaje **/
+    --marginTop: 6%;
+    --marginLi: 12%;
 }
 html {
     box-sizing: border-box;
@@ -51,4 +56,83 @@ li, a{
     list-style: none;
     color: var(--grisParrafos);
     letter-spacing: .8rem;
+}
+
+/** estilos menu principal index **/
+
+  /* ESTILOS DEL CUERPO */
+  .barra1 {
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    justify-content: space-around;
+    height: 20%;
+}
+
+.imagen{  margin-top: 20px; }
+
+img{ width: 75px;  }
+.presen{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.baner{
+    background-color: rgba(255, 255, 255, 1);
+    width: 500px;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 10%;
+    align-items: center;
+}
+
+.encab{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5%;
+    align-content: center;
+}
+
+.tgc{
+    color: var(--negro);
+    border-width: thin;
+    font-size: 1.5em;
+}
+
+.ico2{
+    width: 40px;
+    height: 35px;
+}
+
+.desc{
+    font-family: var(--fuentePrincipal);
+    font-style: normal;
+    text-align: justify;
+    color: rgba(112, 112, 112, 1);
+    font-size: var(--sizeParrafos2);
+    margin: 61px;
+    height: 90px;
+}
+
+.botgc{
+    font-size: 0.8em;
+    font-weight: bold;
+    border-style: none;
+    background-color: rgba(112, 112, 112, 0.5);
+    border-radius: 50px;
+    padding: 15px;
+    margin-left: calc(50% - 80px);
+    margin-bottom: 20px;
+}
+
+.botgc:hover{
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(112, 112, 112, 1);
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+
+.boton{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 1);
 }

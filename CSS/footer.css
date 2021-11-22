@@ -13,6 +13,7 @@ footer{
 .footer__nav{
     display: flex;
     background: var(--grisParrafos);
+    padding: 2rem;
 }  
 
 .nav__link{

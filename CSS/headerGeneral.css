@@ -1,0 +1,50 @@
+.nav {
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    justify-content: space-between;
+    height: 20%;
+}
+
+.nav__menu{
+    display: flex;
+}
+
+.nav__logo{  
+    margin: 9px; 
+}
+
+.logo--global{ width: 75px;  }
+
+.boton1{
+    border: none;
+    background: none;
+    font-family: var(--fuentePrincipal);
+    font-weight: normal;
+    font-size: var(--sizeCopy);
+    letter-spacing: 0.17em;
+    text-align: left;
+    color: var(--colorDescripcion);
+    justify-content: center;
+    margin:10px;
+}
+
+.servicios__op{
+    color: var(--colorDescripcion);
+    transition: .6s ease-in-out;
+}
+
+.servicios__op:hover{
+    color: var(--blanco);
+}
+
+.boton1{
+    cursor: pointer;
+}
+
+.menu__servicios.boton1:hover{
+    background: var(--grisBordes);
+    border-radius: 10px 0 10px 0;
+    transition: .6s ease-in-out;
+}
+
+

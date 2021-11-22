@@ -1,0 +1,25 @@
+@media screen and (max-width:450px){
+  /** responsive index **/  
+    .barra1{
+        width: 100vw;
+        height: 11%;
+        position: fixed;
+        bottom: 0;
+    }
+    .presen{
+        display: grid;
+        margin-bottom: 100px;
+    }
+    .baner{
+        width: 80vw;
+    }
+    .trabajando{
+        display: flex;
+        justify-content: center;
+        margin-top: 10%;
+        margin-bottom: 10%
+    }
+    .imgtra{
+        width: 90%;
+    }
+}

@@ -16,17 +16,17 @@
     /** tamaños y formato **/
     --sizeTitulos: 7.9rem;
     --sizeSubtitulos: 2.2rem;
-    --sizeMenu: 90%;
-    --sizeParrafos: calc(100% + 5px);
+    --sizeMenu: 200%;
+    --sizeParrafos: 27pt;
     --sizeParrafos2: 95%;
     --sizeDescrip: 1.5rem;
-    --sizeCopy:70%;
-    --sizeFooter: 80%;
+    --sizeCopy:80%;
+    --sizeFooter: 90%;
     --kernigTitulos: .9rem;
     --kernigParrafos: .8rem;
     /** margenes en procentaje **/
-    --marginTop: 6%;
-    --marginLi: 12%;
+    --marginTop: 8%;
+    --marginLi: 22%;
 }
 html {
     box-sizing: border-box;

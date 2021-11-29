@@ -17,7 +17,7 @@ header{
 }
 
 .header__menu{
-    margin-right: 4rem;
+    /* margin-right: 4rem; */
 }
 
 .menu__logo, .logo--img{
@@ -27,6 +27,7 @@ header{
 
 .logo--img{
     image-rendering: crisp-edges;
+    width: 100%;
 }
 
 .menu__lista{
@@ -43,11 +44,11 @@ header{
     font-size: 1.2rem;
 }
 
-.header__img,
+/* .header__img,
 .img__cont,
 .img__cont--1{
     width: 100%;
-}
+} */
 
 .img__cont--1{
     max-height: 65rem;
@@ -62,8 +63,9 @@ header{
 }
 
 .header__titulo{
-    bottom: 20%;
-    position: absolute;
+    position: relative;
+    top: 425px;
+    right: 150px;
 }
 
 .titulo__1--prin, .titulo__2--sec{
@@ -71,6 +73,7 @@ header{
     font-family: var(--fuenteSecundaria);
     letter-spacing: var(--kernigTitulos);
     color: var(--grisTitulos);
+    width: 1250px;
 }
 
 .titulo__1--prin{

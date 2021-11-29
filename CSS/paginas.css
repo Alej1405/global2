@@ -2,7 +2,7 @@
 
 .main{
     display: flex;
-    width: 75%;
+    width: 1920px;
     margin: auto;
 }
 
@@ -92,13 +92,13 @@
 }
 
 .mision--parrafo{
+    width: 1022px;
     font-size: var(--sizeParrafos);
     font-style: normal;
     color: var(--grisParrafos);
     font-kerning: var(--kernigParrafos);
     font-family: var(--fuentePrincipal);
     user-select: none;
-    width: 100%;
 }
 /*=========================<>=========================
     ----------ESTILOS PÁGINA PREGUNTAS FRECUENTES-------
@@ -167,7 +167,6 @@ h2.titulo--FAQ,.headerFAQ__titulo{
     line-height: 51px;
     text-align: left;
     color: var(--grisParrafos);
-
 }
 
 /* estilos direcciones de paises */
@@ -176,7 +175,6 @@ h2.titulo--FAQ,.headerFAQ__titulo{
     margin: 80px;
     padding: 0%;
     text-align: center;
-
 }
 
 
@@ -186,7 +184,6 @@ h2.titulo--FAQ,.headerFAQ__titulo{
     display: flex;
     flex-direction: column;
     align-items: center;
-    border
 }
 
 
@@ -198,12 +195,13 @@ h2.titulo--FAQ,.headerFAQ__titulo{
 .paises{
     width: 381px;
     margin: 50px;
+    background: yellow;
 }
 
 .paises2{
     place-content: center;
     width: 912px;
-    margin: 5px 0 0 50px;
+    margin: 5px 0 0 50px; */
 
 }
 
@@ -215,5 +213,4 @@ h2.titulo--FAQ,.headerFAQ__titulo{
     line-height: 51px;
     text-align: left;
     color: var(--grisParrafos);
-
 }

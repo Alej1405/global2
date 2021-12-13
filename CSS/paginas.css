@@ -2,7 +2,7 @@
 
 .main{
     display: flex;
-    width: 1920px;
+    width: 1000px;
     margin: auto;
 }
 
@@ -17,9 +17,8 @@
 
 .servicios__impexp{
     background-color: rgba(207, 207, 206, 1);
-    margin: 3.2rem;
+    margin: 5rem auto;
     width: 336px;
-    height: 459px;
     padding: 40px;
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -28,7 +27,7 @@
 .impexp--encabezado{
     display: flex;
     align-items: center;
-    margin:0;
+    margin:0 auto;
 }
 
 .impexp__titulo{
@@ -69,13 +68,13 @@
 .li__esp{
     font-family: var(--fuentePrincipal);
     font-weight: bold;
-    font-size: var(--sizeMenu);
+    font-size: var(--sizeLi);
     text-align: left;
     cursor: pointer;
     margin-top: var(--marginTop);
 }
 
-.esp--link{
+.esp--link {
     color: var(--azulEmpresarial);
     margin: 9px;
     letter-spacing: 0.06em;
@@ -88,11 +87,11 @@
 
 .mision--parrafo,
 .contacto__form{
-    margin: 150px;
+    margin-left: 50px;
 }
 
 .mision--parrafo{
-    width: 1022px;
+    width: 100%;
     font-size: var(--sizeParrafos);
     font-style: normal;
     color: var(--grisParrafos);
@@ -100,6 +99,25 @@
     font-family: var(--fuentePrincipal);
     user-select: none;
 }
+
+.impex__boton{
+    width: 210px;
+    height: 57px;
+    background-color: tomato;
+}
+
+.boton--info{
+    color: var(--azulEmpresarial);
+    font-weight: bolder;
+    margin-top: 50px;
+    transition: .5s;
+}
+
+.boton--info:hover{
+    font-size: 20px;
+}
+
+
 /*=========================<>=========================
     ----------ESTILOS PÁGINA PREGUNTAS FRECUENTES-------
                 PREGUTNAS FRECUENTES**/
@@ -133,7 +151,7 @@ h2.titulo--FAQ,.headerFAQ__titulo{
 .preguntas__subtitulo{
     font-family: var(--fuenteSecundaria);
     font-weight: 900;
-    font-size: var(--sizeMenu);
+    font-size: var(--sizeLi);
     letter-spacing: 0.3em;
     line-height: 34px;
     text-align: left;
@@ -195,13 +213,12 @@ h2.titulo--FAQ,.headerFAQ__titulo{
 .paises{
     width: 381px;
     margin: 50px;
-    background: yellow;
 }
 
 .paises2{
     place-content: center;
     width: 912px;
-    margin: 5px 0 0 50px; */
+    margin: 5px 0 0 50px;
 
 }
 
@@ -214,3 +231,41 @@ h2.titulo--FAQ,.headerFAQ__titulo{
     text-align: left;
     color: var(--grisParrafos);
 }
+
+
+/*--------ESTILOS DE FOTOS Y INFO DE CONTACTOS ------*/
+.contactos--whatsapp{
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.contactos--whatsapp:hover{
+    font-size: 27px;
+}
+
+.directo__telf{
+    margin: 50px;
+}
+
+.datos--foto{
+    width: 261px;
+}
+
+.gc__redes{
+    display: flex;
+    margin: 50px;
+}
+
+.redes__icon{
+    cursor: pointer;
+}
+
+.icon{
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+}
+
+/*-----ESTILOS DE PAGINA DE EXPORTACION-----*/
+/*-----ESTILOS EXPOTACION------*/
+

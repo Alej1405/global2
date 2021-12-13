@@ -16,9 +16,11 @@
     /** tamaños y formato **/
     --sizeTitulos: 7.9rem;
     --sizeSubtitulos: 2.2rem;
-    --sizeMenu: 200%;
-    --sizeParrafos: 27pt;
+    --sizeMenu: 18px;
+    --sizeLi: 100%;
+    --sizeParrafos: 20pt;
     --sizeParrafos2: 95%;
+    --sizeParrafos3:180%;
     --sizeDescrip: 1.5rem;
     --sizeCopy:80%;
     --sizeFooter: 90%;

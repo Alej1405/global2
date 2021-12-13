@@ -8,10 +8,11 @@
                         <img src="../IMG\logo_global.png" alt="Logo Global Cargo" class="logo--img">
                     </a>
                     <ul class="menu__lista">
-                        <li class="menu__li"><a href="../globalcargo/faq.php" class="menu__a">NOSOTROS</a></li>
-                        <li class="menu__li"><a href="#ser" class="menu__a">BODEGA</a></li>
+                        <li class="menu__li"><a href="../globalcargo/nosotros.php" class="menu__a">NOSOTROS</a></li>
+                        <li class="menu__li"><a href="../globalcargo/bodega.php" class="menu__a">BODEGA</a></li>
                         <li class="menu__li"><a href="#ser" class="menu__a">COTIZAR </br>SERVICIOS</a></li>
                         <li class="menu__li"><a href="mas.html" class="menu__a">ASESORÍAS</a></li>
+                        <li class="menu__li"><a href="../globalcargo/faq.php" class="menu__a">PREGUNTAS </br>FRECUENTES</a></li>
                     </ul>
                 </nav>
                 <div class="header__img">
@@ -51,8 +52,8 @@
                     <li class="li__esp"><a class="esp--link">CONSOLIDACIÓN</a></li>
                     <li class="li__esp"><a class="esp--link">COURIER</a></li>
                   </ul>
-                  <div class="botones">
-                      <a href="mas.php" class="masinfo">MÁS INFO...</a>
+                  <div class="impexp__boton">
+                      <a href="../globalcargo/exportacion.php" class="boton--info">MÁS INFO...</a>
                   </div>
               </div>
               <div class="servicios__impexp">
@@ -75,12 +76,12 @@
                     <li class="li__esp"><a class="esp--link">TEXTILES</a></li>
                     <li class="li__esp"><a class="esp--link">OTROS PRODUCTOS</a></li>
                   </ul>
-                  <div class="botones">
-                      <a href="mas.php" class="masinfo">MÁS INFO...</a>
+                  <div class="impexp__boton">
+                      <a href="mas.php" class="boton--info">MÁS INFO...</a>
                   </div>
               </div>
         </div>
-          <!-- fin de modal de servicios    -->
+      <!-- fin de modal de servicios    -->
           <!-- inicio del contenedor de mision y contacto -->
         <div class="main__contactos">
           <div class="contacto__misión">

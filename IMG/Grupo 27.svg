@@ -1,0 +1,10 @@
+<svg id="Grupo_27" data-name="Grupo 27" xmlns="http://www.w3.org/2000/svg" width="333.336" height="75.724" viewBox="0 0 333.336 75.724">
+  <g id="LOGO_GLOBALCARGO" transform="translate(15.532 30.616)">
+    <text id="LOBAL" transform="translate(58.211 36.087)" fill="#cfcfce" font-size="32" font-family="OpenSans-Bold, Open Sans" font-weight="700" letter-spacing="0.064em"><tspan x="0" y="0">LOBAL</tspan></text>
+    <text id="CARGO" transform="translate(196.804 36.108)" fill="#cfcfce" font-size="32" font-family="OpenSans-Bold, Open Sans" font-weight="700" letter-spacing="0.064em"><tspan x="0" y="0">CARGO</tspan></text>
+  </g>
+  <g id="LOGO_GLOBALCARGO-2" data-name="LOGO_GLOBALCARGO">
+    <path id="Trazado_1" data-name="Trazado 1" d="M344.221,46.589a33.642,33.642,0,0,0-13.518-15.4,41.031,41.031,0,0,0-21.671-6.032c-20.667,0-37.482,14.667-37.482,32.693s16.815,32.693,37.482,32.693h8.9V76.6h-8.9c-11.856,0-21.5-8.413-21.5-18.752s9.644-18.752,21.5-18.752a23.927,23.927,0,0,1,10.734,2.509,20.609,20.609,0,0,1,7.7,6.606l.631.915h17.193Z" transform="translate(-271.55 -25.16)" fill="#202850"/>
+    <path id="Trazado_2" data-name="Trazado 2" d="M459.488,191.678,439.45,179.44h40.6L469.9,197.022,459.752,214.6Z" transform="translate(-406.537 -149.197)" fill="#00b8e3"/>
+  </g>
+</svg>

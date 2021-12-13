@@ -16,9 +16,6 @@ header{
     justify-content: space-around;
 }
 
-.header__menu{
-    /* margin-right: 4rem; */
-}
 
 .menu__logo, .logo--img{
     margin-top: 3rem;
@@ -41,7 +38,7 @@ header{
 }
 
 .menu__a{
-    font-size: 1.2rem;
+    font-size: var(--sizeMenu);
 }
 
 /* .header__img,
@@ -64,7 +61,7 @@ header{
 
 .header__titulo{
     position: relative;
-    top: 425px;
+    top: 400px;
     right: 150px;
 }
 

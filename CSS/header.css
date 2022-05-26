@@ -41,12 +41,6 @@ header{
     font-size: var(--sizeMenu);
 }
 
-/* .header__img,
-.img__cont,
-.img__cont--1{
-    width: 100%;
-} */
-
 .img__cont--1{
     max-height: 65rem;
     align-items: flex-end;
@@ -83,4 +77,14 @@ header{
 .menu__li:hover{
     background: var(--grisBordes);
     text-align: left;
+}
+
+/* media de menu */
+@media screen and (max-width:450px){
+    .header,
+    .menu__logo
+    .logo--img
+    .menu__lista{
+        display: none;
+    }
 }

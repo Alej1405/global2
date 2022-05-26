@@ -2,12 +2,14 @@
 <html lang="es" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <link rel="icon" href="../IMG/favico.png">
-  <link rel="stylesheet" href="../CSS/globales.css">
-  <link rel="stylesheet" href="../CSS/footer.css">
-  <link rel="stylesheet" href="../CSS/headerGeneral.css">
-  <link rel="stylesheet" href="../CSS/normalize.css">
-  <link rel="stylesheet" href="../CSS/paginas.css">
+  <link rel="icon" href="/IMG/favico.png">
+  <link rel="stylesheet" href="/CSS/form.css">
+  <link rel="stylesheet" href="/CSS/globales1.css">
+  <link rel="stylesheet" href="/CSS/footer.css">
+  <link rel="stylesheet" href="/CSS/headerGeneral.css">
+  <link rel="stylesheet" href="/CSS/normalize.css">
+  <link rel="stylesheet" href="/CSS/paginas.css">
+  <link rel="stylesheet" href="/CSS/pgresponsive.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -33,18 +35,21 @@
           <img src="../IMG/global.png" alt="logo global cargo" class="logo--global">
         </a>
       </div>
+      <div class="volver">
+        <a href="#inicio" class="volver__link">subir</a>
+      </div>
       <div class="nav__menu">
         <button class="menu__servicios boton1">
-          <a class="servicios__op" href="href=" target="blanck">NOSOTROS</a>
+          <a class="servicios__op" href="../../globalcargo/nosotros.php" >NOSOTROS</a>
         </button>
         <button class="menu__servicios boton1">
-          <a class="servicios__op" href="href=" target="blanck">BOLETINES</a>
+          <a class="servicios__op" href="https://noti-cargoec.blogspot.com/?m=1" target="blanck">NOTI CARGO</a>
         </button>
         <button class="menu__servicios boton1">
-          <a class="servicios__op" href="href=" target="blanck">COTIZAR SERVICIOS</a>
+          <a class="servicios__op" href="../../globalcargo/cotizaciones.php">COTIZACIONES</a>
         </button>
         <button class="menu__servicios boton1">
-          <a class="servicios__op" href="href=" target="blanck">ASESORIAS</a>
+          <a class="servicios__op" href="../../globalcargo/contactos.php">CONTACTOS</a>
         </button>
       </div>
     </nav>

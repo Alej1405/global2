@@ -1,0 +1,295 @@
+
+<form action=" " class="form2" method="POST">
+    <h2 class="form__titulo">DATOS DE ÓRDENES</h2>
+    <p class="form__p form2--p">
+        Datos generales de las ordenes que provienen de Rusia, recuerde que los campos no se modifican.
+    </p>
+    <?php foreach($errores as $error) : ?>
+        <div class="alerta">
+            <?php echo $error; ?>
+        </div>
+    <?php endforeach ?>
+    <fieldset>
+        <legend>Estos datos no se modifican</legend>
+            <div class="container2">
+                <div class="form__container form--2">
+                <div class="form__grupo">
+                        <input type="text" name="id" id="id"class="form__input" placeholder=" " value="" >
+                        <label for="id" class="form__label">Id</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="n_orden" id="n_orden"class="form__input" placeholder=" " value="" >
+                        <label for="n_orden" class="form__label">Número de Orden</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="marca" id="marca" class="form__input" placeholder=" " value="">
+                        <label for="marca" class="form__label">Marca del producto</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="cantidad" id="cantidad" class="form__input" placeholder=" " value="">
+                        <label for="cantidad" class="form__label">Cantidad</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="precio" id="precio"class="form__input" placeholder=" " value="">
+                        <label for="precio" class="form__label"> Precio</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    
+                </div>
+                <div class="form__container form--2">
+                    <div class="form__grupo">
+                        <input type="text" name="tPagar" id="tPagar" class="form__input" placeholder=" " value="">
+                        <label for="tPagar" class="form__label">Total a pagar</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="cliente" id="cliente"class="form__input" placeholder=" " value="">
+                        <label for="cliente" class="form__label">Nombre del cliente</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="provincia" id="provincia"class="form__input" placeholder=" " value="">
+                        <label for="provincia" class="form__label">Provincia de domicilio</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="ciudad">
+                        <input type="text" name="ciudad" id="ciudad"class="form__input" placeholder=" " value="">
+                        <label for="ciudad" class="form__label">Ciudad de domicilio</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="direccion" id="direccion"class="form__input" placeholder=" " value="">
+                        <label for="direccion" class="form__label">Dirección</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="ciudad">
+                        <input type="text" name="telefono1" id="telefono1"class="form__input" placeholder=" " value="">
+                        <label for="telefono1" class="form__label">Teléfono personal</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="telefono2" id="telefono2"class="form__input" placeholder=" " value="">
+                        <label for="telefono2" class="form__label">Teléfono de contacto</label>
+                        <span class="form__linea"></span>
+                    </div>
+
+                </div> 
+            </div>
+    </fieldset>
+    <fieldset>
+        <legend>Datos para la facturación</legend>
+            <div class="container2">
+                <div class="form__container form--2">
+                    <div class="form__grupo">
+                        <input type="text" name="nombres" id="nombres"class="form__input" placeholder=" " value="" >
+                        <label for="nombres" class="form__label">Nombres</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="apellidos" id="apellidos" class="form__input" placeholder=" " value="">
+                        <label for="apellidos" class="form__label">Apellidos</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="cedula" id="cedula" class="form__input" placeholder=" " value="">
+                        <label for="cedula" class="form__label">Cédula</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="direccion" id="direccion"class="form__input" placeholder=" " value="">
+                        <label for="direccion" class="form__label"> Dirección</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="correo" id="correo" class="form__input" placeholder=" " value="">
+                        <label for="cedula" class="form__label">Correo electrónico</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="telefono" id="telefono" class="form__input" placeholder=" " value="">
+                        <label for="telefono" class="form__label">Teléfono</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="metodoPago" id="metodoPago" class="form__input" placeholder=" " value="">
+                        <label for="metodoPago" class="form__label">Método de Pago</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    
+                </div>
+            </div>
+            <fieldset>
+        <legend>Datos de órdenes</legend>
+            <div class="container2">
+                <div class="form__container form--2">
+                    <div class="form__grupo">
+                        <input type="text" name="id" id="id"class="form__input" placeholder=" " value="" >
+                        <label for="id" class="form__label">ID</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="order_id" id="order_id" class="form__input" placeholder=" " value="">
+                        <label for="order_id" class="form__label">Orden id</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="order_at" id="order_at" class="form__input" placeholder=" " value="">
+                        <label for="order_at" class="form__label">Order at</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="delivery_at" id="delivery_at"class="form__input" placeholder=" " value="">
+                        <label for="delivery_at" class="form__label">Delivery at</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="total" id="total" class="form__input" placeholder=" " value="">
+                        <label for="total" class="form__label">Total</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="status" id="status" class="form__input" placeholder=" " value="">
+                        <label for="status" class="form__label">Status</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="created_at" id="created_at" class="form__input" placeholder=" " value="">
+                        <label for="created_at" class="form__label">Fecha de creación</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    
+                </div>
+                <fieldset>
+        <legend>Ordenes de clientes</legend>
+            <div class="container2">
+                <div class="form__container form--2">
+                    <div class="form__grupo">
+                        <input type="text" name="id" id="id"class="form__input" placeholder=" " value="" >
+                        <label for="id" class="form__label">ID</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="name" id="name" class="form__input" placeholder=" " value="">
+                        <label for="name" class="form__label">Nombre</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="last_name" id="last_name" class="form__input" placeholder=" " value="">
+                        <label for="last_name" class="form__label">Apellido</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="province" id="province"class="form__input" placeholder=" " value="">
+                        <label for="province" class="form__label">Provincia</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="city" id="city" class="form__input" placeholder=" " value="">
+                        <label for="city" class="form__label">Ciudad</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="address" id="address" class="form__input" placeholder=" " value="">
+                        <label for="address" class="form__label">Dirección</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="reference" id="reference" class="form__input" placeholder=" " value="">
+                        <label for="reference" class="form__label">Referencia</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="phone" id="phone" class="form__input" placeholder=" " value="">
+                        <label for="phone" class="form__label">Teléfono</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="landline" id="landline" class="form__input" placeholder=" " value="">
+                        <label for="landline" class="form__label">Teléfono convencional</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="order_id" id="order_id" class="form__input" placeholder=" " value="">
+                        <label for="order_id" class="form__label">Order id</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="created_at" id="created_at" class="form__input" placeholder=" " value="">
+                        <label for="created_at" class="form__label">Fecha de creación</label>
+                        <span class="form__linea"></span>
+                    </div>
+
+                    <fieldset>
+        <legend>Ordenes de productos</legend>
+            <div class="container2">
+                <div class="form__container form--2">
+                    <div class="form__grupo">
+                        <input type="text" name="id" id="id"class="form__input" placeholder=" " value="" >
+                        <label for="id" class="form__label">ID</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="name" id="name" class="form__input" placeholder=" " value="">
+                        <label for="name" class="form__label">Nombre</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="unit_price" id="unit_price" class="form__input" placeholder=" " value="">
+                        <label for="unit_price" class="form__label">Precio Unitario</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="quantity" id="quantity"class="form__input" placeholder=" " value="">
+                        <label for="quantity" class="form__label">Cantidad</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="product_id" id="product_id" class="form__input" placeholder=" " value="">
+                        <label for="product_id" class="form__label">Id del producto</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="order_id" id="order_id" class="form__input" placeholder=" " value="">
+                        <label for="order_id" class="form__label">Id Orden</label>
+                        <span class="form__linea"></span>
+                    </div>
+                    <div class="form__grupo">
+                        <input type="text" name="created_at" id="created_at" class="form__input" placeholder=" " value="">
+                        <label for="creat_at" class="form__label">Fecha de creación</label>
+                        <span class="form__linea"></span>
+                    </div>
+                                        
+                </div>
+            </div>
+            <div class="botones">
+                <input type="submit" class="form__submit" value="GUARDAR">
+            </div>
+    </fieldset>
+    
+</form>
+
+$query = "INSERT INTO ordenes (id, n_orden, marca, cantidad, precio, tPagar, cliente, provincia, ciudad, direccion, telefono1, telefono2, nombres, apellidos, cedula, direccion, correo, telefono, metodoPago, order_id, order_at, delivery_at, total, status, delivery_at, total, name, last_name, province, city, address, reference, phone, landline, order_id, id, name, unit_price, quantity, product_id, order_id, created_at) 
+                    VALUES ('$id', '$n_orden', '$marca', '$cantidad', '$precio', '$tPagar', '$cliente', '$provincia', '$ciudad', '$direccion', '$telefono1', '$telefono2', '$nombres', '$apellidos', '$cedula', '$direccion', '$correo', '$telefono', '$metodoPago', '$order_id', '$order_at', '$delivery_at', '$total', '$status', '$delivery_at', '$total', '$name', '$last_name', '$province', '$city', '$address', '$reference', '$phone', '$landline', '$order_id', '$id', '$name', '$unit_price', '$quantity', '$product_id', '$order_id', '$created_at')";
+
+
+                    <?php if($verfi == "POR CONTACTAR"): ?>
+                        <td> 
+                            <?php echo $resultadoApi['name']; ?>
+                        </td>
+                        <td> 
+                            <?php echo $resultadoApi['last_name']; ?>
+                        </td>
+                        <td> 
+                            <?php echo $resultadoApi['phone']; ?>
+                        </td>
+                        <td> 
+                            <?php echo $resultadoApi['city']; ?>
+                        </td>
+                        <td> 
+                            <?php echo $resultadoApi['order_id']; ?>
+                        </td>
+                    <?php endif; ?>

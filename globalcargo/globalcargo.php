@@ -10,9 +10,10 @@
                     <ul class="menu__lista">
                         <li class="menu__li"><a href="../globalcargo/nosotros.php" class="menu__a">NOSOTROS</a></li>
                         <li class="menu__li"><a href="../globalcargo/bodega.php" class="menu__a">BODEGA</a></li>
-                        <li class="menu__li"><a href="#ser" class="menu__a">COTIZAR </br>SERVICIOS</a></li>
-                        <li class="menu__li"><a href="mas.html" class="menu__a">ASESORÍAS</a></li>
+                        <li class="menu__li"><a href="../globalcargo/cotizaciones.php" class="menu__a">COTIZAR </br>SERVICIOS</a></li>
+                        <li class="menu__li"><a href="../globalcargo/asesorias.php" class="menu__a">ASESORÍAS</a></li>
                         <li class="menu__li"><a href="../globalcargo/faq.php" class="menu__a">PREGUNTAS </br>FRECUENTES</a></li>
+                        <li class="menu__li"><a href="../sistema/index.php" class="menu__a">INICIAR </br> SESION</a></li>
                     </ul>
                 </nav>
                 <div class="header__img">
@@ -34,7 +35,7 @@
         <div class="main__servicios" id="ser">
               <div class="servicios__impexp">
                     <div class="impexp--encabezado">  
-                      <h3 class="impexp__titulo">EXPORTACIÓN</h3>
+                      <h3 class="impexp__titulo">IMPORTACIÓN</h3>
                       <svg class="titulo--icon" viewBox="439.45 179.44 39.577 34.273">
                         <path  d="M 458.9805908203125 191.3681640625 L 439.4500122070312 179.4400024414062 L 459.2385559082031 179.4400024414062 L 479.027099609375 179.4400024414062 L 469.1337890625 196.5765686035156 L 459.2385559082031 213.713134765625 L 458.9805908203125 191.3681640625 Z">
                         </path>
@@ -47,13 +48,13 @@
                     de la carga en el país
                   </p>
                   <ul class="impexp__li">
-                    <li class="li__esp"><a class="esp--link">CARGA SUELTA</a></li>
+                    <li class="li__esp"><a class="#">CARGA SUELTA</a></li>
                     <li class="li__esp"><a class="esp--link">FULL CONTENEDOR</a></li>
                     <li class="li__esp"><a class="esp--link">CONSOLIDACIÓN</a></li>
                     <li class="li__esp"><a class="esp--link">COURIER</a></li>
                   </ul>
                   <div class="impexp__boton">
-                      <a href="../globalcargo/exportacion.php" class="boton--info">MÁS INFO...</a>
+                      <a href="../globalcargo/importacion.php" class="boton--info">MÁS INFO...</a>
                   </div>
               </div>
               <div class="servicios__impexp">
@@ -71,20 +72,20 @@
                     internacional            
                     </p>
                   <ul class="impexp__li">
-                    <li class="li__esp"><a class="esp--link">PRODUCTOS AGRICOLAS</a></li>
-                    <li class="li__esp"><a class="esp--link">ARTESANÍAS</a></li>
-                    <li class="li__esp"><a class="esp--link">TEXTILES</a></li>
-                    <li class="li__esp"><a class="esp--link">OTROS PRODUCTOS</a></li>
+                    <li class="li__esp"><a class="esp--link" href="../globalcargo/exportacion.php">PRODUCTOS AGRICOLAS</a></li>
+                    <li class="li__esp"><a class="esp--link" href="../globalcargo/exportacion.php">ARTESANÍAS</a></li>
+                    <li class="li__esp"><a class="esp--link" href="../globalcargo/exportacion.php">TEXTILES</a></li>
+                    <li class="li__esp"><a class="esp--link" href="../globalcargo/exportacion.php">OTROS PRODUCTOS</a></li>
                   </ul>
                   <div class="impexp__boton">
-                      <a href="mas.php" class="boton--info">MÁS INFO...</a>
+                      <a href="../globalcargo/exportacion.php" class="boton--info">MÁS INFO...</a>
                   </div>
               </div>
         </div>
       <!-- fin de modal de servicios    -->
           <!-- inicio del contenedor de mision y contacto -->
         <div class="main__contactos">
-          <div class="contacto__misión">
+          <div class="contacto__mision">
             <p class="mision--parrafo"> 
                 Somos una empresa dedicada a brindar
                 servicios de Comercio Exterior 
@@ -94,7 +95,7 @@
             </p>
           </div>
           <div class="contacto__form">
-              <?php incluirTemplate('form') ?>
+              <?php incluirTemplate('form_contacto') ?>
           </div>
         </div>
       <!-- fin del contenedor de contacto y misión  -->

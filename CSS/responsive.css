@@ -1,25 +1,37 @@
 @media screen and (max-width:450px){
-  /** responsive index **/  
+  /** responsive index **/
+    .tgc{
+        font-size: 1rem
+    }
+    
     .barra1{
         width: 100vw;
-        height: 11%;
+        max-height: 70px;
         position: fixed;
         bottom: 0;
-    }
+        z-index: 1;
+        }
     .presen{
-        display: grid;
+        flex-direction: column;
         margin-bottom: 100px;
     }
     .baner{
-        width: 80vw;
+        max-width: 80%;
+        margin: auto;
+        min-height: 450px;
+        max-height: 450px;
     }
-    .trabajando{
-        display: flex;
-        justify-content: center;
-        margin-top: 10%;
-        margin-bottom: 10%
+    .desc{
+        margin: 0 auto;
     }
+
     .imgtra{
         width: 90%;
+    }
+    .imagen{
+        height: 50px;
+    }
+    .botgc{
+        visibility: hidden;
     }
 }

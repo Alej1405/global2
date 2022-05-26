@@ -4,8 +4,9 @@
         <head>
             <meta charset="utf-8">
             <link rel="icon" href="../IMG/favico.png">
+            <link rel="stylesheet" href="../CSS/form.css">
             <link rel="stylesheet" href="../CSS/normalize.css">
-            <link rel="stylesheet" href="../CSS/globales.css">
+            <link rel="stylesheet" href="../CSS/globales1.css">
             <link rel="stylesheet" href="../CSS/footer.css">
             <link rel="stylesheet" href="../CSS/header.css">
             <link rel="stylesheet" href="../CSS/paginas.css">

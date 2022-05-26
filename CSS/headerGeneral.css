@@ -16,6 +16,10 @@
 
 .logo--global{ width: 75px;  }
 
+.volver__link{
+    display: none;
+}
+
 .boton1{
     border: none;
     background: none;
@@ -48,5 +52,26 @@
     transition: .6s ease-in-out;
 }
 
+@media screen and (max-width:450px){
+    .nav{
+        z-index: 1;
+        position: fixed;
+        bottom: 0;
+        width: 100vw;
+        max-height: 70px;
+    }
+    .boton1{
+        display: none;
+    }
 
+    .volver{
+        margin-top: 20px;
+        margin-left: 190px;
+    }
 
+    .volver__link{
+        display: flex;
+        font-weight: bolder;
+        text-transform: uppercase;
+    }
+}

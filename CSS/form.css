@@ -1,7 +1,117 @@
 /* ------estilos formulario de contactos------ */
+.form{
+    background-color: #fff;
+    margin: auto;
+    /* tamaño responsive comprobar en el navegador */
+    width: 90%;
+    max-width: 400px;
+    /* fin de tamaño responsive */
+    padding: 4.53em 3em;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%);
+    text-align: center;
+}
 
+.form__title{
+  font-size: 2rem;
+  margin-bottom: .5em;
+}
 
+.form__p{
+  font-weight: 300;
+  letter-spacing: .3rem;
+  color: #000;
+}
 
-.formcot{
-  margin-top: 50px;
+.form__link{
+  font-weight: 400;
+  color: #000;
+  letter-spacing: .1rem;
+  color: var(--celesteEmpresarial);
+}
+
+.form__container{
+  margin-top: 3em;
+  display: grid;
+  gap: 2.5em;
+}
+
+.form__grupo{
+  position: relative;
+}
+
+.form__input{
+  width: 100%;
+  background: none;
+  color: #706c6c;
+  font-size: 1rem;
+  padding: .6em .3em;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #5757577e;
+  font-family: var(--fuentePrincipal);
+}
+
+.form__input:not(:placeholder-shown){
+  color: #4d4646;
+}
+
+.form__input:focus + .form__label,
+.form__input:not(:placeholder-shown) + .form__label{
+  transform: translateY(-12px) scale(.7);
+  transform-origin: left top;
+  color: var(--celesteEmpresarial);
+}
+
+.form__label{
+  font-family: var(--fuentePrincipal);
+  font-size: 1.4rem;
+  color: #5757577e;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 5px;
+  transform: translateY(4px);
+  transition: transform .5s, color .3s;
+}
+
+.form__submit{
+  background-color: #3866f2;
+  color: #fff;
+  font-family:  var(--fuentePrincipal);
+  font-weight: 300;
+  font-size: 1rem;
+  padding: .8em 0;
+  border: none;
+  border-radius: .5em;
+  cursor: pointer;
+  transform: left;
+  transition: .5s;
+}
+
+.form__submit:hover{
+  background-color: #6e8de9;
+}
+
+.form__linea{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #3866f2;
+  transform: scale(0);
+  transform: left bottom;
+  transition: .5s;
+}
+
+.form__input:focus ~ .form__linea,
+.form__input:not(:placeholder-shown) + .form__linea{
+  transform: scale(1);
+}
+
+@media (max-wdith:425px) {
+  .form__titulo{
+    font-size: 1.8rem;
+  }
 }

@@ -58,3 +58,12 @@ footer{
     color: var(--grisBordes);
     user-select: none;
 }
+
+@media screen and (max-width:450px){
+    .footer__nav{
+        margin:0;
+    }
+    .link{
+        font-size: .9rem;
+    }
+}

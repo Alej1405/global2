@@ -23,9 +23,9 @@
             Logista nacional, contamos con alianzas estratégicas
             que garantizan la entrega a tiempo y con rapidéz.
           </p>
-          <button type="button" name="ingresar" class="botgc" >
+          <div class="botgc" >
             <a class="boton" href="globalcargo/globalcargo.php">INGRESAR</a>
-          </button>
+          </div>
       </div>
       <div class="baner">
           <div class="encab">
@@ -36,12 +36,11 @@
             Paquetería rápida, ágil y confiable.
             Compras asistidas desde las principales tiendas del mundo
             AMAZON, EBAY, TARGET.
-            No solo compras para uso personal sino, también
-            aquellos detalles que marcan la diferencia en el emprendimiento.
+            Aquellos detalles que marcan la diferencia en el emprendimiento.
           </p>
-          <button type="button" name="ingresar" class="botgc">
-            <a class="boton" href="gcbox.php">INGRESAR</a>
-          </button>
+          <div class="botgc">
+            <a class="boton" href="gcbox/index.php">INGRESAR</a>
+          </div>
       </div>
     </section>
 </body>

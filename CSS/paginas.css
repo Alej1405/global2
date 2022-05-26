@@ -1,8 +1,11 @@
+html{
+    scroll-behavior: smooth;
+}
 /*------main global cargo------*/
 
 .main{
     display: flex;
-    width: 1000px;
+    width: 90%;
     margin: auto;
 }
 
@@ -10,9 +13,9 @@
     place-items: center;
     display:flex;
     flex-direction: column;
-    justify-content: center;
-    margin: auto;
-    padding-top: 300px;
+    /* justify-content: center;*/
+    margin-top: 150px; 
+    /* padding-top: 300px; */
 }
 
 .servicios__impexp{
@@ -85,9 +88,18 @@
     margin-top: 350px;
 }
 
+.titulo_form{
+    font-size: 25px;
+}
+
 .mision--parrafo,
 .contacto__form{
     margin-left: 50px;
+}
+
+.contacto__form{
+    margin-top: 120px;
+    margin-left: 40px;
 }
 
 .mision--parrafo{
@@ -118,10 +130,16 @@
 }
 
 
-/*=========================<>=========================
-    ----------ESTILOS PÁGINA PREGUNTAS FRECUENTES-------
-                PREGUTNAS FRECUENTES**/
-                
+
+
+/*==================================================*/
+    /*----------ESTILOS PÁGINA PREGUNTAS FRECUENTES-------*/
+                /*PREGUTNAS FRECUENTES*/
+
+.paginas{
+    position: fixed;
+}
+
 h2.titulo--FAQ,.headerFAQ__titulo{
     font-size: var(--sizeTitulos);
 }
@@ -145,7 +163,6 @@ h2.titulo--FAQ,.headerFAQ__titulo{
     border-radius: 0px 0px 0px 33px;
     background: var(--blanco);
     border: 1px solid var(--grisBordes);
-
 }
 
 .preguntas__subtitulo{
@@ -234,6 +251,10 @@ h2.titulo--FAQ,.headerFAQ__titulo{
 
 
 /*--------ESTILOS DE FOTOS Y INFO DE CONTACTOS ------*/
+/* .direcctorio__datos{
+    margin: 25px;
+} */
+
 .contactos--whatsapp{
     font-weight: bold;
     transition: 0.5s;
@@ -266,6 +287,271 @@ h2.titulo--FAQ,.headerFAQ__titulo{
     object-fit: cover;
 }
 
-/*-----ESTILOS DE PAGINA DE EXPORTACION-----*/
-/*-----ESTILOS EXPOTACION------*/
 
+/*-----ESTILOS DE PAGINA DE EXPORTACION-----*/
+/*-----ESTILOS IMPORTACION Y EXPOTACION------*/
+.principal{
+    display: flex;
+}
+
+.aside{
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 10px;
+    background-color: #bcbee3;
+    height: 500px ;
+    font-weight: bold;
+    letter-spacing: .2em;
+    margin: 20px;
+    position: sticky;
+    top:20px;
+}
+
+.export{
+    max-height: 180px;
+}
+
+.aside__link{
+    color: var(--azulEmpresarial);
+    margin-top: 20px;
+    padding-left: 9px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    transition: .5s;
+}
+
+.aside__link:hover{
+    transform: scale(.9);
+    background-color: rgb(252, 252, 167);
+}
+
+.regresar{
+    color:whitesmoke;
+    text-align: right;
+}
+
+.regresar:hover{
+    background-color: whitesmoke;
+    color: var(--azulEmpresarial);
+}
+
+.expos{
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+    margin-right: 25px;
+
+}
+
+.parrafo1{
+    color: var(--grisParrafos);
+    text-align: justify;
+}
+
+.imagen1{
+    width: 900px;
+    margin: auto;
+}
+
+.imagen2{
+    width: 450px;
+    /* margin: auto; */
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+
+.lista2{
+    font-weight: bolder;
+    list-style: visible;
+    font-size: var(--listas);
+}
+
+.sub__lista3{
+    margin: 30px;
+}
+
+.lista3{
+    font-style: italic;
+    list-style-type: square;
+}
+
+.enlace1{
+    font-style: oblique;
+    font-weight: bolder;
+    text-decoration: underline green;
+    text-decoration-style:solid;
+    text-transform: uppercase;
+}
+
+.lista4{
+    font-style: italic;
+    list-style-type: disc;
+    margin: 15px;
+    font-weight: lighter;
+}
+
+.lista5{
+    list-style: visible;
+}
+
+.listas6{
+    list-style: visible;
+    margin-top: 25px;
+    list-style-type: square;
+}
+
+.titulo__nota{
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: var(--notaTitulo);
+}
+
+.nota1{
+    right: 0;
+    width: 700px;
+    font-weight: lighter;
+    font-style: italic;
+    font-size: var(--nota1);
+    text-align: justify;
+}
+
+.sub__tituloh3{
+    text-transform: uppercase;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.asesoria{
+    margin-left: 50%;
+}
+
+.foto1{
+    width: 100px;
+}
+
+.notas{
+    font-size: 14px;
+}
+
+
+/*estilos de pagina de asesorias*/
+.p_asesorias{
+    width: 80%;
+    margin: auto;
+}
+
+
+/*==================================================*/
+    /*----------MEDIAQUERYS RESPONSIVE-------*/
+                /*GLOBAL CARGO*/
+@media screen and (max-width:450px){
+    .main{
+        background-color: #e5e5f7;
+        opacity: 0.5;
+        background-image: radial-gradient(#1822e0 0.4px, #e5e5f7 0.4px);
+        background-size: 8px 8px;
+        display: flex;
+        flex-direction: column;
+        min-width: 100%;
+        max-width: 100%;
+        }
+
+        .contacto__mision{
+        display: none;
+        }
+
+        .main__servicios{
+            padding: 0;
+            margin: 0;
+            }
+
+        .main__contactos{
+            margin: 0 auto;
+            }
+
+        .contacto__form{
+            margin: 50px 0;
+            }
+
+        .servicios__impexp{
+            background-color: #fff;
+            z-index: 1;
+            }
+
+/* mediaexporimport */
+        .principal,
+        .contactos{
+            display: block;
+            }
+
+        .expos{
+            width: 90%;
+            margin: auto;
+            }
+
+        .aside{
+            position: relative;
+            }
+
+        .regresar{
+            margin-top: 10px;
+            color: var(--azulEmpresarial);
+            }
+
+        .imagen1,
+        .imagen2,
+        .nota1{
+            max-width: 90%;
+            min-width: 85%;
+            margin-top: 30px;
+            }
+/* mediaexporimport */
+        .master{
+            display: block;
+        }
+
+        .hedaerFAQ__des,
+        .des--FAQ{
+            display: none;
+        }
+
+        .FAQ__preguntas{
+            width: 80%;
+            margin: auto;
+            margin-bottom: 25px;
+        }
+
+        .titulo--FAQ{
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+/* mediadirectorio */
+        .paises--layout{
+        display: block;    
+        }
+
+        .headerDIR{
+            margin:0;
+            padding-top: 20px;
+        }
+
+        .datos--foto{
+            margin: auto;
+            width: 150px;
+        }
+
+        .direcctorio__datos{
+            margin: 60px auto;
+            background-color: rgb(232, 235, 238);
+            border-radius: 0 10px;
+            padding: 10px;
+            justify-items: center;
+        }
+        
+        .paises--dir,
+        .contactos--whatsapp{
+            color: #2b3256;
+        }
+}

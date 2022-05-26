@@ -55,7 +55,7 @@
                     $act_ubicacion = mysqli_query($db4, $ubicacion);
 
                     //historial de paquetes 
-                    $historial_ubicacion = "INSERT INTO historial_paquetes (id, responsable_m, ubicacion_p, observacion, res_ubp) VALUES 
+                    $historial_ubicacion = "INSERT INTO historial_paquetes (id_primary, responsable_m, ubicacion_p, observacion, res_ubp) VALUES 
                                                             ('${id}', '${responsable_m}', '${ubicacion_p}', '${observacion}', '${resp_ubp}');";
                     $his_ubicacion = mysqli_query($db4, $historial_ubicacion);
                         // echo $historial_ubicacion; 

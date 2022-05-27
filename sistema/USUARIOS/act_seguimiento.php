@@ -35,8 +35,10 @@
     
     $errores = [];
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            
             //DECLARACION DE VARIABLES TABLA DATOSORDENES 
             $ubicacion_p = $_POST['ubicacion_p'];
+            $fecha = $_POST['fecha'];
             $resp_ubp = $_SESSION['usuario'];
             $responsable_m = mysqli_real_escape_string($db, $_POST['responsable_m']);
             $observacion = mysqli_real_escape_string($db, $_POST['observacion']);
@@ -50,13 +52,14 @@
                 //ACTUALIZACION DE DATOS 
                     $ubicacion = "UPDATE datosordenes SET ubicacion_p = '${ubicacion_p}',
                                                           responsable_m = '${responsable_m}',
-                                                          res_ubp = '${resp_ubp}'
+                                                          res_ubp = '${resp_ubp}',
+                                                          fecha_salida = '${fecha}'
                                                           WHERE id = ${id};";
                     $act_ubicacion = mysqli_query($db4, $ubicacion);
 
                     //historial de paquetes 
-                    $historial_ubicacion = "INSERT INTO historial_paquetes (id_primary, responsable_m, ubicacion_p, observacion, res_ubp) VALUES 
-                                                            ('${id}', '${responsable_m}', '${ubicacion_p}', '${observacion}', '${resp_ubp}');";
+                    $historial_ubicacion = "INSERT INTO historial_paquetes (id_primary, responsable_m, ubicacion_p, observacion, res_ubp, fecha) VALUES 
+                                                            ('${id}', '${responsable_m}', '${ubicacion_p}', '${observacion}', '${resp_ubp}', '${fecha}');";
                     $his_ubicacion = mysqli_query($db4, $historial_ubicacion);
                         // echo $historial_ubicacion; 
                         // exit;
@@ -326,6 +329,12 @@
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Observacion</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="observacion"></textarea>
+                        </div>
+                    <div>
+                    </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Fecha de Gestion</label>
+                            <input type ="date" class="form-control" id="exampleFormControlTextarea1" rows="3" name="fecha"></input>
                         </div>
                     <div>
                         <input type="submit" class="btn btn-primary aling-c" value='GUARDAR'>

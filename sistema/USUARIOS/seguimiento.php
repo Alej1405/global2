@@ -38,7 +38,7 @@
         $filtro ="SELECT * FROM datosordenes WHERE responsable_m = '${ciudad}'";
            
     }else{
-        $filtro = "SELECT * FROM datosordenes WHERE responsable_m is null order by status ASC";
+        $filtro = "SELECT * FROM datosordenes order by status ASC";
     }
 
 

@@ -256,7 +256,7 @@
                     <h6 class="collapse-header">Actualización:</h6>
                     <a class="collapse-item" href="seguimiento_actu.php">Actualizar estados.</a>
                     <h6 class="collapse-header">Seguimiento:</h6>
-                    <a class="collapse-item" href="./vercargas.php">Inf. novedades diarias.</a>
+                    <a class="collapse-item" href="./vercargas.php">Control Genreal.</a>
                 </div>
             </div>
         </li>

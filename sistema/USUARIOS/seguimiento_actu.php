@@ -35,7 +35,7 @@
     //declarar el valor para la consulta de la query.
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $ciudad = $_POST['ciudad'];
-        $filtro ="SELECT * FROM datosordenes WHERE city = '${ciudad}' order by status DESC";
+        $filtro ="SELECT * FROM datosordenes WHERE responsable_m = '${ciudad}' order by status DESC";
            
     }else{
         $filtro = "SELECT * FROM datosordenes order by status ASC";
@@ -49,14 +49,39 @@
     <div class="container">
         <form action=" " method="POST" class="custom-file">
                 <div class="card-header">
-                    ACTUALIZAR ESTADOS DE ÓRDENES
+                    CONTROL GENERAL DE ORDENES
                 </div>
                 <div class="card-body">
-                    <input type="texte" name="ciudad" id="ciudad" class="form-control" require placeholder="INGRESA LA CIUDAD EN MAYUSCULAS">
-                    <p class="card-text">Buscar la orden por la ciudad de envío <?php echo $ciudad; ?></p>
-                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                    <input type="submit" value="FILTRAR" class="btn btn-primary">
+                            <select name="ciudad" class="form-select" aria-label="Default select example">
+                                        <option value=" ">Seleccionar Responsable</option>
+                                        <option value="ofiGYE">OFICINA GUAYAQUIL</option>
+                                        <option value="ofiUIO">OFICINA QUITO</option>
+                                        <option value="Henrry Roberto">LOS RIOS (HENRRY ROBERTO)</option>
+                                        <option value="Mariana">MARIANA</option>
+                                        <option value="Esteban">ESTEBAN</option>
+                                        <option value="Bryan Jonathan">EL ORO (BRYAN JOATHAN)</option>
+                                        <option value="Alisson">ALISSON</option>
+                                        <option value="Vanessa">VANESSA</option>
+                                        <option value="Francisco">DON FRANCISCO</option>
+                                        <option value="Urbano">URBANO</option>
+                                        <option value="Ma Eugenia">MARIA EUGENIA</option>
+                                        <option value="Juan Luis">JUAN LUIS</option>
+                                        <option value="Marco Cisneros">MARCO CISNEROS</option>
+                                        <option value="Eloisa">ELOISA</option>
+                                        <option value="Carlos">CARLOS</option>
+                                        <option value="Alexandra">ALEXANDRA</option>
+                                        <option value="Ivan">IVAN</option>
+                                        <option value="Xavier">XAVIER</option>
+                                        <option value="Jhonathan">JHONATHAN</option>
+                                        <option value="Jose">JOSE</option>
+                                        <option value="Bryan">BRYAN</option>
+                                        <option value="Fabricio">FABRICIO</option>
+                                        <option value="Esteban">ESTEBAN</option>
+                                        <option value="Carolina">CAROLINA</option>
+                                        <option value="Carolina">Sin Responsable</option>
+                            </select>
                 </div>
+                <input type="submit" value="FILTRAR">
         </form>
         <div class="table-wrapper-scroll-y my-custom-scrollbar mt-4" style="overflow-x: auto"> 
             <table class="table table-hover">
@@ -67,23 +92,14 @@
                         <th>Estado</th>
                         <th>Fecha</th>
                         <th>N. Visitas</th>
+                        <th>S. Paquete</th>
+                        <th>R. de Gestion</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php while($resultadoApi = mysqli_fetch_assoc($resultado)) : ?>
                         <tr>
-                            <?php 
-                                $idver = $resultadoApi['id'];
-                                $verQuery = "SELECT contactado from verificacion WHERE contactado =${idver};";
-                                $ejec = mysqli_query($db4, $verQuery);
-                                $ejec2 = mysqli_fetch_assoc($ejec);
-                                if(!$ejec2){
-                                    $verfi = "POR CONTACTAR";
-                                }else{
-                                    $verfi = "CONTACTO VERIFICADO";
-                                }
-                            ?>
                             <td class="fs-6">
                                 <?php echo $resultadoApi['name']." ".$resultadoApi['last_name']; ?>
                             </td>
@@ -98,6 +114,12 @@
                             </td>
                             <td class="fs-6">
                                 <?php echo $resultadoApi['n_visitas']; ?>
+                            </td>
+                            <td class="fs-6">
+                                <?php echo $resultadoApi['ubicacion_p']; ?>
+                            </td>
+                            <td class="fs-6">
+                                <?php echo $resultadoApi['responsable_m']; ?>
                             </td>
                             <td class="btn-group-vertical">
                                 <div class="accion__actualizar" >

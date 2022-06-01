@@ -324,6 +324,7 @@
                                         <option value="Fabricio">FABRICIO</option>
                                         <option value="Esteban">ESTEBAN</option>
                                         <option value="Carolina">CAROLINA</option>
+                                        <option value="Katherine Nogales">KATHERINE NOGALES</option>
                                     </select>
                     </div>
                         <div class="mb-3">

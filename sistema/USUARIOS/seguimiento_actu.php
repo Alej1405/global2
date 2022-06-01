@@ -35,12 +35,11 @@
     //declarar el valor para la consulta de la query.
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $ciudad = $_POST['ciudad'];
-        $filtro ="SELECT * FROM datosordenes WHERE responsable_m = '${ciudad}' order by status DESC";
+        $filtro ="SELECT * FROM datosordenes WHERE responsable_m = '${ciudad}'  order by status DESC";
            
     }else{
-        $filtro = "SELECT * FROM datosordenes order by status ASC";
+        $filtro = "SELECT * FROM datosordenes WHERE status = 'undelivered';";
     }
-
 
     $query = $filtro;
             $resultado = mysqli_query($db4, $query);
@@ -99,7 +98,19 @@
                 </thead>
                 <tbody>
                     <?php while($resultadoApi = mysqli_fetch_assoc($resultado)) : ?>
-                        <tr>
+                        <tr class="<?php 
+                                        $comp_fecha =  date('Y-m-d');
+                                        $id = $resultadoApi['id'];
+                                        $fecha_G = "SELECT * FROM orders WHERE id = ${id}";
+                                            $fecha_Q2 = mysqli_query($db3, $fecha_G);
+                                        $fecha_consul = mysqli_fetch_assoc($fecha_Q2);
+                                        $fecha_filtro = $fecha_concul['updated_at'];
+                                        $fecha_final = date("d-m-Y",strtotime($fecha_filtro."+ 2 days")); 
+                                        if($fecha_final > $comp_fecha){
+                                            echo "p-3 mb-2 bg-danger text-white"; 
+                                        }
+
+                                    ?>">
                             <td class="fs-6">
                                 <?php echo $resultadoApi['name']." ".$resultadoApi['last_name']; ?>
                             </td>

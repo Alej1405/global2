@@ -56,6 +56,13 @@ header("Content-Disposition: attachment; filename=informediario.xls");
                 <th>observacion de estado</th>
                 <th>numero de visitas</th>
             </tr>
+            <?php 
+                //consulta de historial de estados
+
+            ?> 
+            <tr>
+
+            </tr>
         </thead>
         <tbody>
             <?php while($resultadoApi = mysqli_fetch_assoc($resultado)) : ?>
@@ -103,6 +110,15 @@ header("Content-Disposition: attachment; filename=informediario.xls");
                     </td>
                     <td>
                         <?php echo $resultadoApi['n_visitas']; ?>
+                    </td>
+                    <td>
+                        <?php echo $resultadoApi['responsable_m']; ?>
+                    </td>
+                    <td>
+                        <?php echo $resultadoApi['ubicacion_p']; ?>
+                    </td>
+                    <td>
+                        <?php echo $resultadoApi['fecha_salida']; ?>
                     </td>
                 </tr>
             <?php endwhile; ?>

@@ -68,6 +68,7 @@
                                     <option value="Ma Eugenia">MARIA EUGENIA</option>
                                     <option value="Juan Luis">JUAN LUIS</option>
                                     <option value="Marco Cisneros">MARCO CISNEROS</option>
+                                    <option value="Katherine Nogales">KATHERINE NOGALES</option>
                                     <option value=" ">SIN ASIGNAR</option>
                                 </select>
                             </div>

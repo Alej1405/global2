@@ -284,6 +284,7 @@
                                                 <option value="en proceso">EN PROCESO</option>
                                                 <option value="entregado">ENTREGADO</option>
                                                 <option value="entregado y depositado">ENTREGADO Y DEPOSITADO</option>
+                                                <option value="solicitar devolucion" selected readonly>SOLICITTAR REGRESO</option>
                                         <?php endif; ?>
                                     </select>
                                     

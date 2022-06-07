@@ -328,6 +328,74 @@
                     </div>
                 </div>
             <!-- fin de historial completo -->
+            <!-- HISTORIAL DE MOVIEMIENTO DE LA CARGA -->
+                <!-- consulta del numero de despacho -->
+                <?php 
+                    $historial_p = "SELECT * FROM datosordenes WHERE id = ${buscar_D}";
+                        $dispatch_pq = mysqli_query($db4, $historial_p);
+                        $disp_paquetes = mysqli_fetch_assoc($dispatch_pq);
+                ?>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingNine">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseten" aria-expanded="false" aria-controls="collapseten">
+                        HISTORIAL MOVIMIENTO DE PAQUETES
+                    </button>
+                    </h2>
+                    <div id="collapseten" class="accordion-collapse collapse" aria-labelledby="headingten" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <strong>Responsable</strong>
+                                <?php echo $disp_paquetes['responsable_m']; ?>
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Estado Actual</strong>
+                                <?php echo $disp_paquetes['ubicacion_p']; ?>
+                                / 
+                                <strong>Actualizado por:</strong>
+                                <?php echo $disp_paquetes['res_ubp']; ?>
+                            </li>
+                        </ul>
+                            <?php 
+                                //CARGAR EL HISTORIAL COMPLETO
+                                $id_despacho = $disp_paquetes['id'];
+                                $historial_p = "SELECT * FROM historial_paquetes WHERE id_primary = ${buscar_D}";
+                                $historial_paq = mysqli_query($db4, $historial_p);
+                            ?>
+                            <div class="card">
+                                <div class="card-body">
+                                    <?php while($historial_paq2 = mysqli_fetch_assoc($historial_paq)):?>
+                                        <ul class="list-group list-group-flush border border-primary">
+                                            <li class="list-group-item">
+                                                <strong>Estado reportado</strong>
+                                                <?php echo $historial_paq2['ubicacion_p']; ?>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <strong>Responsable</strong>
+                                                <?php echo $historial_paq2['res_ubp']; ?>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <strong>Obervacion</strong>
+                                                <?php echo $historial_paq2['observacion']; ?>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <strong>Colaborador</strong>
+                                                <?php echo $historial_paq2['responsable_m']; ?>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <strong>Fecha</strong>
+                                                <?php echo $historial_paq2['fecha']; ?>
+                                            </li>
+                                        </ul>
+                                    <?php endwhile?>
+                                </div>
+                            </div> 
+                        <strong>Datos procesados</strong> desde el  <code>Sistema</code>.
+                        
+                    </div>
+                    </div>
+                </div>
+            <!-- fin de historial de movimientos de paquetes -->
         </div>
     </div>
 

@@ -52,13 +52,10 @@
                 </div>
                 <div class="card-body">
                             <select name="ciudad" class="form-select" aria-label="Default select example">
-                                        <option value=" ">Seleccionar Responsable</option>
-                                        <option value="ofiGYE">OFICINA GUAYAQUIL</option>
-                                        <option value="ofiUIO">OFICINA QUITO</option>
-                                        <option value="Henrry Roberto">LOS RIOS (HENRRY ROBERTO)</option>
+                                        <option value="Henrry">HENRRY</option>
+                                        <option value="Roberto">ROBERTO</option>
                                         <option value="Mariana">MARIANA</option>
-                                        <option value="Esteban">ESTEBAN</option>
-                                        <option value="Bryan Jonathan">EL ORO (BRYAN JOATHAN)</option>
+                                        <option value="Esteban Trejo">ESTEBAN TREJO</option>
                                         <option value="Alisson">ALISSON</option>
                                         <option value="Vanessa">VANESSA</option>
                                         <option value="Francisco">DON FRANCISCO</option>
@@ -67,17 +64,28 @@
                                         <option value="Juan Luis">JUAN LUIS</option>
                                         <option value="Marco Cisneros">MARCO CISNEROS</option>
                                         <option value="Eloisa">ELOISA</option>
-                                        <option value="Carlos">CARLOS</option>
+                                        <option value="Carlos Capon">CARLOS CAPON</option>
                                         <option value="Alexandra">ALEXANDRA</option>
-                                        <option value="Ivan">IVAN</option>
+                                        <option value="Ivan Ortega">IVAN ORTEGA</option>
                                         <option value="Xavier">XAVIER</option>
                                         <option value="Jhonathan">JHONATHAN</option>
                                         <option value="Jose">JOSE</option>
                                         <option value="Bryan">BRYAN</option>
                                         <option value="Fabricio">FABRICIO</option>
-                                        <option value="Esteban">ESTEBAN</option>
                                         <option value="Carolina">CAROLINA</option>
-                                        <option value="Carolina">Sin Responsable</option>
+                                        <option value="Katherine Nogales">KATHERINE NOGALES</option>
+                                        <option value="Sin despacho">SIN DESPACHO</option>
+                                        <option value="DALIS">DALIS</option>
+                                        <option value="Luis Arevalo">LUIS AREVALO</option>
+                                        <option value="Steven">STEVEN</option>
+                                        <option value="Jesus">JESUS</option>
+                                        <option value="Luis Gutierres">LUIS GUTIERRES</option>
+                                        <option value="Carlos Brito">CARLOS BRITO</option>
+                                        <option value="Javier Jarrin">JAVIER JARRIn</option>
+                                        <option value="Richard">RICHARD</option>
+                                        <option value="Oficina GYE">OFICINA GYE</option>
+                                        <option value="Oficina UIO">OFICINA QUITO</option>
+                                        <option value="OTRO">OTRO</option>
                             </select>
                 </div>
                 <input type="submit" value="FILTRAR">

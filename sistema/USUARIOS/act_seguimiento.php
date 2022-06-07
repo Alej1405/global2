@@ -284,7 +284,7 @@
                                                 <option value="en proceso">EN PROCESO</option>
                                                 <option value="entregado">ENTREGADO</option>
                                                 <option value="entregado y depositado">ENTREGADO Y DEPOSITADO</option>
-                                                <option value="solicitar devolucion" selected readonly>SOLICITTAR REGRESO</option>
+                                                <option value="solicitar devolucion">SOLICITTAR REGRESO</option>
                                         <?php endif; ?>
                                     </select>
                                     
@@ -332,6 +332,9 @@
                                         <option value="Carlos Brito">CARLOS BRITO</option>
                                         <option value="Javier Jarrin">JAVIER JARRIn</option>
                                         <option value="Richard">RICHARD</option>
+                                        <option value="Oficina GYE">OFICINA GYE</option>
+                                        <option value="Oficina UIO">OFICINA QUITO</option>
+                                        <option value="OTRO">OTRO</option>
                                     </select>
                     </div>
                         <div class="mb-3">

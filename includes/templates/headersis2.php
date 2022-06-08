@@ -289,6 +289,30 @@
                 </div>
             </div>
         </li>
+        <!-- CONTROL DE BODEGA Y PAQUETES POR CORREO FILTRO POR RESPONSABILIDAD DE GESTION -->
+            <?php if ($_SESSION['usuario'] == "camila@globalcargoecuador.com") : ?>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBODE"
+                        aria-expanded="true" aria-controls="collapseBODE">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Control logistica</span>
+                    </a>
+                    <div id="collapseBODE" class="collapse " aria-labelledby="headingBODE" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Colaboradores:</h6>
+                            <a class="collapse-item" href="reg_colab.php">Registrar</a>
+                            <a class="collapse-item" href="consul_colab.php">Ver </a>
+                            <h6 class="collapse-header">Control:</h6>
+                            <a class="collapse-item" href="gest_colab.php">Gestion</a>
+                            <h6 class="collapse-header">Bodega:</h6>
+                            <a class="collapse-item" href="bodega_IS.php">Control de Ingreso</a>
+                            <h6 class="collapse-header">Gestion:</h6>
+                            <a class="collapse-item" href="seguimiento.php">Historial</a>
+                        </div>
+                    </div>
+                </li>
+            <?php endif ?>
+        <!-- FI DE CONTROL DE BODEGA Y PAQUETES -->
     <?php endif;?>
 
 <!-- FIN MENU DE NAVEGACION -->

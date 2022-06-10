@@ -313,6 +313,29 @@
                 </li>
             <?php endif ?>
         <!-- FI DE CONTROL DE BODEGA Y PAQUETES -->
+        <!-- CONTROL DE BODEGA Y PAQUETES POR CORREO FILTRO POR RESPONSABILIDAD DE GESTION -->
+            <?php if ($_SESSION['usuario'] == "andrea@globalcargoecuador.com") : ?>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBODE"
+                        aria-expanded="true" aria-controls="collapseBODE">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Dep. Financiero</span>
+                    </a>
+                    <div id="collapseBODE" class="collapse " aria-labelledby="headingBODE" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Registros:</h6>
+                            <a class="collapse-item" href="depositos.php">Ingresar Depositos</a>
+                            <h6 class="collapse-header">Seguimiento:</h6>
+                            <a class="collapse-item" href="li_depositos.php">Estado de Cuenta</a>
+                            <h6 class="collapse-header">Gastos:</h6>
+                            <a class="collapse-item" href="#">Ingreso de facturas</a>
+                            <h6 class="collapse-header">Ingresos:</h6>
+                            <a class="collapse-item" href="#">Registro de Cobros</a>
+                        </div>
+                    </div>
+                </li>
+            <?php endif ?>
+        <!-- FI DE CONTROL DE BODEGA Y PAQUETES -->
     <?php endif;?>
 
 <!-- FIN MENU DE NAVEGACION -->

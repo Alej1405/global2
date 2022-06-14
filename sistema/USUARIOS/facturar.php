@@ -27,6 +27,10 @@
     $db4 =conectarDB4();
     $ciudad = null;
     $filtro = null;
+
+    //consulta para los colaboradores
+
+    
     //declarar el valor para la consulta de la query.
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $ciudad = $_POST['ciudad'];
@@ -53,7 +57,7 @@
                         $resultadoApi = mysqli_fetch_assoc($resultado);
                 break;
             // USUARIO DE NUMEROS IMPARES 
-                case "andrea.larco@globalcargoecuador.com":
+                case "mailee@globalcargoecuador.com":
                     $query = "SELECT * FROM orders WHERE mod(id,2) <> 0 AND status = 'requested' order by created_at desc;";
                         $resultado = mysqli_query($db3, $query);
                         $resultadoApi = mysqli_fetch_assoc($resultado);

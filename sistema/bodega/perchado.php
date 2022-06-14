@@ -135,8 +135,8 @@ $faltante = $numero1 - $numero2;
                 <select name="ubicac"  class="form__input">
                     <option value=" " >--- Seleccionar Ubicacion ---</option>
                     <?php   while($ubic = mysqli_fetch_assoc($ubicacion1)): ?>
-                        <option <?php //echo $idCarga === $ubic['id'] ? 'selected' : '';
-                                ?>value="<?php echo $ubic['lugar']; ?>" ><?php echo $ubic['lugar']; ?></option>
+                        <option <?php 
+                 ?>value="<?php echo $ubic['lugar']; ?>" ><?php echo $ubic['lugar']; ?></option>
                     <?php  endwhile  ?>
                 </select>
             </div>

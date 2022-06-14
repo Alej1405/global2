@@ -260,7 +260,96 @@
                 </div>
             </div>
         </li>
-    <?php endif;?>
+        <?php endif;?>
+            <!-- CONTROL DE BODEGA Y PAQUETES POR CORREO FILTRO POR RESPONSABILIDAD DE GESTION -->
+            <?php if ($_SESSION['usuario'] == "natalia@globalcargoecuador.com") : ?>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBODE"
+                        aria-expanded="true" aria-controls="collapseBODE">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Control logistica</span>
+                    </a>
+                    <div id="collapseBODE" class="collapse " aria-labelledby="headingBODE" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Colaboradores:</h6>
+                            <a class="collapse-item" href="reg_colab.php">Registrar</a>
+                            <a class="collapse-item" href="consul_colab.php">Ver </a>
+                            <h6 class="collapse-header">Control:</h6>
+                            <a class="collapse-item" href="gest_colab.php">Gestion</a>
+                            <h6 class="collapse-header">Bodega:</h6>
+                            <a class="collapse-item" href="bodega_IS.php">Control de Ingreso</a>
+                            <h6 class="collapse-header">Gestion:</h6>
+                            <a class="collapse-item" href="seguimiento.php">Historial</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBODE33"
+                        aria-expanded="true" aria-controls="collapseBODE33">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Dep. Financiero</span>
+                    </a>
+                    <div id="collapseBODE33" class="collapse " aria-labelledby="headingBODE33" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Seguimiento:</h6>
+                            <a class="collapse-item" href="li_depositos.php">Estado de Cuenta</a>
+                        </div>
+                    </div>
+                </li>
+        <?php endif ?>
+        <?php if ($_SESSION['usuario'] == "mafer.fernandez@globalcargoecuador.com") : ?>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBODE"
+                        aria-expanded="true" aria-controls="collapseBODE">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Control logistica</span>
+                    </a>
+                    <div id="collapseBODE" class="collapse " aria-labelledby="headingBODE" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Colaboradores:</h6>
+                            <a class="collapse-item" href="reg_colab.php">Registrar</a>
+                            <a class="collapse-item" href="consul_colab.php">Ver </a>
+                            <h6 class="collapse-header">Control:</h6>
+                            <a class="collapse-item" href="gest_colab.php">Gestion</a>
+                            <h6 class="collapse-header">Bodega:</h6>
+                            <a class="collapse-item" href="bodega_IS.php">Control de Ingreso</a>
+                            <h6 class="collapse-header">Gestion:</h6>
+                            <a class="collapse-item" href="seguimiento.php">Historial</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBODE44"
+                        aria-expanded="true" aria-controls="collapseBODE44">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Dep. Financiero</span>
+                    </a>
+                    <div id="collapseBODE44" class="collapse " aria-labelledby="headingBODE44" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Seguimiento:</h6>
+                            <a class="collapse-item" href="li_depositos.php">Estado de Cuenta</a>
+                        </div>
+                    </div>
+                </li>
+        <?php endif ?>
+        <?php if ($_SESSION['usuario'] == "mailee@globalcargoecuador.com") : ?>   
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseGest"
+                    aria-expanded="true" aria-controls="collapseGest">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Facturas y Registro</span>
+                </a>
+                <div id="collapseGest" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Facturación:</h6>
+                        <a class="collapse-item" href="facturar.php">Facturar y Registrar.</a>
+                        <h6 class="collapse-header">Seguimiento:</h6>
+                        <a class="collapse-item" href="vercargas.php">Manifiestos.</a>
+                    </div>
+                </div>
+            </li>
+        <?php endif ?>
+        <!-- FI DE CONTROL DE BODEGA Y PAQUETES -->
 
 <!-- MENU DE NAVEGACION PARA USUARIOS DE COORDINACION -->
 
@@ -289,30 +378,6 @@
                 </div>
             </div>
         </li>
-        <!-- CONTROL DE BODEGA Y PAQUETES POR CORREO FILTRO POR RESPONSABILIDAD DE GESTION -->
-            <?php if ($_SESSION['usuario'] == "camila@globalcargoecuador.com") : ?>
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBODE"
-                        aria-expanded="true" aria-controls="collapseBODE">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>Control logistica</span>
-                    </a>
-                    <div id="collapseBODE" class="collapse " aria-labelledby="headingBODE" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Colaboradores:</h6>
-                            <a class="collapse-item" href="reg_colab.php">Registrar</a>
-                            <a class="collapse-item" href="consul_colab.php">Ver </a>
-                            <h6 class="collapse-header">Control:</h6>
-                            <a class="collapse-item" href="gest_colab.php">Gestion</a>
-                            <h6 class="collapse-header">Bodega:</h6>
-                            <a class="collapse-item" href="bodega_IS.php">Control de Ingreso</a>
-                            <h6 class="collapse-header">Gestion:</h6>
-                            <a class="collapse-item" href="seguimiento.php">Historial</a>
-                        </div>
-                    </div>
-                </li>
-            <?php endif ?>
-        <!-- FI DE CONTROL DE BODEGA Y PAQUETES -->
         <!-- CONTROL DE BODEGA Y PAQUETES POR CORREO FILTRO POR RESPONSABILIDAD DE GESTION -->
             <?php if ($_SESSION['usuario'] == "andrea@globalcargoecuador.com") : ?>
                 <li class="nav-item">

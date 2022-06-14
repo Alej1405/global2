@@ -39,6 +39,9 @@ $resultado = mysqli_query($db3, $query);
 $resultado_created = mysqli_fetch_assoc($resultado);
 $errores = [];
 
+$colab = "SELECT * FROM colaborador";
+$cons_colab = mysqli_query($db4, $colab);
+
 //RECEPCION DE DATOS MEDIANTE POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -304,20 +307,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </div>
                             <div class="mb-3">
                                 <select name="responsable_m" class="form-select" aria-label="Default select example">
-                                    <option selected>Responsable de Provincia</option>
-                                    <option value="ofiGYE">OFICINA GUAYAQUIL</option>
-                                    <option value="ofiUIO">OFICINA QUITO</option>
-                                    <option value="Henrry Roberto">LOS RIOS (HENRRY ROBERTO)</option>
-                                    <option value="Mariana Moreno">MARIANA</option>
-                                    <option value="Esteban Trejo">ESTEBAN</option>
-                                    <option value="Bryan Jonathan">EL ORO (BRYAN JOATHAN)</option>
-                                    <option value="Alisson Quezada">ALISSON</option>
-                                    <option value="Vanessa Mera">VANESSA</option>
-                                    <option value="Francisco">DON FRANCISCO</option>
-                                    <option value="Urbano">URBANO</option>
-                                    <option value="Ma Eugenia">MARIA EUGENIA</option>
-                                    <option value="Juan Luis">JUAN LUIS</option>
-                                    <option value="Marco Cisneros">JUAN LUIS</option>
+                                <option value=" " >--- Seleccionar Colaborador ---</option>
+                                    <?php   while($nom_colab = mysqli_fetch_assoc($cons_colab)): ?>
+                                        <option value="<?php echo $nom_colab['nombre'] . $nom_colab['apellido'] ; ?>" ><?php echo $nom_colab['nombre'] . $nom_colab['apellido'] ; ?></option>
+                                    <?php  endwhile  ?>
                                 </select>
                             </div>
                         </div>

@@ -123,12 +123,22 @@
                 <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities2"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Control</h6>
-                        <a class="collapse-item" href="utilities-color.html">Cargas</a>
-                        <a class="collapse-item" href="utilities-border.html">Entregas</a>
-                        <h6 class="collapse-header">Reportes</h6>
-                        <a class="collapse-item" href="utilities-animation.html">Estados</a>
-                        <a class="collapse-item" href="utilities-other.html">Por cliente</a>
+                        <!-- links de usuarios admin -->
+                            <h6 class="collapse-header">Facturación:</h6>
+                            <a class="collapse-item" href="facturar.php">Facturar y Registrar.</a>
+                            <h6 class="collapse-header">Seguimiento:</h6>
+                            <a class="collapse-item" href="vercargas.php">Manifiestos.</a>
+                        <!-- fin de links admin  -->
+                        <!-- links para usuarios de bodega y seguimiento -->
+                            <h6 class="collapse-header">Gestion:</h6>
+                            <a class="collapse-item" href="seguimiento.php">Historial</a>
+                            <h6 class="collapse-header">BODEGA:</h6>
+                            <a class="collapse-item" href="bodega_IS.php">Control de Ingreso</a>
+                            <h6 class="collapse-header">Colaboradores:</h6>
+                            <a class="collapse-item" href="reg_colab.php">Registrar</a>
+                            <a class="collapse-item" href="consul_colab.php">Ver </a>
+                        <!-- fin de lincs seguimiento -->
+
                     </div>
                 </div>
             </li>

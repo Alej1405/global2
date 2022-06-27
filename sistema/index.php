@@ -46,6 +46,9 @@
                     
                     header('location: admin.php');
                     switch ($_SESSION['rol']){
+                        case "superAdmin":
+                            header('location: USUARIOS/usuarios.php');
+                            break;
                         case "admin":
                             header('location: USUARIOS/usuarios.php');
                             break;

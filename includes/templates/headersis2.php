@@ -143,8 +143,14 @@
                 </div>
             </li>
         <!-- FIN DE MENU DE NAVEGACION - Gestion Gc-Trade -->
+             <!-- Divider -->
+             <hr class="sidebar-divider">
 
         <!-- MENU DE NAVEGACION - Control Financiero -->
+            <div class="sidebar-heading">
+                CONTABILIDAD Y FINANCIERO
+            </div>
+
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities3"
                     aria-expanded="true" aria-controls="collapseUtilities3">
@@ -155,13 +161,14 @@
                 <div id="collapseUtilities3" class="collapse" aria-labelledby="headingUtilities3"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Control</h6>
-                        <a class="collapse-item" href="utilities-color.html">Facturas por pagar</a>
-                        <a class="collapse-item" href="utilities-color.html">Facturas / Guías (clientes)</a>
-                        <a class="collapse-item" href="utilities-border.html">Balance</a>
-                        <h6 class="collapse-header">Reportes</h6>
-                        <a class="collapse-item" href="utilities-animation.html">COD Cobros</a>
-                        <a class="collapse-item" href="utilities-other.html">Transferencias COD</a>
+                        <h6 class="collapse-header">Registros:</h6>
+                            <a class="collapse-item" href="depositos.php">Ingresar Depositos</a>
+                        <h6 class="collapse-header">Seguimiento:</h6>
+                            <a class="collapse-item" href="li_depositos.php">Estado de Cuenta</a>
+                        <h6 class="collapse-header">Gastos:</h6>
+                            <a class="collapse-item" href="#">Ingreso de facturas</a>
+                        <h6 class="collapse-header">Ingresos:</h6>
+                            <a class="collapse-item" href="#">Registro de Cobros</a>
                     </div>
                 </div>
             </li>

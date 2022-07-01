@@ -49,4 +49,16 @@ function conectarDB4() : mysqli{
     return $db4;
 }
 
+//base de datos callcenter
+function conectarDB5() : mysqli{
+    $db5 = mysqli_connect('127.0.0.1', 'root', 'pablo1405', 'comercial');
+
+    if ($db5) {
+    
+    } else{
+        echo "Erroe no se puede contectar con la base de datos";
+        exit;
+    }
+    return $db5;
+}
 //anñadir la clave al cambiar de computador pablo1405sss∫∫s

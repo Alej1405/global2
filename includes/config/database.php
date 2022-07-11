@@ -61,4 +61,17 @@ function conectarDB5() : mysqli{
     }
     return $db5;
 }
+
+//base de datos financiero
+function conectarDB6() : mysqli{
+    $db6 = mysqli_connect('127.0.0.1', 'root', 'pablo1405', 'gcargo_financiero');
+
+    if ($db6) {
+    
+    } else{
+        echo "Erroe no se puede contectar con la base de datos";
+        exit;
+    }
+    return $db6;
+}
 //anñadir la clave al cambiar de computador pablo1405sss∫∫s

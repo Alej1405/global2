@@ -38,6 +38,7 @@
         $ruta = "";
         $t_transito = "";
         $validez = "";
+        $validez_hasta = "";
     
     $errores = [];
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -51,7 +52,8 @@
             $frequency = mysqli_real_escape_string($db, $_POST['frequency']);
             $ruta = mysqli_real_escape_string($db, $_POST['ruta']);
             $t_transito = mysqli_real_escape_string($db, $_POST['t_transito']);
-            $validez = mysqli_real_escape_string($db, $_POST['validez']);
+            $validez = mysqli_real_escape_string($db, $_POST['validez_desde']);
+            $validez_hasta = mysqli_real_escape_string($db, $_POST['validez_hasta']);
             $t_carga = mysqli_real_escape_string($db, $_POST['t_carga']);
             $usuario = $_SESSION['usuario'];
             $fecha = date('y-m-d');
@@ -83,13 +85,16 @@
             if(!$validez) {
                 $errores[] = "QUE HACEEEEEEEE!!!! AGREGA EL ESTADO";
             }
+            if(!$validez_hasta) {
+                $errores[] = "QUE HACEEEEEEEE!!!! AGREGA EL ESTADO";
+            }
             if(!$t_carga) {
                 $errores[] = "QUE HACEEEEEEEE!!!! AGREGA EL ESTADO";
             }
 
             if(empty($errores)) {
-                $guardar_colab = "INSERT INTO provedores (p_bases, pod, monto, m3, cbm, frequency, ruta, t_transito, validez, t_carga, fecha_c, usuario)
-                                    values ('$p_bases', '$pod', '$monto', '$m3', '$cbm', '$frequency', '$ruta', '$t_transito', '$validez', '$t_carga', '$fecha', '$usuario');";
+                $guardar_colab = "INSERT INTO provedores (p_bases, pod, monto, m3, cbm, frequency, ruta, t_transito, validez_desde, validez_hasta, t_carga, fecha_c, usuario)
+                                    values ('$p_bases', '$pod', '$monto', '$m3', '$cbm', '$frequency', '$ruta', '$t_transito', '$validez', '$validez_hasta', '$t_carga', '$fecha', '$usuario');";
                     $guar_colab = mysqli_query($db5, $guardar_colab);
                     
                     if ($guar_colab) {
@@ -133,11 +138,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">M3</label>
-                        <input type ="number" class="form-control" id="exampleFormControlTextarea1" rows="3" name="m3"></input>
+                        <input type ="text" class="form-control" id="exampleFormControlTextarea1" rows="3" name="m3"></input>
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">CBM</label>
-                        <input type ="number" class="form-control" id="exampleFormControlTextarea1" rows="3" name="cbm"></input>
+                        <input type ="text" class="form-control" id="exampleFormControlTextarea1" rows="3" name="cbm"></input>
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Frencuencia</label>
@@ -148,12 +153,16 @@
                         <input type ="text" class="form-control" id="exampleFormControlTextarea1" rows="3" name="ruta"></input>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Tiempo de transporte</label>
+                        <label for="exampleFormControlTextarea1" class="form-label">Tiempo de transito</label>
                         <input type ="text" class="form-control" id="exampleFormControlTextarea1" rows="3" name="t_transito"></input>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Validez</label>
-                        <input type ="text" class="form-control" id="exampleFormControlTextarea1" rows="3" name="validez"></input>
+                        <label for="exampleFormControlTextarea1" class="form-label">Validez Desde</label>
+                        <input type ="date" class="form-control" id="exampleFormControlTextarea1" rows="3" name="validez_desde"></input>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Validez Hasta</label>
+                        <input type ="date" class="form-control" id="exampleFormControlTextarea1" rows="3" name="validez_hasta"></input>
                     </div>
                     <div class="input-group mb-3">
                         <select class="form-select form-select-sm" name="t_carga" aria-label=".form-select-sm example">

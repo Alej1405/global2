@@ -165,10 +165,8 @@
                             <a class="collapse-item" href="depositos.php">Ingresar Depositos</a>
                         <h6 class="collapse-header">Seguimiento:</h6>
                             <a class="collapse-item" href="li_depositos.php">Estado de Cuenta</a>
-                        <h6 class="collapse-header">Gastos:</h6>
-                            <a class="collapse-item" href="#">Ingreso de facturas</a>
-                        <h6 class="collapse-header">Ingresos:</h6>
-                            <a class="collapse-item" href="#">Registro de Cobros</a>
+                        <h6 class="collapse-header">Registro y movimiento financiero:</h6>
+                            <a class="collapse-item" href="registro_fin.php">Ingreso de facturas</a>
                     </div>
                 </div>
             </li>
@@ -420,10 +418,8 @@
                             <a class="collapse-item" href="depositos.php">Ingresar Depositos</a>
                             <h6 class="collapse-header">Seguimiento:</h6>
                             <a class="collapse-item" href="li_depositos.php">Estado de Cuenta</a>
-                            <h6 class="collapse-header">Gastos:</h6>
-                            <a class="collapse-item" href="#">Ingreso de facturas</a>
-                            <h6 class="collapse-header">Ingresos:</h6>
-                            <a class="collapse-item" href="#">Registro de Cobros</a>
+                            <h6 class="collapse-header">Registro y Movimiento:</h6>
+                            <a class="collapse-item" href="registro_fin.php">Ingresos y Egresos</a>
                         </div>
                     </div>
                 </li>

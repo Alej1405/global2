@@ -100,7 +100,12 @@
                     if ($guar_colab) {
                         echo '
                             <div class="alert alert-success">
-                                <a href="cotizador.php">Ingrsar otra tarifa</a>
+                                <p>Bien!!! Facilito es, bien bien. SIGA DURMIENDO</p>
+                                    <div class="d-grid gap-2 col-6 mx-auto">
+                                        <a href="cotizador.php" class= "btn btn-primary">Quieres ingrsar otra tarifa</a>
+                                        <a href="ver_tarifas.php" class="btn btn-primary">Quieres ver las tarifas</a>
+                                    </div>
+                                <p>QUE QUIERES...??</p>
                             </div>';
                         //header('location: usuarios.php');
                         exit();

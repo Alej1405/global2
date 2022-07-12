@@ -269,7 +269,8 @@
             <div id="collapseTwox" class="collapse " aria-labelledby="headingTwox" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Dep. Comercial:</h6>
-                    <a class="collapse-item" href="cotizador.php">Cotizaciones.</a>
+                    <a class="collapse-item" href="cotizador.php">Ingresar tarifas.</a>
+                    <a class="collapse-item" href="ver_tarifas.php">Actualizar tarifas.</a>
                 </div>
             </div>
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"

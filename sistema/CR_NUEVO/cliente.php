@@ -1,11 +1,9 @@
 <?php 
     //incluye el header
  require '../../includes/funciones.php';
- $auth = estaAutenticado();
+ 
 
- if (!$auth) {
-     header('location: ../../index.php');
- }
+ 
  incluirTemplate('headersis2');
  require '../../includes/config/database.php';
  conectarDB();

@@ -75,7 +75,7 @@
                         <td><?php echo $array_clientes['correo']; ?></td>
                         <td>
                             <div class="btn-group">
-                                <!-- <a href="actualizar_tarifas.php?id=<?php echo $tarifa['id'];?>" class="btn btn-outline-success btn-sm">ACTUALIZAR</a> -->
+                                <a href="actualizar_cliente.php?cedula=<?php echo $array_clientes['cedula'];?>" class="btn btn-outline-success btn-sm">ACTUALIZAR</a>
                                 <form method="POST">
                                     <input type="hidden" name="id" value="<?php echo $array_clientes['id']; ?>">
                                     <input type="submit" class="btn btn-outline-danger btn-sm" value="BORRAR">

@@ -40,6 +40,7 @@
                     $_SESSION['id'] = $usuario['id'];
                     $_SESSION['usuario'] = $usuario['correo1'];
                     $_SESSION['nombre'] = $usuario['nombre'];
+                    $_SESSION['apellido'] = $usuario['apellido'];
                     $_SESSION['cliente'] = $usuario['cliente'];
 
                     echo "quepaso";
@@ -50,6 +51,9 @@
                             header('location: USUARIOS/usuarios.php');
                             break;
                         case "admin":
+                            header('location: USUARIOS/usuarios.php');
+                            break;
+                        case "asesor":
                             header('location: USUARIOS/usuarios.php');
                             break;
                         case "cliente":

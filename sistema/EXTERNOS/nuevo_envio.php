@@ -70,7 +70,7 @@
                         $ciudad = mysqli_real_escape_string($db, $_POST['ciudad']);
                         $sector = mysqli_real_escape_string($db, $_POST['sector']);
                         $direccion = mysqli_real_escape_string($db, $_POST['direccion']);
-                        $direccion_recoleccion = mysqli_real_escape_string($db, $_POST['direccion']);
+                        $direccion_recoleccion = mysqli_real_escape_string($db, $_POST['direccion_recoleccion']);
                         $cod = mysqli_real_escape_string($db, $_POST['cod']);
                         $valor = mysqli_real_escape_string($db, $_POST['valor']);
                         $telefono = mysqli_real_escape_string($db, $_POST['telefono']);
@@ -83,6 +83,7 @@
                         $estado = "recolectar";
                         $fecha_reg = date('y-m-d');
                         $const_nom = $valid['vendedor'];
+                        $cliente = $valid['cedula'];
                         $asesor = $const_nom;
 
                         //validacion de ingreso de datos.
@@ -108,8 +109,8 @@
                             $errores[] = "HEY TE FALTA UN DATO!!!! AGREGA EL NOMBRE";
                         }
                         //query para guardar
-                            $guardar_servicio = "INSERT INTO ordenes (nombre, cedula, correo, provincia, ciudad, sector, direccion, direccion_recoleccion, telefono, cod, valor, fragil, reemparque, l, a, h, peso, estado, fecha_reg, asesor)
-                                                              values ('$nombre', '$cedula', '$correo', '$provincia', '$ciudad', '$sector', '$direccion', '$direccion_recoleccion', '$telefono', '$cod', '$valor', '$fragil', '$reempaque', '$l', '$a', '$h', '$peso', '$estado', '$fecha_reg', '$asesor');";
+                            $guardar_servicio = "INSERT INTO ordenes (nombre, cedula, correo, provincia, ciudad, sector, direccion, direccion_recoleccion, telefono, cod, valor, fragil, reemparque, l, a, h, peso, estado, fecha_reg, asesor, cliente)
+                                                              values ('$nombre', '$cedula', '$correo', '$provincia', '$ciudad', '$sector', '$direccion', '$direccion_recoleccion', '$telefono', '$cod', '$valor', '$fragil', '$reempaque', '$l', '$a', '$h', '$peso', '$estado', '$fecha_reg', '$asesor', '$cliente');";
                             $ejecutar_guar = mysqli_query($db4, $guardar_servicio);
                             if ($ejecutar_guar){
                                 echo '
@@ -185,21 +186,21 @@
             <div class="form-group row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="text" require name="usuario" class="form-control form-control-user" id="exampleFirstName"
-                        placeholder="Codigo de Cliente(Cedula)" maxlength="79">
+                        placeholder="Codigo de Cliente.." maxlength="79">
                 </div>
                 <div class="col-sm-6">
                     <input type="email"  require name="correo" class="form-control form-control-user" id="exampleLastName"
-                        placeholder="Correo de Consignatario..." maxlength="70">
+                        placeholder="Correo de Destinatario..." maxlength="70">
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="text" require name="nombre" class="form-control form-control-user" id="exampleFirstName"
-                        placeholder="Nombre y Apellido Consignatario..." maxlength="79">
+                        placeholder="Nombre y Apellido Destinatario..." maxlength="79">
                 </div>
                 <div class="col-sm-6">
                     <input type="number"  require name="cedula" class="form-control form-control-user" id="exampleLastName"
-                        placeholder="Cedula Consignatario..." maxlength="13">
+                        placeholder="Cedula Destinatario..." maxlength="13">
                 </div>
             </div>
             <div class="form-group row">
@@ -225,7 +226,7 @@
             <div class="form-group row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="number" require name="telefono" class="form-control form-control-user" id="exampleFirstName"
-                        placeholder="Telefono de consignatario..." maxlength="10">
+                        placeholder="Telefono de destinatario..." maxlength="10">
                 </div>
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <select require name="cod" class="form-control form-control-user" id="exampleFirstName">
@@ -265,8 +266,8 @@
             <hr>
             <div class="form-group row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" require name="valor" class="form-control form-control-user" id="exampleFirstName"
-                        placeholder="Valor por cobrar.." maxlength="79">
+                    <input type="text" require name="direccion_recoleccion" class="form-control form-control-user" id="exampleFirstName"
+                        placeholder="Direccion de recoleccion...." maxlength="79">
                 </div>
                 <div class="col-sm-6">
                     <select require name="reempaque" class="form-control form-control-user" id="exampleFirstName">

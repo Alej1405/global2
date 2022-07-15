@@ -280,12 +280,13 @@
             </a>
             <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <!-- <h6 class="collapse-header">Actualización:</h6>
+                    <h6 class="collapse-header">Actualización:</h6>
                     <a class="collapse-item" href="seguimiento_actu.php">Actualizar estados.</a>
                     <h6 class="collapse-header">Seguimiento:</h6>
-                    <a class="collapse-item" href="./vercargas.php">Control Genreal.</a> -->
+                    <a class="collapse-item" href="vercargas.php">Control Genreal.</a>
                 </div>
             </div>
+            
         </li>
         <?php endif;?>
             <!-- CONTROL DE BODEGA Y PAQUETES POR CORREO FILTRO POR RESPONSABILIDAD DE GESTION -->
@@ -311,15 +312,17 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBODE33"
-                        aria-expanded="true" aria-controls="collapseBODE33">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="true" aria-controls="collapseTwo">
                         <i class="fas fa-fw fa-cog"></i>
-                        <span>Dep. Financiero</span>
+                        <span>GC-GO Coordinacion</span>
                     </a>
-                    <div id="collapseBODE33" class="collapse " aria-labelledby="headingBODE33" data-parent="#accordionSidebar">
+                    <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Seguimiento:</h6>
-                            <a class="collapse-item" href="li_depositos.php">Estado de Cuenta</a>
+                            <h6 class="collapse-header">Clientes:</h6>
+                            <a class="collapse-item" href="ver_clientesgc.php">Ver registros.</a>
+                            <h6 class="collapse-header">Paquetes:</h6>
+                            <a class="collapse-item" href="ver_paquetesgc.php">Asignacion.</a>
                         </div>
                     </div>
                 </li>
@@ -346,15 +349,17 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBODE44"
-                        aria-expanded="true" aria-controls="collapseBODE44">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse00"
+                        aria-expanded="true" aria-controls="collapse00">
                         <i class="fas fa-fw fa-cog"></i>
-                        <span>Dep. Financiero</span>
+                        <span>GC-GO Coordinacion</span>
                     </a>
-                    <div id="collapseBODE44" class="collapse " aria-labelledby="headingBODE44" data-parent="#accordionSidebar">
+                    <div id="collapse00" class="collapse " aria-labelledby="heading00" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Seguimiento:</h6>
-                            <a class="collapse-item" href="li_depositos.php">Estado de Cuenta</a>
+                            <h6 class="collapse-header">Clientes:</h6>
+                            <a class="collapse-item" href="ver_clientesgc.php">Ver registros.</a>
+                            <h6 class="collapse-header">Paquetes:</h6>
+                            <a class="collapse-item" href="ver_paquetesgc.php">Asignacion.</a>
                         </div>
                     </div>
                 </li>

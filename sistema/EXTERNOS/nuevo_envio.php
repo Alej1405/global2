@@ -70,6 +70,7 @@
                         $ciudad = mysqli_real_escape_string($db, $_POST['ciudad']);
                         $sector = mysqli_real_escape_string($db, $_POST['sector']);
                         $direccion = mysqli_real_escape_string($db, $_POST['direccion']);
+                        $direccion_recoleccion = mysqli_real_escape_string($db, $_POST['direccion']);
                         $cod = mysqli_real_escape_string($db, $_POST['cod']);
                         $valor = mysqli_real_escape_string($db, $_POST['valor']);
                         $telefono = mysqli_real_escape_string($db, $_POST['telefono']);
@@ -106,18 +107,9 @@
                         if(!$direccion) {
                             $errores[] = "HEY TE FALTA UN DATO!!!! AGREGA EL NOMBRE";
                         }
-                        if(!$cod) {
-                            $errores[] = "HEY TE FALTA UN DATO!!!! AGREGA EL NOMBRE";
-                        }
-                        if(!$valor) {
-                            $errores[] = "HEY TE FALTA UN DATO!!!! AGREGA EL NOMBRE";
-                        }
-                        if(!$fragil) {
-                            $errores[] = "HEY TE FALTA UN DATO!!!! AGREGA EL NOMBRE";
-                        }
                         //query para guardar
-                            $guardar_servicio = "INSERT INTO ordenes (nombre, cedula, correo, provincia, ciudad, sector, direccion, telefono, cod, valor, fragil, reemparque, l, a, h, peso, estado, fecha_reg, asesor)
-                                                              values ('$nombre', '$cedula', '$correo', '$provincia', '$ciudad', '$sector', '$direccion', '$telefono', '$cod', '$valor', '$fragil', '$reempaque', '$l', '$a', '$h', '$peso', '$estado', '$fecha_reg', '$asesor');";
+                            $guardar_servicio = "INSERT INTO ordenes (nombre, cedula, correo, provincia, ciudad, sector, direccion, direccion_recoleccion, telefono, cod, valor, fragil, reemparque, l, a, h, peso, estado, fecha_reg, asesor)
+                                                              values ('$nombre', '$cedula', '$correo', '$provincia', '$ciudad', '$sector', '$direccion', '$direccion_recoleccion', '$telefono', '$cod', '$valor', '$fragil', '$reempaque', '$l', '$a', '$h', '$peso', '$estado', '$fecha_reg', '$asesor');";
                             $ejecutar_guar = mysqli_query($db4, $guardar_servicio);
                             if ($ejecutar_guar){
                                 echo '
@@ -272,13 +264,18 @@
             </div>
             <hr>
             <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" require name="valor" class="form-control form-control-user" id="exampleFirstName"
+                        placeholder="Valor por cobrar.." maxlength="79">
+                </div>
+                <div class="col-sm-6">
                     <select require name="reempaque" class="form-control form-control-user" id="exampleFirstName">
-                        <option selected>lo volvemos a empacar...?</option>
+                        <option selected>Lo volvemos a empacar...?</option>
                         <option value="si">si</option>
                         <option value="no">no</option>
                     </select>
+                </div>
             </div>
-            <hr>
                 <div class="d-grid gap-2 col-6 mx-auto">
                     <button class="btn btn-primary btn-user btn-block" title="REGISTRAR CLIENTE">SOLICITAR ENVIO</button>
                 </div>

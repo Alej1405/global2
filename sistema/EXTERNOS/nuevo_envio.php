@@ -47,6 +47,7 @@
         $estado = "";
         $fecha_reg = "";
         $asesor = "";
+        $direccion_recoleccion = "";
 
 
     //captura de variables por medio de post
@@ -63,6 +64,16 @@
                                 <a href = "http://globalcargo-ec.com/sistema/EXTERNOS/registro_cliente.php">click aqui</a>
                             </div>';
                     }else{
+                        //generar el numero de guia
+                            $numero_3 = mt_rand();
+                            $nuemro = substr($numero_3 ,4);
+                            $fecha = date('y');
+                            $fecha_2 = date('d');
+                            $nombre_2 = $valid['nombre'];
+                            $nombre = substr($nombre_2, 2, 3);
+                            $guia_paq = $nombre."-".$fecha."-".$fecha_2.$nuemro;
+
+
                         $nombre = mysqli_real_escape_string($db, $_POST['nombre']);
                         $cedula = mysqli_real_escape_string($db, $_POST['cedula']);
                         $correo = mysqli_real_escape_string($db, $_POST['correo']);
@@ -85,6 +96,7 @@
                         $const_nom = $valid['vendedor'];
                         $cliente = $valid['cedula'];
                         $asesor = $const_nom;
+                        $guia = $guia_paq;
 
                         //validacion de ingreso de datos.
                         if(!$nombre) {
@@ -109,8 +121,8 @@
                             $errores[] = "HEY TE FALTA UN DATO!!!! AGREGA EL NOMBRE";
                         }
                         //query para guardar
-                            $guardar_servicio = "INSERT INTO ordenes (nombre, cedula, correo, provincia, ciudad, sector, direccion, direccion_recoleccion, telefono, cod, valor, fragil, reemparque, l, a, h, peso, estado, fecha_reg, asesor, cliente)
-                                                              values ('$nombre', '$cedula', '$correo', '$provincia', '$ciudad', '$sector', '$direccion', '$direccion_recoleccion', '$telefono', '$cod', '$valor', '$fragil', '$reempaque', '$l', '$a', '$h', '$peso', '$estado', '$fecha_reg', '$asesor', '$cliente');";
+                            $guardar_servicio = "INSERT INTO ordenes (nombre, cedula, correo, provincia, ciudad, sector, direccion, direccion_recoleccion, telefono, cod, valor, fragil, reemparque, l, a, h, peso, estado, fecha_reg, asesor, cliente, guia)
+                                                              values ('$nombre', '$cedula', '$correo', '$provincia', '$ciudad', '$sector', '$direccion', '$direccion_recoleccion', '$telefono', '$cod', '$valor', '$fragil', '$reempaque', '$l', '$a', '$h', '$peso', '$estado', '$fecha_reg', '$asesor', '$cliente', '$guia');";
                             $ejecutar_guar = mysqli_query($db4, $guardar_servicio);
                             if ($ejecutar_guar){
                                 echo '
@@ -127,13 +139,13 @@
                                     mail($destinatario, $asunto, $mensajeCompleto, $header);
                                 
                                 //enviar correo de notificacion primer MENSAJE DE COORDINACION OPERATIVA
-                                    $destinatario = 'camila@globalcargoecuador.com';
-                                    $asunto = 'NUEVO SERVICIO SOLICITADO';
+                                    $destinatario1 = 'camila@globalcargoecuador.com';
+                                    $asunto1 = 'NUEVO SERVICIO SOLICITADO';
                                 
                                 // configuración del mensaje
-                                    $header = "Nueva solicitud de envio registrada";
-                                    $mensajeCompleto = "Hola CAMI, tenemos una  nueva solicitu de cliente.";
-                                    mail($destinatario, $asunto, $mensajeCompleto, $header);
+                                    $header1 = "Nueva solicitud de envio registrada";
+                                    $mensajeCompleto1 = "Hola CAMI, tenemos una  nueva solicitu de cliente.";
+                                    mail($destinatario1, $asunto1, $mensajeCompleto1, $header1);
                                
                                 //enviar correo de notificacion primer MENSAJE DE CLIENTE
                                     $destinatario2 = $correo;

@@ -48,7 +48,6 @@
                 if ($resultado) {
                 }
             }
-            
 
 ?>
 <body class="bg-gradient-primary">

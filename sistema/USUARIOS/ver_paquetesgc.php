@@ -56,14 +56,12 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>DETINARIO</th>
-                    <th>CEDULA / RUC</th>
-                    <th>CONTACTOS</th>
-                    <th>PROVINCIA</th>
-                    <th>CIUDAD</th>
-                    <th>CORREO</th>
                     <th>CONSIGNATARIO</th>
-                    <th>COD</th>
+                    <th>DETINARIO</th>
+                    <th>FECHA DE SOLICITUD</th>
+                    <th>CONTACTOS</th>
+                    <th>CIUDAD DIRECCION</th>
+                    <th>ASESOR</th>
                     <th>ESTADO</th>
                     <th>ACCIONES</th>
                 </tr>
@@ -71,20 +69,24 @@
             <tbody>
                 <?php while($array_clientes = mysqli_fetch_assoc($eje_clientes)):?>
                     <tr>
+                        <td>
+                            <?php
+                                // $consulta_cedula = $array_clientes['cliente'];
+                                // $consulta ="SELECT * FROM clientes WHERE cedula = $consulta_cedula;";
+                                // $ejec_consulta = mysqli_query($db4, $consulta);
+                                // $rest = mysqli_fetch_assoc($ejec_consulta);
+                                // echo $rest['nombre']." ".$rest['apellido']; 
+                            ?>
+                        </td>
                         <td><?php echo $array_clientes['nombre']." ".$array_clientes['apellido']; ?></td>
-                        <td><?php echo $array_clientes['cedula']; ?></td>
+                        <td><?php echo $array_clientes['fecha_reg']; ?></td>
                         <td><?php echo $array_clientes['telefono']; ?></td>
-                        <td><?php echo $array_clientes['provincia']; ?></td>
-                        <td><?php echo $array_clientes['ciudad']; ?></td>
-                        <td><?php echo $array_clientes['correo']; ?></td>
-                        <td><?php 
-                                echo $array_clientes['correo']; 
-                            ?></td>
-                        <td><?php echo $array_clientes['cod']; ?></td>
+                        <td><?php echo $array_clientes['ciudad']." / ".$array_clientes['provincia']; ?></td>
+                        <td><?php echo $array_clientes['asesor']; ?></td>
                         <td><?php echo $array_clientes['estado']; ?></td>
                         <td>
                             <div class="btn-group">
-                                <!-- <a href="actualizar_tarifas.php?id=<?php echo $tarifa['id'];?>" class="btn btn-outline-success btn-sm">ACTUALIZAR</a> -->
+                                <a href="actualizar_envios.php?id=<?php echo $array_clientes['id'];?>" class="btn btn-outline-success btn-sm">ACTUALIZAR</a>
                                 <form method="POST">
                                     <input type="hidden" name="id" value="<?php echo $array_clientes['id']; ?>">
                                     <input type="submit" class="btn btn-outline-danger btn-sm" value="BORRAR">

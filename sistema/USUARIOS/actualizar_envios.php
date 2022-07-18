@@ -86,7 +86,7 @@
                         $estado = "recolectar";
                         $fecha_actualizacion = date('y-m-d');
                         $const_nom = $array_ordenes['asesor'];
-                        $cliente = $array_ordenes['cliente'];
+                        $cliente = mysqli_real_escape_string($db4, $_POST['cedula']);
                         $asesor = $const_nom;
                         $guia = mysqli_real_escape_string($db4, $_POST['guia_paq']);
                         $responsable = $_SESSION['usuario'];
@@ -177,8 +177,8 @@
             </div>
             <div class="form-group row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" require name="nombre" class="form-control form-control-user" id="exampleFirstName"
-                        value = "<?php echo $array_ordenes['nombre'];?>"  maxlength="79">
+                    <input type="text" require name="cliente" class="form-control form-control-user" id="exampleFirstName"
+                        value = "<?php echo $array_ordenes['cliente'];?>" placeholder="Por favor ingresar el codigo de cliente..."  maxlength="79">
                 </div>
                 <div class="col-sm-6">
                     <input type="email"  require name="correo" class="form-control form-control-user" id="exampleLastName"

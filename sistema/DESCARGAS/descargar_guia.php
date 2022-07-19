@@ -194,6 +194,7 @@ if (!$auth) {
 </html>
 <?php 
     $doc = ob_get_clean();
+    echo $doc;
 
     //cargar en el proyecto la libreria dompdf
     require_once '../../includes/dompdf/autoload.inc.php';

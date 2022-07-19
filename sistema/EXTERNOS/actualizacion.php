@@ -85,6 +85,8 @@
                                             <p class="alert alert-success">ESTADO REPORTADO GENIAL!!!!</p>
                                         <?php elseif(intval($error) === 4 ): ?>
                                             <p class="alert alert-warning">LA ORDEN FUE CERRADA SI NECESITAS REPORTAR, INFORMA A COORDINACION!!!!</p>
+                                        <?php elseif(intval($error) === 5 ): ?>
+                                            <p class="alert alert-danger">NO EXISTE ESE NUMERO DE GUIA!!!! HAZ BIEN!!!!</p>
                                         <?php endif ?>
 
                                         <form action="actualizacion_campo.php" method="POST" class="user" >

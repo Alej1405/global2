@@ -86,11 +86,20 @@
                         <td><?php echo $array_clientes['estado']; ?></td>
                         <td>
                             <div class="btn-group">
-                                <a href="actualizar_envios.php?id=<?php echo $array_clientes['id'];?>" class="btn btn-outline-success btn-sm">ACTUALIZAR</a>
-                                <form method="POST">
+                                <div class="col-auto">
+                                    <a href="actualizar_envios.php?id=<?php echo $array_clientes['id'];?>" class="btn btn-outline-success btn-sm">
+                                        ACTUALIZAR
+                                    </a>
+                                </div>
+                                <form method="POST" class="col-auto">
                                     <input type="hidden" name="id" value="<?php echo $array_clientes['id']; ?>">
                                     <input type="submit" class="btn btn-outline-danger btn-sm" value="BORRAR">
                                 </form>
+                                <div class="col-auto">
+                                    <a href="../DESCARGAS/descargar_guia.php?guia=<?php echo $array_clientes['guia']; ?>" class="btn btn-outline-primary btn-sm">
+                                        <i class="fas fa-download fa-sm text-white-50"></i> Guia
+                                    </a>
+                                </div>
                             </div>
                         </td>
                     </tr>

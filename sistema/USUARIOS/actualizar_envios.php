@@ -86,7 +86,7 @@
                         $estado = "recolectar";
                         $fecha_actualizacion = date('y-m-d');
                         $const_nom = $array_ordenes['asesor'];
-                        $cliente = mysqli_real_escape_string($db4, $_POST['cedula']);
+                        $cliente = mysqli_real_escape_string($db4, $_POST['cliente']);
                         $asesor = $const_nom;
                         $guia = mysqli_real_escape_string($db4, $_POST['guia_paq']);
                         $responsable = $_SESSION['usuario'];

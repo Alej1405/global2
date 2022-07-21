@@ -58,7 +58,8 @@
                 // condicion para evaluar habilitar o bloquear una orden, por el estado
             }else{
                 
-
+                $query2 = "SELECT * FROM ordenes where guia = '${buscar}'";
+                $resultado2 = mysqli_query($db4, $query2);
 
 
                 // validacion con variable aleatoria
@@ -316,15 +317,15 @@
                             <ul class="list-group">
                                 <li class="list-group-item">
                                     <strong>Nombre Apellido</strong>
-                                    <?php echo $resultadoApi2['name']." ".$resultadoApi2['last_name']; ?>
+                                    <?php echo $resultadoApi2['nombre']; ?>
                                 </li>
                                 <li class="list-group-item">
-                                    <strong>Numero de Orden</strong>
-                                    <?php echo $resultadoApi2['order_id']; ?>
+                                    <strong>Numero de guia </strong>
+                                    <?php echo $resultadoApi2['guia']; ?>
                                 </li>
                                 <li class="list-group-item">
                                     <strong>Por cobrar</strong>
-                                    $<?php echo $resultadoApi2['total']; ?>
+                                    $<?php echo $resultadoApi2['valor']; ?>
                                 </li>
                             </ul>
                             <?php endwhile; ?>
@@ -391,12 +392,28 @@
                                     <div class="mb-3">
                                         <label for="exampleFormControlTextarea1" class="form-label">OBSERVACION</label>
                                         <textarea class="form-control" name="observacion_estado" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                        <?php
+                                        $query2 = "SELECT * FROM ordenes where guia = ${buscar}";
+                                        $resultado2 = mysqli_query($db4, $query2);
+                                        $resultadoApi2 = mysqli_fetch_assoc($resultado2);
+                                        $responsable_m = $resultadoApi2['transporte'];
+                                        $id_primary = $resultadoApi2['guia'];
+                                        $direccion = $resultadoApi2['direccion'];
+                                        $asesor = $resultadoApi2['asesor'];
+                                        //echo $responsable_m;
+                                        ?>
+                                        <input hidden type="text" name="responsable_m" value="<?php echo $responsable_m;?>">
+                                        <input hidden type="text" name="id_primary" value="<?php echo $id_primary;?>">
+                                        <input hidden type="text" name="direccion" value="<?php echo $direccion;?>">
+                                        <input hidden type="text" name="asesor" value="<?php echo $asesor;?>">
                                     </div>
                                     <!-- <input type="text" aria-required="true" name="observacion_estado" id="observacion_estado" class="form__input" require placeholder=" " value=""  maxlength="255">
                                     <label for="telefono" class="form__label">OBSERVACION DEL ESTADO</label>
                                     <span class="form__linea"></span> -->
                                 <div class="form__grupo" hidden>
-                                    <input type="number" aria-required="true" name="n_visitas" id="n_visitas" class="form__input"  placeholder=" " value=""  maxlength="1">
+                                    
+                                    
+                                    <input type="number" aria-required="true" name="filtro" id="n_visitas" class="form__input"  placeholder=" " value="1"  maxlength="1">
                                     <label for="telefono" class="form__label">NUMERO DE VISITA</label>
                                     <span class="form__linea"></span>
                                 </div>

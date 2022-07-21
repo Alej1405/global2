@@ -34,17 +34,20 @@
                 $ubicacion_p = $_POST['direccion'];
                 $responsable_m = $_POST['responsable_m'];
                 $asesor = $_POST['asesor'];
+                $id = $_POST['id'];
+                //echo $id;
+                //exit;
             //datos del formulario
                 $obervacion = $_POST['observacion_estado'];
                 $estado = $_POST['status'];
                 $fecha = date('y-m-d');
             //guardar historial de paquetes
                 $historial_envios = "INSERT INTO historial_paquetes(id_primary, estado, responsable_m, ubicacion_p, observacion, res_ubp, fecha)
-                                    VALUES('$id_primary',  '$estado', '$responsable_m', '$ubicacion_p', '$obervacion','$asesor', '$fecha');";
+                                    VALUES('$id_primary', '$estado', '$responsable_m', '$ubicacion_p', '$obervacion', '$asesor', '$fecha');";
                     $guardar_historial = mysqli_query($db4, $historial_envios);
-                    if($guardar_historial){
+                    
                         //actualizar en la base de datos de reportes
-                        $actualizar = "UPDATE ordenes SET estado = '${estado}' WHERE guia = '$id_primary';";
+                        $actualizar = "UPDATE ordenes SET estado = '${estado}' WHERE id = '$id';";
                             $update = mysqli_query($db4, $actualizar);
                             if($update){
                                 //enviar correo de notificacion primer MENSAJE 
@@ -60,8 +63,6 @@
                                     header('location: actualizacion.php?error=3');
                                 exit;
                             }
-                           
-                    }
         }
 
     }else{

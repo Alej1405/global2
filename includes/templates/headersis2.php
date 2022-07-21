@@ -379,6 +379,8 @@
                             <a class="collapse-item" href="ver_clientesgc.php">Ver registros.</a>
                             <h6 class="collapse-header">Paquetes:</h6>
                             <a class="collapse-item" href="ver_paquetesgc.php">Asignacion.</a>
+                            <h6 class="collapse-header">Tarifas:</h6>
+                            <a class="collapse-item" href="tarifas_paqueteria.php">Ingresar.</a>
                         </div>
                     </div>
                 </li>

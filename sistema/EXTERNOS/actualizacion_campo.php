@@ -393,19 +393,20 @@
                                         <label for="exampleFormControlTextarea1" class="form-label">OBSERVACION</label>
                                         <textarea class="form-control" name="observacion_estado" id="exampleFormControlTextarea1" rows="3"></textarea>
                                         <?php
-                                        $query2 = "SELECT * FROM ordenes where guia = ${buscar}";
                                         $resultado2 = mysqli_query($db4, $query2);
                                         $resultadoApi2 = mysqli_fetch_assoc($resultado2);
                                         $responsable_m = $resultadoApi2['transporte'];
                                         $id_primary = $resultadoApi2['guia'];
                                         $direccion = $resultadoApi2['direccion'];
                                         $asesor = $resultadoApi2['asesor'];
+                                        $id_principal = $resultadoApi2['id'];
                                         //echo $responsable_m;
                                         ?>
                                         <input hidden type="text" name="responsable_m" value="<?php echo $responsable_m;?>">
                                         <input hidden type="text" name="id_primary" value="<?php echo $id_primary;?>">
                                         <input hidden type="text" name="direccion" value="<?php echo $direccion;?>">
                                         <input hidden type="text" name="asesor" value="<?php echo $asesor;?>">
+                                        <input hidden type="text" name="id" value="<?php echo $id_principal;?>">
                                     </div>
                                     <!-- <input type="text" aria-required="true" name="observacion_estado" id="observacion_estado" class="form__input" require placeholder=" " value=""  maxlength="255">
                                     <label for="telefono" class="form__label">OBSERVACION DEL ESTADO</label>

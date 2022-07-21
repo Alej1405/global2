@@ -474,15 +474,16 @@
             </a>
             <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                <?php if ($_SESSION['usuario'] == "luis@globalcargoecuador.com") : ?>
+                <!-- <?php //if ($_SESSION['usuario'] == "luis@globalcargoecuador.com") : ?>
                     <h6 class="collapse-header">Gestion:</h6>
                         <a class="collapse-item" href="seguimiento.php">Historial</a>
                     <h6 class="collapse-header">Listados:</h6>
-                        <a class="collapse-item" href="facturar.php">Ubicacion</a>
-                <?php elseif($_SESSION['usuario'] == "gissela@globalcargoecuador.com"): ?>
+                        <a class="collapse-item" href="facturar.php">Ubicacion</a> -->
+                <?php //elseif($_SESSION['usuario'] == "gissela@globalcargoecuador.com"): ?>
                     <h6 class="collapse-header">BODEGA:</h6>
                         <a class="collapse-item" href="bodega_IS.php">Control de Ingreso</a>
-                <?php endif; ?>
+                        <a class="collapse-item" href="lista_pesos.php">Registrar pesos</a>
+                <?php //endif; ?>
                 </div>
             </div>
         </li>

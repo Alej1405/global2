@@ -50,6 +50,7 @@
         $fecha_actualizacion = "";
         $responsable = "";
         $transporte = "";
+        $tarifa= "";
 
         //consulta de datos entre tablas
             $consulta_datos = "SELECT * from ordenes WHERE id = $id_envio";
@@ -83,7 +84,6 @@
                         $a = mysqli_real_escape_string($db4, $_POST['a']);
                         $h = mysqli_real_escape_string($db4, $_POST['h']);
                         $peso = mysqli_real_escape_string($db4, $_POST['peso']);
-                        $estado = "recolectar";
                         $fecha_actualizacion = date('y-m-d');
                         $const_nom = $array_ordenes['asesor'];
                         $cliente = mysqli_real_escape_string($db4, $_POST['cliente']);
@@ -91,6 +91,7 @@
                         $guia = mysqli_real_escape_string($db4, $_POST['guia_paq']);
                         $responsable = $_SESSION['usuario'];
                         $transporte = $_POST['transporte'];
+                        $tarifa = $_POST['tarifa'];
 
                         //validacion de ingreso de datos.
                         if(!$nombre) {
@@ -114,6 +115,9 @@
                         if(!$direccion) {
                             $errores[] = "HEY TE FALTA UN DATO!!!! AGREGA EL NOMBRE";
                         }
+                        if(!$tarifa) {
+                            $errores[] = "UTAAAAAA!!!! AGREGA LA TARIFA";
+                        }
                         //query para guardar
                             $guardar_servicio = "UPDATE ordenes SET nombre = '$nombre',
                                                                     cedula = '$cedula',
@@ -132,12 +136,12 @@
                                                                     a = '$a',
                                                                     h = '$h',
                                                                     peso = '$peso',
-                                                                    estado = '$estado',
                                                                     asesor = '$asesor',
                                                                     cliente = '$cliente',
                                                                     guia = '$guia',
                                                                     fecha_actualizacion = '$fecha_actualizacion',
                                                                     responsable ='$responsable',
+                                                                    tarifa ='$tarifa',
                                                                     transporte ='$transporte'
                                                                     WHERE id = $id_envio;";
                             
@@ -269,6 +273,23 @@
                     </select>
                 </div>
             </div>
+            <tr>
+            <div class="form-group row">
+                CARGAR TARIFA
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <select require name="tarifa" class="form-control form-control-user" id="exampleFirstName">
+                        <option selected>Selecciona una Tarifa </option>
+                        <?php 
+                            $tarifa_con = "SELECT * FROM tarifas;";
+                            $eje_tarifa = mysqli_query($db4, $tarifa_con);
+                            while($tarifas = mysqli_fetch_assoc($eje_tarifa)):
+                        ?>
+                        <option value="<?php echo $tarifas['nombre'];?>"><?php echo $tarifas['nombre'];?></option>
+                        <?php endwhile; ?>
+                    </select>
+                </div>
+            </div>
+            </tr>
                 <div class="d-grid gap-2 col-6 mx-auto">
                     <button class="btn btn-primary btn-user btn-block" title="REGISTRAR CLIENTE">ACTUALIZAR ENVIO</button>
                 </div>

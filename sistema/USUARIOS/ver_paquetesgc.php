@@ -63,6 +63,7 @@
                     <th>CIUDAD DIRECCION</th>
                     <th>ASESOR</th>
                     <th>ESTADO</th>
+                    <th>TARIFA APLICADA</th>
                     <th>ACCIONES</th>
                 </tr>
             </thead>
@@ -71,11 +72,11 @@
                     <tr>
                         <td>
                             <?php
-                                // $consulta_cedula = $array_clientes['cliente'];
-                                // $consulta ="SELECT * FROM clientes WHERE cedula = $consulta_cedula;";
-                                // $ejec_consulta = mysqli_query($db4, $consulta);
-                                // $rest = mysqli_fetch_assoc($ejec_consulta);
-                                // echo $rest['nombre']." ".$rest['apellido']; 
+                                $consulta_cedula = $array_clientes['cliente'];
+                                $consulta ="SELECT * FROM clientes WHERE cedula = $consulta_cedula;";
+                                $ejec_consulta = mysqli_query($db4, $consulta);
+                                $rest = mysqli_fetch_assoc($ejec_consulta);
+                                echo $rest['nombre']." ".$rest['apellido']; 
                             ?>
                         </td>
                         <td><?php echo $array_clientes['nombre']." ".$array_clientes['apellido']; ?></td>
@@ -84,6 +85,7 @@
                         <td><?php echo $array_clientes['ciudad']." / ".$array_clientes['provincia']; ?></td>
                         <td><?php echo $array_clientes['asesor']; ?></td>
                         <td><?php echo $array_clientes['estado']; ?></td>
+                        <td><?php echo $array_clientes['tarifa']; ?></td>
                         <td>
                             <div class="btn-group">
                                 <div class="col-auto">

@@ -447,6 +447,9 @@
                             <a class="collapse-item" href="li_depositos.php">Estado de Cuenta</a>
                             <h6 class="collapse-header">Registro y Movimiento:</h6>
                             <a class="collapse-item" href="registro_fin.php">Ingresos y Egresos</a>
+                            <a class="collapse-item" href="ver_fin.php">Ver registros</a>
+                            <h6 class="collapse-header">GC-GO Liquidaciones:</h6>
+                            <a class="collapse-item" href="fin-gcgo.php">Estado de Cuenta</a>
                         </div>
                     </div>
                 </li>

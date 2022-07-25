@@ -425,9 +425,9 @@
             <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Facturación:</h6>
-                    <a class="collapse-item" href="facturar.php">Facturar y Registrar.</a>
+                        <a class="collapse-item" href="facturar.php">Facturar y Registrar.</a>
                     <h6 class="collapse-header">Seguimiento:</h6>
-                    <a class="collapse-item" href="vercargas.php">Manifiestos.</a>
+                        <a class="collapse-item" href="vercargas.php">Manifiestos.</a>
                 </div>
             </div>
         </li>

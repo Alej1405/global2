@@ -52,7 +52,10 @@ $ejecutar_consulta3 = mysqli_query($db4, $consulta_fin);
                     <th>CLIENTE</th>
                     <th>NEGOCIO</th>
                     <th>DESTINO</th>
+                    <th>T. TARIFA</th>
                     <th>PESO</th>
+                    <th>TARIFA</th>
+                    <th>V. EXTRA</th>
                     <th>POR COBRAR</th>
                 </tr>
             </thead>
@@ -82,15 +85,70 @@ $ejecutar_consulta3 = mysqli_query($db4, $consulta_fin);
                         </td>
                         <td>
                             <?php 
-                             $guia = $array_clientes['guia'];
-                             $consulta_fin2 = "SELECT * FROM ingreso_gc WHERE guia = '$guia';";
-                             $ejecutar_consulta2 = mysqli_query($db2, $consulta_fin2);
-                             $consulta_peso = mysqli_fetch_assoc($ejecutar_consulta2);
-                             echo $consulta_peso['peso'];
+                              echo $array_clientes['tarifa'];
                             ?>
                         </td>
                         <td>
-                            
+                            <?php 
+                              echo $array_clientes['peso'];
+                            ?>
+                        </td>
+                        <td>
+                            <?php 
+                              $consultar_tarifa = $array_clientes['tarifa'];
+                              //consultar el valor de tarifa a aplicar
+                              $cons_tarifa = "SELECT * FROM tarifas WHERE nombre = '${consultar_tarifa}';";
+                              $eje_consT = mysqli_query($db4, $cons_tarifa);
+                              $valor_tarif = mysqli_fetch_assoc($eje_consT);
+                              $tarifa = $valor_tarif['valor'];
+                              $tarifa_extra = $valor_tarif['valor_extra'];
+                              $peso_base = $valor_tarif['peso'];
+                              echo $tarifa;
+                            ?>
+                        </td>
+                        <td>
+                            <?php echo $tarifa_extra; ?>
+                        </td>
+                        <td>
+                            <?php 
+                                $consultar_tarifa = $array_clientes['tarifa'];
+                                //consultar el valor de tarifa a aplicar
+                                // $cons_tarifa = "SELECT * FROM tarifas WHERE nombre = '${consultar_tarifa}';";
+                                // $eje_consT = mysqli_query($db4, $cons_tarifa);
+                                // $valor_tarif = mysqli_fetch_assoc($eje_consT);
+                                // $tarifa = $valor_tarif['valor'];
+                                // $tarifa_extra = $valor_tarif['valor_extra'];
+                                // $peso_base = $valor_tarif['peso'];
+                                //calculo del peso real comparacion con el pesovolumetrico
+                                $largo = $array_clientes['l'];
+                                $ancho = $array_clientes['a'];
+                                $alto = $array_clientes['h'];
+                                $P = $array_clientes['peso'];
+                                $peso_vol1 = round(($largo * $ancho * $alto) / 5000, 2);
+                                //$peso_vol = $P - $peso_vol1;
+                                if ($peso_vol1 > $P){
+                                    //calculo con el peso volumetrico
+                                    $peso_aplicar = $peso_vol1 - $peso_base;
+                                    if($peso_aplicar > $peso_base){
+                                        $valor_extra = $peso_aplicar * $tarifa_extra;
+                                        $valor_pagar = $valor_extra + $tarifa;
+                                        echo $valor_pagar;
+                                    }else{
+                                        $valor_pagar = $tarifa;
+                                        echo $tarifa;
+                                    }
+                                }else{
+                                    $peso_aplicar = $P - $peso_base;
+                                    if($peso_aplicar > $peso_base){
+                                        $valor_extra = $peso_aplicar * $tarifa_extra;
+                                        $valor_pagar = $valor_extra + $tarifa;
+                                        echo $valor_pagar;
+                                    }else{
+                                        $valor_pagar = $tarifa;
+                                        echo $tarifa;
+                                    };
+                                }
+                            ?>
                         </td>
                     </tr>
                 <?php endwhile; ?>

@@ -54,6 +54,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fecha = date('y-m-d');
     $responsable = $_SESSION['nombre'];
     $volumen = $l * $a * $h;
+    $estado = 'ingreso';
     if(!$l) {
         $errores[] = "HEY TE FALTA UN DATO!!!! AGREGA EL LARGO";
     }
@@ -67,6 +68,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $actualizar_peso = "UPDATE ordenes SET l = '$l',
                                                a = '$a',
                                                h = '$h',
+                                               estado = '$estado',
                                                peso = '$peso'
                                                WHERE id = $id;";
         $eje = mysqli_query($db4, $actualizar_peso);

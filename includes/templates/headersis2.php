@@ -509,6 +509,10 @@
                             <a class="collapse-item" href="ver_clientesgc.php?nombre=<?php echo $nombre?>">Ver registros.</a>
                             <h6 class="collapse-header">Paquetes:</h6>
                             <a class="collapse-item" href="ver_paquetesgc.php?nombre=<?php echo $nombre?>">Asignacion.</a>
+                            <?php if ($_SESSION['usuario'] == "domenica@globalcargoecuador.com") : ?>
+                                <h6 class="collapse-header">BODEGA:</h6>
+                                <a class="collapse-item" href="lista_pesos.php">Registrar pesos</a>
+                            <?php endif ?>
                         </div>
                     </div>
                 </li>

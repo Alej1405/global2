@@ -25,14 +25,9 @@
      //ARRAY DE ERRORES PARA LA ALERTAS
         $errores = [];
     
-    //query para consultar los clientes registrados
-    if (empty($nombre_ase)){
-        $consulta_clientes = "SELECT * FROM ordenes";
+        $consulta_clientes = "SELECT * FROM ordenes WHERE estado = 'recolectar'";
         $eje_clientes = mysqli_query($db4, $consulta_clientes);
-    }else{
-        $consulta_clientes = "SELECT * FROM ordenes WHERE asesor = '${nombre_ase}'";
-        $eje_clientes = mysqli_query($db4, $consulta_clientes);
-    }
+    
 
     //eliminar cliente
         //liminar una tarifa directamente desde la tabla.

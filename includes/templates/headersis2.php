@@ -364,6 +364,8 @@
                             <a class="collapse-item" href="bodega_IS.php">Control de Ingreso</a>
                             <h6 class="collapse-header">Gestion:</h6>
                             <a class="collapse-item" href="seguimiento.php">Historial</a>
+                            <h6 class="collapse-header">GC-GO Liquidaciones:</h6>
+                            <a class="collapse-item" href="fin-gcgo.php">Estado de Cuenta</a>
                         </div>
                     </div>
                 </li>

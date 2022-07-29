@@ -9,7 +9,7 @@ require '../../includes/config/database.php';
 $auth = estaAutenticado();
 
 if (!$auth) {
-    header('location: index.php');
+    header('location: ../index.php');
 }
 
 incluirTemplate('headersis2');
@@ -34,83 +34,100 @@ $db4 = conectarDB4();
 conectarDB6();
 $db6 = conectarDB6();
 
+//-------------variables de busqueda----------------------
+$buscar = "WHERE estado = 'delivered' ORDER BY cliente;";
+
+//-------------captura de datos----------------------
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $buscar = $_POST['buscar'];
+}
+
 //-------------CONSULTA DE INFORMACION--------------
-
-
-$consulta_fin = "SELECT * FROM ordenes;";
+$consulta_fin = "SELECT * FROM ordenes ${buscar};";
 $ejecutar_consulta3 = mysqli_query($db4, $consulta_fin);
-
-
-
 ?>
 
 <body class="bg-gradient-primary">
     <div class="container">
+        <form action="" method="post">
+            <div class="card">
+                <div class="card-body">
+                    <h4>FILTRAR POR CLIENTE</h4>
+                    <select class="form-select" name="buscar" aria-label="Default select example">
+                        <option selected>SELECCIONA UN CLIENTE</option>
+                        <option value="WHERE estado = 'delivered' ORDER BY cliente;">Ver todo</option>
+                        <?php 
+                            $buscar_cliente = "SELECT * FROM clientes;";
+                            $ejecutar_buscar_cliente = mysqli_query($db4, $buscar_cliente);
+                            while ($fila = mysqli_fetch_array($ejecutar_buscar_cliente)):
+                        ?>
+                            <option value="WHERE cliente = <?php echo $fila['cedula'];?> AND estado = 'delivered'"><?php echo $fila['nombre'].' '.$fila['apellido'].'/'.$fila['emprendimiento'];?></option>
+                        <?php endwhile; ?>
+                    </select>
+                    <br>
+                    <button class="btn btn-outline-primary" title="REGISTRAR CLIENTE">Buscar</button>
+                </div>
+            </div>
+        </form>
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>CLIENTE</th>
-                    <th>NEGOCIO</th>
-                    <th>DESTINO</th>
-                    <th>T. TARIFA</th>
-                    <th>PESO</th>
-                    <th>TARIFA</th>
-                    <th>V. EXTRA</th>
-                    <th>POR COBRAR</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php while ($array_clientes = mysqli_fetch_assoc($ejecutar_consulta3)) : ?>
-                    <tr>
-                        <td>
-                            <?php 
-                                $cedula = $array_clientes['cliente']; 
+                        <th>CLIENTE</th>
+                        <th>DESTINATARIO</th>
+                        <th>TIPO TARIFA</th>
+                        <th>COD</th>
+                        <th>VALOR COD</th>
+                        <th>VALOR COBRAR</th>
+                        <th>ESTADO</th>
+                        <th>PESO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php while ($array_clientes = mysqli_fetch_assoc($ejecutar_consulta3)) : ?>
+                        <form action="liquidacion_cliente.php" method="post">
+                        <tr>
+                            <td>
+                                <?php
+                                $cedula = $array_clientes['cliente'];
                                 $consulta_fin = "SELECT * FROM clientes WHERE cedula = '${cedula}';";
-                                $ejecutar_consulta = mysqli_query($db4, $consulta_fin); 
+                                $ejecutar_consulta = mysqli_query($db4, $consulta_fin);
                                 $ejecutar_consulta31 = mysqli_fetch_assoc($ejecutar_consulta);
-                                echo $ejecutar_consulta31['nombre']." ".$ejecutar_consulta31['apellido'];    
-                            ?>
-                        </td>
-                        <td>
-                            <?php 
-                                $cedula = $array_clientes['cliente']; 
+                                echo $ejecutar_consulta31['nombre'] . " " . $ejecutar_consulta31['apellido'];
+                                ?>
+                                <input hidden type="text" name="cliente" id="" value="<?php echo $ejecutar_consulta31['nombre'] . " " . $ejecutar_consulta31['apellido'];?>">
+                            </td>
+                            <td>
+                                <?php
+                                $cedula = $array_clientes['cliente'];
                                 $consulta_fin = "SELECT * FROM clientes WHERE cedula = '$cedula';";
                                 $ejecutar_consulta = mysqli_query($db4, $consulta_fin);
                                 $ejecutar_consulta4 = mysqli_fetch_assoc($ejecutar_consulta);
-                                echo $ejecutar_consulta4['emprendimiento'];    
-                            ?>
-                        </td>
-                        <td>
-                            <?php echo $array_clientes['ciudad']; ?>
-                        </td>
-                        <td>
-                            <?php 
-                              echo $array_clientes['tarifa'];
-                            ?>
-                        </td>
-                        <td>
-                            <?php 
-                              echo $array_clientes['peso'];
-                            ?>
-                        </td>
-                        <td>
-                            <?php 
-                              $consultar_tarifa = $array_clientes['tarifa'];
-                              //consultar el valor de tarifa a aplicar
-                              $cons_tarifa = "SELECT * FROM tarifas WHERE nombre = '${consultar_tarifa}';";
-                              $eje_consT = mysqli_query($db4, $cons_tarifa);
-                              $valor_tarif = mysqli_fetch_assoc($eje_consT);
-                              $tarifa = $valor_tarif['valor'];
-                              $tarifa_extra = $valor_tarif['valor_extra'];
-                              $peso_base = $valor_tarif['peso'];
-                              echo $tarifa;
-                            ?>
-                        </td>
-                        <td>
-                            <?php echo $tarifa_extra; ?>
-                        </td>
-                        <td>
-                            <?php 
+                                echo $cedula = $array_clientes['nombre'];
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                echo $array_clientes['tarifa'];
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                $consultar_tarifa = $array_clientes['tarifa'];
+                                //consultar el valor de tarifa a aplicar
+                                $cons_tarifa = "SELECT * FROM tarifas WHERE nombre = '${consultar_tarifa}';";
+                                $eje_consT = mysqli_query($db4, $cons_tarifa);
+                                $valor_tarif = mysqli_fetch_assoc($eje_consT);
+                                $tarifa = $valor_tarif['valor'];
+                                $tarifa_extra = $valor_tarif['valor_extra'];
+                                $peso_base = $valor_tarif['peso'];
+                                echo $array_clientes['cod'];
+                                ?>
+                            </td>
+                            <td>
+                                <?php echo $array_clientes['valor']; ?>
+                            </td>
+                            <td>
+                                <?php
                                 $consultar_tarifa = $array_clientes['tarifa'];
                                 //consultar el valor de tarifa a aplicar
                                 // $cons_tarifa = "SELECT * FROM tarifas WHERE nombre = '${consultar_tarifa}';";
@@ -126,34 +143,49 @@ $ejecutar_consulta3 = mysqli_query($db4, $consulta_fin);
                                 $P = $array_clientes['peso'];
                                 $peso_vol1 = round(($largo * $ancho * $alto) / 5000, 2);
                                 //$peso_vol = $P - $peso_vol1;
-                                if ($peso_vol1 > $P){
+                                if ($peso_vol1 > $P) {
                                     //calculo con el peso volumetrico
                                     $peso_aplicar = $peso_vol1 - $peso_base;
-                                    if($peso_aplicar > $peso_base){
+                                    if ($peso_aplicar > $peso_base) {
                                         $valor_extra = $peso_aplicar * $tarifa_extra;
                                         $valor_pagar = $valor_extra + $tarifa;
-                                        echo $valor_pagar;
-                                    }else{
+                                        echo "$".round($valor_pagar, 2);
+                                    } else {
                                         $valor_pagar = $tarifa;
-                                        echo $tarifa;
+                                        echo "$".round($tarifa, 2);
                                     }
-                                }else{
+                                } else {
                                     $peso_aplicar = $P - $peso_base;
-                                    if($peso_aplicar > $peso_base){
+                                    if ($peso_aplicar > $peso_base) {
                                         $valor_extra = $peso_aplicar * $tarifa_extra;
                                         $valor_pagar = $valor_extra + $tarifa;
-                                        echo $valor_pagar;
-                                    }else{
+                                        echo "$".round($valor_pagar, 2);
+                                    } else {
                                         $valor_pagar = $tarifa;
-                                        echo $tarifa;
+                                        echo "$".round($tarifa, 2);
                                     };
                                 }
-                            ?>
-                        </td>
-                    </tr>
-                <?php endwhile; ?>
-            </tbody>
-        </table>
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                $estado_filtro = $array_clientes['estado'];
+                                if ($estado_filtro === "delivered") {
+                                    echo "<span class='badge badge-success'>POR FACTURAR</span>";
+                                } else {
+                                    echo "<span class='badge badge-danger'>CANCELADO </span>";
+                                }
+                                ?>
+                            </td>
+                            <td>
+                                <!-- <button class="btn btn-outline-success" title="REGISTRAR CLIENTE">LIQUIDAR</button> -->
+                                <?php echo $array_clientes['peso']; ?>
+                            </td>
+                        </tr>
+                    </form>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
     </div>
     <?php
     incluirTemplate('fottersis');

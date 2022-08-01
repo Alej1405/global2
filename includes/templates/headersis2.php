@@ -301,9 +301,9 @@
             <div id="collapse00" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Clientes:</h6>
-                    <a class="collapse-item" href="ver_clientesgc.php?nombre=<?php echo $nombre?>">Ver registros.</a>
+                    <a class="collapse-item" href="ver_clientesgc.php">Ver registros.</a>
                     <h6 class="collapse-header">Paquetes:</h6>
-                    <a class="collapse-item" href="ver_paquetesgc.php?nombre=<?php echo $nombre?>">Asignacion.</a>
+                    <a class="collapse-item" href="ver_paquetesgc.php">Asignacion.</a>
                 </div>
             </div>
         </li>

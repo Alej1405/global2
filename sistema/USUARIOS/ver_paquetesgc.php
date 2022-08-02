@@ -27,10 +27,10 @@
     
     //query para consultar los clientes registrados
     if (empty($nombre_ase)){
-        $consulta_clientes = "SELECT * FROM ordenes WHERE estado = 'ingreso' OR estado = 'recolectar';";
+        $consulta_clientes = "SELECT * FROM ordenes WHERE NOT estado = 'delivered';";
         $eje_clientes = mysqli_query($db4, $consulta_clientes);
     }else{
-        $consulta_clientes = "SELECT * FROM ordenes WHERE asesor = '${nombre_ase}' and estado = 'recolectar';";
+        $consulta_clientes = "SELECT * FROM ordenes WHERE asesor = '$nombre_ase' and not estado = 'delivered';";
         $eje_clientes = mysqli_query($db4, $consulta_clientes);
     }
     //eliminar cliente

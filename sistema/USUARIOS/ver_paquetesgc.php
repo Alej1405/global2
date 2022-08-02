@@ -51,6 +51,8 @@
 
 ?>
 <body class="bg-gradient-primary">
+    <h1>SEGUIMIENTO DE PAQUETES</h1>
+            <p>En este listado solo se encuentran los paquetes que estan en proceso de entrega.</p>
     <div class="container">
         <table class="table table-hover">
             <thead>

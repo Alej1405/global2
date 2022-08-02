@@ -364,8 +364,7 @@
                             <a class="collapse-item" href="bodega_IS.php">Control de Ingreso</a>
                             <h6 class="collapse-header">Gestion:</h6>
                             <a class="collapse-item" href="seguimiento.php">Historial</a>
-                            <h6 class="collapse-header">GC-GO Liquidaciones:</h6>
-                            <a class="collapse-item" href="fin-gcgo.php">Estado de Cuenta</a>
+                            
                         </div>
                     </div>
                 </li>
@@ -383,6 +382,8 @@
                             <a class="collapse-item" href="ver_paquetesgc.php">Asignacion.</a>
                             <h6 class="collapse-header">Tarifas:</h6>
                             <a class="collapse-item" href="tarifas_paqueteria.php">Ingresar.</a>
+                            <h6 class="collapse-header">Liquidaciones:</h6>
+                            <a class="collapse-item" href="fin-gcgo.php">Estado de Cuenta</a>
                         </div>
                     </div>
                 </li>
@@ -509,6 +510,7 @@
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Clientes:</h6>
                             <a class="collapse-item" href="ver_clientesgc.php?nombre=<?php echo $nombre?>">Ver registros.</a>
+                            <a class="collapse-item" href="fin-gcgo.php?id=<?php echo $nombre?>">Estado de Cuenta</a>
                             <h6 class="collapse-header">Paquetes:</h6>
                             <a class="collapse-item" href="ver_paquetesgc.php?nombre=<?php echo $nombre?>">Asignacion.</a>
                             <?php if ($_SESSION['usuario'] == "domenica@globalcargoecuador.com") : ?>

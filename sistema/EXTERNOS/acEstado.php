@@ -50,15 +50,26 @@
                         $actualizar = "UPDATE ordenes SET estado = '${estado}' WHERE id = '$id';";
                             $update = mysqli_query($db4, $actualizar);
                             if($update){
-                                //enviar correo de notificacion primer MENSAJE 
-                                $destinatario = 'mafer.fernandez@globalcargoecuador.com';
-                                $asunto = 'NUEVA ENTREGA REALIZADA';
-                                
-                                // configuración del mensaje
-                                    $header = "Un proceso a finalizado";
-                                    $mensajeCompleto = "Hola Mafer, un nuevo envio se ha entregado,
-                                                        por favor verificar en el sistema.";
-                                    mail($destinatario, $asunto, $mensajeCompleto, $header);
+                                //----------- inicio del mensaje para confirmacion en coordinacion ------------------
+                                    //enviar correo de notificacion primer MENSAJE 
+                                    $destinatario = 'mafer.fernandez@globalcargoecuador.com';
+                                    $asunto = 'NUEVA ENTREGA REALIZADA';
+                                    // configuración del mensaje
+                                        $header = "Un proceso a finalizado";
+                                        $mensajeCompleto = "Hola Mafer, un nuevo envio se ha entregado,
+                                                            por favor verificar en el sistema.";
+                                        mail($destinatario, $asunto, $mensajeCompleto, $header);
+                                //----------- fin del mensaje para confirmacion en coordinacion ------------------
+                                //----------- inicio del mensaje para confirmacion con el CLIENTE (solicitante del servicio) ------------------
+                                    //enviar correo de notificacion primer MENSAJE 
+                                    $destinatario = 'mafer.fernandez@globalcargoecuador.com';
+                                    $asunto = 'NUEVA ENTREGA REALIZADA';
+                                    // configuración del mensaje
+                                        $header = "Un proceso a finalizado";
+                                        $mensajeCompleto = "Hola Mafer, un nuevo envio se ha entregado,
+                                                            por favor verificar en el sistema.";
+                                        mail($destinatario, $asunto, $mensajeCompleto, $header);
+                                //----------- fin del mensaje para confirmacion en coordinacion ------------------
                                     
                                     header('location: actualizacion.php?error=3');
                                 exit;

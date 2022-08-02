@@ -34,8 +34,15 @@ $db4 = conectarDB4();
 conectarDB6();
 $db6 = conectarDB6();
 
-//-------------variables de busqueda----------------------
-$buscar = "WHERE estado = 'delivered' ORDER BY cliente;";
+//-------------variable de filtro----------------------
+$filtro = $_SESSION['rol'];
+
+//-------------MACRO FILTRO POR ASESOR (ASESOR)----------------------
+if (empty($id)) {
+    $buscar = "WHERE NOT estado = 'recolectar';";
+} else {
+    $buscar = "WHERE asesor = '$id' AND NOT estado = 'recolectar';";
+}
 
 //-------------captura de datos----------------------
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -49,42 +56,50 @@ $ejecutar_consulta3 = mysqli_query($db4, $consulta_fin);
 
 <body class="bg-gradient-primary">
     <div class="container">
-        <form action="" method="post">
-            <div class="card">
-                <div class="card-body">
-                    <h4>FILTRAR POR CLIENTE</h4>
-                    <select class="form-select" name="buscar" aria-label="Default select example">
-                        <option selected>SELECCIONA UN CLIENTE</option>
-                        <option value="WHERE estado = 'delivered' ORDER BY cliente;">Ver todo</option>
-                        <?php 
+        <h1>ESTADO DE CUENTA</h1>
+        <?php if ($filtro === 'gerencia_paqueteria') : ?>
+            <form action="" method="post">
+                <div class="card">
+                    <div class="card-body">
+                        <h4>FILTRAR POR CLIENTE</h4>
+                        <select class="form-select" name="buscar" aria-label="Default select example">
+                            <option selected>SELECCIONA UN CLIENTE</option>
+                            <option value="WHERE estado = 'delivered' ORDER BY cliente;">Ver todo</option>
+                            <?php
                             $buscar_cliente = "SELECT * FROM clientes;";
                             $ejecutar_buscar_cliente = mysqli_query($db4, $buscar_cliente);
-                            while ($fila = mysqli_fetch_array($ejecutar_buscar_cliente)):
-                        ?>
-                            <option value="WHERE cliente = <?php echo $fila['cedula'];?> AND estado = 'delivered'"><?php echo $fila['nombre'].' '.$fila['apellido'].'/'.$fila['emprendimiento'];?></option>
-                        <?php endwhile; ?>
-                    </select>
-                    <br>
-                    <button class="btn btn-outline-primary" title="REGISTRAR CLIENTE">Buscar</button>
+                            while ($fila = mysqli_fetch_array($ejecutar_buscar_cliente)) :
+                            ?>
+                                <option value="WHERE cliente = <?php echo $fila['cedula']; ?> AND NOT estado = 'recolectar';"><?php echo $fila['nombre'] . ' ' . $fila['apellido'] . '/' . $fila['emprendimiento']; ?></option>
+                            <?php endwhile; ?>
+                        </select>
+                        <br>
+                        <button class="btn btn-outline-primary" title="REGISTRAR CLIENTE">Buscar</button>
+                    </div>
                 </div>
+            </form>
+        <?php endif; ?>
+        <?php if ($filtro === 'asesor') : ?>
+            <div class="alert alert-danger" role="alert">
+                LOS SIGUIENTES VALORES NO INCLUYEN IVA.
             </div>
-        </form>
+        <?php endif; ?>
         <table class="table table-hover">
             <thead>
                 <tr>
-                        <th>CLIENTE</th>
-                        <th>DESTINATARIO</th>
-                        <th>TIPO TARIFA</th>
-                        <th>COD</th>
-                        <th>VALOR COD</th>
-                        <th>VALOR COBRAR</th>
-                        <th>ESTADO</th>
-                        <th>PESO</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php while ($array_clientes = mysqli_fetch_assoc($ejecutar_consulta3)) : ?>
-                        <form action="liquidacion_cliente.php" method="post">
+                    <th>CLIENTE</th>
+                    <th>DESTINATARIO</th>
+                    <th>TIPO TARIFA</th>
+                    <th>COD</th>
+                    <th>VALOR COD</th>
+                    <th>VALOR COBRAR</th>
+                    <th>ESTADO</th>
+                    <th>PESO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while ($array_clientes = mysqli_fetch_assoc($ejecutar_consulta3)) : ?>
+                    <form action="liquidacion_cliente.php" method="post">
                         <tr>
                             <td>
                                 <?php
@@ -94,7 +109,7 @@ $ejecutar_consulta3 = mysqli_query($db4, $consulta_fin);
                                 $ejecutar_consulta31 = mysqli_fetch_assoc($ejecutar_consulta);
                                 echo $ejecutar_consulta31['nombre'] . " " . $ejecutar_consulta31['apellido'];
                                 ?>
-                                <input hidden type="text" name="cliente" id="" value="<?php echo $ejecutar_consulta31['nombre'] . " " . $ejecutar_consulta31['apellido'];?>">
+                                <input hidden type="text" name="cliente" id="" value="<?php echo $ejecutar_consulta31['nombre'] . " " . $ejecutar_consulta31['apellido']; ?>">
                             </td>
                             <td>
                                 <?php
@@ -149,20 +164,20 @@ $ejecutar_consulta3 = mysqli_query($db4, $consulta_fin);
                                     if ($peso_aplicar > $peso_base) {
                                         $valor_extra = $peso_aplicar * $tarifa_extra;
                                         $valor_pagar = $valor_extra + $tarifa;
-                                        echo "$".round($valor_pagar, 2);
+                                        echo "$" . round($valor_pagar, 2);
                                     } else {
                                         $valor_pagar = $tarifa;
-                                        echo "$".round($tarifa, 2);
+                                        echo "$" . round($tarifa, 2);
                                     }
                                 } else {
                                     $peso_aplicar = $P - $peso_base;
                                     if ($peso_aplicar > $peso_base) {
                                         $valor_extra = $peso_aplicar * $tarifa_extra;
                                         $valor_pagar = $valor_extra + $tarifa;
-                                        echo "$".round($valor_pagar, 2);
+                                        echo "$" . round($valor_pagar, 2);
                                     } else {
                                         $valor_pagar = $tarifa;
-                                        echo "$".round($tarifa, 2);
+                                        echo "$" . round($tarifa, 2);
                                     };
                                 }
                                 ?>
@@ -170,10 +185,10 @@ $ejecutar_consulta3 = mysqli_query($db4, $consulta_fin);
                             <td>
                                 <?php
                                 $estado_filtro = $array_clientes['estado'];
-                                if ($estado_filtro === "delivered") {
+                                if ($estado_filtro === "delivered" || $estado_filtro === "ingresado") {
                                     echo "<span class='badge badge-success'>POR FACTURAR</span>";
                                 } else {
-                                    echo "<span class='badge badge-danger'>CANCELADO </span>";
+                                    echo "<span class='badge badge-danger'>EN PROCESO</span>";
                                 }
                                 ?>
                             </td>
@@ -183,9 +198,9 @@ $ejecutar_consulta3 = mysqli_query($db4, $consulta_fin);
                             </td>
                         </tr>
                     </form>
-                    <?php endwhile; ?>
-                </tbody>
-            </table>
+                <?php endwhile; ?>
+            </tbody>
+        </table>
     </div>
     <?php
     incluirTemplate('fottersis');

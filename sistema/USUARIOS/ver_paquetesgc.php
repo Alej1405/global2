@@ -71,7 +71,7 @@
             <tbody>
                 <?php while($array_clientes = mysqli_fetch_assoc($eje_clientes)):?>
                     <tr>
-                        <td>
+                        <!-- <td>
                             <?php
                                 $consulta_cedula = $array_clientes['cliente'];
                                 $consulta ="SELECT * FROM clientes WHERE cedula = $consulta_cedula;";
@@ -86,7 +86,7 @@
                         <td><?php echo $array_clientes['ciudad']." / ".$array_clientes['provincia']; ?></td>
                         <td><?php echo $array_clientes['asesor']; ?></td>
                         <td><?php echo $array_clientes['estado']; ?></td>
-                        <td><?php echo $array_clientes['tarifa']; ?></td>
+                        <td><?php echo $array_clientes['tarifa']; ?></td> -->
                         <td>
                             <div class="btn-group">
                                 <div class="col-auto">
@@ -99,7 +99,7 @@
                                     <input type="submit" class="btn btn-outline-danger btn-sm" value="BORRAR">
                                 </form>
                                 <div class="col-auto">
-                                    <a href="../DESCARGAS/descargar_guia.php?guia=<?php echo $array_clientes['guia']; ?>" class="btn btn-outline-primary btn-sm">
+                                    <a href="guia.php?id=<?php echo $array_clientes['id']; ?>" class="btn btn-outline-primary btn-sm">
                                         <i class="fas fa-download fa-sm text-white-50"></i> Guia
                                     </a>
                                 </div>

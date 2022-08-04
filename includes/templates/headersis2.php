@@ -488,6 +488,8 @@
                     <h6 class="collapse-header">BODEGA:</h6>
                         <a class="collapse-item" href="bodega_IS.php">Control de Ingreso</a>
                         <a class="collapse-item" href="lista_pesos.php">Registrar pesos</a>
+                    <h6 class="collapse-header">Paquetes:</h6>
+                        <a class="collapse-item" href="ver_paquetesgc.php">Asignacion.</a>
                 <?php //endif; ?>
                 </div>
             </div>
@@ -514,7 +516,9 @@
                             <a class="collapse-item" href="ver_paquetesgc.php?nombre=<?php echo $nombre?>">Asignacion.</a>
                             <?php if ($_SESSION['usuario'] == "domenica@globalcargoecuador.com") : ?>
                                 <h6 class="collapse-header">BODEGA:</h6>
-                                <a class="collapse-item" href="lista_pesos.php">Registrar pesos</a>
+                                    <a class="collapse-item" href="lista_pesos.php">Registrar pesos</a>
+                                <h6 class="collapse-header">Paquetes:</h6>
+                                    <a class="collapse-item" href="ver_paquetesgc.php">Asignacion.</a>
                             <?php endif ?>
                         </div>
                     </div>

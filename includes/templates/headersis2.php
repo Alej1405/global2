@@ -341,7 +341,8 @@
                             <h6 class="collapse-header">Clientes:</h6>
                             <a class="collapse-item" href="ver_clientesgc.php">Ver registros.</a>
                             <h6 class="collapse-header">Paquetes:</h6>
-                        <a class="collapse-item" href="ver_paquetesgc.php">Asignacion.</a>
+                            <a class="collapse-item" href="ver_paquetesgc.php">Asignacion.</a>
+                            <a class="collapse-item" href="lista_pesos.php">Registrar pesos</a>
                             <h6 class="collapse-header">Tarifas:</h6>
                             <a class="collapse-item" href="tarifas_paqueteria.php">Ingresar.</a>
                             <h6 class="collapse-header">Liquidaciones:</h6>

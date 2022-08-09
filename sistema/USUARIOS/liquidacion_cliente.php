@@ -71,14 +71,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $valor_extra = $peso_aplicar * $tarifa_extra;
                     //valor que captura para la facturacion
                         $valor_pagar = $valor_extra + $tarifa;
-                        echo "$". round($valor_pagar, 2);
+                        $valor_pagar;
                     //calculo del valor con IVA
                         $iva = $valor_pagar * 0.12;
                         $valor_pagar2 = $valor_pagar + $iva;
                         //valor incluido el iva echo "$" . round($valor_pagar2, 2);
                 } else {
                     $valor_pagar = $tarifa;
-                    echo "$" . round($valor_pagar, 2);
+                    $valor_pagar;
                     //calculo del valor con IVA
                         $iva = $valor_pagar * 0.12;
                         $valor_pagar2 = $valor_pagar + $iva;
@@ -90,14 +90,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $valor_extra = $peso_aplicar * $tarifa_extra;
                     //valor que captura para la facturacion
                         $valor_pagar = $valor_extra + $tarifa;
-                        echo "$" . round($valor_pagar, 2);
+                        $valor_pagar;
                     //calculo del valor con IVA
                         $iva = $valor_pagar * 0.12;
                         $valor_pagar2 = $valor_pagar + $iva;
                         //calculo a pagar incluido el IVA echo "$" . round($valor_pagar2, 2);
                 } else {
                     $valor_pagar = $tarifa;
-                    echo "$" . round($valor_pagar, 2);
+                    $valor_pagar;
                     //caclulo del valor con IVA
                         $iva = $valor_pagar * 0.12;
                         $valor_pagar2 = $valor_pagar + $iva;
@@ -111,25 +111,51 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tarifa_nombre = $fila['tarifa'];
     $cod = $fila['cod'];
     $valor_cod = $fila['valor'];
+    $peso = $fila['peso'];
+    $peso_extra = $peso_aplicar;
     $responsable = $_SESSION['usuario'];
     $fecha_corte = date('Y-m-d');
     $estado = 'liquidado';
     $n_factura = '';
     $fecha_registro = $fila['fecha_reg'];
     $id_ordenes = $id;
+    $filtro_asesor = $fila['asesor'];
+    echo "<pre>
+        $guia;
+        $cliente;
+        $tarifa_nombre;
+        $cod;
+        $valor_cod;
+        $peso;
+        $peso_extra;
+        $valor_pagar;
+        $responsable;
+        $fecha_corte;
+        $estado;
+        $n_factura;
+        $fecha_registro;
+        $id_ordenes;
+
+        
+    </pre>";
     
-    echo $guia;
-    echo $cliente;
-    echo $tarifa_nombre;
-    echo $valor_cod;
-    echo $responsable;
-    echo $fecha_corte;
-    echo $estado;
-    echo $n_factura;
-    echo $fecha_registro;
-    echo $id_ordenes;
+    //-------INSERCION DE DATOS EN LA BASE DE DATOS-------
+    $actualizar_orden = "UPDATE ordenes SET estado = 'liquidado' WHERE id = '$id_ordenes';";
+    $ejecutar_actualizar = mysqli_query($db4, $actualizar_orden);
+    $insertar_factura = "INSERT INTO liquidacion_gc (guia, cliente, tarifa, cod, valor_cod, peso, peso_extra, valor_pagar, responsable, fecha_corte, estado, n_factura, fecha_servicio, id_ordenes) 
+                                    VALUES ('$guia', '$cliente', '$tarifa_nombre', '$cod', '$valor_cod', '$peso', '$peso_extra', '$valor_pagar', '$responsable', '$fecha_corte', '$estado', '$n_factura', '$fecha_registro', '$id_ordenes');";
+    $ejecutar_insertar = mysqli_query($db6, $insertar_factura);
+            if($ejecutar_insertar){
+                
+                echo "<script>
+                guardar();
+                    window.location.href='fin-gcgo.php?id=$filtro_asesor';
+                </script>";
+            }
 }
 ?>
+
+<button onclick="guardaTodo()">asdasd</button>
 
 
 

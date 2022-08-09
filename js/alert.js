@@ -1,6 +1,4 @@
-// funciones y alertas generales del sistema.
-function alertaPrueba ()
-{
-    var respuesta = confirm("si funciona");
-    return true; 
+function guardar(){
+
+    alert('Cliente facturado correctamente');
 }

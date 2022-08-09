@@ -39,9 +39,9 @@ $filtro = $_SESSION['rol'];
 
 //-------------MACRO FILTRO POR ASESOR (ASESOR)----------------------
 if (empty($id)) {
-    $buscar = "WHERE NOT estado = 'recolectar';";
+    $buscar = "WHERE NOT estado = 'recolectar' AND NOT estado ='liquidado';";
 } else {
-    $buscar = "WHERE asesor = '$id' AND NOT estado = 'recolectar';";
+    $buscar = "WHERE asesor = '$id' AND NOT estado = 'recolectar' AND NOT estado ='liquidado';";
 }
 
 //-------------captura de datos----------------------
@@ -50,8 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 //-------------CONSULTA DE INFORMACION--------------
-$consulta_fin = "SELECT * FROM ordenes ${buscar};";
+$consulta_fin = "SELECT * FROM ordenes ${buscar}";
 $ejecutar_consulta3 = mysqli_query($db4, $consulta_fin);
+//echo $consulta_fin;
 ?>
 
 <body class="bg-gradient-primary">
@@ -70,8 +71,11 @@ $ejecutar_consulta3 = mysqli_query($db4, $consulta_fin);
                             $ejecutar_buscar_cliente = mysqli_query($db4, $buscar_cliente);
                             while ($fila = mysqli_fetch_array($ejecutar_buscar_cliente)) :
                             ?>
-                                <option value="WHERE cliente = <?php echo $fila['cedula']; ?> AND NOT estado = 'recolectar';"><?php echo $fila['nombre'] . ' ' . $fila['apellido'] . '/' . $fila['emprendimiento']; ?></option>
-                            <?php endwhile; ?>
+                                <option value="WHERE cliente = '<?php echo $fila['cedula']; ?>' AND NOT estado ='liquidado' AND NOT estado = 'recolectar';"><?php echo $fila['nombre'] . ' ' . $fila['apellido'] . '/' . $fila['emprendimiento']; ?></option>
+                            <?php 
+                                
+                                endwhile; 
+                            ?>
                         </select>
                         <br>
                         <button class="btn btn-outline-primary" title="REGISTRAR CLIENTE">Buscar</button>
@@ -93,7 +97,7 @@ $ejecutar_consulta3 = mysqli_query($db4, $consulta_fin);
                             $ejecutar_buscar_cliente = mysqli_query($db4, $buscar_cliente);
                             while ($fila = mysqli_fetch_array($ejecutar_buscar_cliente)) :
                             ?>
-                                <option value="WHERE cliente = <?php echo $fila['cedula']; ?> AND NOT estado = 'recolectar';"><?php echo $fila['nombre'] . ' ' . $fila['apellido'] . '/' . $fila['emprendimiento']; ?></option>
+                                <option value="WHERE cliente = <?php echo $fila['cedula']; ?>  AND NOT estado ='liquidado' AND NOT estado = 'recolectar';"><?php echo $fila['nombre'] . ' ' . $fila['apellido'] . '/' . $fila['emprendimiento']; ?></option>
                             <?php endwhile; ?>
                         </select>
                         <br>
@@ -101,6 +105,7 @@ $ejecutar_consulta3 = mysqli_query($db4, $consulta_fin);
                     </div>
                 </div>
             </form>
+
             <div id="printable">
             <div class="alert alert-danger" role="alert">
                 <img src="../../IMG/gc-go.png" class="img-fluid pt-1 m-auto end" alt="Logo GC-GO" style="width: 5rem;">
@@ -117,8 +122,10 @@ $ejecutar_consulta3 = mysqli_query($db4, $consulta_fin);
                         <th>COD</th>
                         <th>VALOR COD</th>
                         <th>VALOR COBRAR</th>
-                        <th>ESTADO</th>
                         <th>PESO</th>
+                        <th>P. VOL</th>
+                        <th>P. EXTRA</th>
+                        <th>ESTADO</th>
                         <th>ACCIONES</th>
                     </tr>
                 </thead>
@@ -128,12 +135,12 @@ $ejecutar_consulta3 = mysqli_query($db4, $consulta_fin);
                             <tr>
                                 <td>
                                     <?php
-                                    $cedula = $array_clientes['cliente'];
-                                    $consulta_fin = "SELECT * FROM clientes WHERE cedula = '${cedula}';";
-                                    $ejecutar_consulta = mysqli_query($db4, $consulta_fin);
-                                    $ejecutar_consulta31 = mysqli_fetch_assoc($ejecutar_consulta);
-                                    echo $ejecutar_consulta31['nombre'] . " " . $ejecutar_consulta31['apellido'];
-                                    ?>
+                                        $cedula = $array_clientes['cliente'];
+                                        $consulta_fin = "SELECT * FROM clientes WHERE cedula = '${cedula}';";
+                                        $ejecutar_consulta = mysqli_query($db4, $consulta_fin);
+                                        $ejecutar_consulta31 = mysqli_fetch_assoc($ejecutar_consulta);
+                                        echo $ejecutar_consulta31['nombre'] . " " . $ejecutar_consulta31['apellido'];
+                                    ?>       
                                 </td>
                                 <td>
                                     <?php
@@ -218,22 +225,29 @@ $ejecutar_consulta3 = mysqli_query($db4, $consulta_fin);
                                     ?>
                                 </td>
                                 <td>
-                                    <?php echo $array_clientes['peso']; ?>
+                                    <?php echo $P; ?>
+                                </td>
+                                <td>
+                                    <?php echo $peso_vol1; ?>
+                                </td>
+                                <td>
+                                    <?php echo $peso_aplicar; ?>
                                 </td>
                                 <td>
                                     <?php
                                     $estado_filtro = $array_clientes['estado'];
-                                    if ($estado_filtro === "delivered" || $estado_filtro === "ingresado") {
-                                        echo "<span class='badge badge-success'>POR FACTURAR</span>";
-                                    } else {
-                                        echo "<span class='badge badge-danger'>EN PROCESO</span>";
+                                    if ($estado_filtro === "delivered") {
+                                        echo "<span class='badge badge-success'>ENTREGADO</span>";
+                                    } elseif ($estado_filtro === "ingresado") {
+                                        echo "<span class='badge badge-warning'>EN BODEGA</span>";
                                     }
                                     ?>
                                 </td>
                                 <td>
-                                    <form action="liquidacion_cliente.php" method="post">
-                                        <button type="submit" class="btn btn-secondary btn-sm">FACTURAR</button>
-                                        <input type="hidden" name="id" value="<?php echo $array_clientes['id']; ?>">
+                                    <form action="liquidacion_cliente.php" method="post" class="factuarCliente">
+                                        <button type="submit" id="facturar" class="btn btn-secondary btn-sm">FACTURAR</button>
+                                        <input type="hidden" name="id"  value="<?php echo $array_clientes['id']; ?>">
+                                        <input type="hidden" name="cedula" id="fact" value="<?php echo $array_clientes['id']; ?>">
                                     </form>
                                 </td>
                             </tr>
@@ -241,9 +255,10 @@ $ejecutar_consulta3 = mysqli_query($db4, $consulta_fin);
                 </tbody> 
             </table>
         </div>
-            <button id="imprint">IMPRIMIR</button>
+            <button id="imprint" class="btn btn-secondary btn-sm">IMPRIMIR</button>
             <script src="../../vendor/jquery/jquery.min.js"></script>
             <script src="../../js/jQuery.print.js"></script>
+             <!-- Sweet Alert coneccion CDN-->
         
             <script>
                 $(document).ready(()=> {

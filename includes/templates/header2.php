@@ -22,6 +22,8 @@
 
     <!-- Custom styles for this template-->
     <link href="../../css2/sb-admin-2.min.css" rel="stylesheet">
+    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
 

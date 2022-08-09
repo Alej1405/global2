@@ -38,6 +38,9 @@
     <script src="../../js/demo/chart-area-demo.js"></script>
     <script src="../../js/demo/chart-pie-demo.js"></script>
 
+    <!-- Plugin print con java scrip-->
+    <script src="../../js/jQuery.print.js"></script>
+
 </body>
 
 </html>

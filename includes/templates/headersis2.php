@@ -275,7 +275,7 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                 aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-cog"></i>
-                <span>Ordenes</span>
+                <span>GC-GO PAQUETERIA</span>
             </a>
             <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
@@ -283,6 +283,8 @@
                     <a class="collapse-item" href="seguimiento_actu.php">Actualizar estados.</a>
                     <h6 class="collapse-header">Seguimiento:</h6>
                     <a class="collapse-item" href="vercargas.php">Control Genreal.</a>
+                    <h6 class="collapse-header">GC-GO ESTADO DE CUENTA:</h6>
+                    <a class="collapse-item" href="fin-gcgo.php?id=<?php echo $nombre?>">Estado de Cuenta</a>
                 </div>
             </div>
             
@@ -467,6 +469,27 @@
                                 <h6 class="collapse-header">Paquetes:</h6>
                                     <a class="collapse-item" href="ver_paquetesgc.php">Asignacion.</a>
                             <?php endif ?>
+                        </div>
+                    </div>
+                </li>
+        <?php endif ?>
+        <?php if ($_SESSION['rol'] == "motorizado") : ?>
+                <li class="nav-item">
+                    <?php 
+                        //CONSULTAR EL NOMBRE DEL ASESOR
+                        $nombre =  $_SESSION['nombre']." ".$_SESSION['apellido'];
+                    ?>
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>GC-GO Coordinacion</span>
+                    </a>
+                    <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">BODEGA:</h6>
+                            <a class="collapse-item" href="lista_pesos.php">Registrar pesos</a>
+                            <h6 class="collapse-header">Paquetes:</h6>
+                            <a class="collapse-item" href="ver_paquetesgc.php">Guias.</a>
                         </div>
                     </div>
                 </li>

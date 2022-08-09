@@ -24,6 +24,7 @@
 
      //ARRAY DE ERRORES PARA LA ALERTAS
         $errores = [];
+        $tipo_as = $_SESSION['rol'];
     
     //query para consultar los clientes registrados
     if (empty($nombre_ase)){
@@ -88,22 +89,30 @@
                         <td><?php echo $array_clientes['estado']; ?></td>
                         <td><?php echo $array_clientes['tarifa']; ?></td>
                         <td>
-                            <div class="btn-group">
-                                <div class="col-auto">
-                                    <a href="actualizar_envios.php?id=<?php echo $array_clientes['id'];?>" class="btn btn-outline-success btn-sm">
-                                        ACTUALIZAR
-                                    </a>
+                            <?php if ($tipo_as === 'motorizado'): ?>
+                                    <div class="col-auto">
+                                        <a href="guia.php?id=<?php echo $array_clientes['id']; ?>" class="btn btn-outline-primary btn-sm">
+                                            <i class="fas fa-download fa-sm text-white-50"></i> Guia
+                                        </a>
+                                    </div>
+                            <?php else: ?>
+                                <div class="btn-group">
+                                    <div class="col-auto">
+                                        <a href="actualizar_envios.php?id=<?php echo $array_clientes['id'];?>" class="btn btn-outline-success btn-sm">
+                                            ACTUALIZAR
+                                        </a>
+                                    </div>
+                                    <form method="POST" class="col-auto">
+                                        <input type="hidden" name="id" value="<?php echo $array_clientes['id']; ?>">
+                                        <input type="submit" class="btn btn-outline-danger btn-sm" value="BORRAR">
+                                    </form>
+                                    <div class="col-auto">
+                                        <a href="guia.php?id=<?php echo $array_clientes['id']; ?>" class="btn btn-outline-primary btn-sm">
+                                            <i class="fas fa-download fa-sm text-white-50"></i> Guia
+                                        </a>
+                                    </div>
                                 </div>
-                                <form method="POST" class="col-auto">
-                                    <input type="hidden" name="id" value="<?php echo $array_clientes['id']; ?>">
-                                    <input type="submit" class="btn btn-outline-danger btn-sm" value="BORRAR">
-                                </form>
-                                <div class="col-auto">
-                                    <a href="guia.php?id=<?php echo $array_clientes['id']; ?>" class="btn btn-outline-primary btn-sm">
-                                        <i class="fas fa-download fa-sm text-white-50"></i> Guia
-                                    </a>
-                                </div>
-                            </div>
+                            <?php endif; ?>
                         </td>
                     </tr>
                 <?php endwhile; ?>

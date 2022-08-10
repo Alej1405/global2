@@ -79,7 +79,7 @@ $db6 = conectarDB6();
         $ejecutar_listar_clientes = mysqli_query($db4, $listar_clientes);
         while ($ver_c = mysqli_fetch_assoc($ejecutar_listar_clientes)) :;
         ?>
-            <a href="#" class="list-group-item list-group-item-action">
+            <a href="detalle_factura.php?id=<?php echo $ver_c['cliente']?>" class="list-group-item list-group-item-action">
                 <?php echo $ver_c['cliente']; 
                 $consultar_cliente = $ver_c['cliente'];
                 $consultar_cliente_id = "SELECT * FROM clientes WHERE cedula = '$consultar_cliente';";
@@ -92,7 +92,7 @@ $db6 = conectarDB6();
 
                 echo ' - ' . $ver_cliente_id['nombre'].' '.$ver_cliente_id['apellido'].' / '.$ver_cliente_id['emprendimiento'];
                 ?>
-                <strong><?php echo 'FACTURAS POR REALIZAR'.' '. $ver_contar_facturas['COUNT(id)'];?></strong>
+                <strong><?php echo 'ENVIOS POR COBRAR'.' '. $ver_contar_facturas['COUNT(id)'];?></strong>
             </a>
         <?php endwhile; ?>
     </div>

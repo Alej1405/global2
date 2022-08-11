@@ -208,7 +208,7 @@ $ejecutar_consulta3 = mysqli_query($db4, $consulta_fin);
                                                 $valor_pagar = $valor_extra + $tarifa;
                                             $iva = $valor_pagar * 0.12;
                                             $valor_pagar2 = $valor_pagar + $iva;
-                                            echo "$ " . round($valor_pagar, 2);
+                                            echo "$  " . round($valor_pagar, 2);
                                         } else {
                                             $valor_pagar = $tarifa;
                                             $iva = $valor_pagar * 0.12;

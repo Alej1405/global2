@@ -154,7 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //-------INSERCION DE DATOS EN LA BASE DE DATOS-------
     $actualizar_orden = "UPDATE ordenes SET estado = 'liquidado' WHERE id = '$id_ordenes';";
     $ejecutar_actualizar = mysqli_query($db4, $actualizar_orden);
-    $insertar_factura = "INSERT INTO liquidacion_gc (guia, cliente, tarifa, cod, valor_cod, cod_cobrar, peso, peso_extra, valor_pagar, responsable, fecha_corte, estado, n_factura, fecha_servicio, id_ordenes) 
+    $insertar_factura = "INSERT INTO liquidacion_gc (guia, cliente, tarifa, cod, valor_cod, cod_cobrar, peso, peso_extra, t_kgextra, valor_pagar, responsable, fecha_corte, estado, n_factura, fecha_servicio, id_ordenes) 
                                     VALUES ('$guia', '$cliente', '$tarifa_nombre', '$cod', '$valor_cod', $cod_cobrar '$peso', '$peso_extra', '$valor_pagar', '$responsable', '$fecha_corte', '$estado', '$n_factura', '$fecha_registro', '$id_ordenes');";
     echo $insertar_factura;
     exit;

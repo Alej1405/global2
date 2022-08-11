@@ -111,6 +111,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tarifa_nombre = $fila['tarifa'];
     $cod = $fila['cod'];
     $valor_cod = $fila['valor'];
+    //calculo de cod con tarifa.
+            if ($valor_cod < 9.99) {
+                $cod_cobrar = 2.00;
+            } else if ($valor_cod < 399.99) {
+                $cod_cobrar = $valor_cod * 0.04;
+            }elseif ($valor_cod > 400) {
+                $cod_cobrar = $valor_cod * 0.1;   
+            }
+    //fin del calculo de cod con tarifa.
     $peso = $fila['peso'];
     $peso_extra = $peso_aplicar;
     $responsable = $_SESSION['usuario'];
@@ -121,6 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id_ordenes = $id;
     $filtro_asesor = $fila['asesor'];
     echo "<pre>
+        $cod_cobrar;
         $guia;
         $cliente;
         $tarifa_nombre;
@@ -138,12 +148,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         
     </pre>";
+
+    
     
     //-------INSERCION DE DATOS EN LA BASE DE DATOS-------
     $actualizar_orden = "UPDATE ordenes SET estado = 'liquidado' WHERE id = '$id_ordenes';";
     $ejecutar_actualizar = mysqli_query($db4, $actualizar_orden);
-    $insertar_factura = "INSERT INTO liquidacion_gc (guia, cliente, tarifa, cod, valor_cod, peso, peso_extra, valor_pagar, responsable, fecha_corte, estado, n_factura, fecha_servicio, id_ordenes) 
-                                    VALUES ('$guia', '$cliente', '$tarifa_nombre', '$cod', '$valor_cod', '$peso', '$peso_extra', '$valor_pagar', '$responsable', '$fecha_corte', '$estado', '$n_factura', '$fecha_registro', '$id_ordenes');";
+    $insertar_factura = "INSERT INTO liquidacion_gc (guia, cliente, tarifa, cod, valor_cod, cod_cobrar, peso, peso_extra, valor_pagar, responsable, fecha_corte, estado, n_factura, fecha_servicio, id_ordenes) 
+                                    VALUES ('$guia', '$cliente', '$tarifa_nombre', '$cod', '$valor_cod', $cod_cobrar '$peso', '$peso_extra', '$valor_pagar', '$responsable', '$fecha_corte', '$estado', '$n_factura', '$fecha_registro', '$id_ordenes');";
+    echo $insertar_factura;
+    exit;
     $ejecutar_insertar = mysqli_query($db6, $insertar_factura);
             if($ejecutar_insertar){
                 

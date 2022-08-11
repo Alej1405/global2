@@ -60,15 +60,25 @@ $ejecutar_consulta = mysqli_query($db6, $detalles_factura);
         <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>TIPO DE ENVIOS</th>
+                        <th>NUMERO DE ENVIOS POR TARIFA</th>
+                        <th>EXTRAS POR PESO Y SERVICIOS (COD)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php while ($fila = mysqli_fetch_array($ejecutar_consulta)):?>
                     <tr>
                         <td>
-                            <?php echo $fila['tarifa']." ".$fila['count(valor_pagar)'];?> 
-                            VALOR A COBRAR POR ENVIO. <?php echo "$"." ".round($fila['sum(valor_pagar)'],2); ?>
+                            <strong>
+                            <?php echo $fila['tarifa']?> 
+                            </strong>
+                            <br>
+                            Numero envios: <strong><?php echo $fila['count(valor_pagar)']?></strong> 
+                            <br>
+                            VALOR A COBRAR POR ENVIO. <strong><?php echo "$"." ".round($fila['sum(valor_pagar)'],2); ?></strong>
+                        </td>
+                        <td>
+                            <strong>COD servicio</strong>
+                            
                         </td>
                      </tr>
                      <?php endwhile; ?>

@@ -187,39 +187,33 @@ $ejecutar_consulta3 = mysqli_query($db4, $consulta_fin);
                                     $ancho = $array_clientes['a'];
                                     $alto = $array_clientes['h'];
                                     $P = $array_clientes['peso'];
-                                    $peso_vol1 = round(($largo * $ancho * $alto) / 5000, 2);
-                                    //$peso_vol = $P - $peso_vol1;
+                                    //calculo peso volumentrico
+                                        $peso_vol1 = round(($largo * $ancho * $alto) / 5000, 2);
+                                         
                                     if ($peso_vol1 > $P) {
                                         //calculo con el peso volumetrico
-                                        $peso_aplicar = $peso_vol1 - $peso_base;
-                                        if ($peso_aplicar > $peso_base) {
-                                            $valor_extra = $peso_aplicar * $tarifa_extra;
-                                            //valor que captura para la facturacion
-                                                $valor_pagar = $valor_extra + $tarifa;
-                                            $iva = $valor_pagar * 0.12;
-                                            $valor_pagar2 = $valor_pagar + $iva;
-                                            
-                                            echo "$" . round($valor_pagar2, 2);
-                                        } else {
-                                            $valor_pagar = $tarifa;
-                                            $iva = $valor_pagar * 0.12;
-                                            $valor_pagar2 = $valor_pagar + $iva;
-                                            echo "$" . round($valor_pagar2, 2);
-                                        }
+                                            $peso_aplicar = $peso_vol1 - $peso_base;
+                                                $valor_extra = $peso_aplicar * $tarifa_extra;
+                                                //valor que captura para la facturacion variable sin IVA
+                                                    $valor_pagar = $valor_extra + $tarifa;
+                                                    //calculo del IVA para asesores
+                                                        $iva = $valor_pagar * 0.12;
+                                                        $valor_pagar2 = $valor_pagar + $iva;
+                                                        echo "$ ".round($valor_pagar2, 2);
                                     } else {
                                         $peso_aplicar = $P - $peso_base;
                                         if ($peso_aplicar > $peso_base) {
-                                            $valor_extra = $peso_aplicar * $tarifa_extra;
+                                            $valor_extra = $peso_aplicar * $tarifa_extra; 
                                             //valor que captura para la facturacion
                                                 $valor_pagar = $valor_extra + $tarifa;
                                             $iva = $valor_pagar * 0.12;
                                             $valor_pagar2 = $valor_pagar + $iva;
-                                            echo "$" . round($valor_pagar, 2);
+                                            echo "$ " . round($valor_pagar, 2);
                                         } else {
                                             $valor_pagar = $tarifa;
                                             $iva = $valor_pagar * 0.12;
                                             $valor_pagar2 = $valor_pagar + $iva;
-                                            echo "$" . round($valor_pagar2, 2);
+                                            echo "$ " . round($valor_pagar2, 2);
                                         };
                                     }
                                     ?>

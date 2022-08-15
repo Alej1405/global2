@@ -50,19 +50,19 @@ $db6 = conectarDB6();
                     $suma_ingreso = "SELECT SUM(valor_pagar) FROM liquidacion_gc;";
                     $eje_suma = mysqli_query($db6, $suma_ingreso);
                     $valor_suma = mysqli_fetch_assoc($eje_suma);
-                    echo '$'.' '.round($valor_suma['SUM(valor_pagar)'], 2);
+                    echo '$'.' '.$valor_suma['SUM(valor_pagar)'];
                     ?>.</strong>
                             Valor recolectado por COD <?php 
                     $suma_ingreso2 = "SELECT SUM(valor_cod) FROM liquidacion_gc WHERE estado = 'liquidado';";
                     $eje_suma2 = mysqli_query($db6, $suma_ingreso2);
                     $valor_suma2 = mysqli_fetch_assoc($eje_suma2);
-                    echo '$'.' '.round($valor_suma2['SUM(valor_cod)'], 2);
+                    echo '$'.' '.$valor_suma2['SUM(valor_cod)'];
                     ?>.
                           Valor por COBRAR <?php 
                     $suma_ingreso3 = "SELECT SUM(valor_cod) FROM liquidacion_gc WHERE estado = 'liquidado';";
                     $eje_suma3 = mysqli_query($db6, $suma_ingreso3);
                     $valor_suma3 = mysqli_fetch_assoc($eje_suma3);
-                    echo '$'.' '.round($valor_suma3['SUM(valor_cod)'], 2);
+                    echo '$'.' '.$valor_suma3['SUM(valor_cod)'];
                     ?>.
                             Ingresos COBRADO <?php 
                     $suma_ingreso4 = "SELECT SUM(valor_cod) FROM liquidacion_gc WHERE estado = 'liquidado';";

@@ -73,17 +73,23 @@ $ejecutar_consulta = mysqli_query($db6, $detalles_factura);
                             </strong>
                             <br>
                             Numero envios: <strong><?php echo $fila['count(valor_pagar)']?></strong> 
-                            <br>
-                            VALOR A COBRAR POR ENVIO. <strong><?php echo "$"." ".round($fila['sum(valor_pagar)'],2); ?></strong>
-                        </td>
-                        <td>
-                            <strong>COD servicio</strong>
-                            
                         </td>
                      </tr>
                      <?php endwhile; ?>
                 </tbody> 
             </table>
+            <?php 
+                            
+                            $detalles_factura210 = "SELECT count(cod), sum(cod_cobrar) from liquidacion_gc WHERE cliente = '$id';";
+                            $ejecutar_consulta210 = mysqli_query($db6, $detalles_factura210);
+                            while($fila210 = mysqli_fetch_array($ejecutar_consulta210)):
+                            ?>
+                                <strong>COD servicio</strong>
+                                <br>
+                                Numero envios con COD: <strong><?php echo $fila210['count(cod)']?></strong>
+                                <br>
+                                Valor total del servicio COD: <strong> $ <?php echo round($fila210['sum(cod_cobrar)'],2);?></strong> 
+                            <?php endwhile; ?>
         </p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>

@@ -112,13 +112,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cod = $fila['cod'];
     $valor_cod = $fila['valor'];
     //calculo de cod con tarifa.
-            if ($valor_cod < 99.99) {
+        if($cod = 'si'){
+            if ($valor_cod <= 99.99) {
                 $cod_cobrar = 2.00;
-            } elseif($valor_cod < 399.99) {
+            } elseif($valor_cod <= 399.99) {
                 $cod_cobrar = $valor_cod * 0.04;
             } else{
                 $cod_cobrar = $valor_cod * 0.1;
             }
+        } else{
+            $cod_cobrar = 0;
+        }
     //fin del calculo de cod con tarifa.
     $peso = $fila['peso'];
     $peso_extra = $peso_aplicar;

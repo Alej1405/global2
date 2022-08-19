@@ -121,7 +121,7 @@ $ejecutar_consulta3 = mysqli_query($db4, $consulta_fin);
                         <th>TIPO TARIFA</th>
                         <th>COD</th>
                         <th>VALOR COD</th>
-                        <th>VALOR COBRAR</th>
+                        <th>VALOR DEL ENVIO</th>
                         <th>PESO</th>
                         <th>P. VOL</th>
                         <th>P. APLICADO</th>
@@ -163,21 +163,21 @@ $ejecutar_consulta3 = mysqli_query($db4, $consulta_fin);
                                 </td>
                                 <td>
                                     <?php 
-                                        $valor_cod = $array_clientes['valor'];
-                                        $cod = $array_clientes['cod'];
-                                        if($cod == 'si'){
-                                            if ($valor_cod <= 99.99) {
-                                                $cod_cobrar = 2.00;
-                                            } elseif($valor_cod <= 399.99) {
-                                                $cod_cobrar = $valor_cod * 0.04;
-                                            } else{
-                                                $cod_cobrar = $valor_cod * 0.1;
-                                            }
-                                        } else{
-                                            $cod_cobrar = "NO APLICA";
-                                        }
+                                        // $valor_cod = $array_clientes['valor'];
+                                        // $cod = $array_clientes['cod'];
+                                        // if($cod == 'si'){
+                                        //     if ($valor_cod <= 99.99) {
+                                        //         $cod_cobrar = 2.00;
+                                        //     } elseif($valor_cod <= 399.99) {
+                                        //         $cod_cobrar = $valor_cod * 0.04;
+                                        //     } else{
+                                        //         $cod_cobrar = $valor_cod * 0.1;
+                                        //     }
+                                        // } else{
+                                        //     $cod_cobrar = "NO APLICA";
+                                        // }
 
-                                        echo "$ ".round($cod_cobrar, 2);
+                                        // echo "$ ".round($cod_cobrar, 2);
                                     ?>
                                 </td>
                                 <td>

@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cod = $fila['cod'];
     $valor_cod = $fila['valor'];
     //calculo de cod con tarifa.
-        if($cod = 'si'){
+        if($cod == 'si'){
             if ($valor_cod <= 99.99) {
                 $cod_cobrar = 2.00;
             } elseif($valor_cod <= 399.99) {

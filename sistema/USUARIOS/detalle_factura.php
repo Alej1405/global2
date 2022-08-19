@@ -1,5 +1,8 @@
 <?php
 
+use Masterminds\HTML5\Parser\StringInputStream;
+use Svg\Gradient\Stop;
+
 $id = $_GET['id'] ?? null;
 //incluye el header
 require '../../includes/funciones.php';
@@ -61,7 +64,6 @@ $ejecutar_consulta = mysqli_query($db6, $detalles_factura);
                 <thead>
                     <tr>
                         <th>NUMERO DE ENVIOS POR TARIFA</th>
-                        <th>EXTRAS POR PESO Y SERVICIOS (COD)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -74,27 +76,75 @@ $ejecutar_consulta = mysqli_query($db6, $detalles_factura);
                             <br>
                             Numero envios: <strong><?php echo $fila['count(valor_pagar)']?></strong> 
                         </td>
+                        <td>
+                            
+
+                        </td>
                      </tr>
                      <?php endwhile; ?>
                 </tbody> 
             </table>
-            <?php 
-                            
-                            $detalles_factura210 = "SELECT count(cod), sum(cod_cobrar) from liquidacion_gc WHERE cliente = '$id';";
-                            $ejecutar_consulta210 = mysqli_query($db6, $detalles_factura210);
-                            while($fila210 = mysqli_fetch_array($ejecutar_consulta210)):
-                            ?>
-                                <strong>COD servicio</strong>
-                                <br>
-                                Numero envios con COD: <strong><?php echo $fila210['count(cod)']?></strong>
-                                <br>
-                                Valor total del servicio COD: <strong> $ <?php echo round($fila210['sum(cod_cobrar)'],2);?></strong> 
-                            <?php endwhile; ?>
+            <div class="card">
+                <div class="card-header">
+                    <strong>
+                        VALOR POR COD
+                    </strong>
+                </div>
+                <div class="card-body">
+                    <?php 
+                                    
+                        $detalles_factura210 = "SELECT count(cod), sum(cod_cobrar) from liquidacion_gc WHERE cliente = '$id' and cod = 'si';";
+                        $ejecutar_consulta210 = mysqli_query($db6, $detalles_factura210);
+                        while($fila210 = mysqli_fetch_array($ejecutar_consulta210)):
+                        ?>
+                            Numero envios con COD: <strong><?php echo $fila210['count(cod)']?></strong>
+                            <br>
+                            Valor total del servicio COD: <strong> $ <?php echo round($fila210['sum(cod_cobrar)'],2);?></strong> 
+                    <?php endwhile; ?>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <strong>
+                        PESO EXTRA
+                    </strong>
+                </div>
+                <div class="card-body">
+                    <?php
+                        //buscar tarifa
+                        $detalles_factura112 = "SELECT * FROM liquidacion_gc WHERE cliente = '$id' and estado = 'liquidado';";
+                        $ejecutar_consulta112 = mysqli_query($db6, $detalles_factura112);
+                        $fila112 = mysqli_fetch_array($ejecutar_consulta112);
+                        // 
+                            $detalles_factura11 = "SELECT count(t_kgextra), sum(peso_extra), t_kgextra FROM liquidacion_gc WHERE cliente = '$id' and estado = 'liquidado' GROUP BY t_kgextra;";
+                            $ejecutar_consulta11 = mysqli_query($db6, $detalles_factura11);
+                            $fila11 = mysqli_fetch_array($ejecutar_consulta11);
+                            $extra_P = $fila11['sum(peso_extra)'];
+                            $N_tarifa = $fila112['tarifa'];
+                            $tarifa_ext = $fila11['t_kgextra'];
+                            if ($extra_P > 0 ){
+                                //echo $id;
+                                $sonsulta_tarifaExt = "SELECT * FROM tarifas WHERE nombre = '$N_tarifa';";
+                                $ejecutar_consulta_tarifaExt = mysqli_query($db4, $sonsulta_tarifaExt);
+                                $fila_tarifaExt = mysqli_fetch_array($ejecutar_consulta_tarifaExt);
+                                $valor_extra = $fila_tarifaExt['valor_extra'];
+                                $valor_extra_corbrar = $extra_P * $valor_extra;
+                                echo "Tipo de Tarifa: <strong>".$tarifa_ext."</strong><br>";
+                                echo "Extras: <strong>".$extra_P." Kg"."</strong><br>";
+                                echo "Valor a cobrar: $ ".round($valor_extra_corbrar, 2);
+                            }else{
+                                echo "no applica";
+                            }
+                    ?>
+                </div>
+            </div>          
         </p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
     </div>
 </div>
+<br>
+<br>
 <?php
     incluirTemplate('fottersis2');
 ?>

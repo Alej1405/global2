@@ -25,6 +25,7 @@
      //ARRAY DE ERRORES PARA LA ALERTAS
         $errores = [];
         $tipo_as = $_SESSION['rol'];
+        $usuario = $_SESSION['usuario'];
     
     //query para consultar los clientes registrados
     if (empty($nombre_ase)){
@@ -95,8 +96,14 @@
                                             <i class="fas fa-download fa-sm text-white-50"></i> Guia
                                         </a>
                                     </div>
-                            <?php else: ?>
+                            <?php elseif ($usuario === 'coordinacionP'): ?>
                                 <div class="btn-group">
+                                    <div class="col-auto">
+                                        <a href="guia.php?id=<?php echo $array_clientes['id']; ?>" class="btn btn-outline-primary btn-sm">
+                                            <i class="fas fa-download fa-sm text-white-50"></i> Guia
+                                        </a>
+                                    </div>
+                            <?php elseif ($tipo_as === 'asesor'): ?>
                                     <div class="col-auto">
                                         <a href="actualizar_envios.php?id=<?php echo $array_clientes['id'];?>" class="btn btn-outline-success btn-sm">
                                             ACTUALIZAR

@@ -476,6 +476,34 @@
                     </div>
                 </li>
         <?php endif ?>
+        <?php if ($_SESSION['rol'] == "coordinacionP") : ?>
+                <li class="nav-item">
+                    <?php 
+                        //CONSULTAR EL NOMBRE DEL ASESOR
+                        $nombre =  $_SESSION['nombre']." ".$_SESSION['apellido'];
+                    ?>
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>GC-GO Coordinacion</span>
+                    </a>
+                    <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Clientes:</h6>
+                            <a class="collapse-item" href="ver_clientesgc.php?nombre=<?php echo $nombre?>">Ver registros.</a>
+                            <a class="collapse-item" href="fin-gcgo.php?id=<?php echo $nombre?>">Estado de Cuenta</a>
+                            <h6 class="collapse-header">Paquetes:</h6>
+                            <a class="collapse-item" href="ver_paquetesgc.php?nombre=<?php echo $nombre?>">Asignacion.</a>
+                            <?php if ($_SESSION['usuario'] == "domenica@globalcargoecuador.com") : ?>
+                                <h6 class="collapse-header">BODEGA:</h6>
+                                    <a class="collapse-item" href="lista_pesos.php">Registrar pesos</a>
+                                <h6 class="collapse-header">Paquetes:</h6>
+                                    <a class="collapse-item" href="ver_paquetesgc.php">Ver Guias.</a>
+                            <?php endif ?>
+                        </div>
+                    </div>
+                </li>
+        <?php endif ?>
         <?php if ($_SESSION['rol'] == "motorizado") : ?>
                 <li class="nav-item">
                     <?php 

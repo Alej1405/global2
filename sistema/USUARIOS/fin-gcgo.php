@@ -39,9 +39,9 @@ $filtro = $_SESSION['rol'];
 
 //-------------MACRO FILTRO POR ASESOR (ASESOR)----------------------
 if (empty($id)) {
-    $buscar = "WHERE NOT estado = 'recolectar' AND NOT estado ='liquidado';";
+    $buscar = "WHERE NOT estado = 'recolectar' AND NOT estado ='liquidado' AND NOT estado = 'facturado';";
 } else {
-    $buscar = "WHERE asesor = '$id' AND NOT estado = 'recolectar' AND NOT estado ='liquidado';";
+    $buscar = "WHERE asesor = '$id' AND NOT estado = 'recolectar' AND NOT estado ='liquidado' AND NOT estado = 'facturado';";
 }
 
 //-------------captura de datos----------------------
@@ -71,7 +71,7 @@ $ejecutar_consulta3 = mysqli_query($db4, $consulta_fin);
                             $ejecutar_buscar_cliente = mysqli_query($db4, $buscar_cliente);
                             while ($fila = mysqli_fetch_array($ejecutar_buscar_cliente)) :
                             ?>
-                                <option value="WHERE cliente = '<?php echo $fila['cedula']; ?>' AND NOT estado ='liquidado' AND NOT estado = 'recolectar';"><?php echo $fila['nombre'] . ' ' . $fila['apellido'] . '/' . $fila['emprendimiento']; ?></option>
+                                <option value="WHERE cliente = '<?php echo $fila['cedula']; ?>' AND NOT estado ='liquidado' AND NOT estado = 'recolectar' AND NOT estado = 'facturado';"><?php echo $fila['nombre'] . ' ' . $fila['apellido'] . '/' . $fila['emprendimiento']; ?></option>
                             <?php 
                                 
                                 endwhile; 
@@ -97,7 +97,7 @@ $ejecutar_consulta3 = mysqli_query($db4, $consulta_fin);
                             $ejecutar_buscar_cliente = mysqli_query($db4, $buscar_cliente);
                             while ($fila = mysqli_fetch_array($ejecutar_buscar_cliente)) :
                             ?>
-                                <option value="WHERE cliente = <?php echo $fila['cedula']; ?>  AND NOT estado ='liquidado' AND NOT estado = 'recolectar';"><?php echo $fila['nombre'] . ' ' . $fila['apellido'] . '/' . $fila['emprendimiento']; ?></option>
+                                <option value="WHERE cliente = <?php echo $fila['cedula']; ?>  AND NOT estado ='liquidado' AND NOT estado = 'recolectar' AND NOT estado = 'facturado';"><?php echo $fila['nombre'] . ' ' . $fila['apellido'] . '/' . $fila['emprendimiento']; ?></option>
                             <?php endwhile; ?>
                         </select>
                         <br>
@@ -163,21 +163,21 @@ $ejecutar_consulta3 = mysqli_query($db4, $consulta_fin);
                                 </td>
                                 <td>
                                     <?php 
-                                        // $valor_cod = $array_clientes['valor'];
-                                        // $cod = $array_clientes['cod'];
-                                        // if($cod == 'si'){
-                                        //     if ($valor_cod <= 99.99) {
-                                        //         $cod_cobrar = 2.00;
-                                        //     } elseif($valor_cod <= 399.99) {
-                                        //         $cod_cobrar = $valor_cod * 0.04;
-                                        //     } else{
-                                        //         $cod_cobrar = $valor_cod * 0.1;
-                                        //     }
-                                        // } else{
-                                        //     $cod_cobrar = "NO APLICA";
-                                        // }
+                                        $valor_cod = $array_clientes['valor'];
+                                        $cod = $array_clientes['cod'];
+                                        if($cod == 'si'){
+                                            if ($valor_cod <= 99.99) {
+                                                $cod_cobrar = 2.00;
+                                             } elseif($valor_cod <= 399.99) {
+                                                $cod_cobrar = $valor_cod * 0.04;
+                                             } else{
+                                                 $cod_cobrar = $valor_cod * 0.1;
+                                             }
+                                         } else{
+                                             $cod_cobrar = "NO APLICA";
+                                        }
 
-                                        // echo "$ ".round($cod_cobrar, 2);
+                                        echo "$ ".round($cod_cobrar, 2);
                                     ?>
                                 </td>
                                 <td>

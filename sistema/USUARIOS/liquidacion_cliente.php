@@ -130,29 +130,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $responsable = $_SESSION['usuario'];
     $fecha_corte = date('Y-m-d');
     $estado = 'liquidado';
+    $estado2 = 'liquidado';
     $n_factura = '';
     $fecha_registro = $fila['fecha_reg'];
     $id_ordenes = $id;
     $filtro_asesor = $fila['asesor'];
 
-    echo "<pre>
-        $cod_cobrar;
-        $guia;
-        $cliente;
-        $tarifa_nombre;
-        $cod;
-        $valor_cod;
-        $peso;
-        $peso_extra;
-        $t_kgextra;
-        $valor_pagar;
-        $responsable;
-        $fecha_corte;
-        $estado;
-        $n_factura;
-        $fecha_registro;
-        $id_ordenes;        
-    </pre>";
+    // echo "<pre>
+    //     $cod_cobrar;
+    //     $guia;
+    //     $cliente;
+    //     $tarifa_nombre;
+    //     $cod;
+    //     $valor_cod;
+    //     $peso;
+    //     $peso_extra;
+    //     $t_kgextra;
+    //     $valor_pagar;
+    //     $responsable;
+    //     $fecha_corte;
+    //     $estado;
+    //     $n_factura;
+    //     $fecha_registro;
+    //     $id_ordenes;        
+    // </pre>";
 
     //-------INSERCION DE DATOS EN LA BASE DE DATOS-------
     $actualizar_orden = "UPDATE ordenes SET estado = 'liquidado' WHERE id = '$id_ordenes';";

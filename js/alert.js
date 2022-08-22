@@ -1,4 +1,4 @@
 function guardar(){
 
-    alert('Cliente facturado correctamente');
+    alert('NOOOOOO!!!!!! YA DAÑASTE EL SISTEMA');
 }

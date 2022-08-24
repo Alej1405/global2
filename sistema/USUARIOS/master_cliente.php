@@ -26,6 +26,10 @@ $db4 = conectarDB4();
 
 $inicio_datos = $_SESSION['cedula'];
 
+$consulta = "SELECT * FROM clientes WHERE cedula = '$inicio_datos'";
+$resultado = mysqli_query($db4, $consulta);
+$usuario = mysqli_fetch_assoc($resultado);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,21 +56,110 @@ $inicio_datos = $_SESSION['cedula'];
 </head>
 
 <body>
-    <div class="container-sm">
+    <br>
+    <div class="container vw-95">
         <div class="card text-center">
             <div class="card-header">
-                Featured
+
+                Hola <strong><?php echo $usuario['nombre'] . " " . $usuario['apellido']; ?></strong>
             </div>
             <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div class="card-title">
+                    <h5>
+                        Bienvenido a <img src="../../IMG/gc-go.png" class="img-fluid pt-1 m-auto" alt="Logo GC-GO" style="width: 2.8rem;">
+                    </h5>
+                </div>
+                <p class="card-text">
+                    Para mayor comodidad ponemos a tu disposicion nuestra plataforma de consultas,
+                    aqui puedes encontrar el estado de tus paques y de tu cuenta, consulta general de envios.
+                    <br>
+                    <span>
+                        Por favor, selecciona una opcion de consulta.
+                    </span>
+
+                </p>
+                <div class="card" role="group" aria-label="Basic example">   
+                    <a href="#" class="btn btn-primary m-1">Ver Estado de Cuenta</a>
+                    <a href="#" class="btn btn-primary m-1">Traking actual</a>
+                    <a href="#" class="btn btn-primary m-1">Estado general de envios</a>
+                </div>
+            </div>
+            <div class="card">
+                <h6>PEDIDOS EN PROCESO</h6>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                <strong>
+                                    Nombre del cliente.
+                                </strong>
+                            </th>
+                            <th>
+                                <strong>
+                                    Numero de Guia.
+                                </strong>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+                            $envios = "SELECT * FROM ordenes WHERE cliente = '$inicio_datos' AND estado = 'recolectar' AND estado = 'ingresado';";
+                            $resultado_envios = mysqli_query($db4, $envios);
+                            while($envio = mysqli_fetch_assoc($resultado_envios)):?>
+                        <tr>
+                            <td>
+                                <?php echo $envio['id']; ?>
+                            </td>
+                            <td>
+                                <?php echo $envio['guia']; ?>
+                            </td>
+                        </tr>
+                        <?php endwhile;?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h6>PEDIDOS ENTREGADOS</h6>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                <strong>
+                                    Nombre del cliente.
+                                </strong>
+                            </th>
+                            <th>
+                                <strong>
+                                    Numero de Guia.
+                                </strong>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            $datos = date('y-m');
+                            $diamenos = date('y-m');
+                            $envios = "SELECT * FROM ordenes WHERE cliente = '$inicio_datos' AND estado = 'delivered';";
+                            $resultado_envios = mysqli_query($db4, $envios);
+                            while($envio = mysqli_fetch_assoc($resultado_envios)):?>
+                        <tr>
+                            <td>
+                                <?php echo $envio['nombre']; ?>
+                            </td>
+                            <td>
+                                <?php echo $envio['guia']; ?>
+                            </td>
+                        </tr>
+                        <?php endwhile;?>
+                    </tbody>
+                </table>
             </div>
             <div class="card-footer text-muted">
-                2 days ago
+                Cliente desde <?php echo $usuario['fecha_registro']; ?>
             </div>
         </div>
     </div>
+    <br>
     <?php
     incluirTemplate('fottersis2');
     ?>

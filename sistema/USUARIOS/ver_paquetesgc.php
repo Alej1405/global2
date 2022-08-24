@@ -96,13 +96,29 @@
                                             <i class="fas fa-download fa-sm text-white-50"></i> Guia
                                         </a>
                                     </div>
-                            <?php elseif ($usuario === 'coordinacionP'): ?>
+                            <?php elseif ($tipo_as === 'coordinacionP'): ?>
                                 <div class="btn-group">
                                     <div class="col-auto">
                                         <a href="guia.php?id=<?php echo $array_clientes['id']; ?>" class="btn btn-outline-primary btn-sm">
                                             <i class="fas fa-download fa-sm text-white-50"></i> Guia
                                         </a>
                                     </div>
+                            <?php elseif ($tipo_as === 'gerencia_paqueteria'): ?>
+                                <div class="btn-group">
+                                    <div class="col-auto">
+                                        <a href="guia.php?id=<?php echo $array_clientes['id']; ?>" class="btn btn-outline-primary btn-sm">
+                                            <i class="fas fa-download fa-sm text-white-50"></i> Guia
+                                        </a>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a href="actualizar_envios.php?id=<?php echo $array_clientes['id'];?>" class="btn btn-outline-success btn-sm">
+                                            ACTUALIZAR
+                                        </a>
+                                    </div>
+                                    <form method="POST" class="col-auto">
+                                        <input type="hidden" name="id" value="<?php echo $array_clientes['id']; ?>">
+                                        <input type="submit" class="btn btn-outline-danger btn-sm" value="BORRAR">
+                                    </form>
                             <?php elseif ($tipo_as === 'asesor'): ?>
                                     <div class="col-auto">
                                         <a href="actualizar_envios.php?id=<?php echo $array_clientes['id'];?>" class="btn btn-outline-success btn-sm">

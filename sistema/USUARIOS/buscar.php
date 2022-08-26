@@ -36,7 +36,7 @@
            $resultado2 = mysqli_query($db4, $query2);
 
     $query = "SELECT * FROM orders where order_id = ${buscar}";
-             $resultado = mysqli_query($db3, $query);
+             $resultado2 = mysqli_query($db3, $query);
 
 ?>
 <body class="bg-gradient-primary">

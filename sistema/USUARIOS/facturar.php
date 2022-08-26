@@ -68,6 +68,11 @@
                         $resultado = mysqli_query($db3, $query);
                         $resultadoApi = mysqli_fetch_assoc($resultado);
                 break;
+                case "luis@globalcargoecuador.com":
+                    $query = "SELECT * FROM orders WHERE status = 'requested' order by created_at desc;";
+                        $resultado = mysqli_query($db3, $query);
+                        $resultadoApi = mysqli_fetch_assoc($resultado);
+                break;
         }
     //FIN SE ASIGNACION DE ORDENES.
 ?>

@@ -42,6 +42,39 @@ $errores = [];
 $colab = "SELECT * FROM colaborador";
 $cons_colab = mysqli_query($db4, $colab);
 
+//declaracion de variables
+
+$usuario = "";
+$name = "";
+$last_name = "";
+$province = "";
+$city =  "";
+$address = "";
+$reference = "";
+$phone =  "";
+$landline = "";
+//datos consumo de API orders
+$order_id = "";
+$order_at = "";
+$delivery_at = "";
+$total = "";
+$status = "";
+$created_at = "";
+//datos generados en el sistema.
+$cod = "";
+$cliente = "";
+$responsable_m = "";
+$gestion_user = "";
+//FIN VARIABLES DATOSORDENES
+//VARIABLES TABLA VERIFICACION
+$observacion = null;
+$factura = "";
+$guiaRem = "";
+$estado = "";
+$comprobante = "";
+$contactado = "";
+$facturado = "";
+
 //RECEPCION DE DATOS MEDIANTE POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -76,14 +109,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 //VARIABLES TABLA DATOSORDENES
                     //datos consumo de API order_clients
                     $id_orders = $id; //$idG  = $id;
-                    $name = mysqli_real_escape_string($db3, $_POST['name1']);
-                    $last_name = mysqli_real_escape_string($db3, $_POST['last_name']);
-                    $province = mysqli_real_escape_string($db3, $_POST['province']);
-                    $city = mysqli_real_escape_string($db3, $_POST['city']);
-                    $address = mysqli_real_escape_string($db3, $_POST['address1']);
-                    $reference = mysqli_real_escape_string($db3, $_POST['reference']);
-                    $phone = mysqli_real_escape_string($db3, $_POST['phone']);
-                    $landline = mysqli_real_escape_string($db3, $_POST['landline']);
+                    // $name = mysqli_real_escape_string($db, $_POST['name1']);
+                    // $last_name = $_POST['last_name'];
+                    // $province = $_POST['province'];
+                    // $city =  $_POST['city'];
+                    // $address = $_POST['address1'];
+                    // $reference = $_POST['reference'];
+                    // $phone =  $_POST['phone'];
+                    // $landline = $_POST['landline'];
                     //datos consumo de API orders
                     $order_id = mysqli_real_escape_string($db3, $_POST['order_id']);
                     $order_at = mysqli_real_escape_string($db3, $_POST['order_at']);
@@ -141,53 +174,53 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!$guiaRem) {
             $errores[] = "Por favor agregar la guia";
         }
-        if (empty($errores)) {
+        // if (empty($errores)) {
 
             //----CAPTURAR INFORMACION EN LA BASE DE DATOS----
                 //CAPTURA DE DATOS PRINCIPAL
                     // captura de datos DATOSORDENES
-                        $query4 = "INSERT INTO datosordenes (id,
-                                                            name, 
-                                                            last_name, 
-                                                            province, 
-                                                            city, 
-                                                            address, 
-                                                            reference, 
-                                                            phone, 
-                                                            landline, 
-                                                            order_id, 
-                                                            order_at, 
-                                                            delivery_at, 
-                                                            total, 
-                                                            status, 
-                                                            created_at,
-                                                            estado,
-                                                            cliente,
-                                                            gestion_user,
-                                                            cod,
-                                                            responsable_m) 
-                                                        VALUES 
-                                                            ('$id_orders',
-                                                            '$name', 
-                                                            '$last_name', 
-                                                            '$province', 
-                                                            '$city', 
-                                                            '$address', 
-                                                            '$reference', 
-                                                            '$phone', 
-                                                            '$landline', 
-                                                            '$order_id', 
-                                                            '$order_at', 
-                                                            '$delivery_at', 
-                                                            '$total', 
-                                                            '$status', 
-                                                            '$created_at', 
-                                                            '$estado', 
-                                                            '$cliente',
-                                                            '$usuario',
-                                                            '$cod',
-                                                            '${responsable_m}')";
-                                        $resultado1 = mysqli_query($db4, $query4);
+                        // $query4 = "INSERT INTO datosordenes (id,
+                        //                                     name, 
+                        //                                     last_name, 
+                        //                                     province, 
+                        //                                     city, 
+                        //                                     address, 
+                        //                                     reference, 
+                        //                                     phone, 
+                        //                                     landline, 
+                        //                                     order_id, 
+                        //                                     order_at, 
+                        //                                     delivery_at, 
+                        //                                     total, 
+                        //                                     status, 
+                        //                                     created_at,
+                        //                                     estado,
+                        //                                     cliente,
+                        //                                     gestion_user,
+                        //                                     cod,
+                        //                                     responsable_m) 
+                        //                                 VALUES 
+                        //                                     ('$id_orders',
+                        //                                     '$name', 
+                        //                                     '$last_name', 
+                        //                                     '$province', 
+                        //                                     '$city', 
+                        //                                     '$address', 
+                        //                                     '$reference', 
+                        //                                     '$phone', 
+                        //                                     '$landline', 
+                        //                                     '$order_id', 
+                        //                                     '$order_at', 
+                        //                                     '$delivery_at', 
+                        //                                     '$total', 
+                        //                                     '$status', 
+                        //                                     '$created_at', 
+                        //                                     '$estado', 
+                        //                                     '$cliente',
+                        //                                     '$usuario',
+                        //                                     '$cod',
+                        //                                     '${responsable_m}')";
+                        //                 $resultado1 = mysqli_query($db4, $query4);
                     // fin de captura de datos bdd DATOSORDERNES
 
                     /**SUBIR ARCHIVOS A LA BASE DE DATOS */
@@ -213,41 +246,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $guardar = mysqli_query($db4, $query);
                     //FIN DE CARGA DE ARCHIVOS EN LA BDD
                 //FIN DE CAPTURA PRINCIPAL
-                //MOTORES DE ACTUALIZACION Y CONTROL DE FILTROS
-                    $query5 = "INSERT INTO verificacion
-                                            (contactado, 
-                                            facturado) 
-                                    values ('$contactado', 
-                                            '$facturado')";
-                    $resultado2 = mysqli_query($db4, $query5);
-                //FIN DE CONTROL
+                // //MOTORES DE ACTUALIZACION Y CONTROL DE FILTROS
+                //     $query5 = "INSERT INTO verificacion
+                //                             (contactado, 
+                //                             facturado) 
+                //                     values ('$contactado', 
+                //                             '$facturado')";
+                //     $resultado2 = mysqli_query($db4, $query5);
+                // //FIN DE CONTROL
 
-                if ($resultado2) {
-                    //GENERAR HISTORIAL CON COLLECTED 
-                        //consultar el numero de despacho
-                        $collected_historial = "SELECT * FROM dispatches WHERE order_id ='${id}'";
-                        $buscar = mysqli_query($db3, $collected_historial);
-                        $resultado = mysqli_fetch_assoc($buscar); // numero de despacho almacenado en la variable 
-                        $id_historial = $resultado['id'];
-                        $creado = $resultado['created_at'];
-                        //echo $id_historial;
-                        //echo $creado;
-                        //exit;
+                // if ($resultado2) {
+                //     //GENERAR HISTORIAL CON COLLECTED 
+                //         //consultar el numero de despacho
+                //         $collected_historial = "SELECT * FROM dispatches WHERE order_id ='${id}'";
+                //         $buscar = mysqli_query($db3, $collected_historial);
+                //         $resultado = mysqli_fetch_assoc($buscar); // numero de despacho almacenado en la variable 
+                //         $id_historial = $resultado['id'];
+                //         $creado = $resultado['created_at'];
+                //         //echo $id_historial;
+                //         //echo $creado;
+                //         //exit;
 
-                    // GUARDAR EL HISTORIAL CREANDO EL NUMERO DE DESPACHO
-                    //declarar variables para el historial
-                    $observ_estado = "inicio de proceso";
-                    $dispatch_id = $id_historial;
-                    $user_id = $usuario;
-                    $created_at = $resultado['created_at'];
+                //     // GUARDAR EL HISTORIAL CREANDO EL NUMERO DE DESPACHO
+                //     //declarar variables para el historial
+                    // $observ_estado = "inicio de proceso";
+                    // $dispatch_id = $id_historial;
+                    // $user_id = $usuario;
+                    // $created_at = $resultado['created_at'];
 
-                    $queryHIS = "INSERT INTO dispatch_statuses ( status, comment, dispatch_id, user_id, created_at, updated_at ) 
-                        VALUES ('$status', '$observ_estado', '$dispatch_id', '$user_id', '$created_at', '$fechaGest')";
+                    // $queryHIS = "INSERT INTO dispatch_statuses ( status, comment, dispatch_id, user_id, created_at, updated_at ) 
+                    //     VALUES ('$status', '$observ_estado', '$dispatch_id', '$user_id', '$created_at', '$fechaGest')";
 
-                    $guardar_his = mysqli_query($db3, $queryHIS);
+                    // $guardar_his = mysqli_query($db3, $queryHIS);
 
 
-                    if ($guardar_his) {
+                    if ($resultadoCOI2) {
                         echo '
                             <div class="alert alert-success">
                                 <a href="facturar.php">Continuar facturando mas ordenes</a>
@@ -257,8 +290,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                     
                 }
-            }
-        }
+            
+        
 
         //consulta general para el updete
         $queryGenereal = "SELECT * FROM datosordenes WHERE id = ${id}";

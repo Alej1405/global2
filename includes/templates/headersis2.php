@@ -45,7 +45,15 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="usuarios.php">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <!-- <i class="fas fa-laugh-wink"></i> -->
+                     <img class="img-profile rounded-circle" style="width: 3.5rem;" src="../../fotos_personal/<?php 
+                                                                $foto_per = $_SESSION['foto']; 
+                                                                if  (!$foto_per){
+                                                                echo "foto_ejemplo.jpeg";
+                                                                }else{
+                                                                echo $foto_per;
+                                                                }
+                                                                ?>">   
                 </div>
                 <div class="sidebar-brand-text mx-3"><?php echo $_SESSION['nombre']; ?> <sup>2</sup></div>
             </a>
@@ -358,8 +366,52 @@
         <?php endif ?>
         <!-- FI DE CONTROL DE BODEGA Y PAQUETES -->
 
-<!-- MENU DE NAVEGACION PARA USUARIOS DE COORDINACION -->
-
+<!-- MENU DE NAVEGACION PARA CONTROL DE PERSONAL -->
+<?php if ($_SESSION['rol'] == "recursos humanos") : ?>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBODE"
+                        aria-expanded="true" aria-controls="collapseBODE">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Control de horarios</span>
+                    </a>
+                    <div id="collapseBODE" class="collapse " aria-labelledby="headingBODE" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Horas marcadas:</h6>
+                            <a class="collapse-item" href="reg_colab.php">Registro de Ingreso</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse00"
+                        aria-expanded="true" aria-controls="collapse00">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Ingresos / Descuentos</span>
+                    </a>
+                    <div id="collapse00" class="collapse " aria-labelledby="heading00" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Ingresos Totales:</h6>
+                            <a class="collapse-item" href="ingresos_totaltes.php">Editar.</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse011"
+                        aria-expanded="true" aria-controls="collapse011">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Solicitudes realizadas</span>
+                    </a>
+                    <div id="collapse011" class="collapse " aria-labelledby="heading00" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Permisos:</h6>
+                            <a class="collapse-item" href="#">Permisos Ingresados</a>
+                            <h6 class="collapse-header">Anticipos:</h6>
+                            <a class="collapse-item" href="#">Anticipos Ingresados</a>
+                            <h6 class="collapse-header">Memos:</h6>
+                            <a class="collapse-item" href="#">Emitir</a>
+                        </div>
+                    </div>
+                </li>
+        <?php endif ?>
 <!-- MENU DE NAVEGACION PARA USUARIOS DE ADMIN -->
     <?php if ($_SESSION['rol'] == "admin"):?>
             <!-- Divider -->
@@ -755,8 +807,14 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['nombre']; ?></span>
-                                <img class="img-profile rounded-circle"
-                                    src="../../fotos_personal/bryan.jpeg">
+                                <img class="img-profile rounded-circle" style="width: 3.5rem;" src="../../fotos_personal/<?php 
+                                                                $foto_per = $_SESSION['foto']; 
+                                                                if  (!$foto_per){
+                                                                echo "foto_ejemplo.jpeg";
+                                                                }else{
+                                                                echo $foto_per;
+                                                                }
+                                                                ?>"> 
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

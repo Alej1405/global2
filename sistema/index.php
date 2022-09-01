@@ -40,12 +40,16 @@
                     $_SESSION['nombre'] = $usuario['nombre'];
                     $_SESSION['apellido'] = $usuario['apellido'];
                     $_SESSION['cliente'] = $usuario['cliente'];
+                    $_SESSION['foto'] = $usuario['foto'];
 
                     echo "quepaso";
                     
                     header('location: admin.php');
                     switch ($_SESSION['rol']){
                         case "gerencia_paqueteria":
+                            header('location: USUARIOS/usuarios.php');
+                            break;
+                        case "recursos humanos":
                             header('location: USUARIOS/usuarios.php');
                             break;
                         case "superAdmin":

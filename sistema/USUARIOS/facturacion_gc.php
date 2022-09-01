@@ -86,7 +86,7 @@ $db6 = conectarDB6();
                 $ejecutar_cliente_id = mysqli_query($db4, $consultar_cliente_id);
                 $ver_cliente_id = mysqli_fetch_assoc($ejecutar_cliente_id);
 
-                $contar_facturas = "SELECT COUNT(id) FROM liquidacion_gc WHERE cliente = '$consultar_cliente';";
+                $contar_facturas = "SELECT COUNT(id) FROM liquidacion_gc WHERE cliente = '$consultar_cliente' and not estado = 'facturado';";
                 $ejecutar_contar_facturas = mysqli_query($db6, $contar_facturas);
                 $ver_contar_facturas = mysqli_fetch_assoc($ejecutar_contar_facturas);
 

@@ -390,7 +390,8 @@
                     <div id="collapse00" class="collapse " aria-labelledby="heading00" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Ingresos Totales:</h6>
-                            <a class="collapse-item" href="ingresos_totaltes.php">Editar.</a>
+                            <a class="collapse-item" href="ingresos_totales.php">Registrar o Editar.</a>
+                            <a class="collapse-item" href="comisiones_bonos.php">Comiciones Bonos.</a>
                         </div>
                     </div>
                 </li>

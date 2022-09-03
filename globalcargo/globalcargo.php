@@ -13,7 +13,7 @@
                         <li class="menu__li"><a href="../globalcargo/cotizaciones.php" class="menu__a">COTIZAR </br>SERVICIOS</a></li>
                         <li class="menu__li"><a href="../globalcargo/asesorias.php" class="menu__a">ASESORÍAS</a></li>
                         <li class="menu__li"><a href="../globalcargo/faq.php" class="menu__a">PREGUNTAS </br>FRECUENTES</a></li>
-                        <li class="menu__li"><a href="../sistema/index.php" class="menu__a">INICIAR </br> SESION</a></li>
+                        <li class="menu__li"><a href="../sistema/global/index.php" class="menu__a">INICIAR </br> SESION</a></li>
                     </ul>
                 </nav>
                 <div class="header__img">

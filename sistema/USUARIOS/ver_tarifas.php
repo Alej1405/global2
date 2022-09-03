@@ -5,7 +5,7 @@
     $auth = estaAutenticado();
 
     if (!$auth) {
-        header('location: index.php');
+        header('location: ../global/index.php');
     }
 
     require '../../includes/config/database.php';

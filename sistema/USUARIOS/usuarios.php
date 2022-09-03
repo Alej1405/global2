@@ -27,6 +27,14 @@
     conectarDB4();
     $db4 =conectarDB4();
 
+
+    echo $time_pre = microtime(true);
+    echo ("This line will be executed.\n")."<br>";
+    echo $time_post = microtime(true);
+    $exec_time = $time_post - $time_pre;
+    echo ("The execution time is:\n");
+    echo ($exec_time);
+
     ?>
 
     <h1>hola</h1>

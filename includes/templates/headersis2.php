@@ -828,6 +828,23 @@
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Reportes de personal
                                 </a>
+                                <?php
+                                conectarDB();
+                                $db =conectarDB(); 
+                                $fecha_actual = date("Y-m-d");
+                                //verificar si registro o no hora de almuerzo
+                                $id_personal = $_SESSION['id'];
+                                $sql = "SELECT * FROM registro_horarios WHERE usuario_id = '$id_personal' AND fecha = '$fecha_actual' AND hora_almuerzo = '0:00:00';";
+                                $result = mysqli_query($db, $sql);
+                                $row = mysqli_fetch_assoc($result);
+                                $hora_almuerzo_v = $row['hora_almuerzo'] ?? '';
+                                if ($hora_almuerzo_v == '0:00:00'):
+                                ?>
+                                <a class="dropdown-item" href="salida_almuerzo.php?id=<?php echo $_SESSION['id'] ?>">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Marcar alumerzo
+                                </a>
+                                <?php endif; ?>
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Rol de pagos

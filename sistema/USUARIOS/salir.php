@@ -22,7 +22,7 @@ conectarDB4();
 $db4 =conectarDB4();
 //guardar hora de salida
     //guardar la hora de salida en la base de datos
-        $fecha_ingreso = date('Y-m');
+        $fecha_ingreso = date('Y-m-d');
         $id = $_SESSION['id'];
         $nombre = $_SESSION['nombre'];
 //verificar si existe una hora de ingreso.
@@ -48,7 +48,7 @@ $hora_ingreso12 = mysqli_fetch_assoc($ejecutar_hora_ingreso);
     date_default_timezone_get();
     $hora_salida =  date('G:i:s');
     //condicion de hora de salida
-    if($hora_salida > '17:30:00'){
+    if($hora_salida > '17:50:00'){
      $query_ingreso = "UPDATE registro_horarios SET hora_salida = '${hora_salida}'
                                              WHERE usuario_id = '${id}' AND fecha = '${fecha_ingreso}';";
      $resultado_ingreso = mysqli_query($db, $query_ingreso);

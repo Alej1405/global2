@@ -31,9 +31,14 @@
                 //revisar si el pasword es correcto
                 $usuario = mysqli_fetch_assoc($resultado);
                 if ($usuario['cedula'] === $contrasena){
-                    //var_dump($usuario);
+
+                    //tiempo de inicio de sesion
+                    ini_set("session.cookie_lifetime","2");
+                    ini_set("session.gc_maxlifetime","2");
+
                     //El usuario está autentiacado
                     session_start();
+
                     //pasar datos en la super global session 
                     $_SESSION['login'] = true;
                     $_SESSION['rol'] = $usuario['tipo'];
@@ -47,12 +52,19 @@
                 //guardar la hora de ingreso en la base de datos
                 date_default_timezone_set("America/Bogota");
                 date_default_timezone_get();
-                $hora_ingreso =  date('h:i:s A');
+                $hora_ingreso =  date('G:i:s');
                 $fecha_ingreso = date('Y-m');
                 //guardar la hora de ingreso en la base de datos
-                $query_ingreso = "INSERT INTO registro_horarios (hora_ingreso, usuario_id, fecha,  nombre) 
-                                                VALUES ('${hora_ingreso}', '${_SESSION['id']}', '${fecha_ingreso}', '${_SESSION['nombre']}')";
-                $resultado_ingreso = mysqli_query($db, $query_ingreso);
+                if($hora_ingreso >= '8:30:00'){
+                    $consulta = "SELECT * FROM registro_horarios WHERE usuario_id = ${_SESSION['id']} AND fecha = '${fecha_ingreso}';";
+                    $ejecutar = mysqli_query($db, $consulta);
+                    $resultado_consulta = mysqli_fetch_assoc($ejecutar);
+                    if ($resultado_consulta == null) {
+                        $query_ingreso = "INSERT INTO registro_horarios (hora_ingreso, hora_almuerzo, hora_ingreso_almuerzo, hora_salida, usuario_id, fecha, nombre) 
+                                                    VALUES ('${hora_ingreso}', '0:00:00', '0:00:00', '0:00:00', '${_SESSION['id']}', '${fecha_ingreso}', '${_SESSION['nombre']}');";
+                        $resultado_ingreso = mysqli_query($db, $query_ingreso);
+                    }
+                }
                     
                     header('location: admin.php');
                     switch ($_SESSION['rol']){

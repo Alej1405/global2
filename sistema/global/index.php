@@ -55,7 +55,7 @@
                 $hora_ingreso =  date('G:i:s');
                 $fecha_ingreso = date('Y-m-d');
                 //guardar la hora de ingreso en la base de datos
-                if($hora_ingreso >= '8:30:00'){
+                if($hora_ingreso >= '7:50:00'){
                     $consulta = "SELECT * FROM registro_horarios WHERE usuario_id = ${_SESSION['id']} AND fecha = '${fecha_ingreso}';";
                     $ejecutar = mysqli_query($db, $consulta);
                     $resultado_consulta = mysqli_fetch_assoc($ejecutar);

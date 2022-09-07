@@ -49,7 +49,7 @@ function conectarDB4() : mysqli{
     return $db4;
 }
 
-//base de datos callcenter
+//base de datos comercial
 function conectarDB5() : mysqli{
     $db5 = mysqli_connect('127.0.0.1', 'root', 'pablo1405', 'comercial');
 
@@ -73,5 +73,17 @@ function conectarDB6() : mysqli{
         exit;
     }
     return $db6;
+}
+//base de datos GC-box
+function conectarDB7() : mysqli{
+    $db7 = mysqli_connect('127.0.0.1', 'root', 'pablo1405', 'gcargo_gcbox');
+
+    if ($db7) {
+    
+    } else{
+        echo "Erroe no se puede contectar con la base de datos";
+        exit;
+    }
+    return $db7;
 }
 //anñadir la clave al cambiar de computador pablo1405sss∫∫s

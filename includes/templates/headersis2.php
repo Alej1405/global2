@@ -377,7 +377,7 @@
                     <div id="collapseBODE" class="collapse " aria-labelledby="headingBODE" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Horas marcadas:</h6>
-                            <a class="collapse-item" href="reg_colab.php">Registro de Ingreso</a>
+                            <a class="collapse-item" href="#">Reporte mensual</a>
                         </div>
                     </div>
                 </li>
@@ -404,9 +404,9 @@
                     <div id="collapse011" class="collapse " aria-labelledby="heading00" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Permisos:</h6>
-                            <a class="collapse-item" href="#">Permisos Ingresados</a>
+                            <a class="collapse-item" href="permisos.php">Solicitudes</a>
                             <h6 class="collapse-header">Anticipos:</h6>
-                            <a class="collapse-item" href="#">Anticipos Ingresados</a>
+                            <a class="collapse-item" href="#">Solicitudes</a>
                             <h6 class="collapse-header">Memos:</h6>
                             <a class="collapse-item" href="#">Emitir</a>
                         </div>

@@ -12,6 +12,7 @@ function conectarDB() : mysqli{
     }
     return $db;
 }
+
 //base de datos bodega
 function conectarDB2() : mysqli{
     $db2 = mysqli_connect('localhost', 'root', 'pablo1405', 'gcargo_bodegatrade');
@@ -24,6 +25,7 @@ function conectarDB2() : mysqli{
     }
     return $db2;
 }
+
 //base api Rusia
 function conectarDB3() : mysqli{
     $db3 = mysqli_connect('localhost', 'root', 'pablo1405', 'gcargo_admin');
@@ -36,6 +38,7 @@ function conectarDB3() : mysqli{
     }
     return $db3;
 }
+
 //base de datos callcenter
 function conectarDB4() : mysqli{
     $db4 = mysqli_connect('127.0.0.1', 'root', 'pablo1405', 'gcargo_callcenter');
@@ -51,7 +54,7 @@ function conectarDB4() : mysqli{
 
 //base de datos comercial
 function conectarDB5() : mysqli{
-    $db5 = mysqli_connect('127.0.0.1', 'root', 'pablo1405', 'comercial');
+    $db5 = mysqli_connect('127.0.0.1', 'root', 'pablo1405', 'gcargo_comercial');
 
     if ($db5) {
     

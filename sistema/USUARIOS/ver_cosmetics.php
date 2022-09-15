@@ -1,7 +1,4 @@
 <?php 
-
-    $nombre_ase = $_GET['nombre'] ?? null;
-    
     //incluye el header
     require '../../includes/funciones.php';
     $auth = estaAutenticado();
@@ -9,13 +6,8 @@
     if (!$auth) {
         header('location: index.php');
     }
-    $tipo_as = $_SESSION['rol'];
 
     require '../../includes/config/database.php';
-
-    if ($tipo_as == 'asesor'){
-        incluirTemplate('headersis2');
-    }
 
     //coneccion api
     conectarDB3();
@@ -25,44 +17,18 @@
     conectarDB4();
     $db4 =conectarDB4();
 
-
      //ARRAY DE ERRORES PARA LA ALERTAS
         $errores = [];
         $usuario = $_SESSION['usuario'];
+        $tipo_as = $_SESSION['rol'];
     
-    //query para consultar los clientes registrados
-    if (empty($nombre_ase)){
-        $consulta_clientes = "SELECT * FROM ordenes WHERE NOT estado = 'delivered' and not estado = 'liquidado' AND NOT estado = 'facturado' order by fecha_reg desc;";
-        $eje_clientes = mysqli_query($db4, $consulta_clientes);
-    }else{
-        $consulta_clientes = "SELECT * FROM ordenes WHERE asesor = '$nombre_ase' and NOT estado = 'delivered' and not estado = 'liquidado' AND NOT estado = 'facturado' order by fecha_reg desc;";
-        $eje_clientes = mysqli_query($db4, $consulta_clientes);
-    }
-    //eliminar cliente
-        //liminar una tarifa directamente desde la tabla.
-        $id = '';
-        if($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $id = $_POST['id'];
-            $id = filter_var($id, FILTER_VALIDATE_INT);
-        }
-        //validar que esxista una tarifa con esa ida
-            if($id){
-                $query = "DELETE FROM ordenes WHERE id = ${id}"; 
-                $resultado = mysqli_query($db4, $query);
-                if ($resultado) {
-                }
-            }
-            
+    //consulta de datos ordenes recibidas
+        $consulta_ordenes = "SELECT * FROM orders WHERE status = 'requested' order by created_at desc;";
+        $eje_ordenes = mysqli_query($db3, $consulta_ordenes);
 
 ?>
-<?php if ($tipo_as == 'asesor'):?>
-<body class="bg-gradient-primary">
-    <div class="container">
-    <h1>SEGUIMIENTO DE PAQUETES</h1>
-            <p>En este listado solo se encuentran los paquetes que estan en proceso de entrega.</p>
-<?php endif;?>
         <table class="table table-hover">
-            <thead>
+            <thead hidden>
                 <tr>
                     <th>CONSIGNATARIO</th>
                     <th>DETINARIO</th>
@@ -76,24 +42,45 @@
                 </tr>
             </thead>
             <tbody>
-                <?php while($array_clientes = mysqli_fetch_assoc($eje_clientes)):?>
+                <?php while($array_clientes = mysqli_fetch_assoc($eje_ordenes)):?>
                     <tr>
                         <td>
+                            Smart Cosmetics
+                        </td>
+                        <td>
                             <?php
-                                $consulta_cedula = $array_clientes['cliente'];
-                                $consulta ="SELECT * FROM clientes WHERE cedula = $consulta_cedula;";
-                                $ejec_consulta = mysqli_query($db4, $consulta);
+                                //Consulta de datos del destinatario
+                                $consulta_destinatario = $array_clientes['id'];
+                                $consulta ="SELECT * FROM order_clients WHERE order_id = $consulta_destinatario;";
+                                $ejec_consulta = mysqli_query($db3, $consulta);
                                 $rest = mysqli_fetch_assoc($ejec_consulta);
-                                echo $rest['nombre']." ".$rest['apellido']; 
+                                echo $rest['name']." ".$rest['last_name']; 
                             ?>
                         </td>
-                        <td><?php echo $array_clientes['nombre']; ?></td>
-                        <td><?php echo $array_clientes['fecha_reg']; ?></td>
-                        <td><?php echo $array_clientes['telefono']; ?></td>
-                        <td><?php echo $array_clientes['ciudad']." / ".$array_clientes['provincia']; ?></td>
-                        <td><?php echo $array_clientes['asesor']; ?></td>
-                        <td><?php echo $array_clientes['estado']; ?></td>
-                        <td><?php echo $array_clientes['tarifa']; ?></td>
+                        <td><?php echo $array_clientes['created_at']; ?></td>
+                        <td>
+                            <?php
+                                //Consulta de datos del contactos
+                                $consulta_destinatario = $array_clientes['id'];
+                                $consulta ="SELECT * FROM order_clients WHERE order_id = $consulta_destinatario;";
+                                $ejec_consulta = mysqli_query($db3, $consulta);
+                                $rest = mysqli_fetch_assoc($ejec_consulta);
+                                echo $rest['phone']." / ".$rest['landline'];  
+                            ?></td>
+                        <td>
+                            <?php
+                            //buscar provincia y ciudad
+                            $consulta_destinatario = $array_clientes['id'];
+                            $consulta ="SELECT * FROM order_clients WHERE order_id = $consulta_destinatario;";
+                            $ejec_consulta = mysqli_query($db3, $consulta);
+                            $rest = mysqli_fetch_assoc($ejec_consulta);
+                            echo $rest['city']." / ".$rest['province'];
+                            ?></td>
+                        <td>
+                            CLIENTE GENERAL GC-GO
+                        </td>
+                        <td><?php echo $array_clientes['status']; ?></td>
+                        <td><?php echo "Estandar"; ?></td>
                         <td>
                             <?php if ($tipo_as === 'motorizado'): ?>
                                     <div class="col-auto">

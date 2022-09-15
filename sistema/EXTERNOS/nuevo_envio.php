@@ -133,7 +133,7 @@
                                     $destinatario = 'mafer.fernandez@globalcargoecuador.com';
                                     $asunto = 'NUEVO SERVICIO SOLICITADO';
                                 
-                                // configuración del mensaje
+                                    // configuración del mensaje
                                     $header = "Nueva solicitud de envio registrada";
                                     $mensajeCompleto = "Hola Mafer, tenemos una  nueva solicitu de cliente.";
                                     mail($destinatario, $asunto, $mensajeCompleto, $header);
@@ -142,7 +142,7 @@
                                     $destinatario1 = 'camila@globalcargoecuador.com';
                                     $asunto1 = 'NUEVO SERVICIO SOLICITADO';
                                 
-                                // configuración del mensaje
+                                    // configuración del mensaje
                                     $header1 = "Nueva solicitud de envio registrada";
                                     $mensajeCompleto1 = "Hola CAMI, tenemos una  nueva solicitu de cliente.";
                                     mail($destinatario1, $asunto1, $mensajeCompleto1, $header1);
@@ -151,7 +151,7 @@
                                     $destinatario2 = $correo;
                                     $asunto2 = 'HOLA, TENEMOS UNA ENTREGA PARA TI.';
                                     
-                                    // configuración del mensaje
+                                        // configuración del mensaje
                                         $header2 = "Hola somos GC-GO tenemos un paquete para entregarte.";
                                         $mensajeCompleto2 = "Hola, somos GC-GO tenemos una entrega para ti, 
                                                             en un momento un asesor se comunicara contigo.

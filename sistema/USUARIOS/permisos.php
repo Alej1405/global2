@@ -173,5 +173,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
     </div>
     <?php
-    incluirTemplate('fottersis2');
+    incluirTemplate('fottersis');
     ?>

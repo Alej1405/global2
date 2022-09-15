@@ -111,8 +111,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">ANTICIPOS</label>
-                <input type="text" name="anticipos" class="form-control" value="0.00" placeholder="ANTICPOS">
+                <input type="text" hidden name="anticipos" class="form-control" value="0.00" placeholder="ANTICPOS">
             </div>
             <input type="submit" class="btn btn-primary" value="AGREGAR">
         </form>
     </div>
+    <?php
+    incluirTemplate('fottersis');
+    ?>

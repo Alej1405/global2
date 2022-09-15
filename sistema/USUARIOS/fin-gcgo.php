@@ -173,11 +173,12 @@ $ejecutar_consulta3 = mysqli_query($db4, $consulta_fin);
                                              } else{
                                                  $cod_cobrar = $valor_cod * 0.1;
                                              }
+                                             round($cod_cobrar, 2);
                                          } else{
                                              $cod_cobrar = "NO APLICA";
                                         }
 
-                                        echo "$ ".round($cod_cobrar, 2);
+                                        echo $cod_cobrar;
                                     ?>
                                 </td>
                                 <td>
@@ -291,5 +292,5 @@ $ejecutar_consulta3 = mysqli_query($db4, $consulta_fin);
             </script>
     </div>
     <?php
-    incluirTemplate('fottersis2');
+    incluirTemplate('fottersis');
     ?>

@@ -31,6 +31,27 @@ $resultado = mysqli_query($db, $consulta);
 // variables del sistema 
 $errores = [];
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $id = mysqli_real_escape_string($db4, $_POST['id']);
+
+    $borrar = "DELETE FROM usuario WHERE id = $id";
+    $resultado = mysqli_query($db, $borrar);
+    if ($resultado) {
+        echo "<script>
+                guardar();
+                window.location.href='consul_nomina.php';
+              </script>";
+    } else {
+        echo "
+            <div class='alert alert-danger' role='alert'>
+                <strong>Error!</strong> 
+                No se pudo borrar a esa buena persona.
+            </div>";
+        exit;
+    }
+}
+
 ?>
 
 <body>

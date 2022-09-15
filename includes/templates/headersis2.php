@@ -170,7 +170,7 @@
                         <div id="collapseBODE" class="collapse " aria-labelledby="headingBODE" data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
                                 <h6 class="collapse-header">Horas marcadas:</h6>
-                                    <a class="collapse-item" href="#">Reporte mensual</a>
+                                    <a class="collapse-item" href="reporte_horarios.php">Reporte mensual</a>
                                 <h6 class="collapse-header">Ingresos Totales:</h6>
                                     <a class="collapse-item" href="ingresos_totales.php">Registrar o Editar.</a>
                                     <a class="collapse-item" href="comisiones_bonos.php">Comiciones Bonos.</a>

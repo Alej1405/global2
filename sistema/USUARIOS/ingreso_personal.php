@@ -175,21 +175,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <?php endforeach ?>
                     <h5 class="card-title">REGISTRAR NUEVO INGRESO</h5>
                     <p class="card-text text-muted fs-6 fst-italic">Confirmar si los datos ingresados son correctos.</p>
-                    <?php if (!$validar_foto) : ?>
-                        <img src="../../fotos_personal/foto_ejemplo.jpeg" class="img-thumbnail pt-1 m-auto" alt="..." style="width: 25rem" ;>
-                        <div class="alert alert-danger" role="alert">
-                            <strong>No hay texto, jeje </strong>
-                            Agregar una foto, alajito/a :v Si no, esta sera tu foto en los documentos. jejejejeje igualito/a
-                        </div>
-                    <?php else : ?>
-                        <div class="input-group mb-3">
-                            <img src="../../fotos_personal/<?php echo $validar_foto; ?>" class="img-thumbnail pt-1 m-auto" alt="..." style="width: 25rem" ;>
-                        </div>
-                    <?php endif; ?>
-                    <label for="foto" class="form-label">Agrega foto</label>
-                    <div class="input-group mb-3">
-                        <input type="file" name="foto" id="foto" class="form-control text-uppercase" placeholder="cargo" aria-label="correo" value="<?php echo  $datos_personal['tipo']; ?>" aria-describedby="basic-addon1">
-                    </div>
+                    
                     <div class="input-group mb-3">
                         <span class="input-group-text">DATOS PERSONALES</span>
                         <input type="text" name="nombre" class="form-control" placeholder="Nombres" aria-label="nombre">

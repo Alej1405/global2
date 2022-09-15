@@ -91,7 +91,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <tr>
                             <td>
                                 <?php echo $resultado_colaborador['id']; ?>
-
                             </td>
                             <td>
                                 <?php echo $resultado_colaborador['nombre'] . " " . $resultado_colaborador['apellido']; ?>

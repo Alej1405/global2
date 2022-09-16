@@ -90,7 +90,6 @@
                         $asesor = $const_nom;
                         $guia = mysqli_real_escape_string($db4, $_POST['guia_paq']);
                         $responsable = $_SESSION['usuario'];
-                        $transporte = $_POST['transporte'];
                         $tarifa = $_POST['tarifa'];
 
                         //validacion de ingreso de datos.
@@ -141,8 +140,7 @@
                                                                     guia = '$guia',
                                                                     fecha_actualizacion = '$fecha_actualizacion',
                                                                     responsable ='$responsable',
-                                                                    tarifa ='$tarifa',
-                                                                    transporte ='$transporte'
+                                                                    tarifa ='$tarifa'
                                                                     WHERE id = $id_envio;";
                             
                             $actualizar_envio = mysqli_query($db4, $guardar_servicio);
@@ -169,14 +167,6 @@
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="text" require name="guia_paq" class="form-control form-control-user" id="exampleFirstName"
                         value = "<?php echo $array_ordenes['guia'];?>"  maxlength="79">
-                </div>
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                    <select name="transporte"  class="form-control form-control-user">
-                        <option value=" " >--- Selecciona el cliente  ---</option>
-                        <?php while($array_colaborador = mysqli_fetch_assoc($consulta_c2) ): ?>
-                            <option value="<?php echo $array_colaborador['id']; ?>"><?php echo $array_colaborador['nombre']." ".$array_colaborador['apellido']; ?></option>
-                        <?php endwhile; ?>
-                    </select>
                 </div>
             </div>
             <div class="form-group row">
@@ -226,7 +216,7 @@
                 </div>
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <select require name="cod" class="form-control form-control-user" id="exampleFirstName">
-                        <option value = "<?php echo $array_ordenes['cod'];?>" selected>Necesitas que cobremos </option>
+                        <option value = "<?php echo $array_ordenes['cod'];?>" selected><?php echo $array_ordenes['cod'];?></option>
                         <option value="si">si</option>
                         <option value="no">no</option>
                     </select>
@@ -239,7 +229,7 @@
                 </div>
                 <div class="col-sm-6">
                     <select require name="fragil" class="form-control form-control-user" id="exampleFirstName">
-                        <option value = "<?php echo $array_ordenes['fragil'];?>" selected>Es fragil...?</option>
+                        <option value = "<?php echo $array_ordenes['fragil'];?>" selected><?php echo $array_ordenes['fragil'];?></option>
                         <option value="si">si</option>
                         <option value="no">no</option>
                     </select>
@@ -267,7 +257,7 @@
                 </div>
                 <div class="col-sm-6">
                     <select require name="reempaque" class="form-control form-control-user" id="exampleFirstName">
-                        <option value = "<?php echo $array_ordenes['direccion_recoleccion'];?>" selected>Lo volvemos a empacar...?</option>
+                        <option value = "<?php echo $array_ordenes['direccion_recoleccion'];?>" selected><?php echo $array_ordenes['direccion_recoleccion'];?></option>
                         <option value="si">si</option>
                         <option value="no">no</option>
                     </select>

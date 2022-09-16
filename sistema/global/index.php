@@ -48,6 +48,7 @@
                     $_SESSION['apellido'] = $usuario['apellido'];
                     $_SESSION['cliente'] = $usuario['cliente'];
                     $_SESSION['foto'] = $usuario['foto'];
+                    $_SESSION['cedula'] = $usuario['cedula'];
 
                 //guardar la hora de ingreso en la base de datos
                 date_default_timezone_set("America/Bogota");
@@ -104,8 +105,8 @@
                         case "callcenter":
                             header('location: ../callcenterAdmin.php');
                             break;
-                        case "motorizado":
-                            header('location: ../USUARIOS/usuarios.php');
+                        case "motorizado": // ingreso de motorizados derivado a pantalla responsive
+                            header('location: ../EXTERNOS/motorizados.php');
                             break;
                         case "coordinacion":
                             header('location: ../USUARIOS/usuarios.php');

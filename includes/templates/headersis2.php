@@ -204,13 +204,13 @@
                     <li class="nav-item">
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse011" aria-expanded="true" aria-controls="collapse011">
                             <i class="fas fa-fw fa-cog"></i>
-                            <span>Circuitos Nacionales</span>
+                            <span>Distritos Nacionales</span>
                         </a>
                         <div id="collapse011" class="collapse " aria-labelledby="heading00" data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
-                                <h6 class="collapse-header">Circuito:</h6>
+                                <h6 class="collapse-header">Distritos:</h6>
                                     <a class="collapse-item" href="crear_distrito.php">Crear</a>
-                                    <a class="collapse-item" href="#">Ver circuitos</a>
+                                    <a class="collapse-item" href="#">Ver Distritos</a>
                             </div>
                         </div>
                     </li>

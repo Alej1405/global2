@@ -55,14 +55,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     alert('Distrito creado correctamente');
                     window.location.href='crear_distrito.php';
                   </script>";
-                } else {
-                    echo "
+        } else {
+            echo "
                         <div class='alert alert-danger' role='alert'>
                             <strong>Error!</strong> 
                             No se pudo crear el buen distrito, vuelve a intentar pues!!!!.
                         </div>";
-                    exit;
-                }
+            exit;
+        }
     }
 }
 
@@ -74,6 +74,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h1>Crear Distritos</h1>
         </div>
         <form action="" method="post">
+            <?php foreach ($errores as $error) : ?>
+                <div class="alert alert-danger">
+                    <?php echo $error; ?>
+                </div>
+            <?php endforeach ?>
             <div class="input-group mb-3">
                 <span class="input-group-text">DATOS GENERALES DEL DISTRITO</span>
                 <input type="text" name="nombre" class="form-control" placeholder="Nombre del distrito" aria-label="nombre">
@@ -124,12 +129,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div>
             <table class="table table-hover">
                 <thead>
-                        <tr class="table-primary">
-                            <th>Nombre</th>
-                            <th>Provincia</th>
-                            <th>Responsable</th>
-                            <th>Acciones</th>
-                        </tr>
+                    <tr class="table-primary">
+                        <th>Nombre</th>
+                        <th>Provincia</th>
+                        <th>Responsable</th>
+                        <th>Acciones</th>
+                    </tr>
                 </thead>
                 <tbody>
                     <?php
@@ -141,8 +146,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <td><?php echo $row['nombre']; ?></td>
                             <td><?php echo $row['prov_central']; ?></td>
                             <td>
-                                <?php 
-                                $busqueda = $row['responsable']; 
+                                <?php
+                                $busqueda = $row['responsable'];
                                 $consulta2 = "SELECT * FROM usuario WHERE id = '${busqueda}';";
                                 $resultado2 = mysqli_query($db, $consulta2);
                                 $nombre_responsable = mysqli_fetch_assoc($resultado2);

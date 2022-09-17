@@ -136,9 +136,12 @@
                     <div class="mb-3">
                         <select class="form-select" name="distrito" id="">
                             <option value=" ">Selecciona un distrito</option>
-                            <option value="GUAYAQUIL">GUAYAQUIL</option>
-                            <option value="AZUAY">AZUAY</option>
-                            <option value="MANABI">MANABI</option>
+                            <?php 
+                                $distritos = "SELECT * FROM distrito";
+                                $distritos = mysqli_query($db, $distritos);
+                                while($distrito = mysqli_fetch_assoc($distritos)) : ?>
+                                    <option value="<?php echo $distrito['id']; ?>"><?php echo $distrito['nombre']; ?></option>
+                                <?php endwhile; ?>
                         </select>
                     </div>
                     <div class="mb-3">

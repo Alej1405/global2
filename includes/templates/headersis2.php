@@ -209,8 +209,7 @@
                         <div id="collapse011" class="collapse " aria-labelledby="heading00" data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
                                 <h6 class="collapse-header">Distritos:</h6>
-                                    <a class="collapse-item" href="crear_distrito.php">Crear</a>
-                                    <a class="collapse-item" href="#">Ver Distritos</a>
+                                    <a class="collapse-item" href="crear_distrito.php">Crear y consultar</a>
                             </div>
                         </div>
                     </li>

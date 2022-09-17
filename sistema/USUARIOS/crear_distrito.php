@@ -154,8 +154,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 echo $nombre_responsable['nombre'] . " " . $nombre_responsable['apellido'];
                                 ?></td>
                             <td>
-                                <a href="editar_distrito.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Editar</a>
-                                <a href="eliminar_distrito.php?id=<?php echo $row['id']; ?>" class="btn btn-danger">Eliminar</a>
+                                <a href="ver_distrito.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Editar y Agregar Cantones</a>
+                                <a href="borrar_distrito.php?id=<?php echo $row['id']; ?>" class="btn btn-danger">Eliminar</a>
                             </td>
                         </tr>
                     <?php endwhile; ?>

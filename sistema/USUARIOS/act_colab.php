@@ -28,7 +28,7 @@
     $db4 =conectarDB4();
     
     //consultar datos de colaboradores
-    $consulta_colab = "SELECT * FROM colaborador WHERE id = ${id_colaborador};";
+    $consulta_colab = "SELECT * FROM colaborador WHERE id = '${id_colaborador}';";
     $resultado_colab = mysqli_query($db4, $consulta_colab);
     $colaborador = mysqli_fetch_assoc($resultado_colab);
 
@@ -154,11 +154,12 @@
                     <div class="mb-3">
                         <select class="form-select" name="distrito" id="">
                             <option value="<?php echo $colaborador['distrito'] ?? null; ?>"selected><?php echo $colaborador['distrito'] ?? 'NO TIENE DISTRITO'; ?></option>
-                            <option value="QUITO">QUITO</option>
-                            <option value="GUAYAQUIL">GUAYAQUIL</option>
-                            <option value="AZUAY">AZUAY</option>
-                            <option value="MANABI">MANABI</option>
-                            <option value="SANTO DOMINGO">SANTO DOMINGO</option>
+                            <?php 
+                                $distritos = "SELECT * FROM distrito";
+                                $distritos = mysqli_query($db, $distritos);
+                                while($distrito = mysqli_fetch_assoc($distritos)) : ?>
+                                    <option value="<?php echo $distrito['id']; ?>"><?php echo $distrito['nombre']; ?></option>
+                                <?php endwhile; ?>
                         </select>
                     </div>
                     <div class="mb-3">

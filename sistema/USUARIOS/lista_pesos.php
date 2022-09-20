@@ -73,7 +73,7 @@
                                 echo $rest['nombre']." ".$rest['apellido']; 
                             ?>
                         </td>
-                        <td><?php echo $array_clientes['nombre']." ".$array_clientes['apellido']; ?></td>
+                        <td><?php echo $array_clientes['nombre']; ?></td>
                         <td><?php echo $array_clientes['fecha_reg']; ?></td>
                         <td><?php echo $array_clientes['l']; ?></td>
                         <td><?php echo $array_clientes['a']; ?></td>

@@ -76,8 +76,18 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         values('$guia1', '$fecha', '$responsable', '$destinatario', '$peso', '$volumen');";
         $guardar_eje = mysqli_query($db2, $guardar_bodega);
         if($guardar_bodega){
-        $error = 1;
-        }
+            echo "  <script>
+                        alert('Pesos registrados correctamente');
+                        window.location.href='lista_pesos.php';
+                    </script>";
+            } else {
+                echo "
+                            <div class='alert alert-danger' role='alert'>
+                                <strong>Error!</strong> 
+                                No se registrar el buen peso, vuelve a intentar pues!!!!.
+                            </div>";
+                exit;
+            }
 
     }
 }
@@ -93,9 +103,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <?php echo $error; ?>
                 </div>
             <?php endforeach ?>
-            <?php if (intval($error) === 1) : ?>
-                <p class="alert alert-success">VES!!!! FACIL ES HAGALE, HAGALE...</p>
-            <?php endif ?>
             <div class="alert alert-primary">
                 <h1>CONFIMAR MEDIDAS Y PESO</h1>
             </div>
@@ -139,7 +146,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
                 <br>
                 <div class="d-grid gap-2 col-6 mx-auto">
-                    <input type="submit" value="INGRESAR TARIFA" class="btn btn-outline-primary bi-text-center">
+                    <input type="submit" value="REGISTRAR PESOS" class="btn btn-outline-primary bi-text-center">
                 </div>
                 <br>
             </form>
@@ -150,5 +157,5 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <br>
 
     <?php
-
+incluirTemplate('fottersis')
     ?>

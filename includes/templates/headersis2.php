@@ -69,7 +69,7 @@
             </li>
             <!--  RESTRUCCTURACION DINAMICA DE PERMISOS PARA ACCESO Y PERMISOS DEL SISTEMA  -->
             <?php switch ($_SESSION['rol']):
-                case "asesor"; //ASESOR 
+                case "asesor"; //ASESOR
             ?>
                     <li class="nav-item">
                         <?php
@@ -133,6 +133,8 @@
                                 <a class="collapse-item" href="bodega_IS.php">Control de Ingreso</a>
                                 <h6 class="collapse-header">Gestion:</h6>
                                 <a class="collapse-item" href="seguimiento.php">Historial</a>
+                                <h6 class="collapse-header">Empaque y Despacho:</h6>
+                                <a class="collapse-item" href="listade_empaque.php">Historial</a>
                             </div>
                         </div>
                     </li>
@@ -170,18 +172,18 @@
                         <div id="collapseBODE" class="collapse " aria-labelledby="headingBODE" data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
                                 <h6 class="collapse-header">Horas marcadas:</h6>
-                                    <a class="collapse-item" href="reporte_horarios.php">Reporte mensual</a>
+                                <a class="collapse-item" href="reporte_horarios.php">Reporte mensual</a>
                                 <h6 class="collapse-header">Ingresos Totales:</h6>
-                                    <a class="collapse-item" href="ingresos_totales.php">Registrar o Editar.</a>
-                                    <a class="collapse-item" href="comisiones_bonos.php">Comiciones Bonos.</a>
+                                <a class="collapse-item" href="ingresos_totales.php">Registrar o Editar.</a>
+                                <a class="collapse-item" href="comisiones_bonos.php">Comiciones Bonos.</a>
                                 <h6 class="collapse-header">Permisos:</h6>
-                                    <a class="collapse-item" href="permisos.php">Solicitudes</a>
+                                <a class="collapse-item" href="permisos.php">Solicitudes</a>
                                 <h6 class="collapse-header">Anticipos:</h6>
-                                    <a class="collapse-item" href="#">Solicitudes</a>
+                                <a class="collapse-item" href="#">Solicitudes</a>
                                 <h6 class="collapse-header">Memos:</h6>
-                                    <a class="collapse-item" href="#">Emitir</a>
-                                    <a class="collapse-item" href="#">Consultar</a>
-                                    
+                                <a class="collapse-item" href="#">Emitir</a>
+                                <a class="collapse-item" href="#">Consultar</a>
+
                             </div>
                         </div>
                     </li>
@@ -193,11 +195,11 @@
                         <div id="collapse00" class="collapse " aria-labelledby="heading00" data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
                                 <h6 class="collapse-header">Nomina de Personal:</h6>
-                                    <a class="collapse-item" href="consul_nomina.php">Nomina</a>
-                                    <a class="collapse-item" href="ingreso_personal.php">Ingreso</a>
+                                <a class="collapse-item" href="consul_nomina.php">Nomina</a>
+                                <a class="collapse-item" href="ingreso_personal.php">Ingreso</a>
                                 <h6 class="collapse-header">Colaboradores:</h6>
-                                    <a class="collapse-item" href="consul_colab.php">M Colaboradores</a>
-                                    <a class="collapse-item" href="reg_colab.php">Nuevo Colaborador</a>
+                                <a class="collapse-item" href="consul_colab.php">M Colaboradores</a>
+                                <a class="collapse-item" href="reg_colab.php">Nuevo Colaborador</a>
                             </div>
                         </div>
                     </li>
@@ -209,7 +211,52 @@
                         <div id="collapse011" class="collapse " aria-labelledby="heading00" data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
                                 <h6 class="collapse-header">Distritos:</h6>
-                                    <a class="collapse-item" href="crear_distrito.php">Crear y consultar</a>
+                                <a class="collapse-item" href="crear_distrito.php">Crear y consultar</a>
+                            </div>
+                        </div>
+                    </li>
+                    <?php break; ?>
+                <?php
+                case "bodega"; //RECURSOS HUMANOS 
+                ?>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBODE" aria-expanded="true" aria-controls="collapseBODE">
+                            <i class="fas fa-fw fa-cog"></i>
+                            <span>Registro de Pesos</span>
+                        </a>
+                        <div id="collapseBODE" class="collapse " aria-labelledby="headingBODE" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Registros:</h6>
+                                <a class="collapse-item" href="lista_pesos.php">Registrar pesos</a>
+                                <h6 class="collapse-header">Paquetes:</h6>
+                                <a class="collapse-item" href="ver_paquetesgc.php">Ver Guias.</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse00" aria-expanded="true" aria-controls="collapse00">
+                            <i class="fas fa-fw fa-cog"></i>
+                            <span>Empaque y Despacho</span>
+                        </a>
+                        <div id="collapse00" class="collapse " aria-labelledby="heading00" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Empaque:</h6>
+                                <a class="collapse-item" href="listade_empaque.php">Lista</a>
+                                <h6 class="collapse-header">Despacho:</h6>
+                                <a class="collapse-item" href="#">Lista General</a>
+                                <a class="collapse-item" href="#">Manifiestos </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse011" aria-expanded="true" aria-controls="collapse011">
+                            <i class="fas fa-fw fa-cog"></i>
+                            <span>Distritos Nacionales</span>
+                        </a>
+                        <div id="collapse011" class="collapse " aria-labelledby="heading00" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Distritos:</h6>
+                                <a class="collapse-item" href="crear_distrito.php">Crear y consultar</a>
                             </div>
                         </div>
                     </li>

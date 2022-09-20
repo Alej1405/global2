@@ -1,5 +1,5 @@
 <?php
-$id_distrito = $_GET['id'] ?? null;
+//$id_subdistrito = $_GET['id'] ?? null;
 
 //incluye el header
 require '../../includes/funciones.php';
@@ -28,24 +28,24 @@ $db4 = conectarDB4();
 
 //variables del sistema
 
-$nombre = '';
-$resp_id = '';
 $sub_distrito = '';
+$canton = '';
+$id_distrito = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id = $_POST['id'];
-    $nombre = $_POST['nombre'];
-    $fecha = date('Y-m-d');
-    $responsable = $_POST['responsable'];
-    $sub_distrito = null;
-
+    $id_subdistrito = $_POST['id_subdistrito'];
+    $id = $_POST['canton'];
+    $fecha_actua = date('Y-m-d');
+    $id_distrito = $_POST['id_distrito'];
     //guardar cantones relacionados al distrito
-    $cantones_g = "INSERT INTO cantones (nombre_canton, fecha_reg, distrito, resp_id, sub_distrito) values ('${nombre}', '${fecha}', '${id}', '${resp_id}', null);";
+    $cantones_g = "UPDATE cantones SET sub_distrito = '${id_subdistrito}',
+                                        fecha_actua = '${fecha_actua}'
+                                           WHERE id = '${id}';";
     $resultado = mysqli_query($db, $cantones_g);
     if ($resultado) {
         echo "<script>
                 alert('Canton creado correctamente ');
-                window.location.href='crear_distrito.php';
+                window.location.href='sub_distritos.php?id=${id_distrito}';
               </script>";
     } else {
         echo "

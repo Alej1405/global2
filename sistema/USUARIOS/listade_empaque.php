@@ -113,7 +113,7 @@ $eje_ordenes_requested = mysqli_query($db3, $ordenes_requested);
                             <td>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?php echo $orders['order_id']; ?>">
-                                    Lista de Productos
+                                    Productos
                                 </button>
 
                                 <!-- Modal -->
@@ -121,7 +121,7 @@ $eje_ordenes_requested = mysqli_query($db3, $ordenes_requested);
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                                <h5 class="modal-title" id="staticBackdropLabel">Listado de Productos</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
@@ -138,17 +138,29 @@ $eje_ordenes_requested = mysqli_query($db3, $ordenes_requested);
                                                 <?php endwhile; ?>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Understood</button>
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Listo</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </td>
-                            <td></td>
+                            <td>
+                                <form action="empacar.php" method="POST">
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <input type="text" hidden name="id" value="<?php echo $orders['id'];?>" id="">
+                                        <input type="text" hidden name="created_at" value="<?php echo $orders['created_at'];?>" id="">
+                                        <button type="submit" class="btn btn-success">Empacar</button>
+                                        
+                                    </div>
+                                </form>
+                            </td>
                         </tr>
                     <?php endwhile; ?>
                 </tbody>
             </table>
         </div>
     </div>
+
+<?php 
+incluirTemplate('fottersis')
+?>

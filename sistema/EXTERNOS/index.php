@@ -29,10 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $usuario = mysqli_fetch_assoc($resultado);
             if ($usuario['numero_ci'] === $contrasena) {
 
-                //tiempo de inicio de sesion
-                ini_set("session.cookie_lifetime", "2");
-                ini_set("session.gc_maxlifetime", "2");
-
                 //El usuario está autentiacado
                 session_start();
 

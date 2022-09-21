@@ -4,7 +4,7 @@ require '../../includes/funciones.php';
 $auth = estaAutenticado();
 
 if (!$auth) {
-    header('location: ../index.php');
+    header('location: ../EXTERNOS/index.php');
 }
 
 require '../../includes/config/database.php';
@@ -57,69 +57,98 @@ $db4 = conectarDB4();
                 <p class="card-text"><?php echo $_SESSION['usuario'] ?> Como vas iniciar el dia</p>
                 <a href="registrar.php" class="btn btn-primary">Registrar Guias</a>
                 <br>
-                <br>
-                <a href="#" class="btn btn-success">Entregas Pendientes</a>
+                <!-- <br>
+                <a href="#" class="btn btn-success">Entregas Pendientes</a> -->
             </div>
         </div>
         <br>
         <?php
         $buscar = $_SESSION['id'];
+        $nombre = $_SESSION['usuario'];
         // consulta de gestion de entregas
-            $query = "SELECT count(id) as entregadas FROM ordenes WHERE transporte = '${buscar}' and estado = 'delivered';";
-            $resultado = mysqli_query($db4, $query);
-            $ordenes = mysqli_fetch_assoc($resultado);
-            $delivered = $ordenes['entregadas'];
+        $query = "SELECT count(id) as entregadas FROM ordenes WHERE transporte = '${buscar}' and estado = 'delivered';";
+        $resultado = mysqli_query($db4, $query);
+        $ordenes = mysqli_fetch_assoc($resultado);
+        $delivered = $ordenes['entregadas'];
 
-            $query2 = "SELECT count(id) as facturados FROM ordenes WHERE transporte = '${buscar}' and estado = 'facturado';";
-            $resultado2 = mysqli_query($db4, $query2);
-            $ordenes2 = mysqli_fetch_assoc($resultado2);
-            $facturado = $ordenes2['facturados'];
+        $query2 = "SELECT count(id) as facturados FROM ordenes WHERE transporte = '${buscar}' and estado = 'facturado';";
+        $resultado2 = mysqli_query($db4, $query2);
+        $ordenes2 = mysqli_fetch_assoc($resultado2);
+        $facturado = $ordenes2['facturados'];
 
-            $query3 = "SELECT count(id) as liquidado FROM ordenes WHERE transporte = '${buscar}' and estado = 'liquidado';";
-            $resultado3 = mysqli_query($db4, $query3);
-            $ordenes3 = mysqli_fetch_assoc($resultado3);
-            $liquidado = $ordenes3['liquidado'];
+        $query3 = "SELECT count(id) as liquidado FROM ordenes WHERE transporte = '${buscar}' and estado = 'liquidado';";
+        $resultado3 = mysqli_query($db4, $query3);
+        $ordenes3 = mysqli_fetch_assoc($resultado3);
+        $liquidado = $ordenes3['liquidado'];
 
-            $entregas = $delivered + $facturado + $liquidado;
+        //ordenes cosmetic
+        $query31 = "SELECT count(id) as liquidado FROM dispatches WHERE carrier_name = '${nombre}' and status = 'delivered';";
+        $resultado31 = mysqli_query($db3, $query31);
+        $ordenes31 = mysqli_fetch_assoc($resultado31);
+        $liquidado_orders = $ordenes31['liquidado'];
+
+        $entregas = $delivered + $facturado + $liquidado + $liquidado_orders;
 
         //consulta de paquetes en proceso
-            $query0 = "SELECT count(id) as procesos FROM ordenes WHERE transporte = '${buscar}' and estado = 'ingreso';";
-            $resultado0 = mysqli_query($db4, $query0);
-            $ordenes0 = mysqli_fetch_assoc($resultado0);
-            $proceso1 = $ordenes0['procesos'];
+        $query0 = "SELECT count(id) as procesos FROM ordenes WHERE transporte = '${buscar}' and estado = 'ingreso';";
+        $resultado0 = mysqli_query($db4, $query0);
+        $ordenes0 = mysqli_fetch_assoc($resultado0);
+        $proceso1 = $ordenes0['procesos'];
 
-            $query9 = "SELECT count(id) as noentregados FROM ordenes WHERE transporte = '${buscar}' and estado = 'undelivered';";
-            $resultado9 = mysqli_query($db4, $query9);
-            $ordenes9 = mysqli_fetch_assoc($resultado9);
-            $proceso2 = $ordenes9['noentregados'];
+        $query9 = "SELECT count(id) as noentregados FROM ordenes WHERE transporte = '${buscar}' and estado = 'undelivered';";
+        $resultado9 = mysqli_query($db4, $query9);
+        $ordenes9 = mysqli_fetch_assoc($resultado9);
+        $proceso2 = $ordenes9['noentregados'];
 
-            $proceso = $proceso1 + $proceso2;
+        //ordenes cosmetic
+        $query32 = "SELECT count(id) as liquidado FROM dispatches WHERE carrier_name = '${nombre}' and status = 'undelivered';";
+        $resultado32 = mysqli_query($db3, $query32);
+        $ordenes32 = mysqli_fetch_assoc($resultado32);
+        $liquidado_orders = $ordenes32['liquidado'];
+
+        $proceso = $proceso1 + $proceso2 + $liquidado_orders;
 
 
-        
+
         //consulta de paqutes asignados
-            $query4 = "SELECT count(id) as asignados FROM ordenes WHERE transporte = '${buscar}' and estado = 'recolectar';";
-            $resultado4 = mysqli_query($db4, $query4);
-            $ordenes4 = mysqli_fetch_assoc($resultado4);
-            $asignados = $ordenes4['asignados'];    
-        
+        $query4 = "SELECT count(id) as asignados FROM ordenes WHERE transporte = '${buscar}' and estado = 'recolectar';";
+        $resultado4 = mysqli_query($db4, $query4);
+        $ordenes4 = mysqli_fetch_assoc($resultado4);
+        $asignados = $ordenes4['asignados'];
+
 
         ?>
         <div>
             <p>
+                <?php 
+                date_default_timezone_set("America/Bogota");
+                date_default_timezone_get();
+                $fecha = date('Y-m-d G:i:s');
+                ?>
                 Bien!!!! te presentamos un resumen de gestion. Suerte el dia de hoy!!
+                <br>
+                <strong>
+                    <?php echo $fecha ;?>
+                </strong>
             </p>
             <samp>
-                <?php 
-                    $buscar = $_SESSION['id'];
-                    // consulta de gestion de entregas
-                        $query8 = "SELECT count(id) as total FROM ordenes WHERE transporte = '${buscar}';";
-                        $resultado8 = mysqli_query($db4, $query8);
-                        $ordenes8 = mysqli_fetch_assoc($resultado8);
-                        $delivered = $ordenes8['total'];
+                <?php
+                $buscar = $_SESSION['id'];
+                // consulta de gestion de entregas
+                $query8 = "SELECT count(id) as total FROM ordenes WHERE transporte = '${buscar}';";
+                $resultado8 = mysqli_query($db4, $query8);
+                $ordenes8 = mysqli_fetch_assoc($resultado8);
+
+                //ordenes cosmetic
+                $query33 = "SELECT count(id) as liquidado FROM dispatches WHERE carrier_name = '${nombre}';";
+                $resultado33 = mysqli_query($db3, $query33);
+                $ordenes33 = mysqli_fetch_assoc($resultado33);
+
+                $liquidado_orders = $ordenes33['liquidado'];
+                $delivered = $ordenes8['total'] + $liquidado_orders;
                 ?>
                 <strong>
-                    <h7>Guias asignadas</h7>  <?php echo $delivered;?>
+                    <h7>Guias asignadas</h7> <?php echo $delivered; ?>
                 </strong>
             </samp>
         </div>
@@ -132,11 +161,11 @@ $db4 = conectarDB4();
                 </tr>
             </thead>
             <tbody>
-                    <tr>
-                        <td><?php echo $entregas; ?></td>
-                        <td><?php echo $proceso; ?></td>
-                        <td><?php echo $asignados; ?></td>
-                    </tr>
+                <tr>
+                    <td><?php echo $entregas; ?></td>
+                    <td><?php echo $proceso; ?></td>
+                    <td><?php echo $asignados; ?></td>
+                </tr>
             </tbody>
         </table>
     </div>

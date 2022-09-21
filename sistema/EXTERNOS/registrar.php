@@ -34,15 +34,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     //variables desde el formulario
     $guia = mysqli_real_escape_string($db4, $_POST['guia']);
-    $fecha = date('Y-m-d');
+    date_default_timezone_set("America/Bogota");
+    date_default_timezone_get();
+    $fecha = date('Y-m-d G:i:s');
     $transporte = $_SESSION['id'];
+    $n_usuario = $_SESSION['usuario'];
+    $t_trasport = 'Motorcycle';
 
     //validacion de campos
     if (!$guia) {
         $errores[] = "Con que paquete te relaciono si no pones guiaaaaaaaa!!! ";
     }
     if (empty($errores)) {
-
+    //VALIDAR DE QUE CLIENTE ES LA GUIA
         //VALIDAR SI LA GUIA EXISTE
         $consultas = "SELECT * FROM ordenes WHERE guia = '${guia}';";
         $resultados = mysqli_query($db4, $consultas);
@@ -68,11 +72,61 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 exit;
             }
         } else {
-            echo "
-                <div class='alert alert-danger' role='alert'>
-                    <strong>Error!</strong> 
-                    No te asignaste nada, registra bien!!!!
-                </div>";
+            //MODIFICACION CON LA BASE DE DATOS CORRECTA. ACTUALIZACION DE DATOS RUSIA
+            //consultar el order id
+            $order_id = "SELECT * FROM orders WHERE order_id = '${guia}';";
+            $resultado_order_id = mysqli_query($db3, $order_id);
+            $resultado_order_id = mysqli_fetch_assoc($resultado_order_id);
+            if ($resultado_order_id) {
+                    $id_primary = $resultado_order_id['id'];
+                    $created_at = $resultado_order_id['created_at'];
+
+                    //actualizar el estado a UNDELIVERED TABLA ORDERS
+                    $query = "UPDATE orders SET    status = 'undelivered',
+                                                    updated_at = '${fecha}'
+                                                    WHERE order_id = '${guia}';";
+                    $resultado = mysqli_query($db3, $query);
+
+                    //actualizar el estado a UNDELIVERED TABLA DISPATCHES
+                    $observation = 'En ruta, para entrega';
+                    $query = "UPDATE dispatches SET    status = 'undelivered',
+                                                        updated_at = '${fecha}',
+                                                        carrier_name = '${n_usuario}',
+                                                        transport_type = '${t_trasport}'
+                                                        WHERE order_id = '${id_primary}';";
+                    $resultado = mysqli_query($db3, $query);
+
+                    //generar historial de entregas 
+                        //consultar el id del usuario
+                        $id_usuario = "SELECT * FROM dispatches WHERE order_id = '${id_primary}';";
+                        $resultado_id_usuario = mysqli_query($db3, $id_usuario);
+                        $resultado_id_usuario = mysqli_fetch_assoc($resultado_id_usuario);
+                        $id_dispatches = $resultado_id_usuario['id'];
+
+                        //generar el historial
+                        $historial = "INSERT INTO dispatch_statuses (status, comment, dispatch_id, user_id, created_at, updated_at, deleted_at)
+                                            VALUES ('undelivered', '${observation}', '${id_dispatches}', '${transporte}', '${created_at}', '${fecha}', null);";
+                        $eje_historial = mysqli_query($db3, $historial);
+                        if ($eje_historial) {
+                            echo "<script>
+                                    alert('Genial!! tienes una guia, hay que entregar rapido pilas');
+                                    window.location.href='registrar.php';
+                                </script>";
+                        } else {
+                            echo "
+                                        <div class='alert alert-danger' role='alert'>
+                                            <strong>Error!</strong> 
+                                            No te asignaste nada, registra bien!!!!
+                                        </div>";
+                            exit;
+                        }
+                    } else {
+                        echo "
+                                    <div class='alert alert-danger' role='alert'>
+                                        <strong>Error!</strong> 
+                                        Escribe bien esa guia no existe, siga participando!!!!
+                                    </div>";
+                    }
         }
     }
 }

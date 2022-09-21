@@ -140,6 +140,13 @@
                                         </a>
                                     </div>
                                 </div>
+                            <?php elseif ($tipo_as === 'apoyo_gerencia_paqueteria'): ?>
+                                    <div class="col-auto">
+                                        <a href="guia.php?id=<?php echo $array_clientes['id']; ?>" class="btn btn-outline-primary btn-sm">
+                                            <i class="fas fa-download fa-sm text-white-50"></i> Guia
+                                        </a>
+                                    </div>
+                                </div>
                             <?php endif; ?>
                         </td>
                     </tr>

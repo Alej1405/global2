@@ -23,7 +23,7 @@
         $tipo_as = $_SESSION['rol'];
     
     //consulta de datos ordenes recibidas
-        $consulta_ordenes = "SELECT * FROM orders WHERE status = 'requested' order by created_at desc;";
+        $consulta_ordenes = "SELECT * FROM orders WHERE not status = 'delivered';";
         $eje_ordenes = mysqli_query($db3, $consulta_ordenes);
 
 ?>
@@ -121,6 +121,13 @@
                                         <input type="hidden" name="id" value="<?php echo $array_clientes['id']; ?>">
                                         <input type="submit" class="btn btn-outline-danger btn-sm" value="BORRAR">
                                     </form>
+                                    <div class="col-auto">
+                                        <a href="guia_cosm.php?id=<?php echo $array_clientes['id']; ?>" class="btn btn-outline-primary btn-sm">
+                                            <i class="fas fa-download fa-sm text-white-50"></i> Guia
+                                        </a>
+                                    </div>
+                                </div>
+                            <?php elseif ($tipo_as === 'apoyo_gerencia_paqueteria'): ?>
                                     <div class="col-auto">
                                         <a href="guia_cosm.php?id=<?php echo $array_clientes['id']; ?>" class="btn btn-outline-primary btn-sm">
                                             <i class="fas fa-download fa-sm text-white-50"></i> Guia

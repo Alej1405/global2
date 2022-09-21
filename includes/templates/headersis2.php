@@ -130,10 +130,51 @@
                                 <a class="collapse-item" href="nuevas_solicitudes.php">Asignacion.</a>
                                 <a class="collapse-item" href="lista_pesos.php">Registrar pesos</a>
                                 <a class="collapse-item" href="listade_empaque.php">Lista de Empaque</a>
+                                <a class="collapse-item" href="guias_cosmetics.php">Guias Cosmetics</a>
+                                <a class="collapse-item" href="guias_gc.php">Guias General</a>
                                 <h6 class="collapse-header">Control de Bodega:</h6>
                                 <a class="collapse-item" href="bodega_IS.php">Control de Ingreso</a>
                                 <h6 class="collapse-header">Gestion:</h6>
                                 <a class="collapse-item" href="seguimiento.php">Historial</a>
+                            </div>
+                        </div>
+                    </li>
+                    <?php break; ?>
+                <?php
+                case "apoyo_gerencia_paqueteria"; //GERENCIA PAQUETERIA 
+                ?>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse00" aria-expanded="true" aria-controls="collapse00">
+                            <i class="fas fa-fw fa-cog"></i>
+                            <span>GC-GO Coordinacion</span>
+                        </a>
+                        <div id="collapse00" class="collapse " aria-labelledby="heading00" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Clientes:</h6>
+                                <a class="collapse-item" href="ver_clientesgc.php">Ver registros.</a>
+                                <h6 class="collapse-header">Paquetes:</h6>
+                                <a class="collapse-item" href="nuevas_solicitudes.php">Asignacion.</a>
+                                <a class="collapse-item" href="lista_pesos.php">Registrar pesos</a>
+                                <a class="collapse-item" href="guias_cosmetics.php">Guias Cosmetics</a>
+                                <a class="collapse-item" href="guias_gc.php">Guias General</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <?php
+                        //CONSULTAR EL NOMBRE DEL ASESOR
+                        $nombre =  $_SESSION['nombre'] . " " . $_SESSION['apellido'];
+                        ?>
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                            <i class="fas fa-fw fa-cog"></i>
+                            <span>ASESOR</span>
+                        </a>
+                        <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Clientes:</h6>
+                                <a class="collapse-item" href="ver_clientesgc.php?nombre=<?php echo $nombre ?>">Ver registros.</a>
+                                <a class="collapse-item" href="fin-gcgo.php?id=<?php echo $nombre ?>">Estado de Cuenta</a>
                             </div>
                         </div>
                     </li>
@@ -152,7 +193,8 @@
                             <a class="collapse-item" href="bodega_IS.php">Control de Ingreso</a>
                             <a class="collapse-item" href="lista_pesos.php">Registrar pesos</a>
                             <h6 class="collapse-header">Paquetes:</h6>
-                            <a class="collapse-item" href="ver_paquetesgc.php">Guias.</a>
+                            <a class="collapse-item" href="guias_gc.php">Guias General</a>
+                            <a class="collapse-item" href="guias_cosmetics.php">Guias Cosmetics</a>
                         </div>
                     </li>
                     <li class="nav-item">

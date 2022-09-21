@@ -84,6 +84,9 @@
                         case "gerencia_paqueteria":
                             header('location: ../USUARIOS/usuarios.php');
                             break;
+                        case "apoyo_gerencia_paqueteria":
+                            header('location: ../USUARIOS/usuarios.php');
+                            break;
                         case "asesor":
                             header('location: ../USUARIOS/usuarios.php');
                             break;

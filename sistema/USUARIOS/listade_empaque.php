@@ -150,6 +150,7 @@ $eje_ordenes_requested = mysqli_query($db3, $ordenes_requested);
                                         <input type="text" hidden name="id" value="<?php echo $orders['id'];?>" id="">
                                         <input type="text" hidden name="created_at" value="<?php echo $orders['created_at'];?>" id="">
                                         <button type="submit" class="btn btn-success">Empacar</button>
+                                        <a href="guia_cosm.php?id=<?php echo $orders['id']?>" class="btn btn-primary">Guia</a>
                                         
                                     </div>
                                 </form>

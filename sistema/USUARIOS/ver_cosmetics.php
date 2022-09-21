@@ -84,21 +84,21 @@
                         <td>
                             <?php if ($tipo_as === 'motorizado'): ?>
                                     <div class="col-auto">
-                                        <a href="guia.php?id=<?php echo $array_clientes['id']; ?>" class="btn btn-outline-primary btn-sm">
+                                        <a href="guia_cosm.php?id=<?php echo $array_clientes['id']; ?>" class="btn btn-outline-primary btn-sm">
                                             <i class="fas fa-download fa-sm text-white-50"></i> Guia
                                         </a>
                                     </div>
                             <?php elseif ($tipo_as === 'coordinacionP'): ?>
                                 <div class="btn-group">
                                     <div class="col-auto">
-                                        <a href="guia.php?id=<?php echo $array_clientes['id']; ?>" class="btn btn-outline-primary btn-sm">
+                                        <a href="guia_cosm.php?id=<?php echo $array_clientes['id']; ?>" class="btn btn-outline-primary btn-sm">
                                             <i class="fas fa-download fa-sm text-white-50"></i> Guia
                                         </a>
                                     </div>
                             <?php elseif ($tipo_as === 'gerencia_paqueteria'): ?>
                                 <div class="btn-group">
                                     <div class="col-auto">
-                                        <a href="guia.php?id=<?php echo $array_clientes['id']; ?>" class="btn btn-outline-primary btn-sm">
+                                        <a href="guia_cosm.php?id=<?php echo $array_clientes['id']; ?>" class="btn btn-outline-primary btn-sm">
                                             <i class="fas fa-download fa-sm text-white-50"></i> Guia
                                         </a>
                                     </div>
@@ -122,7 +122,7 @@
                                         <input type="submit" class="btn btn-outline-danger btn-sm" value="BORRAR">
                                     </form>
                                     <div class="col-auto">
-                                        <a href="guia.php?id=<?php echo $array_clientes['id']; ?>" class="btn btn-outline-primary btn-sm">
+                                        <a href="guia_cosm.php?id=<?php echo $array_clientes['id']; ?>" class="btn btn-outline-primary btn-sm">
                                             <i class="fas fa-download fa-sm text-white-50"></i> Guia
                                         </a>
                                     </div>

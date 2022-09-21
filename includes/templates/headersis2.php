@@ -129,12 +129,11 @@
                                 <h6 class="collapse-header">Paquetes:</h6>
                                 <a class="collapse-item" href="nuevas_solicitudes.php">Asignacion.</a>
                                 <a class="collapse-item" href="lista_pesos.php">Registrar pesos</a>
+                                <a class="collapse-item" href="listade_empaque.php">Lista de Empaque</a>
                                 <h6 class="collapse-header">Control de Bodega:</h6>
                                 <a class="collapse-item" href="bodega_IS.php">Control de Ingreso</a>
                                 <h6 class="collapse-header">Gestion:</h6>
                                 <a class="collapse-item" href="seguimiento.php">Historial</a>
-                                <h6 class="collapse-header">Empaque y Despacho:</h6>
-                                <a class="collapse-item" href="listade_empaque.php">Historial</a>
                             </div>
                         </div>
                     </li>
@@ -149,15 +148,26 @@
                         </a>
                         <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded"></div>
-                            <?php //elseif($_SESSION['usuario'] == "gissela@globalcargoecuador.com"): 
-                            ?>
                             <h6 class="collapse-header">BODEGA:</h6>
                             <a class="collapse-item" href="bodega_IS.php">Control de Ingreso</a>
                             <a class="collapse-item" href="lista_pesos.php">Registrar pesos</a>
                             <h6 class="collapse-header">Paquetes:</h6>
-                            <a class="collapse-item" href="ver_paquetesgc.php">Asignacion.</a>
-                            <?php //endif; 
-                            ?>
+                            <a class="collapse-item" href="ver_paquetesgc.php">Guias.</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse00" aria-expanded="true" aria-controls="collapse00">
+                            <i class="fas fa-fw fa-cog"></i>
+                            <span>Empaque y Despacho</span>
+                        </a>
+                        <div id="collapse00" class="collapse " aria-labelledby="heading00" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Empaque:</h6>
+                                <a class="collapse-item" href="listade_empaque.php">Lista</a>
+                                <h6 class="collapse-header">Despacho:</h6>
+                                <a class="collapse-item" href="#">Lista General</a>
+                                <a class="collapse-item" href="#">Manifiestos </a>
+                            </div>
                         </div>
                     </li>
                     <?php break; ?>
@@ -248,19 +258,6 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse011" aria-expanded="true" aria-controls="collapse011">
-                            <i class="fas fa-fw fa-cog"></i>
-                            <span>Distritos Nacionales</span>
-                        </a>
-                        <div id="collapse011" class="collapse " aria-labelledby="heading00" data-parent="#accordionSidebar">
-                            <div class="bg-white py-2 collapse-inner rounded">
-                                <h6 class="collapse-header">Distritos:</h6>
-                                <a class="collapse-item" href="crear_distrito.php">Crear y consultar</a>
-                            </div>
-                        </div>
-                    </li>
-
                     <?php break; ?>
             <?php endswitch ?>
             <!-- FIN DE MENU Y PERMISOS DE NAVEGACION CON SWITCH -->

@@ -72,7 +72,7 @@
                         case "admin":
                             header('location: ../USUARIOS/usuarios.php');
                             break;
-                        case "bodega":
+                        case "coordinacion_almancen":
                             header('location: ../USUARIOS/usuarios.php');
                             break;
                         case "recursos humanos":

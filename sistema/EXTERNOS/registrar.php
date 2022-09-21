@@ -92,7 +92,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $query = "UPDATE dispatches SET    status = 'undelivered',
                                                         updated_at = '${fecha}',
                                                         carrier_name = '${n_usuario}',
-                                                        transport_type = '${t_trasport}'
+                                                        transport_type = '${t_trasport}',
+                                                        observation = '${observation}'
                                                         WHERE order_id = '${id_primary}';";
                     $resultado = mysqli_query($db3, $query);
 

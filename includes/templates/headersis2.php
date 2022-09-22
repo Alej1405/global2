@@ -188,13 +188,14 @@
                             <span>Paquetes</span>
                         </a>
                         <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                            <div class="bg-white py-2 collapse-inner rounded"></div>
-                            <h6 class="collapse-header">BODEGA:</h6>
-                            <a class="collapse-item" href="bodega_IS.php">Control de Ingreso</a>
-                            <a class="collapse-item" href="lista_pesos.php">Registrar pesos</a>
-                            <h6 class="collapse-header">Paquetes:</h6>
-                            <a class="collapse-item" href="guias_gc.php">Guias General</a>
-                            <a class="collapse-item" href="guias_cosmetics.php">Guias Cosmetics</a>
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">BODEGA:</h6>
+                                <a class="collapse-item" href="bodega_IS.php">Control de Ingreso</a>
+                                <a class="collapse-item" href="lista_pesos.php">Registrar pesos</a>
+                                <h6 class="collapse-header">Paquetes:</h6>
+                                <a class="collapse-item" href="guias_gc.php">Guias General</a>
+                                <a class="collapse-item" href="guias_cosmetics.php">Guias Cosmetics</a>
+                            </div>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -207,7 +208,7 @@
                                 <h6 class="collapse-header">Empaque:</h6>
                                 <a class="collapse-item" href="listade_empaque.php">Lista</a>
                                 <h6 class="collapse-header">Despacho:</h6>
-                                <a class="collapse-item" href="#">Lista General</a>
+                                <a class="collapse-item" href="lista_despacho.php">Lista General</a>
                                 <a class="collapse-item" href="#">Manifiestos </a>
                             </div>
                         </div>

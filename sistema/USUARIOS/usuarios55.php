@@ -28,17 +28,9 @@ conectarDB4();
 $db4 = conectarDB4();
 
 
-//numero de cargas GC-COURIER
-$ordenesGC = "SELECT COUNT(order_id)  FROM datosordenes;";
-$ordenes_GC = mysqli_query($db4, $ordenesGC);
-$ordenes = mysqli_fetch_assoc($ordenes_GC);
-$n_ordenes = $ordenes["COUNT(order_id)"];
 
-//numero de cargas GLOBAL CARGO
-$ordenesG = "SELECT COUNT(id)  FROM cargas;";
-$ordenes_G = mysqli_query($db, $ordenesG);
-$ordenesGB = mysqli_fetch_assoc($ordenes_G);
-$n_ordenesGB = $ordenesGB["COUNT(id)"];
+
+
 
 //ordenes entregadas GC-COURIER
 $ordenesGCS = "SELECT SUM(total)  FROM datosordenes WHERE status='delivered';";

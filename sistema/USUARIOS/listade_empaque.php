@@ -7,7 +7,7 @@ require '../../includes/funciones.php';
 $auth = estaAutenticado();
 
 if (!$auth) {
-    header('location: index.php');
+    header('location: ..//index.php');
 }
 
 require '../../includes/config/database.php';
@@ -46,6 +46,7 @@ $eje_ordenes_requested = mysqli_query($db3, $ordenes_requested);
                 </thead>
                 <tbody>
                     <?php while ($orders = mysqli_fetch_assoc($eje_ordenes_requested)) : ?>
+                        <form action="empacar.php" method="POST">
                         <tr>
                             <td><?php echo $orders['order_id']; ?></td>
                             <td><?php echo $orders['order_at']; ?></td>
@@ -70,6 +71,7 @@ $eje_ordenes_requested = mysqli_query($db3, $ordenes_requested);
                                 $distrito2 = mysqli_fetch_assoc($eje_nombre_distrito);
                                 echo $distrito2['nombre'];
                                 ?>
+                                <input type="text" hidden name="responsable_distrito" value="<?php echo $distrito['id']; ?>" id="">
                             </td>
                             <td>
                                 <?php
@@ -84,6 +86,7 @@ $eje_ordenes_requested = mysqli_query($db3, $ordenes_requested);
                                 $eje_buscar_distrito = mysqli_query($db, $buscar_distrito);
                                 $distrito = mysqli_fetch_assoc($eje_buscar_distrito);
                                 $n_distrito = $distrito['sub_distrito'];
+                                
 
                                 //nombre del distrito
                                 $nombre_distrito = "SELECT * FROM sub_distrito WHERE id = '${n_distrito}';";
@@ -94,9 +97,11 @@ $eje_ordenes_requested = mysqli_query($db3, $ordenes_requested);
                                     echo "No hay sub distrito";
                                 } else {
                                     $sub_distrito = $distrito2['nombre'];
+                                    $id_sub_distrito = $distrito2['id'];
                                     echo $sub_distrito;
                                 }
                                 ?>
+                                <input type="text" hidden name="responsable_sub_distrito" value="<?php echo $id_sub_distrito; ?>" id="">
 
                             </td>
                             <td>

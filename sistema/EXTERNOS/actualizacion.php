@@ -15,7 +15,7 @@
     conectarDB4();
     $db4 =conectarDB4();
 
-    $auth = estaAutenticado();
+    //$auth = estaAutenticado(); //averiguar que pasa con esta liena de codigo
 
     
     $orden = null;

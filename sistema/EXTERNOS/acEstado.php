@@ -1,8 +1,4 @@
 <?php 
-    $filtro = $_POST['filtro'] ?? null;
-
-    $guardar = $_GET['guardar'] ?? null;
-
     //incluye el header
     require '../../includes/funciones.php';
 
@@ -22,260 +18,132 @@
     conectarDB4();
     $db4 =conectarDB4();
 
-    
+    $order_id = "";
+    $validacion = "";
+    $id = "";
+    $estado = "";
+    $observacion = "";
 
-    if ($filtro == 1) {
-
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $order_id = $_POST['order_id'] ?? null;
+        $validacion = $_POST['validacion'] ?? null;
+        $id = $_POST['id'] ?? null;
+        date_default_timezone_set("America/Bogota");
+        date_default_timezone_get();
+        $fecha_update = date("Y-m-d G:i:s");
+        $id_guia = $_POST['guia'] ?? null;
         
 
-        if($_SERVER['REQUEST_METHOD'] === 'POST') {
-            //flujo de informacion desde la base de datos
-                $id_primary = $_POST['id_primary'];
-                $ubicacion_p = $_POST['direccion'];
-                $responsable_m = $_POST['responsable_m'];
-                $asesor = $_POST['asesor'];
-                $id = $_POST['id'];
-                //echo $id;
-                //exit;
-            //datos del formulario
-                $obervacion = $_POST['observacion_estado'];
-                $estado = $_POST['status'];
-                $fecha = date('y-m-d');
-            //guardar historial de paquetes
-                $historial_envios = "INSERT INTO historial_paquetes(id_primary, estado, responsable_m, ubicacion_p, observacion, res_ubp, fecha)
-                                    VALUES('$id_primary', '$estado', '$responsable_m', '$ubicacion_p', '$obervacion', '$asesor', '$fecha');";
-                    $guardar_historial = mysqli_query($db4, $historial_envios);
+        //desde el formulario
+        $estado = $_POST['estado'];
+        $observacion = $_POST['comentario'];
+
+            if ($validacion == 'cos') {
+
+            switch ($estado){
+                case "delivered":
+                    //actulizacion de estado en la tabla orders
+                        $query = "UPDATE orders SET       status = 'delivered',
+                                                    delivery_at = '${fecha_update}',
+                                                      updated_at = '${fecha_update}'                
+                                                        WHERE id = '${id}';";
+                        $resultado = mysqli_query($db3, $query);
                     
-                        //actualizar en la base de datos de reportes
-                        $actualizar = "UPDATE ordenes SET estado = '${estado}' WHERE id = '$id';";
-                            $update = mysqli_query($db4, $actualizar);
-                            if($update){
-                                //----------- inicio del mensaje para confirmacion en coordinacion ------------------
-                                    //enviar correo de notificacion primer MENSAJE 
-                                    $destinatario = 'mafer.fernandez@globalcargoecuador.com';
-                                    $asunto = 'NUEVA ENTREGA REALIZADA';
-                                    // configuración del mensaje
-                                        $header = "Un proceso a finalizado";
-                                        $mensajeCompleto = "Hola Mafer, un nuevo envio se ha entregado,
-                                                            por favor verificar en el sistema.";
-                                        mail($destinatario, $asunto, $mensajeCompleto, $header);
-                                //----------- fin del mensaje para confirmacion en coordinacion ------------------
-                                //----------- inicio del mensaje para confirmacion con el CLIENTE (solicitante del servicio) ------------------
-                                    //enviar correo de notificacion primer MENSAJE 
-                                    $destinatario = 'mafer.fernandez@globalcargoecuador.com';
-                                    $asunto = 'NUEVA ENTREGA REALIZADA';
-                                    // configuración del mensaje
-                                        $header = "Un proceso a finalizado";
-                                        $mensajeCompleto = "Hola Mafer, un nuevo envio se ha entregado,
-                                                            por favor verificar en el sistema.";
-                                        mail($destinatario, $asunto, $mensajeCompleto, $header);
-                                //----------- fin del mensaje para confirmacion en coordinacion ------------------
-                                    
-                                    header('location: actualizacion.php?error=3');
-                                exit;
-                            }
-        }
+                    //actulizacion de estado en la tabla dispatches
+                        $query2 = "UPDATE dispatches SET      status = 'delivered',
+                                                        delivery_at = '${fecha_update}',
+                                                          updated_at = '${fecha_update}',
+                                                         observation = 'Entrega exitosa'                
+                                                      WHERE order_id = '${id}';";
+                        $resultado2 = mysqli_query($db3, $query2);
 
-    }else{
+                    //consultar el numero de despacho
+                        $query3 = "SELECT * FROM dispatches WHERE order_id = '${id}'";
+                        $resultado3 = mysqli_query($db3, $query3);
+                        $dispatch = mysqli_fetch_assoc($resultado3);
+                        $dispatch_id = $dispatch['id'];
+                        $created_at = $dispatch['created_at'];
 
-        //echo $filtro;
-        exit;
-    $query2 = "SELECT * FROM order_clients where order_id = ${id}";
-            $resultado2 = mysqli_query($db3, $query2);
-
-    $query = "SELECT * FROM orders where id = ${id}";
-            $resultado = mysqli_query($db3, $query);
-    
-    $query9 = "SELECT * FROM datosordenes where id = ${id}";
-            $resultado9 = mysqli_query($db4, $query9);
-            $resultado99 = mysqli_fetch_assoc($resultado9);
-            $suma_vistia = $resultado99['n_visitas'] + 1 ;
-
-    // generar la fecha de cracion correcta
-        $id_hist2 = "SELECT * FROM datosordenes WHERE id = ${id}";
-        $cons_id2 = mysqli_query($db4, $id_hist2);
-        $id_dispat2 = mysqli_fetch_assoc($cons_id2);
-        $created_at = $id_dispat2['created_at'];
-        //echo $created_at;
-    //generar historial completo incluyendo comparamos si existe el id de despacho
-    // si no existe, crear el despacho
-        $id_hist = "SELECT * FROM dispatches WHERE order_id = ${id}";
-        $cons_id = mysqli_query($db3, $id_hist);
-        $id_dispat = mysqli_fetch_assoc($cons_id);
-        if (empty($id_dispat)){
-            //echo "la orden  no tiene despacho";
-            //denifir varuables para la generacion del despacho
-            $carrier_name = "NO ASIGNADO";
-            $delivery_at = null;
-            $transport_type = "LOGISTA GC";
-            $observation = "En proceso";
-            $deleted_at = null;
-            $status = "collected"; // fecha capturada como parte del historial
-            $fechaGest = date('y-m-d h:i:s'); // fecha capturada como parte del historial
-            //insert para generar el despacho si, aun no esta generado
-            $queryHIS = "INSERT INTO dispatches ( carrier_name, transport_type, status, observation, order_id, 
-                        created_at, updated_at ) 
-                        VALUES ('$carrier_name', '$transport_type', '$status', '$observation', '$id', 
-                        '$created_at', '$fechaGest' )";
-                        $hisrotial = mysqli_query($db3, $queryHIS);
-        }
-        //-- FIN DE LA ACTUALIZACION DE HISTORIAL--
-
-        $errores = [];
-
-
-            if($_SERVER['REQUEST_METHOD'] === 'POST') {
-                
-                        //CONSULTA DE ID DE DESPACHO, COHERENCIA DE HISTORIAL
-                        $id_hist = "SELECT * FROM dispatches WHERE order_id = ${id}";
-                        $cons_id = mysqli_query($db3, $id_hist);
-                        $id_dispat = mysqli_fetch_assoc($cons_id);
-                        $dispatch_id = $id_dispat['id'];
-
-                    //datos consumo de API order_clients
-                    $status = mysqli_real_escape_string($db3, $_POST['status']);
-                    $n_visitas = $suma_vistia; //$_POST['n_visitas'];
-                    $observ_estado = mysqli_real_escape_string($db3, $_POST['observacion_estado']);
-                    //datos para el cambio en la verificacion
-                    $contactado = $id;
-                    $facturado = null;
-                    $filtro = "no";
-                    $fechaGest = date('y-m-d h:i:s');
-                    //id de despacho para actualizacion
-                    $seg_despacho = $id_dispat['id'];
-                    //resonsable de la actualizacion
-                    $usuario_act = $_SESSION['usuario']; //base de datos sitema
-                    $id_historial = 5;
-                    //asignar transporte especifico
-                    $carrier_name = "motorizado GC";
-                    //fecha de creacion
-                    $created_at = $id_dispat2['created_at'];
-                    
-
-                    if(!$status) {
-                        $errores[] = "No hay un estado registrado no se puede guardar, haz bien!!!!";
-                        header('location: actualizacion.php?error=1');
-                    }
-                    if(!$observ_estado) {
-                        $errores[] = "Justifica por que, cambio a ese estado, pero sintetiza no cuentes historias!!";
-                        header('location: actualizacion.php?error=2');
-                    }
-                    if(empty($errores)) {
-
-
-                        switch ($status){
-                            case "delivered":
-                                //ACTUALIZACION EN API
-                                    $query4 = "UPDATE orders SET    status = '${status}', 
-                                                                    delivery_at = '${fechaGest}', 
-                                                                    updated_at = '${fechaGest}' 
-                                                                    where id=${id}";
-                                    $resultado1 = mysqli_query($db3, $query4);
-                                //ACTUALIZACION BDD DE SISTEMA
-                                    $query3 = "UPDATE datosordenes SET  status = '${status}', 
-                                                                        delivery_at = '${fechaGest}', 
-                                                                        observacion_estado = '${observ_estado}', 
-                                                                        fechaGest = '${fechaGest}', 
-                                                                        n_visitas = '${n_visitas}',
-                                                                        gestion_user = '${id_historial}'  
-                                                                        where id=${id}";
-                                    $resultado2 = mysqli_query($db4, $query3);
-                                //ACTUALIZACION HISTORIAL DESPACHOS 
-                                    $query3 = "UPDATE dispatches SET  status = '${status}', 
-                                                                        carrier_name = '${carrier_name}',
-                                                                        delivery_at = '${fechaGest}',
-                                                                        updated_at = '${fechaGest}', 
-                                                                        observation = '${observ_estado}'  
-                                                                        where order_id=${id}";
-                                    $resultado4 = mysqli_query($db3, $query3);
-                                //GUARDAR DATOS DEL HISTORIAL 
-                                    $queryHIS = "INSERT INTO dispatch_statuses ( status, comment, dispatch_id, user_id, created_at, updated_at ) 
-                                                                VALUES ('$status', '$observ_estado', '$dispatch_id', '5', '$created_at', '$fechaGest')";
-                                    $guardar_his = mysqli_query($db3, $queryHIS);
-                                    //echo $guardar_his;
-                                
-                                //RETURN DE PROCESO
-                                    if ($guardar_his){
-                                        // echo '<div class="alert alert-success">
-                                        //             <a href="seguimiento.php">Actualizar mas ordenes</a>
-                                        //         </div>';
-                                        header('location: actualizacion.php?error=3');
-                                        exit();
-                                    }
-                            break;
-
-                            case "returnes":
-                                //ACTUALIZACION EN API
-                                    $query4 = "UPDATE orders SET    status = '${status}', 
-                                                                    updated_at = '${fechaGest}' 
-                                                                    where id=${id}";
-                                    $resultado1 = mysqli_query($db3, $query4);
-                                //ACTUALIZACION BDD DE SISTEMA
-                                    $query3 = "UPDATE datosordenes SET  status = '${status}', 
-                                                                        observacion_estado = '${observ_estado}', 
-                                                                        fechaGest = '${fechaGest}', 
-                                                                        n_visitas = '${n_visitas}',
-                                                                        gestion_user = '${id_historial}'   
-                                                                        where id=${id}";
-                                    $resultado2 = mysqli_query($db4, $query3);
-                                //ACTUALIZACION HISTORIAL DESPACHOS 
-                                    $query3 = "UPDATE dispatches SET  status = '${status}', 
-                                                                        carrier_name = '${carrier_name}',
-                                                                        updated_at = '${fechaGest}', 
-                                                                        observation = '${observ_estado}'  
-                                                                        where order_id=${id}";
-                                    $resultado2 = mysqli_query($db3, $query3);
-                                //GUARDAR DATOS DEL HISTORIAL 
-                                    $queryHIS = "INSERT INTO dispatch_statuses ( status, comment, dispatch_id, user_id, created_at, updated_at ) 
-                                                                VALUES ('$status', '$observ_estado', '$dispatch_id', '$id_historial', '$created_at', '$fechaGest')";
-                                    $guardar_his = mysqli_query($db3, $queryHIS);
-                                //RETURN DE PROCESO
-                                    if ($guardar_his){
-                                        // echo '<div class="alert alert-success">
-                                        //         <a href="seguimiento.php">Actualizar mas ordenes</a>
-                                        //     </div>';
-                                        header('location: actualizacion.php?error=3');
-                                        exit();
-                                    }
-                            break;
-
-                            case "undelivered":
-                                //ACTUALIZACION EN API
-                                    $query4 = "UPDATE orders SET    status = '${status}', 
-                                                                    updated_at = '${fechaGest}' 
-                                                                    where id=${id}";
-                                    $resultado1 = mysqli_query($db3, $query4);
-                                //ACTUALIZACION BDD DE SISTEMA
-                                    $query3 = "UPDATE datosordenes SET  status = '${status}', 
-                                                                        observacion_estado = '${observ_estado}', 
-                                                                        fechaGest = '${fechaGest}', 
-                                                                        n_visitas = '${n_visitas}',
-                                                                        gestion_user = '${id_historial}'  
-                                                                        where id=${id}";
-                                    $resultado2 = mysqli_query($db4, $query3);
-                                //ACTUALIZACION HISTORIAL DESPACHOS 
-                                    $query3 = "UPDATE dispatches SET  status = '${status}', 
-                                                                        carrier_name = '${carrier_name}',
-                                                                        updated_at = '${fechaGest}', 
-                                                                        observation = '${observ_estado}'  
-                                                                        where order_id=${id}";
-                                    $resultado2 = mysqli_query($db3, $query3);
-                                //GUARDAR DATOS DEL HISTORIAL 
-                                    $queryHIS = "INSERT INTO dispatch_statuses ( status, comment, dispatch_id, user_id, created_at, updated_at ) 
-                                                                VALUES ('$status', '$observ_estado', '$dispatch_id', '$id_historial', '$created_at', '$fechaGest')";
-                                    $guardar_his = mysqli_query($db3, $queryHIS);
-                                //RETURN DE PROCESO
-                                if ($guardar_his){
-                                    // echo '  <div class="alert alert-success">
-                                    //             <a href="seguimiento.php">Actualizar mas ordenes</a>
-                                    //         </div>';
-                                    header('location: actualizacion.php?error=3');
-                                    exit();
-                                }
-                            break;
+                    //crear historial de despacho
+                        $query4 = "INSERT INTO dispatch_statuses (status, comment, dispatch_id, user_id, created_at, updated_at, deleted_at) 
+                                                           VALUES ('delivered', 'Entrega exitosa', '${dispatch_id}', '4', '${created_at}', '${fecha_update}', null);";
+                        $resultado4 = mysqli_query($db3, $query4);
+                        if ($resultado4) {
+                            echo "<script>
+                                    alert('Genial!! ya esta reportado sigue asi!!!');
+                                    window.location.href='actualizacion.php';
+                                </script>";
+                        } else {
+                            echo "
+                                        <div class='alert alert-danger' role='alert'>
+                                            <strong>Error!</strong> 
+                                            No te asignaste nada, registra bien!!!!
+                                        </div>";
+                            exit;
                         }
+                    break;
+                case "undelivered":
+                    //actulizacion de estado en la tabla orders
+                        $query = "UPDATE orders SET       status = 'undelivered',
+                                                      updated_at = '${fecha_update}'                
+                                                        WHERE id = '${id}';";
+                        $resultado = mysqli_query($db3, $query);
+
+                    //actulizacion de estado en la tabla dispatches
+                    $query2 = "UPDATE dispatches SET      status = 'undelivered',
+                                                      updated_at = '${fecha_update}',
+                                                     observation = '${observacion}'                
+                                                  WHERE order_id = '${id}';";
+                    $resultado2 = mysqli_query($db3, $query2);
+
+                    //consultar el numero de despacho
+                    $query3 = "SELECT * FROM dispatches WHERE order_id = '${id}'";
+                    $resultado3 = mysqli_query($db3, $query3);
+                    $dispatch = mysqli_fetch_assoc($resultado3);
+                    $dispatch_id = $dispatch['id'];
+                    $created_at = $dispatch['created_at'];
+
+                    //crear historial de despacho
+                    $query4 = "INSERT INTO dispatch_statuses (status, comment, dispatch_id, user_id, created_at, updated_at, deleted_at) 
+                                            VALUES ('undelivered', '${observacion}', '${dispatch_id}', '4', '${created_at}', '${fecha_update}', null);";
+                    $resultado4 = mysqli_query($db3, $query4);
+                    if ($resultado4) {
+                        echo "<script>
+                                alert('Genial!! ya esta reportado sigue asi!!!');
+                                window.location.href='actualizacion.php';
+                            </script>";
+                    } else {
+                        echo "
+                                    <div class='alert alert-danger' role='alert'>
+                                        <strong>Error!</strong> 
+                                        No te asignaste nada, registra bien!!!!
+                                    </div>";
+                        exit;
                     }
-                }
+                    break;
             }
+            }else{
+
+                //actualizar ordenes general
+                $query = "UPDATE ordenes SET       estado = '${estado}',
+                                     fecha_actualizacion = '${fecha_update}'                   
+                                              WHERE guia = '${id_guia}';";
+                $resultado = mysqli_query($db4, $query); 
+                if ($resultado) {
+                    echo "<script>
+                            alert('Genial!! ya esta reportado sigue asi!!!');
+                            window.location.href='actualizacion.php';
+                        </script>";
+                } else {
+                    echo "
+                                <div class='alert alert-danger' role='alert'>
+                                    <strong>Error!</strong> 
+                                    No te asignaste nada, registra bien!!!!
+                                </div>";
+                    exit;
+                }
+                
+            }
+    }     
 
 ?>

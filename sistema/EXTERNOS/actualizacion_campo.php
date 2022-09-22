@@ -32,13 +32,34 @@
             exit();
         }
     } 
-    
-        //bloqueo de ordenes para delivered y returnes
-            $queryBloq = "SELECT * FROM datosordenes where order_id = ${buscar}";
-            $r_bloq = mysqli_query($db4, $queryBloq);
+        $filtro_base = "SELECT * FROM orders WHERE order_id = '${buscar}';";
+        $resultado_base = mysqli_query($db3, $filtro_base);
+        $resultado_base_group = mysqli_fetch_assoc($resultado_base);
+
+        //condional maestra para el filtro de tablas
+        if ($resultado_base_group == null){
+            
+            $validacion = 'gc';
+
+
+            $query2 = "SELECT * FROM ordenes where guia = '${buscar}'";
+            $resultado2 = mysqli_query($db4, $query2);
+            $resultado2_group2 = mysqli_fetch_assoc($resultado2);
+            $nombre = $resultado2_group2['nombre'];
+            
+
+
+            // validacion con variable aleatoria
+            $reporte = 1;
+        }else{
+            //esto es rusia 
+            //bloqueo de ordenes para delivered y returnes
+            $queryBloq = "SELECT * FROM orders where order_id = ${buscar}";
+            $r_bloq = mysqli_query($db3, $queryBloq);
             $bloq = mysqli_fetch_assoc($r_bloq);
 
-            if(($bloq)) {
+            $validacion = 'cos';
+
                 if ($bloq['status'] == "delivered") {
                     header('location: actualizacion.php?error=4');
                 }
@@ -48,29 +69,20 @@
                 }
                 //fin de bloqueo de ordenes, segmento de condiciones.
 
-                $query2 = "SELECT * FROM datosordenes where order_id = ${buscar}";
-                $resultado2 = mysqli_query($db4, $query2);
-
+                //informacion del cliente, busacar el order_id en la tabla orders
 
                 $query = "SELECT * FROM orders where order_id = ${buscar}";
                 $resultado = mysqli_query($db3, $query);
-    
-                // condicion para evaluar habilitar o bloquear una orden, por el estado
-            }else{
-                
-                $query2 = "SELECT * FROM ordenes where guia = '${buscar}'";
-                $resultado2 = mysqli_query($db4, $query2);
+                $cliente = mysqli_fetch_assoc($resultado);
+                $cliente_id = $cliente['id'];
+                $cliente_name = $cliente['order_id'];
 
+                $query2 = "SELECT * FROM order_clients  where order_id = ${cliente_id}";
+                $resul = mysqli_query($db3, $query2);
+                ;
 
-                // validacion con variable aleatoria
-                $reporte = 1;
-                
-            }
-
-            
-
-    
-    
+                $reporte = 2;
+        }
 
 ?>
 
@@ -99,419 +111,84 @@
 
         </head>
 <!-- fin de inicio de formulario de actualizacion -busqueda de ordenes- -->
-<?php if (empty($reporte)):?>
+<!-- consulta de informacion de la orden -->
+<?php if ($reporte == 1): //esto es gc-go?>
 <body class="bg-gradient-primary">
     <div class="container">
-            <h1 class="text-primary fs-3 text-center">CONSULTAR DETALLES DE LAS ORDENES</h1>
-            
-        <!-- informacion del cliente para actualizar -->
-            <div class="accordion" id="accordionExample">
-                <!-- INFORMACION COMPILADA DE LA API -->
-                    <div class="accordion-item">
-                        <h2 class="fs-3 fw-light text-danger" id="headingOne">
-                            INFORMACION DEL CLIENTE
-                        </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <?php while($resultadoApi2 = mysqli_fetch_assoc($resultado2)) : 
-                                $id_buscar = $resultadoApi2['id']; ?>
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <strong>Nombre Apellido</strong>
-                                    <?php echo $resultadoApi2['name']." ".$resultadoApi2['last_name']; ?>
-                                </li>
-                                <li class="list-group-item">
-                                    <strong>Numero de Orden</strong>
-                                    <?php echo $resultadoApi2['order_id']; ?>
-                                </li>
-                                <li class="list-group-item">
-                                    <strong>Por cobrar</strong>
-                                    $<?php echo $resultadoApi2['total']; ?>
-                                </li>
-                            </ul>
-                            <?php endwhile; ?>
-                        </div>
-                        </div>
-                    </div>
-                <!-- FIN COMPILADA DE LA API -->
-            </div>
-        <!-- FIN informacion del cliente para actualizar -->
-        <div class="p-5">
-            <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">REPORTES</h1>
-            </div>
-                <!-- formulario de actualizacion  -->
-                    <form action="acEstado.php" method="post" class="user">
-                    
-                            
-                            <table class="table table-striped" hidden>
-                                <thead>
-                                    <tr>
-                                        <th>NOMBRE</th>
-                                        <th>APELLIDO</th>
-                                        <th>CIUDAD</th>
-                                        <th>DIRECCIÓN</th>
-                                        <th>REFERENCIA</th>
-                                        <th>TELEFONO</th>
-                                        <th>SEGUNDO CONTACTO</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php while($resultadoApi2 = mysqli_fetch_assoc($resultado2)) : ?>
-                                        <tr>
-                                            <td>
-                                                <?php echo $resultadoApi2['name']; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $resultadoApi2['last_name']; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $resultadoApi2['city']; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $resultadoApi2['address']; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $resultadoApi2['reference']; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $resultadoApi2['phone']; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $resultadoApi2['landline']; ?>
-                                            </td>
-                                        </tr>
-                                    <?php endwhile; ?>
-                                </tbody>
-                            </table>
-                                    <select name="status" id="status" require class="form-select" aria-label="Default select example">
-                                        <option value=""> ---SELECCIONA EL ESTADO DE LA ORDEN--- </option>
-                                        <option value="undelivered">NO ENTREGADO</option>
-                                        <option value="delivered">ENTREGADO</option>
-                                    </select>
-
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlTextarea1" class="form-label">OBSERVACION</label>
-                                        <textarea class="form-control" name="observacion_estado" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                    </div>
-                                    <!-- <input type="text" aria-required="true" name="observacion_estado" id="observacion_estado" class="form__input" require placeholder=" " value=""  maxlength="255">
-                                    <label for="telefono" class="form__label">OBSERVACION DEL ESTADO</label>
-                                    <span class="form__linea"></span> -->
-                                <div class="form__grupo" hidden>
-                                    <input type="number" aria-required="true" name="n_visitas" id="n_visitas" class="form__input"  placeholder=" " value=""  maxlength="1">
-                                    <label for="telefono" class="form__label">NUMERO DE VISITA</label>
-                                    <span class="form__linea"></span>
-                                </div>
-
-                                <input type="submit" class="btn btn-success btn-user btn-block" value="REPORTAR">
-                    
-
-                        <fieldset class="form2 consulta__tabla" hidden>
-                            <?php
-                                
-                            ?>
-                            <!-- datos en hidden  -->
-                            <legend hidden>DATOS GENERALES DE LA ORDEN</legend>
-                            <table class="form2 consulta__tabla" >
-                                <thead>
-                                    <tr>
-                                        <th>NNÚMERO DE ORDEN</th>
-                                        <th>FECHA DE CREACION</th>
-                                        <th>FECHA ESTIMADA DE ENTEGA</th>
-                                        <th>TOTAL A PAGAR</th>
-                                        <th>ESTADO DE LA ORDEN</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php while($resultadoApi = mysqli_fetch_assoc($resultado)) : ?>
-                                        <tr>
-                                            <td>
-                                                <?php echo $resultadoApi['order_id']; //numero de la orden emitida en Rusia?>
-                                                <input type="hidden" name="order_id" value="<?php echo $resultadoApi['order_id'];?>">
-                                            </td>
-                                            <td>
-                                                <?php echo $resultadoApi['order_at']; ?>
-                                                <input type="hidden" name="order_at" value="<?php echo $resultadoApi['order_at'];?>" >
-                                            </td>
-                                            <td>
-                                                <?php echo $resultadoApi['delivery_at']; ?>
-                                                <input type="hidden" name="delivery_at" value="<?php echo $resultadoApi['delivery_at'];?>">
-                                            </td>
-                                            <td>
-                                                $<?php $total = $resultadoApi['total']/100; $total2 =filter_var( $total, FILTER_VALIDATE_FLOAT); echo $total2;?>
-                                                
-                                                <input type="hidden" name="total" value="<?php echo $total2;?>">
-                                            </td>
-                                            <td>
-                                                <?php echo $resultadoApi['status'];
-                                                $resultadoApi['created_at']; ?>
-                                                <input type="hidden" name="status1" value="<?php echo $resultadoApi['status'];?>">
-                                                <input type="hidden" name="created_at" value="<?php echo $resultadoApi['created_at'];?>">
-                                            </td>
-                                        </tr>
-                                    <?php endwhile; ?>
-                                </tbody>
-                            </table>
-                        </fieldset>
-
-                        <fieldset class="form2 consulta__tabla" hidden>
-                            <?php
-
-                                $query2 = "SELECT * FROM datosordenes where order_id = ${buscar}";
-                                $resultado2 = mysqli_query($db4, $query2);
-                                $resultadoApi31 = mysqli_fetch_assoc($resultado2);
-                                $id_er = $resultadoApi31['id'];
-                                $query3 = "SELECT * FROM order_products where order_id = ${id_er}";
-                                $resultado3 = mysqli_query($db3, $query3);
-                            ?>
-                            <legend hidden>DETALLES DE PRODUCTOS</legend>
-                            <table class="form2 consulta__tabla">
-                                <thead>
-                                    <tr>
-                                        <th>PRODUCTO</th>
-                                        <th>PRECIO UNITARIO</th>
-                                        <th>CANTIDAD</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php while($resultadoApi3 = mysqli_fetch_assoc($resultado3)) : ?>
-                                        <tr>
-                                            <td><?php echo $resultadoApi3['name']; ?></td>
-                                            <td>
-                                                $<?php $total = $resultadoApi3['unit_price']/100; $total4 =filter_var( $total, FILTER_VALIDATE_FLOAT); echo $total4;?>
-                                                </td>
-                                            <td><?php echo $resultadoApi3['quantity']; ?></td>
-                                        </tr>
-                                    <?php endwhile; ?>
-                                </tbody>
-                            </table>
-                            <input type="hidden" name="id_her" value="<?php echo $id_er;?>">
-                            <div class="botones-fin">
-                                
-                            </div>
-                        </fieldset>
-                        <div class="d-grid gap-2">
-                            
-                        </div>
-                    </form>
-                <!-- formulario de actualizacion  -->
-        </div>
+    <br>
+        <h2>Vas a reportar</h2>
+        <strong>Orden: </strong> <?php echo $nombre; ?>
+        <br>
+        <br>
+        <?php
+        $query20 = "SELECT * FROM ordenes where guia = '${buscar}'";
+        $resultado20 = mysqli_query($db4, $query20); 
+        while($resultado2_group = mysqli_fetch_assoc($resultado20)): ?>
+            <lu class="list-grouplist-group">
+                <li class="list-group-item"><strong>Nombre: </strong><?php echo $resultado2_group['nombre']; ?></li>
+                <li class="list-group-item">
+                    <strong>Valor a Cobrar:</strong>
+                    <?php echo "$".$resultado2_group['valor'];?>
+                </li>
+                <li class="list-group-item">
+                    <strong>Estado Actual:</strong>
+                    <?php echo $resultado2_group['estado'];?>
+                </li>
+            </lu>
+        <?php endwhile; ?>
+        <form action="acEstado.php" method="post">
+            <input type="text" name="guia" value="<?php echo $buscar; ?>" hidden id="">
+            <select name="estado" id="">
+                <option value="delivered">Entregado</option>
+                <option value="undelivered">No entregado</option>
+            </select>
+            <input type="text" name="comentario" id="">
+            <input type="submit" value="ok">
+        </form>
     </div>
-</body>
-<?php elseif ($reporte === 1):?>
-    <body class="bg-gradient-primary">
+<?php else: //esto es por API?>
+<body class="bg-gradient-light">
     <div class="container">
-            <h1 class="text-primary fs-3 text-center">CONSULTAR DETALLES DE LAS ORDENES</h1>
-            
-        <!-- informacion del cliente para actualizar -->
-            <div class="accordion" id="accordionExample">
-                <!-- INFORMACION COMPILADA DE LA API -->
-                    <div class="accordion-item">
-                        <h2 class="fs-3 fw-light text-danger" id="headingOne">
-                            INFORMACION DEL CLIENTE
-                        </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <?php while($resultadoApi2 = mysqli_fetch_assoc($resultado2)) : 
-                                $id_buscar = $resultadoApi2['id']; ?>
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <strong>Nombre Apellido</strong>
-                                    <?php echo $resultadoApi2['nombre']; ?>
-                                </li>
-                                <li class="list-group-item">
-                                    <strong>Numero de guia </strong>
-                                    <?php echo $resultadoApi2['guia']; ?>
-                                </li>
-                                <li class="list-group-item">
-                                    <strong>Por cobrar</strong>
-                                    $<?php echo $resultadoApi2['valor']; ?>
-                                </li>
-                            </ul>
-                            <?php endwhile; ?>
-                        </div>
-                        </div>
-                    </div>
-                <!-- FIN COMPILADA DE LA API -->
-            </div>
-        <!-- FIN informacion del cliente para actualizar -->
-        <div class="p-5">
-            <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">REPORTES</h1>
-            </div>
-                <!-- formulario de actualizacion  -->
-                    <form action="acEstado.php" method="post" class="user">
-                    
-                            
-                            <table class="table table-striped" hidden>
-                                <thead>
-                                    <tr>
-                                        <th>NOMBRE</th>
-                                        <th>APELLIDO</th>
-                                        <th>CIUDAD</th>
-                                        <th>DIRECCIÓN</th>
-                                        <th>REFERENCIA</th>
-                                        <th>TELEFONO</th>
-                                        <th>SEGUNDO CONTACTO</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php while($resultadoApi2 = mysqli_fetch_assoc($resultado2)) : ?>
-                                        <tr>
-                                            <td>
-                                                <?php echo $resultadoApi2['name']; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $resultadoApi2['last_name']; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $resultadoApi2['city']; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $resultadoApi2['address']; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $resultadoApi2['reference']; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $resultadoApi2['phone']; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $resultadoApi2['landline']; ?>
-                                            </td>
-                                        </tr>
-                                    <?php endwhile; ?>
-                                </tbody>
-                            </table>
-                                    <select name="status" id="status" require class="form-select" aria-label="Default select example">
-                                        <option value=""> ---SELECCIONA EL ESTADO DE LA ORDEN--- </option>
-                                        <option value="undelivered">NO ENTREGADO</option>
-                                        <option value="delivered">ENTREGADO</option>
-                                    </select>
-
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlTextarea1" class="form-label">OBSERVACION</label>
-                                        <textarea class="form-control" name="observacion_estado" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                        <?php
-                                        $resultado2 = mysqli_query($db4, $query2);
-                                        $resultadoApi2 = mysqli_fetch_assoc($resultado2);
-                                        $responsable_m = $resultadoApi2['transporte'];
-                                        $id_primary = $resultadoApi2['guia'];
-                                        $direccion = $resultadoApi2['direccion'];
-                                        $asesor = $resultadoApi2['asesor'];
-                                        $id_principal = $resultadoApi2['id'];
-                                        //echo $responsable_m;
-                                        ?>
-                                        <input hidden type="text" name="responsable_m" value="<?php echo $responsable_m;?>">
-                                        <input hidden type="text" name="id_primary" value="<?php echo $id_primary;?>">
-                                        <input hidden type="text" name="direccion" value="<?php echo $direccion;?>">
-                                        <input hidden type="text" name="asesor" value="<?php echo $asesor;?>">
-                                        <input hidden type="text" name="id" value="<?php echo $id_principal;?>">
-                                    </div>
-                                    <!-- <input type="text" aria-required="true" name="observacion_estado" id="observacion_estado" class="form__input" require placeholder=" " value=""  maxlength="255">
-                                    <label for="telefono" class="form__label">OBSERVACION DEL ESTADO</label>
-                                    <span class="form__linea"></span> -->
-                                <div class="form__grupo" hidden>
-                                    
-                                    
-                                    <input type="number" aria-required="true" name="filtro" id="n_visitas" class="form__input"  placeholder=" " value="1"  maxlength="1">
-                                    <label for="telefono" class="form__label">NUMERO DE VISITA</label>
-                                    <span class="form__linea"></span>
-                                </div>
-
-                                <input type="submit" class="btn btn-success btn-user btn-block" value="REPORTAR">
-                    
-
-                        <fieldset class="form2 consulta__tabla" hidden>
-                            <?php
-                                
-                            ?>
-                            <!-- datos en hidden  -->
-                            <legend hidden>DATOS GENERALES DE LA ORDEN</legend>
-                            <table class="form2 consulta__tabla" >
-                                <thead>
-                                    <tr>
-                                        <th>NNÚMERO DE ORDEN</th>
-                                        <th>FECHA DE CREACION</th>
-                                        <th>FECHA ESTIMADA DE ENTEGA</th>
-                                        <th>TOTAL A PAGAR</th>
-                                        <th>ESTADO DE LA ORDEN</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php while($resultadoApi = mysqli_fetch_assoc($resultado)) : ?>
-                                        <tr>
-                                            <td>
-                                                <?php echo $resultadoApi['order_id']; //numero de la orden emitida en Rusia?>
-                                                <input type="hidden" name="order_id" value="<?php echo $resultadoApi['order_id'];?>">
-                                            </td>
-                                            <td>
-                                                <?php echo $resultadoApi['order_at']; ?>
-                                                <input type="hidden" name="order_at" value="<?php echo $resultadoApi['order_at'];?>" >
-                                            </td>
-                                            <td>
-                                                <?php echo $resultadoApi['delivery_at']; ?>
-                                                <input type="hidden" name="delivery_at" value="<?php echo $resultadoApi['delivery_at'];?>">
-                                            </td>
-                                            <td>
-                                                $<?php $total = $resultadoApi['total']/100; $total2 =filter_var( $total, FILTER_VALIDATE_FLOAT); echo $total2;?>
-                                                
-                                                <input type="hidden" name="total" value="<?php echo $total2;?>">
-                                            </td>
-                                            <td>
-                                                <?php echo $resultadoApi['status'];
-                                                $resultadoApi['created_at']; ?>
-                                                <input type="hidden" name="status1" value="<?php echo $resultadoApi['status'];?>">
-                                                <input type="hidden" name="created_at" value="<?php echo $resultadoApi['created_at'];?>">
-                                            </td>
-                                        </tr>
-                                    <?php endwhile; ?>
-                                </tbody>
-                            </table>
-                        </fieldset>
-
-                        <fieldset class="form2 consulta__tabla" hidden>
-                            <?php
-
-                                $query2 = "SELECT * FROM datosordenes where order_id = ${buscar}";
-                                $resultado2 = mysqli_query($db4, $query2);
-                                $resultadoApi31 = mysqli_fetch_assoc($resultado2);
-                                $id_er = $resultadoApi31['id'];
-                                $query3 = "SELECT * FROM order_products where order_id = ${id_er}";
-                                $resultado3 = mysqli_query($db3, $query3);
-                            ?>
-                            <legend hidden>DETALLES DE PRODUCTOS</legend>
-                            <table class="form2 consulta__tabla">
-                                <thead>
-                                    <tr>
-                                        <th>PRODUCTO</th>
-                                        <th>PRECIO UNITARIO</th>
-                                        <th>CANTIDAD</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php while($resultadoApi3 = mysqli_fetch_assoc($resultado3)) : ?>
-                                        <tr>
-                                            <td><?php echo $resultadoApi3['name']; ?></td>
-                                            <td>
-                                                $<?php $total = $resultadoApi3['unit_price']/100; $total4 =filter_var( $total, FILTER_VALIDATE_FLOAT); echo $total4;?>
-                                                </td>
-                                            <td><?php echo $resultadoApi3['quantity']; ?></td>
-                                        </tr>
-                                    <?php endwhile; ?>
-                                </tbody>
-                            </table>
-                            <input type="hidden" name="id_her" value="<?php echo $id_er;?>">
-                            <div class="botones-fin">
-                                
-                            </div>
-                        </fieldset>
-                        <div class="d-grid gap-2">
-                            
-                        </div>
-                    </form>
-                <!-- formulario de actualizacion  -->
-        </div>
+        <br>
+        <h2>Vas a reportar</h2>
+        <strong>Orden: </strong> <?php echo $cliente_name; ?>
+        <br>
+        <br>
+        <?php while($resultado2 = mysqli_fetch_assoc($resul)): ?>
+            <lu class="list-grouplist-group">
+                <li class="list-group-item"><strong>Nombre: </strong><?php echo $resultado2['name']." ".$resultado2['last_name']; ?></li>
+                <li class="list-group-item">
+                    <strong>Valor a Cobrar:</strong>
+                    <?php 
+                    $query = "SELECT * FROM orders where order_id = ${buscar}";
+                    $resultado = mysqli_query($db3, $query);
+                    $cliente = mysqli_fetch_assoc($resultado);
+                    $total = $cliente['total'] / 100;
+                    $cobrar = number_format($total, 2, ',', '.');
+                    echo $cobrar;
+                    ?>
+                </li>
+                <li class="list-group-item">
+                    <strong>Estado Actual:</strong>
+                    <?php 
+                    $query = "SELECT * FROM orders where order_id = ${buscar}";
+                    $resultado = mysqli_query($db3, $query);
+                    $cliente = mysqli_fetch_assoc($resultado);
+                    echo $cliente['status'];
+                    ?>
+                </li>
+            </lu>
+        <?php endwhile; ?>
+        <form action="acEstado.php" method="post">
+            <input type="text" name="order_id" value="<?php echo $cliente_name; ?>" hidden id="">
+            <input type="text" name="id" value="<?php echo $cliente_id; ?>" hidden id="">
+            <input type="text" name="validacion" value = "<?php echo $validacion ;?>" hidden id="">
+            <select name="estado" id="">
+                <option value="delivered">Entregado</option>
+                <option value="undelivered">No entregado</option>
+            </select>
+            <input type="text" name="comentario" id="">
+            <input type="submit" value="ok">
+        </form>
     </div>
-</body>
 <?php endif; ?>

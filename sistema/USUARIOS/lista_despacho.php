@@ -74,7 +74,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 status = '${status}',
                                 carrier_name = '${carrier_name}',  
                                 transport_type = '${transport_type}', 
-                                updated_at = '${updated_at}' 
+                                updated_at = '${updated_at}',
+                                observation = '${observation}' 
                                 WHERE id = '${id_despacho2}';";
         $eje_actualizar_dispatches = mysqli_query($db3, $actualizar_dispatches);
 
@@ -84,8 +85,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $eje_historial = mysqli_query($db3, $historial);
 
     //asiganacion de distrito y captura de datos en el motor de control, TABLA.
-        $guardar_distrito = "INSERT INTO registro (order_id, fecha_proceso, n_manifiesto, distrito, sub_distrito, estado_control, estado_cod, monto_cod, observacion)
-                                        VALUES ('${id}', '${updated_at}', null, '${responsable_distrito}', '${responsable_sub_distrito}', 'Despachado', null, null, null);";
+        $guardar_distrito = "INSERT INTO registro (id, order_id, fecha_proceso, n_manifiesto, distrito, sub_distrito, estado_control, estado_cod, monto_cod, observacion)
+                                        VALUES ('${dispatch_id}', '${id}', '${updated_at}', null, '${responsable_distrito}', '${responsable_sub_distrito}', 'Despachado', null, null, null);";
         $eje_guardar_distrito = mysqli_query($db4, $guardar_distrito);
 
     if ($eje_historial) {

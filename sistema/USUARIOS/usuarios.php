@@ -54,7 +54,6 @@ $db4 = conectarDB4();
     </div>
 
     </div>
-
     <?php
     incluirTemplate('fottersis');
     ?>

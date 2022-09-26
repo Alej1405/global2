@@ -89,24 +89,24 @@
                                                         WHERE id = '${id}';";
                         $resultado = mysqli_query($db3, $query);
 
-                    //actulizacion de estado en la tabla dispatches
-                    $query2 = "UPDATE dispatches SET      status = 'undelivered',
-                                                      updated_at = '${fecha_update}',
-                                                     observation = '${observacion}'                
-                                                  WHERE order_id = '${id}';";
-                    $resultado2 = mysqli_query($db3, $query2);
+                            //actulizacion de estado en la tabla dispatches
+                            $query2 = "UPDATE dispatches SET      status = 'undelivered',
+                                                            updated_at = '${fecha_update}',
+                                                            observation = '${observacion}'                
+                                                        WHERE order_id = '${id}';";
+                            $resultado2 = mysqli_query($db3, $query2);
 
-                    //consultar el numero de despacho
-                    $query3 = "SELECT * FROM dispatches WHERE order_id = '${id}'";
-                    $resultado3 = mysqli_query($db3, $query3);
-                    $dispatch = mysqli_fetch_assoc($resultado3);
-                    $dispatch_id = $dispatch['id'];
-                    $created_at = $dispatch['created_at'];
+                            //consultar el numero de despacho
+                            $query3 = "SELECT * FROM dispatches WHERE order_id = '${id}'";
+                            $resultado3 = mysqli_query($db3, $query3);
+                            $dispatch = mysqli_fetch_assoc($resultado3);
+                            $dispatch_id = $dispatch['id'];
+                            $created_at = $dispatch['created_at'];
 
-                    //crear historial de despacho
-                    $query4 = "INSERT INTO dispatch_statuses (status, comment, dispatch_id, user_id, created_at, updated_at, deleted_at) 
-                                            VALUES ('undelivered', '${observacion}', '${dispatch_id}', '4', '${created_at}', '${fecha_update}', null);";
-                    $resultado4 = mysqli_query($db3, $query4);
+                            //crear historial de despacho
+                            $query4 = "INSERT INTO dispatch_statuses (status, comment, dispatch_id, user_id, created_at, updated_at, deleted_at) 
+                                                    VALUES ('undelivered', '${observacion}', '${dispatch_id}', '4', '${created_at}', '${fecha_update}', null);";
+                            $resultado4 = mysqli_query($db3, $query4);
                     if ($resultado4) {
                         echo "<script>
                                 alert('Genial!! ya esta reportado sigue asi!!!');

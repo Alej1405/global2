@@ -81,34 +81,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $id_primary = $resultado_order_id['id'];
                     $created_at = $resultado_order_id['created_at'];
 
-                    //actualizar el estado a UNDELIVERED TABLA ORDERS
-                    $query = "UPDATE orders SET    status = 'undelivered',
-                                                    updated_at = '${fecha}'
-                                                    WHERE order_id = '${guia}';";
-                    $resultado = mysqli_query($db3, $query);
-
-                    //actualizar el estado a UNDELIVERED TABLA DISPATCHES
-                    $observation = 'En ruta, para entrega';
-                    $query = "UPDATE dispatches SET    status = 'undelivered',
-                                                        updated_at = '${fecha}',
-                                                        carrier_name = '${n_usuario}',
-                                                        transport_type = '${t_trasport}',
-                                                        observation = '${observation}'
-                                                        WHERE order_id = '${id_primary}';";
-                    $resultado = mysqli_query($db3, $query);
-
-                    //generar historial de entregas 
-                        //consultar el id del usuario
-                        $id_usuario = "SELECT * FROM dispatches WHERE order_id = '${id_primary}';";
-                        $resultado_id_usuario = mysqli_query($db3, $id_usuario);
-                        $resultado_id_usuario = mysqli_fetch_assoc($resultado_id_usuario);
-                        $id_dispatches = $resultado_id_usuario['id'];
-
-                        //generar el historial
-                        $historial = "INSERT INTO dispatch_statuses (status, comment, dispatch_id, user_id, created_at, updated_at, deleted_at)
-                                            VALUES ('undelivered', '${observation}', '${id_dispatches}', '${transporte}', '${created_at}', '${fecha}', null);";
-                        $eje_historial = mysqli_query($db3, $historial);
-                        if ($eje_historial) {
+                    //guardar las asignaciones sin API 
+                    //asiganacion de distrito y captura de datos en el motor de control, TABLA.
+                    $guardar_distrito = "UPDATE registro SET    transportista = '${transporte}',
+                                                                fecha_actualizacion = '${fecha}'
+                                                                WHERE order_id = '${id_primary}';";
+                            $eje_guardar_distrito = mysqli_query($db4, $guardar_distrito);
+                        if ($eje_guardar_distrito) {
                             echo "<script>
                                     alert('Genial!! tienes una guia, hay que entregar rapido pilas');
                                     window.location.href='registrar.php';

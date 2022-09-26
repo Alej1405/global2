@@ -55,6 +55,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $resultado_ingreso = mysqli_query($db, $query_ingreso);
                     }
                 }
+
+                echo "
+                <script>
+                swal({
+                    title: 'Bienvenido',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                 })
+                </script>
+                ";
+
                 header('location: motorizados.php');
                 
             } else {

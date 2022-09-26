@@ -45,9 +45,13 @@ $db4 = conectarDB4();
     <!-- Custom styles for this template-->
     <link href="../../css2/sb-admin-2.min.css" rel="stylesheet">
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </head>
 
 <body>
+
+
     <div class="container primary">
         <br>
         <div class="card" style="width: 18rem;">
@@ -118,6 +122,7 @@ $db4 = conectarDB4();
 
 
         ?>
+        
         <div>
             <p>
                 <?php 
@@ -170,6 +175,8 @@ $db4 = conectarDB4();
         </table>
     </div>
     <br>
+    
+
     <?php
-    incluirTemplate('fottersis');
+    //incluirTemplate('fottersis');
     ?>

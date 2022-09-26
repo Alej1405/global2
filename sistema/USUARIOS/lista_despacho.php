@@ -106,6 +106,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 ?>
 
+<script>
+    swal('hola');
+</script>
+
 <body class="bg-gradient-primary">
     <div class="container">
         <div>

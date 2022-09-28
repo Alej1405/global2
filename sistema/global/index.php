@@ -69,6 +69,14 @@
                     
                     header('location: admin.php');
                     switch ($_SESSION['rol']){
+                    //USUARIOS GC-GO INICIO DE SESION
+                        case "gerencia_paqueteria":
+                            header('location: ../MODgc-go/index.php');
+                            break;
+                        case "asesor":
+                            header('location: ../MODgc-go/index.php');
+                            break;
+                    //FIN DE USUARIOS GC-GO INICIO DE SESION
                         case "admin":
                             header('location: ../USUARIOS/usuarios.php');
                             break;
@@ -81,13 +89,7 @@
                         case "coordinacionP":
                             header('location: ../USUARIOS/usuarios.php');
                             break;
-                        case "gerencia_paqueteria":
-                            header('location: ../USUARIOS/usuarios.php');
-                            break;
                         case "apoyo_gerencia_paqueteria":
-                            header('location: ../USUARIOS/usuarios.php');
-                            break;
-                        case "asesor":
                             header('location: ../USUARIOS/usuarios.php');
                             break;
                         case "superAdmin":

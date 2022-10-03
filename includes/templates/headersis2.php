@@ -30,10 +30,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    
+    <script src="../../js/alert.js"></script>
 
-      <!-- plugion push notification js -->
-      <script src="../../js/push.min.js"></script>
+    <!-- plugion push notification js -->
+    <script src="../../js/push.min.js"></script>
 
 </head>
 
@@ -146,7 +146,7 @@
                 <?php
                 case "apoyo_gerencia_paqueteria"; //GERENCIA PAQUETERIA 
                 ?>
-                    
+
                     <li class="nav-item">
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse00" aria-expanded="true" aria-controls="collapse00">
                             <i class="fas fa-fw fa-cog"></i>
@@ -305,186 +305,244 @@
                         </div>
                     </li>
                     <?php break; ?>
+                <?php
+                case "superAdmin"; //GERENCIA PAQUETERIA 
+                ?>
+                    <!-- MENU DE NAVEGACION - Gestion Global Cargo -->
+                    <!-- Divider -->
+                    <hr class="sidebar-divider">
+
+                    <!-- Heading -->
+                    <div class="sidebar-heading">
+                        EMPRESAS
+                    </div>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse00" aria-expanded="true" aria-controls="collapse00">
+                            <i class="fas fa-fw fa-cog"></i>
+                            <span>GC-GO Coordinacion</span>
+                        </a>
+                        <div id="collapse00" class="collapse " aria-labelledby="heading00" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Clientes:</h6>
+                                <a class="collapse-item" href="ver_clientesgc.php">Ver registros.</a>
+                                <h6 class="collapse-header">Paquetes:</h6>
+                                <a class="collapse-item" href="nuevas_solicitudes.php">Asignacion.</a>
+                                <a class="collapse-item" href="lista_pesos.php">Registrar pesos</a>
+                                <a class="collapse-item" href="listade_empaque.php">Lista de Empaque</a>
+                                <a class="collapse-item" href="guias_cosmetics.php">Guias Cosmetics</a>
+                                <a class="collapse-item" href="guias_gc.php">Guias General</a>
+                                <h6 class="collapse-header">Control de Bodega:</h6>
+                                <a class="collapse-item" href="bodega_IS.php">Control de Ingreso</a>
+                                <h6 class="collapse-header">Gestion:</h6>
+                                <a class="collapse-item" href="seguimiento.php">Historial</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                            <i class="fas fa-fw fa-cog"></i>
+                            <span>Global Cargo</span>
+                        </a>
+                        <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Cargas:</h6>
+                                <a class="collapse-item" href="./cargas_G.php">Registro</a>
+                                <a class="collapse-item" href="./declarar_G.php">Declaración</a>
+                                <a class="collapse-item" href="./consig_G.php">Despacho General</a>
+                                <a class="collapse-item" href="./consig.php">Despacho Bodega</a>
+                                <h6 class="collapse-header">Reportes:</h6>
+                                <a class="collapse-item" href="./vercargas.php">Cargas</a>
+                                <a class="collapse-item" href="./verprocesos.php">Estados y Documentos</a>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- FIN DE MENU GLOBAL CARGO - Gestion Global Cargo -->
+
+                    <!-- MENU DE NAVEGACION - Gestion Gc-Box Courier -->
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                            <i class="fas fa-fw fa-cog"></i>
+                            <!-- <i class="fas fa-fw fa-wrench"></i> -->
+                            <span>GC-Box Courier</span>
+                        </a>
+                        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Ingresos</h6>
+                                <a class="collapse-item" href="utilities-color.html">Cargas</a>
+                                <a class="collapse-item" href="utilities-border.html">Entregas</a>
+                                <h6 class="collapse-header">Reportes</h6>
+                                <a class="collapse-item" href="utilities-animation.html">Estados</a>
+                                <a class="collapse-item" href="utilities-other.html">Por cliente</a>
+                                <a class="collapse-item" href="utilities-other.html">Manifiestos</a>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- FIN DE MENU DE NAVEGACION - Gestion Gc-Box Courier -->
+
+                    <!-- MENU DE NAVEGACION - Gestion Gc-Trade -->
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities2" aria-expanded="true" aria-controls="collapseUtilities2">
+                            <i class="fas fa-fw fa-cog"></i>
+                            <!-- <i class="fas fa-fw fa-wrench"></i> -->
+                            <span>Gc Trade</span>
+                        </a>
+                        <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities2" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <!-- links de usuarios admin -->
+                                <h6 class="collapse-header">Facturación:</h6>
+                                <a class="collapse-item" href="facturar.php">Facturar y Registrar.</a>
+                                <h6 class="collapse-header">Seguimiento:</h6>
+                                <a class="collapse-item" href="vercargas.php">Manifiestos.</a>
+                                <!-- fin de links admin  -->
+                                <!-- links para usuarios de bodega y seguimiento -->
+                                <h6 class="collapse-header">Gestion:</h6>
+                                <a class="collapse-item" href="seguimiento.php">Historial</a>
+                                <h6 class="collapse-header">BODEGA:</h6>
+                                <a class="collapse-item" href="bodega_IS.php">Control de Ingreso</a>
+                                <h6 class="collapse-header">Colaboradores:</h6>
+                                <a class="collapse-item" href="reg_colab.php">Registrar</a>
+                                <a class="collapse-item" href="consul_colab.php">Ver </a>
+                                <!-- fin de lincs seguimiento -->
+
+                            </div>
+                        </div>
+                    </li>
+                    <!-- FIN DE MENU DE NAVEGACION - Gestion Gc-Trade -->
+                    <!-- Divider -->
+                    <hr class="sidebar-divider">
+
+                    <!-- Heading -->
+                    <div class="sidebar-heading">
+                        RECURSOS HUMANOS
+                    </div>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBODE" aria-expanded="true" aria-controls="collapseBODE">
+                            <i class="fas fa-fw fa-cog"></i>
+                            <span>Config Personal</span>
+                        </a>
+                        <div id="collapseBODE" class="collapse " aria-labelledby="headingBODE" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Horas marcadas:</h6>
+                                <a class="collapse-item" href="reporte_horarios.php">Reporte mensual</a>
+                                <h6 class="collapse-header">Ingresos Totales:</h6>
+                                <a class="collapse-item" href="ingresos_totales.php">Registrar o Editar.</a>
+                                <a class="collapse-item" href="comisiones_bonos.php">Comiciones Bonos.</a>
+                                <h6 class="collapse-header">Permisos:</h6>
+                                <a class="collapse-item" href="permisos.php">Solicitudes</a>
+                                <h6 class="collapse-header">Anticipos:</h6>
+                                <a class="collapse-item" href="#">Solicitudes</a>
+                                <h6 class="collapse-header">Memos:</h6>
+                                <a class="collapse-item" href="#">Emitir</a>
+                                <a class="collapse-item" href="#">Consultar</a>
+
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Divider -->
+                    <hr class="sidebar-divider">
+
+                    <!-- MENU DE NAVEGACION - Control Financiero -->
+                    <div class="sidebar-heading">
+                        CONTABILIDAD Y FINANCIERO
+                    </div>
+
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities3" aria-expanded="true" aria-controls="collapseUtilities3">
+                            <i class="fas fa-fw fa-cog"></i>
+                            <!-- <i class="fas fa-fw fa-wrench"></i> -->
+                            <span>Financiero</span>
+                        </a>
+                        <div id="collapseUtilities3" class="collapse" aria-labelledby="headingUtilities3" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Registros:</h6>
+                                <a class="collapse-item" href="depositos.php">Ingresar Depositos</a>
+                                <h6 class="collapse-header">Seguimiento:</h6>
+                                <a class="collapse-item" href="li_depositos.php">Estado de Cuenta</a>
+                                <h6 class="collapse-header">Registro y movimiento financiero:</h6>
+                                <a class="collapse-item" href="registro_fin.php">Ingreso de facturas</a>
+                            </div>
+                        </div>
+                    </li>
+                    <!--  FIN DE MENU DE NAVEGACION - Control Financiero -->
+
+                    <!-- Divider -->
+                    <hr class="sidebar-divider">
+
+                    <!-- PATALLA DE DE VERIFICACION DE RECEPCION DE ORDENES -->
+                    <div class="sidebar-heading">
+                        EXTERNOS
+                    </div>
+
+                    <!-- Nav Item - Gestion Global Cargo -->
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo4" aria-expanded="true" aria-controls="collapseTwo4">
+                            <i class="fas fa-fw fa-cog"></i>
+                            <span>Call Center</span>
+                        </a>
+                        <div id="collapseTwo4" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Control:</h6>
+                                <a class="collapse-item active" href="CRUD_GLOBAL/registro.php"></a>
+                                <a class="collapse-item" href="global/declarar.php">Declaración</a>
+                                <a class="collapse-item" href="global/consig_G.php">Despacho General</a>
+                                <a class="collapse-item" href="global/consig_G.php">Despacho Bodega</a>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- FIN DE PATALLA DE DE VERIFICACION DE RECEPCION DE ORDENES -->
+                    <!-- Divider -->
+                    <hr class="sidebar-divider">
+
+                    <!-- PANEL DE CONTROL SE HABILITA SOLAMENTE PARA LOS USUARIOS EN GENERAL-->
+                    <div class="sidebar-heading">
+                        PANEL DE CONTROL
+                    </div>
+
+                    <!-- Nav Item - Pages Collapse Menu -->
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+                            <i class="fas fa-fw fa-folder"></i>
+                            <span>Corrección </span>
+                        </a>
+                        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Documentos:</h6>
+                                <a class="collapse-item" href="login.html">Global Cargo</a>
+                                <a class="collapse-item" href="register.html">Gc-Box</a>
+                                <a class="collapse-item" href="forgot-password.html">Gc Trade</a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Nav Item - Charts -->
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2" aria-expanded="true" aria-controls="collapsePages2">
+                            <i class="fas fa-fw fa-folder"></i>
+                            <span>Habilitar </span>
+                        </a>
+                        <div id="collapsePages2" class="collapse" aria-labelledby="headingPages2" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Ordenes:</h6>
+                                <a class="collapse-item" href="login.html">Registro</a>
+                                <a class="collapse-item" href="register.html">Facturación</a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Nav Item - Tables -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="tables.html">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>Control Api</span></a>
+                    </li>
+
+                    <?php break; ?>
             <?php endswitch ?>
             <!-- FIN DE MENU Y PERMISOS DE NAVEGACION CON SWITCH -->
             <!-- MENU DE NAVEGACION PARA UN SUPER ADMIN DIMANICO CON CADA USUARIO  -->
             <?php if ($_SESSION['rol'] == "superAdmin") : ?>
-                <!-- MENU DE NAVEGACION - Gestion Global Cargo -->
-                <!-- Divider -->
-                <hr class="sidebar-divider">
 
-                <!-- Heading -->
-                <div class="sidebar-heading">
-                    EMPRESAS
-                </div>
 
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>Global Cargo</span>
-                    </a>
-                    <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Cargas:</h6>
-                            <a class="collapse-item" href="./cargas_G.php">Registro</a>
-                            <a class="collapse-item" href="./declarar_G.php">Declaración</a>
-                            <a class="collapse-item" href="./consig_G.php">Despacho General</a>
-                            <a class="collapse-item" href="./consig.php">Despacho Bodega</a>
-                            <h6 class="collapse-header">Reportes:</h6>
-                            <a class="collapse-item" href="./vercargas.php">Cargas</a>
-                            <a class="collapse-item" href="./verprocesos.php">Estados y Documentos</a>
-                        </div>
-                    </div>
-                </li>
-                <!-- FIN DE MENU GLOBAL CARGO - Gestion Global Cargo -->
-
-                <!-- MENU DE NAVEGACION - Gestion Gc-Box Courier -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <!-- <i class="fas fa-fw fa-wrench"></i> -->
-                        <span>GC-Box Courier</span>
-                    </a>
-                    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Ingresos</h6>
-                            <a class="collapse-item" href="utilities-color.html">Cargas</a>
-                            <a class="collapse-item" href="utilities-border.html">Entregas</a>
-                            <h6 class="collapse-header">Reportes</h6>
-                            <a class="collapse-item" href="utilities-animation.html">Estados</a>
-                            <a class="collapse-item" href="utilities-other.html">Por cliente</a>
-                            <a class="collapse-item" href="utilities-other.html">Manifiestos</a>
-                        </div>
-                    </div>
-                </li>
-                <!-- FIN DE MENU DE NAVEGACION - Gestion Gc-Box Courier -->
-
-                <!-- MENU DE NAVEGACION - Gestion Gc-Trade -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities2" aria-expanded="true" aria-controls="collapseUtilities2">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <!-- <i class="fas fa-fw fa-wrench"></i> -->
-                        <span>Gc Trade</span>
-                    </a>
-                    <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities2" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <!-- links de usuarios admin -->
-                            <h6 class="collapse-header">Facturación:</h6>
-                            <a class="collapse-item" href="facturar.php">Facturar y Registrar.</a>
-                            <h6 class="collapse-header">Seguimiento:</h6>
-                            <a class="collapse-item" href="vercargas.php">Manifiestos.</a>
-                            <!-- fin de links admin  -->
-                            <!-- links para usuarios de bodega y seguimiento -->
-                            <h6 class="collapse-header">Gestion:</h6>
-                            <a class="collapse-item" href="seguimiento.php">Historial</a>
-                            <h6 class="collapse-header">BODEGA:</h6>
-                            <a class="collapse-item" href="bodega_IS.php">Control de Ingreso</a>
-                            <h6 class="collapse-header">Colaboradores:</h6>
-                            <a class="collapse-item" href="reg_colab.php">Registrar</a>
-                            <a class="collapse-item" href="consul_colab.php">Ver </a>
-                            <!-- fin de lincs seguimiento -->
-
-                        </div>
-                    </div>
-                </li>
-                <!-- FIN DE MENU DE NAVEGACION - Gestion Gc-Trade -->
-                <!-- Divider -->
-                <hr class="sidebar-divider">
-
-                <!-- MENU DE NAVEGACION - Control Financiero -->
-                <div class="sidebar-heading">
-                    CONTABILIDAD Y FINANCIERO
-                </div>
-
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities3" aria-expanded="true" aria-controls="collapseUtilities3">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <!-- <i class="fas fa-fw fa-wrench"></i> -->
-                        <span>Financiero</span>
-                    </a>
-                    <div id="collapseUtilities3" class="collapse" aria-labelledby="headingUtilities3" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Registros:</h6>
-                            <a class="collapse-item" href="depositos.php">Ingresar Depositos</a>
-                            <h6 class="collapse-header">Seguimiento:</h6>
-                            <a class="collapse-item" href="li_depositos.php">Estado de Cuenta</a>
-                            <h6 class="collapse-header">Registro y movimiento financiero:</h6>
-                            <a class="collapse-item" href="registro_fin.php">Ingreso de facturas</a>
-                        </div>
-                    </div>
-                </li>
-                <!--  FIN DE MENU DE NAVEGACION - Control Financiero -->
-
-                <!-- Divider -->
-                <hr class="sidebar-divider">
-
-                <!-- PATALLA DE DE VERIFICACION DE RECEPCION DE ORDENES -->
-                <div class="sidebar-heading">
-                    EXTERNOS
-                </div>
-
-                <!-- Nav Item - Gestion Global Cargo -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo4" aria-expanded="true" aria-controls="collapseTwo4">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>Call Center</span>
-                    </a>
-                    <div id="collapseTwo4" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Control:</h6>
-                            <a class="collapse-item active" href="CRUD_GLOBAL/registro.php"></a>
-                            <a class="collapse-item" href="global/declarar.php">Declaración</a>
-                            <a class="collapse-item" href="global/consig_G.php">Despacho General</a>
-                            <a class="collapse-item" href="global/consig_G.php">Despacho Bodega</a>
-                        </div>
-                    </div>
-                </li>
-                <!-- FIN DE PATALLA DE DE VERIFICACION DE RECEPCION DE ORDENES -->
-                <!-- Divider -->
-                <hr class="sidebar-divider">
-
-                <!-- PANEL DE CONTROL SE HABILITA SOLAMENTE PARA LOS USUARIOS EN GENERAL-->
-                <div class="sidebar-heading">
-                    PANEL DE CONTROL
-                </div>
-
-                <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-                        <i class="fas fa-fw fa-folder"></i>
-                        <span>Corrección </span>
-                    </a>
-                    <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Documentos:</h6>
-                            <a class="collapse-item" href="login.html">Global Cargo</a>
-                            <a class="collapse-item" href="register.html">Gc-Box</a>
-                            <a class="collapse-item" href="forgot-password.html">Gc Trade</a>
-                        </div>
-                    </div>
-                </li>
-
-                <!-- Nav Item - Charts -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2" aria-expanded="true" aria-controls="collapsePages2">
-                        <i class="fas fa-fw fa-folder"></i>
-                        <span>Habilitar </span>
-                    </a>
-                    <div id="collapsePages2" class="collapse" aria-labelledby="headingPages2" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Ordenes:</h6>
-                            <a class="collapse-item" href="login.html">Registro</a>
-                            <a class="collapse-item" href="register.html">Facturación</a>
-                        </div>
-                    </div>
-                </li>
-
-                <!-- Nav Item - Tables -->
-                <li class="nav-item">
-                    <a class="nav-link" href="tables.html">
-                        <i class="fas fa-fw fa-table"></i>
-                        <span>Control Api</span></a>
-                </li>
 
                 <!-- FIN DE PANEL DE CONTROL  SOLO PARA USUARIOS EN GENERAL-->
             <?php endif; ?>

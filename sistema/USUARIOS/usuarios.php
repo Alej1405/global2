@@ -31,14 +31,6 @@ $db4 = conectarDB4();
 ?>
 
 <body>
-        <script>
-            swal({
-                title: 'Bienvenido',
-                text: "<?= $_SESSION['usuario'] ?>",
-                icon: 'success',
-                confirmButtonText: 'Cool'
-            })
-        </script>
     <div class="container-fluid">
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">

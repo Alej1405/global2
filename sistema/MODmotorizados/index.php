@@ -9,7 +9,7 @@ $db = conectarDB();
 conectarDB4();
 $db4 = conectarDB4();
 
-//autenticar el usuario
+// autenticar el usuario
 $errores = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -58,15 +58,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 echo "
                 <script>
-                swal({
-                    title: 'Bienvenido',
-                    icon: 'success',
-                    confirmButtonText: 'Cool'
-                 })
+                    guardar();
+                    window.location.href = 'motorizados.php';
                 </script>
                 ";
-
-                header('location: motorizados.php');
                 
             } else {
                 $errores[] = "QUE HACEEEE, ESA CONTRASEÑA ESTA MAL...";
@@ -99,6 +94,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <!-- Custom styles for this template-->
     <link href="../../css2/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- vincular sweet alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
 
@@ -142,7 +140,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
 
     </div>
-
+<script>
+    function ingreso() {
+        swal('hola');
+    }
+</script>
 
 
 </body>

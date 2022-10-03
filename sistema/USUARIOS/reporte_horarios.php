@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
         <!-- tabla del resultado de la consulta por persona -->
         <?php if ($horarios_p) : ?>
-            <table>
+            <table class="table table-hover">
                 <thead>
                     <tr>
                         <th>Nombre</th>

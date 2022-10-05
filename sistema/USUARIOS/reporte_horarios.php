@@ -73,6 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
         <!-- tabla del resultado de la consulta por persona -->
         <?php if ($horarios_p) : ?>
+        <form action="calculo.php" method="post">
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -82,6 +83,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <th>Ingreso Almuerzo</th>
                         <th>Hora de salida</th>
                         <th>Fecha</th>
+                        <?php
+                        //! Validacion de usuario para agregar el tiempo de atraso en ese dia.
+                        if ($_SESSION['rol'] == 'superAdmin') : ?>
+                            <th>Atraso Ingreso</th>
+                            <th>Atraso Almuerzo</th>
+                            <th>Acciones</th>
+                        <?php endif ?>
                     </tr>
                 </thead>
                 <tbody>
@@ -93,10 +101,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <td><?php echo $horarios_personal['hora_ingreso_almuerzo']; ?></td>
                             <td><?php echo $horarios_personal['hora_salida']; ?></td>
                             <td><?php echo $horarios_personal['fecha']; ?></td>
+                            <?php
+                            //! Validacion de usuario para agregar el tiempo de atraso en ese dia.
+                            if ($_SESSION['rol'] == 'superAdmin') : ?>
+                                <td><input type="number" name="timepo_retraso" id=""></input></td>
+                                <td><input type="number" name="timepo_almuerzo" id=""></input></td>
+                                <td><input type="submit" value="Guardar" class="btn btn-success"></input></td>
+                            <?php endif; ?>
                         </tr>
                     <?php endwhile; ?>
                 </tbody>
             </table>
+        </form>
             <!-- tabla que muesra los horarios de la fecha -->
         <?php else : ?>
             <table>

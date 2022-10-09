@@ -214,8 +214,8 @@
         </div>
 
     </div>
+hola esta es una prueba de la coneccion entre las compuatdoras para poder codificar de forma conjunta
 
-   
 
 </body>
 

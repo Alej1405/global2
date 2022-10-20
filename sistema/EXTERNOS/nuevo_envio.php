@@ -120,7 +120,7 @@
                         if(!$direccion) {
                             $errores[] = "HEY TE FALTA UN DATO!!!! AGREGA EL NOMBRE";
                         }
-                        //query para guardar
+                        //?query para guardar
                             $guardar_servicio = "INSERT INTO ordenes (nombre, cedula, correo, provincia, ciudad, sector, direccion, direccion_recoleccion, telefono, cod, valor, fragil, reemparque, l, a, h, peso, estado, fecha_reg, asesor, cliente, guia)
                                                               values ('$nombre', '$cedula', '$correo', '$provincia', '$ciudad', '$sector', '$direccion', '$direccion_recoleccion', '$telefono', '$cod', '$valor', '$fragil', '$reempaque', '$l', '$a', '$h', '$peso', '$estado', '$fecha_reg', '$asesor', '$cliente', '$guia');";
                             $ejecutar_guar = mysqli_query($db4, $guardar_servicio);

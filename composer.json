@@ -1,0 +1,16 @@
+{
+    "name": "pauli_revilla/global2",
+    "description": "App global para grupo revilla programacion POO",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Pablo A Revilla F"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "./CLASSES"
+        }
+    }
+}

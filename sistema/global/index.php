@@ -138,7 +138,7 @@
                 $errores[] = "CHIII QUIEN ERES, TU USUARIO NO EXISTE";
             }
         }
-    }git
+    }
 ?>
 
 

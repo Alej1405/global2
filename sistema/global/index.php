@@ -1,5 +1,5 @@
 <?php
-
+    ppagina funcionanddo correctamente;
 
     //coneccion a la base de datos
     require '../../includes/config/database.php';
